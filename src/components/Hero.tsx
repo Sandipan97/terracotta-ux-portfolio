@@ -1,17 +1,15 @@
-
 import { Button } from './ui/button';
 import { ArrowDown } from 'lucide-react';
-
 const Hero = () => {
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('featured-projects');
     if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+      projectsSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center">
+  return <section className="relative min-h-screen flex items-center">
       {/* Background shape */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute bottom-0 left-0 right-0 h-[35%] bg-bengali-terracotta rounded-t-[50%] transform translate-y-1/4"></div>
@@ -27,17 +25,10 @@ const Hero = () => {
               Senior UX Designer & Researcher with 5 years of experience and a Master's in Design from IISc
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button 
-                className="bg-bengali-red hover:bg-bengali-red/90 text-white"
-                onClick={scrollToProjects}
-              >
+              <Button onClick={scrollToProjects} className="bg-bengali-mustard text-bengali-dark">
                 View My Work
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-bengali-terracotta text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white"
-                asChild
-              >
+              <Button variant="outline" className="border-bengali-terracotta text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white" asChild>
                 <a href="/contact">Get In Touch</a>
               </Button>
             </div>
@@ -45,11 +36,7 @@ const Hero = () => {
           <div className="order-1 md:order-2 flex justify-center md:justify-end">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl animate-fade-in">
-                <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Senior UX Designer and Researcher" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Senior UX Designer and Researcher" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-bengali-mustard text-bengali-dark px-6 py-3 rounded-full font-medium">
                 5+ Years Experience
@@ -59,17 +46,11 @@ const Hero = () => {
         </div>
 
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <button 
-            onClick={scrollToProjects}
-            className="text-white bg-bengali-dark/20 backdrop-blur-sm p-3 rounded-full hover:bg-bengali-dark/30 transition-colors"
-            aria-label="Scroll to projects"
-          >
+          <button onClick={scrollToProjects} className="text-white bg-bengali-dark/20 backdrop-blur-sm p-3 rounded-full hover:bg-bengali-dark/30 transition-colors" aria-label="Scroll to projects">
             <ArrowDown size={24} />
           </button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
