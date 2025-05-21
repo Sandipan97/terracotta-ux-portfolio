@@ -1,20 +1,14 @@
-
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
-
 const AboutPreview = () => {
-  return (
-    <section className="py-20 bg-gray-50">
+  return <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="relative z-10">
               <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-lg shadow-xl">
-                <AvatarImage 
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Designer portrait" 
-                />
+                <AvatarImage alt="Designer portrait" src="/lovable-uploads/c6d0389c-5302-42f4-bcd2-ed57dd41c370.jpg" className="object-cover" />
                 <AvatarFallback>UX</AvatarFallback>
               </Avatar>
             </div>
@@ -67,8 +61,6 @@ const AboutPreview = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutPreview;
