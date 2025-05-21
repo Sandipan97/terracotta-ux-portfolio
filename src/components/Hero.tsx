@@ -43,7 +43,7 @@ const Hero = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.6
-          }} className="font-display text-4xl lg:text-6xl font-bold text-bengali-dark mb-6 py-0 md:text-5xl">
+          }} className="font-display text-4xl lg:text-6xl font-bold text-bengali-dark mb-6 py-0 md:text-5xl text-left">
               <span className="relative inline-block">
                 Hi
                 <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-mustard" initial={{
@@ -57,7 +57,7 @@ const Hero = () => {
               </span>
               <br />I am
               <br />
-              <span className="relative inline-block text-7xl">
+              <span className="relative inline-block text-7xl py-[20px]">
                 Sandipan
                 <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-terracotta" initial={{
                 width: 0
