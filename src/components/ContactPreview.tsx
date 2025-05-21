@@ -1,90 +1,57 @@
 
 import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const ContactPreview = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-bengali-dark mb-4">
-            Let's Connect
-          </h2>
-          <p className="text-bengali-dark/70 max-w-2xl mx-auto">
-            Interested in working together? Reach out to discuss opportunities
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="bg-gray-50 p-8 rounded-lg">
-            <h3 className="font-display text-2xl font-semibold text-bengali-dark mb-6">
-              Send a Message
-            </h3>
-            <form className="space-y-4">
-              <div>
-                <Input placeholder="Your Name" className="border-bengali-dark/20 focus-visible:ring-bengali-terracotta" />
-              </div>
-              <div>
-                <Input placeholder="Your Email" type="email" className="border-bengali-dark/20 focus-visible:ring-bengali-terracotta" />
-              </div>
-              <div>
-                <Textarea placeholder="Your Message" rows={4} className="border-bengali-dark/20 focus-visible:ring-bengali-terracotta" />
-              </div>
-              <Button className="w-full bg-bengali-red hover:bg-bengali-terracotta text-white">
-                Send Message
-              </Button>
-            </form>
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="font-display text-2xl font-semibold text-bengali-dark mb-6">
-              Contact Information
-            </h3>
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <Mail className="h-6 w-6 text-bengali-terracotta mr-4 mt-1" />
-                <div>
-                  <h4 className="font-medium text-bengali-dark">Email</h4>
-                  <p className="text-bengali-dark/70">contact@example.com</p>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-bengali-dark mb-6">
+              Let's Work Together
+            </h2>
+            <p className="text-bengali-dark/80 mb-8">
+              I'm always interested in hearing about new projects and opportunities. 
+              Whether you have a question or just want to say hello, I'll do my best to get back to you!
+            </p>
+            
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-bengali-terracotta/10 flex items-center justify-center mr-4">
+                  <Mail className="text-bengali-terracotta" size={18} />
                 </div>
+                <span className="text-bengali-dark">hello@uxdesigner.com</span>
               </div>
-              <div className="flex items-start">
-                <Phone className="h-6 w-6 text-bengali-terracotta mr-4 mt-1" />
-                <div>
-                  <h4 className="font-medium text-bengali-dark">Phone</h4>
-                  <p className="text-bengali-dark/70">+91 98765 43210</p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-bengali-terracotta/10 flex items-center justify-center mr-4">
+                  <Phone className="text-bengali-terracotta" size={18} />
                 </div>
+                <span className="text-bengali-dark">+91 98765 43210</span>
               </div>
-              <div className="flex items-start">
-                <Linkedin className="h-6 w-6 text-bengali-terracotta mr-4 mt-1" />
-                <div>
-                  <h4 className="font-medium text-bengali-dark">LinkedIn</h4>
-                  <a href="#" className="text-bengali-dark/70 hover:text-bengali-terracotta transition-colors">
-                    linkedin.com/in/yourprofile
-                  </a>
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-bengali-terracotta/10 flex items-center justify-center mr-4">
+                  <MapPin className="text-bengali-terracotta" size={18} />
                 </div>
-              </div>
-              <div className="flex items-start">
-                <Github className="h-6 w-6 text-bengali-terracotta mr-4 mt-1" />
-                <div>
-                  <h4 className="font-medium text-bengali-dark">Behance</h4>
-                  <a href="#" className="text-bengali-dark/70 hover:text-bengali-terracotta transition-colors">
-                    behance.net/yourprofile
-                  </a>
-                </div>
+                <span className="text-bengali-dark">Bangalore, India</span>
               </div>
             </div>
             
-            <div className="mt-8">
-              <Link to="/contact">
-                <Button className="w-full bg-bengali-mustard hover:bg-bengali-mustard/90 text-bengali-dark">
-                  View Full Contact Details
-                </Button>
-              </Link>
+            <Button asChild className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white">
+              <Link to="/contact">Get In Touch</Link>
+            </Button>
+          </div>
+          
+          <div className="relative">
+            <div className="aspect-square bg-white p-6 rounded-lg shadow-xl">
+              <img 
+                src="https://images.unsplash.com/photo-1587560699334-bea93391dcef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                alt="Designer workspace with design tools"
+                className="w-full h-full object-cover rounded-lg"
+              />
             </div>
+            <div className="absolute -top-6 -left-6 w-full h-full border-4 border-bengali-mustard rounded-lg z-0"></div>
           </div>
         </div>
       </div>

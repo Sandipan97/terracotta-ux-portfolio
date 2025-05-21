@@ -1,119 +1,112 @@
 
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
-import { Button } from './ui/button';
+import { useState, useEffect } from 'react';
+import { Card, CardContent } from './ui/card';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 
 type Testimonial = {
   id: number;
-  name: string;
+  quote: string;
+  author: string;
   title: string;
   company: string;
-  content: string;
-  rating: number;
+  image: string;
 };
 
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Priya Sharma",
-    title: "Product Manager",
-    company: "HealthTech Innovations",
-    content: "Working with a UX professional of this caliber completely transformed our product. Their research-driven approach and innovative design solutions increased our user engagement by 40% and helped us secure additional funding.",
-    rating: 5
+    quote: "One of the most thorough researchers I've worked with. The insights gathered led to product changes that increased our user satisfaction by 40%.",
+    author: "Sarah Johnson",
+    title: "Product Director",
+    company: "Welbilt",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     id: 2,
-    name: "Rajiv Mehta",
+    quote: "The design system created for our platform has transformed how we build products. Development is faster and our user experience is more consistent.",
+    author: "Michael Torres",
     title: "CTO",
-    company: "TechSphere Solutions",
-    content: "An exceptional UX designer who combines deep research skills with creative design thinking. They led the redesign of our enterprise platform, resulting in a 35% reduction in support tickets and overwhelmingly positive client feedback.",
-    rating: 5
+    company: "Kitchen Connect",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     id: 3,
-    name: "Ananya Patel",
-    title: "VP of Product",
-    company: "Nexus Innovations",
-    content: "A true UX leader who elevated our entire design practice. Their work on our AR application set new standards in the industry and directly contributed to winning three major client contracts.",
-    rating: 5
+    quote: "The AR interface designed for our product manual reduced support calls by 60%. An innovative solution that exceeded our expectations.",
+    author: "David Kim",
+    title: "Head of Customer Experience",
+    company: "LG Electronics",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   }
 ];
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const nextTestimonial = () => {
-    setActiveIndex((current) => (current + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setActiveIndex((current) => (current - 1 + testimonials.length) % testimonials.length);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % testimonials.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="py-20 bg-bengali-terracotta">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-bengali-dark mb-4">
             Client Testimonials
           </h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
-            Feedback from clients and colleagues I've had the pleasure to work with
+          <p className="text-bengali-dark/70 max-w-2xl mx-auto">
+            What clients say about working with me
           </p>
         </div>
-
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-8 md:p-10 relative">
-            <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-bengali-mustard text-bengali-dark px-6 py-2 rounded-full font-medium">
-              {testimonials[activeIndex].company}
-            </div>
-            
-            <div className="flex mb-6">
-              {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-bengali-mustard text-bengali-mustard" />
-              ))}
-            </div>
-            
-            <blockquote className="mb-6 text-bengali-dark text-lg italic">
-              "{testimonials[activeIndex].content}"
-            </blockquote>
-            
-            <div className="flex items-center">
-              <div className="w-12 h-12 bg-bengali-terracotta/20 rounded-full flex items-center justify-center">
-                <span className="text-bengali-terracotta font-bold text-xl">
-                  {testimonials[activeIndex].name.charAt(0)}
-                </span>
-              </div>
-              <div className="ml-4">
-                <div className="font-semibold text-bengali-dark">
-                  {testimonials[activeIndex].name}
-                </div>
-                <div className="text-bengali-dark/70 text-sm">
-                  {testimonials[activeIndex].title}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-center mt-8 space-x-4">
-            <Button 
-              variant="outline" 
-              size="icon"
-              onClick={prevTestimonial}
-              className="bg-white/20 backdrop-blur-sm border-white text-white hover:bg-white hover:text-bengali-terracotta"
+        
+        <div className="relative max-w-4xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={testimonial.id}
+              className={`transition-opacity duration-500 ${index === activeIndex ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'}`}
             >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="icon"
-              onClick={nextTestimonial}
-              className="bg-white/20 backdrop-blur-sm border-white text-white hover:bg-white hover:text-bengali-terracotta"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
-          </div>
+              <Card className="border-none shadow-md bg-gradient-to-br from-white to-gray-50">
+                <CardContent className="p-8">
+                  <div className="flex flex-col items-center text-center">
+                    <Avatar className="w-20 h-20 border-4 border-white shadow-lg mb-6">
+                      <AvatarImage 
+                        src={testimonial.image} 
+                        alt={testimonial.author}
+                      />
+                      <AvatarFallback>{testimonial.author[0]}</AvatarFallback>
+                    </Avatar>
+                    
+                    <blockquote className="text-xl italic text-bengali-dark/90 mb-6">
+                      "{testimonial.quote}"
+                    </blockquote>
+                    
+                    <div>
+                      <div className="font-medium text-bengali-dark">
+                        {testimonial.author}
+                      </div>
+                      <div className="text-bengali-dark/70">
+                        {testimonial.title}, {testimonial.company}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+        
+        <div className="flex justify-center mt-6">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`w-3 h-3 rounded-full mx-1 transition-colors ${index === activeIndex ? 'bg-bengali-terracotta' : 'bg-gray-300'}`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

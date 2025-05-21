@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -18,7 +17,7 @@ const featuredProjects: Project[] = [
     id: 1,
     title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
     category: "B2B Solutions",
-    image: "/projects/datalogger.jpg",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
     results: "Reduced error rate by 45%"
   },
@@ -26,7 +25,7 @@ const featuredProjects: Project[] = [
     id: 2,
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
     category: "Design Systems",
-    image: "/projects/kitchen-connect.jpg",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
     results: "Accelerated development by 35%"
   },
@@ -34,7 +33,7 @@ const featuredProjects: Project[] = [
     id: 3,
     title: "AR Interactive User Manual - LG Cyclops",
     category: "AR Projects",
-    image: "/projects/ar-manual.jpg",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
     results: "Reduced support calls by 60%"
   },
@@ -42,7 +41,7 @@ const featuredProjects: Project[] = [
     id: 4,
     title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
     category: "Biomedical Design",
-    image: "/projects/oxygen-concentrator.jpg",
+    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
     results: "Improved user satisfaction by 85%"
   }

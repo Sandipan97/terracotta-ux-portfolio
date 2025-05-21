@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 type Project = {
   id: number;
@@ -52,6 +53,7 @@ type Project = {
     quote: string;
     author: string;
     title: string;
+    image?: string;
   };
 };
 
@@ -60,7 +62,7 @@ const projects: Project[] = [
     id: 1,
     title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
     category: "B2B Solutions",
-    image: "/projects/datalogger.jpg",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     client: "Procter & Gamble",
     duration: "6 months",
     role: "Lead UX Designer & Accessibility Specialist",
@@ -72,91 +74,92 @@ const projects: Project[] = [
       {
         title: "Factory Floor Operators",
         description: "Production workers who need to quickly log data while handling other tasks. Often wearing protective gear that limits dexterity.",
-        image: "/projects/factory-persona.jpg"
+        image: "https://images.unsplash.com/photo-1618281377501-88c2328802de?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
         title: "Quality Analysts",
         description: "Technical staff who analyze data logs for quality control and need to extract meaningful patterns efficiently.",
-        image: "/projects/analyst-persona.jpg"
+        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       }
     ],
     userFlows: [
       {
         title: "Data Entry Flow",
         description: "Redesigned flow reduced the steps needed to log data from 7 to 3, with clear feedback at each stage.",
-        image: "/projects/datalogger-flow.jpg"
+        image: "https://images.unsplash.com/photo-1574887427561-d3d5d58c9273?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Error Recovery Flow",
         description: "New intuitive error handling system that guides users through remediation steps.",
-        image: "/projects/error-flow.jpg"
+        image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     researchMethods: [
       {
         title: "Heuristic Evaluation",
         description: "Conducted detailed evaluation using Nielsen's heuristics to identify usability issues.",
-        image: "/projects/heuristic.jpg"
+        image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Accessibility Audit",
         description: "Performed WCAG 2.1 AA compliance audit to identify accessibility barriers.",
-        image: "/projects/accessibility.jpg"
+        image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Contextual Inquiry",
         description: "Observed users in their actual work environment to understand real usage patterns and challenges.",
-        image: "/projects/contextual.jpg"
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     process: [
       {
         title: "Discovery",
         description: "Conducted stakeholder interviews, user observations, and system analysis to understand the full scope of issues.",
-        image: "/projects/discovery.jpg"
+        image: "https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Analysis",
         description: "Mapped current pain points and prioritized issues based on impact to user productivity and error rates.",
-        image: "/projects/analysis.jpg"
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     ideation: [
       {
         title: "Design Workshop",
         description: "Facilitated collaborative workshops with end users and stakeholders to generate solution ideas.",
-        image: "/projects/workshop.jpg"
+        image: "https://images.unsplash.com/photo-1544531585-9847b68c8c86?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Interface Concepts",
         description: "Developed multiple interface concepts focusing on clarity, error prevention, and accessibility.",
-        image: "/projects/concepts.jpg"
+        image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     prototyping: [
       {
         title: "Low-Fidelity Wireframes",
         description: "Created initial wireframes to test navigation and information architecture concepts.",
-        image: "/projects/wireframes.jpg"
+        image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "High-Fidelity Prototype",
         description: "Developed interactive prototype with WCAG compliance features built in.",
-        image: "/projects/prototype.jpg"
+        image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     results: "The redesigned system reduced error rates by 45%, decreased training time by 60%, and achieved WCAG 2.1 AA compliance. Overall productivity increased by 32% as measured by data logging completion times.",
     testimonial: {
       quote: "The redesign has transformed how our production team interacts with the data logging system. Tasks that used to cause frustration are now intuitive, and the accessibility improvements have made the system usable for all our team members.",
       author: "Sarah Johnson",
-      title: "Operations Manager, P&G"
+      title: "Operations Manager, P&G",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
     }
   },
   {
     id: 2,
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
     category: "Design Systems",
-    image: "/projects/kitchen-connect.jpg",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     client: "Welbilt",
     duration: "8 months",
     role: "Senior UX Designer & Design System Lead",
@@ -168,86 +171,87 @@ const projects: Project[] = [
       {
         title: "Kitchen Managers",
         description: "Restaurant professionals responsible for kitchen operations, inventory, and staff management.",
-        image: "/projects/kitchen-manager.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
         title: "Equipment Technicians",
         description: "Technical staff who monitor and maintain kitchen equipment performance.",
-        image: "/projects/technician.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       }
     ],
     userFlows: [
       {
         title: "Equipment Monitoring Flow",
         description: "Streamlined flow for quickly checking the status of all kitchen equipment.",
-        image: "/projects/monitoring-flow.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Inventory Management Flow",
         description: "Redesigned inventory process reducing time to complete common tasks by 35%.",
-        image: "/projects/inventory-flow.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     researchMethods: [
       {
         title: "Component Audit",
         description: "Catalogued all existing UI components across the platform to identify redundancies and inconsistencies.",
-        image: "/projects/component-audit.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "User Interviews",
         description: "Conducted interviews with users to understand pain points with the current interface.",
-        image: "/projects/interviews.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     process: [
       {
         title: "System Architecture",
         description: "Mapped the component hierarchy and established the foundational design tokens and principles.",
-        image: "/projects/system-architecture.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Component Design",
         description: "Created a library of accessible, responsive components with defined states and behaviors.",
-        image: "/projects/component-design.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     ideation: [
       {
         title: "Pattern Library",
         description: "Developed a comprehensive pattern library addressing common use cases across the platform.",
-        image: "/projects/pattern-library.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Visual Design Concepts",
         description: "Created visual design direction balancing brand identity with usability requirements.",
-        image: "/projects/visual-concepts.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     prototyping: [
       {
         title: "Component Prototypes",
         description: "Built interactive prototypes of key components to test with developers and users.",
-        image: "/projects/component-prototype.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "System Documentation",
         description: "Created comprehensive documentation and guidelines for implementation.",
-        image: "/projects/documentation.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     results: "The design system accelerated development velocity by 35%, reduced design inconsistencies by 90%, and improved user satisfaction scores by 45%. New features are now implemented 60% faster.",
     testimonial: {
       quote: "The design system has transformed how we build products. What used to take weeks now takes days, and our users appreciate the consistent, intuitive experience across all our digital tools.",
       author: "Michael Torres",
-      title: "Product Director, Welbilt"
+      title: "Product Director, Welbilt",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
     }
   },
   {
     id: 3,
     title: "AR Interactive User Manual - LG Cyclops",
     category: "AR Projects",
-    image: "/projects/ar-manual.jpg",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     client: "LG Electronics",
     duration: "10 months",
     role: "Lead UX Designer for AR Experiences",
@@ -259,86 +263,87 @@ const projects: Project[] = [
       {
         title: "New Appliance Owners",
         description: "Customers who have just purchased an LG appliance and need to learn how to use it effectively.",
-        image: "/projects/new-owner.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
         title: "DIY Maintainers",
         description: "Users who prefer to perform basic maintenance and troubleshooting themselves rather than calling support.",
-        image: "/projects/diy-persona.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       }
     ],
     userFlows: [
       {
         title: "First-time Setup Flow",
         description: "AR-guided process for unboxing and setting up new appliances with spatial markers.",
-        image: "/projects/setup-flow.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Troubleshooting Flow",
         description: "Interactive diagnostic process that guides users through common issues with visual cues.",
-        image: "/projects/ar-troubleshoot.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     researchMethods: [
       {
         title: "AR Usability Testing",
         description: "Conducted specialized testing to understand how users interact with spatial interfaces.",
-        image: "/projects/ar-testing.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Support Call Analysis",
         description: "Analyzed common support issues to prioritize features for the AR experience.",
-        image: "/projects/call-analysis.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     process: [
       {
         title: "Spatial Mapping",
         description: "Developed a system for accurately recognizing and mapping appliance components in 3D space.",
-        image: "/projects/spatial-mapping.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Information Architecture",
         description: "Created a contextual information structure that presents the right guidance at the right time.",
-        image: "/projects/ar-ia.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     ideation: [
       {
         title: "Interaction Models",
         description: "Explored various AR interaction paradigms to find the most intuitive approach for users.",
-        image: "/projects/ar-interaction.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Visual Treatment",
         description: "Designed visual elements that work effectively as overlays on physical objects.",
-        image: "/projects/ar-visual.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     prototyping: [
       {
         title: "AR Mockups",
         description: "Created simulated AR views to test information presentation and visual hierarchy.",
-        image: "/projects/ar-mockup.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Working Prototype",
         description: "Developed functional AR prototype for usability testing with actual appliances.",
-        image: "/projects/working-prototype.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     results: "The AR manual reduced support calls by 60%, increased user confidence in self-maintenance by 75%, and improved overall customer satisfaction scores by 35%.",
     testimonial: {
       quote: "The AR manual has redefined how our customers interact with our products. It's intuitive, helpful, and actually makes setting up and maintaining appliances an enjoyable experience.",
       author: "David Kim",
-      title: "Head of Customer Experience, LG Electronics"
+      title: "Head of Customer Experience, LG Electronics",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
     }
   },
   {
     id: 4,
     title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
     category: "Biomedical Design",
-    image: "/projects/oxygen-concentrator.jpg",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     client: "Merritt Innovation Solutions & Indian Institute of Science",
     duration: "12 months",
     role: "Lead UX Researcher & Medical Device Interface Designer",
@@ -350,362 +355,90 @@ const projects: Project[] = [
       {
         title: "Home Care Patients",
         description: "Individuals with respiratory conditions who need to operate the device themselves.",
-        image: "/projects/patient-persona.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
         title: "Family Caregivers",
         description: "Non-medical family members responsible for helping patients with device operation.",
-        image: "/projects/caregiver-persona.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
         title: "Clinical Staff",
         description: "Healthcare professionals who need to quickly set up and adjust the device in medical settings.",
-        image: "/projects/clinical-persona.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       }
     ],
     userFlows: [
       {
         title: "Device Setup Flow",
         description: "Simplified process for initial setup with minimal steps and clear guidance.",
-        image: "/projects/setup-oxygen.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Emergency Adjustment Flow",
         description: "One-touch flow for rapidly increasing oxygen flow in distress situations.",
-        image: "/projects/emergency-flow.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     researchMethods: [
       {
         title: "Contextual Inquiry",
         description: "Observed users in home and clinical environments to understand real usage patterns.",
-        image: "/projects/medical-contextual.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Cognitive Walkthrough",
         description: "Conducted detailed walkthroughs focusing on learnability for first-time users.",
-        image: "/projects/cognitive-walkthrough.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Simulation Testing",
         description: "Tested interface usability under simulated stress and emergency conditions.",
-        image: "/projects/simulation.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     process: [
       {
         title: "Risk Analysis",
         description: "Conducted comprehensive analysis of potential use errors and their consequences.",
-        image: "/projects/risk-analysis.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Information Hierarchy",
         description: "Developed clear hierarchy of controls and information based on criticality and frequency.",
-        image: "/projects/info-hierarchy.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     ideation: [
       {
         title: "Control Concepts",
         description: "Explored various control mechanisms optimized for users with limited dexterity.",
-        image: "/projects/control-concepts.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Display Options",
         description: "Tested different display formats for optimal readability in various lighting conditions.",
-        image: "/projects/display-options.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     prototyping: [
       {
         title: "Physical Interface Mockups",
         description: "Created tangible prototypes to test ergonomics and physical interaction.",
-        image: "/projects/physical-mockups.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
         title: "Digital Interface Simulation",
         description: "Developed interactive simulation of the digital display and alert system.",
-        image: "/projects/interface-simulation.jpg"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     results: "The final design achieved 98% first-time use success rate, reduced critical errors by 87%, and improved user satisfaction by 85% compared to existing devices.",
     testimonial: {
       quote: "This project exemplifies how human-centered design can transform medical technology. The interface makes this complex device accessible to users of all backgrounds, potentially saving lives through its intuitive design.",
       author: "Dr. Amit Patel",
-      title: "Director of Medical Innovation, IISc"
-    }
-  },
-  {
-    id: 5,
-    title: "Dripometer - IV Drip Monitoring System - IISc",
-    category: "Biomedical Design",
-    image: "/projects/dripometer.jpg",
-    client: "Indian Institute of Science",
-    duration: "9 months",
-    role: "UX Designer & Medical Device Researcher",
-    description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
-    overview: "The Dripometer project aimed to create a more reliable, affordable IV drip monitoring solution for use in various healthcare settings, with particular focus on resource-constrained environments.",
-    challenge: "IV drip monitoring is often manual and error-prone, leading to potential medical complications. Existing automated solutions are expensive and not widely available in developing regions.",
-    solution: "I designed a user-friendly monitoring system that combines affordability with precision, featuring an intuitive interface for healthcare providers and clear alerts when intervention is needed.",
-    userPersona: [
-      {
-        title: "Nurses in High-Volume Settings",
-        description: "Healthcare providers managing multiple patients simultaneously in busy hospitals.",
-        image: "/projects/nurse-persona.jpg"
-      },
-      {
-        title: "Rural Healthcare Workers",
-        description: "Medical staff operating in resource-constrained environments with limited training.",
-        image: "/projects/rural-worker.jpg"
-      }
-    ],
-    userFlows: [
-      {
-        title: "Drip Setup Flow",
-        description: "Streamlined process for configuring the monitor to specific medication and patient requirements.",
-        image: "/projects/drip-setup.jpg"
-      },
-      {
-        title: "Alert Response Flow",
-        description: "Clear guidance for addressing various drip irregularities detected by the system.",
-        image: "/projects/alert-flow.jpg"
-      }
-    ],
-    researchMethods: [
-      {
-        title: "Field Observations",
-        description: "Conducted observations in various hospital settings to understand current monitoring practices.",
-        image: "/projects/field-observations.jpg"
-      },
-      {
-        title: "Task Analysis",
-        description: "Detailed analysis of the IV management workflow to identify intervention opportunities.",
-        image: "/projects/task-analysis.jpg"
-      }
-    ],
-    process: [
-      {
-        title: "Requirements Gathering",
-        description: "Collaborated with medical professionals to define essential monitoring parameters and alerts.",
-        image: "/projects/requirements.jpg"
-      },
-      {
-        title: "Constraint Mapping",
-        description: "Identified technical, environmental, and user constraints to inform the design approach.",
-        image: "/projects/constraints.jpg"
-      }
-    ],
-    ideation: [
-      {
-        title: "Interface Sketches",
-        description: "Developed various interface concepts optimized for quick comprehension in fast-paced environments.",
-        image: "/projects/interface-sketches.jpg"
-      },
-      {
-        title: "Alert System Design",
-        description: "Created multi-modal alert system designs with prioritization based on urgency.",
-        image: "/projects/alert-design.jpg"
-      }
-    ],
-    prototyping: [
-      {
-        title: "Functional Prototype",
-        description: "Built working prototype integrating hardware sensors with the user interface.",
-        image: "/projects/drip-prototype.jpg"
-      },
-      {
-        title: "Simulation Testing",
-        description: "Conducted simulated drip scenarios to test accuracy and alert functionality.",
-        image: "/projects/drip-testing.jpg"
-      }
-    ],
-    results: "The Dripometer increased monitoring accuracy by 95%, reduced nursing intervention time by 70%, and was rated significantly more user-friendly than existing solutions.",
-    testimonial: {
-      quote: "The Dripometer represents a significant advancement in IV monitoring technology. Its combination of accuracy, ease of use, and affordability makes it particularly valuable for healthcare settings with limited resources.",
-      author: "Dr. Lakshmi Narayan",
-      title: "Professor of Medical Technology, IISc"
-    }
-  },
-  {
-    id: 6,
-    title: "Farm Monitoring Mobile Application - HCLTech",
-    category: "Mobile Apps",
-    image: "/projects/farm-app.jpg",
-    client: "HCLTech",
-    duration: "7 months",
-    role: "Senior UX Designer & Mobile App Specialist",
-    description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
-    overview: "This project aimed to create a mobile solution that empowers farmers with data-driven insights to optimize crop management, even in areas with limited connectivity.",
-    challenge: "The application needed to serve users with varying levels of technical literacy, work in low-connectivity environments, and present complex agricultural data in actionable ways.",
-    solution: "I designed an intuitive mobile application with offline capabilities, visual data presentation, and contextual recommendations tailored to each farmer's specific crops and conditions.",
-    userPersona: [
-      {
-        title: "Small-Scale Farmers",
-        description: "Independent farmers with limited technology exposure managing small to medium plots of land.",
-        image: "/projects/small-farmer.jpg"
-      },
-      {
-        title: "Agricultural Consultants",
-        description: "Professionals who advise multiple farmers and need comprehensive data analysis tools.",
-        image: "/projects/ag-consultant.jpg"
-      }
-    ],
-    userFlows: [
-      {
-        title: "Daily Monitoring Flow",
-        description: "Streamlined process for quickly checking critical farm metrics and receiving alerts.",
-        image: "/projects/daily-flow.jpg"
-      },
-      {
-        title: "Planting Decision Flow",
-        description: "Data-informed workflow for making optimal crop selection and timing decisions.",
-        image: "/projects/planting-flow.jpg"
-      }
-    ],
-    researchMethods: [
-      {
-        title: "Field Interviews",
-        description: "Conducted on-site interviews with farmers to understand their workflows and challenges.",
-        image: "/projects/field-interviews.jpg"
-      },
-      {
-        title: "Usage Pattern Analysis",
-        description: "Analyzed how farmers currently use technology and access agricultural information.",
-        image: "/projects/usage-patterns.jpg"
-      }
-    ],
-    process: [
-      {
-        title: "Information Architecture",
-        description: "Developed a structure that organizes complex agricultural data into intuitive categories.",
-        image: "/projects/farm-ia.jpg"
-      },
-      {
-        title: "Visual Language Development",
-        description: "Created a visual system that communicates agricultural concepts clearly to users of varying literacy.",
-        image: "/projects/farm-visuals.jpg"
-      }
-    ],
-    ideation: [
-      {
-        title: "Data Visualization Concepts",
-        description: "Explored various approaches to presenting soil, weather, and crop data meaningfully.",
-        image: "/projects/data-viz.jpg"
-      },
-      {
-        title: "Offline Mode Strategies",
-        description: "Developed concepts for effective functionality with intermittent connectivity.",
-        image: "/projects/offline-concepts.jpg"
-      }
-    ],
-    prototyping: [
-      {
-        title: "Interactive Mobile Prototype",
-        description: "Built functional prototype with real-time data integration for field testing.",
-        image: "/projects/mobile-prototype.jpg"
-      },
-      {
-        title: "Usability Field Testing",
-        description: "Conducted tests with farmers using the app in actual field conditions.",
-        image: "/projects/field-testing.jpg"
-      }
-    ],
-    results: "The application helped farmers improve crop yield by 28%, reduce water usage by 30%, and make more informed decisions about planting and harvesting timing.",
-    testimonial: {
-      quote: "This app has transformed how I manage my farm. The weather predictions and soil analysis have helped me make better decisions, and the simple interface means I can actually use it without struggling.",
-      author: "Rajesh Kumar",
-      title: "Independent Farmer, Punjab"
-    }
-  },
-  {
-    id: 7,
-    title: "Toy Anatomy - Kids Toy Project - IISc",
-    category: "Educational Design",
-    image: "/projects/toy-anatomy.jpg",
-    client: "Indian Institute of Science",
-    duration: "5 months",
-    role: "UX Designer & Educational Product Researcher",
-    description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
-    overview: "The Toy Anatomy project aimed to create an engaging, age-appropriate educational toy that teaches children about human anatomy and physiology through hands-on interaction.",
-    challenge: "Educational toys often fail to balance fun with learning value, and anatomy is a complex subject to present accurately while keeping it appropriate and engaging for children.",
-    solution: "I designed a modular toy system with tactile components, augmented by digital content, that allows children to explore anatomy concepts through play-based discovery.",
-    userPersona: [
-      {
-        title: "Curious Children (Ages 7-12)",
-        description: "Kids with natural curiosity about how the human body works, with varying attention spans.",
-        image: "/projects/curious-child.jpg"
-      },
-      {
-        title: "Educational Facilitators",
-        description: "Parents and teachers who want to support children's learning through guided play.",
-        image: "/projects/facilitator.jpg"
-      }
-    ],
-    userFlows: [
-      {
-        title: "Discovery Play Flow",
-        description: "Self-directed exploration sequence that reveals new information as children interact with components.",
-        image: "/projects/discovery-flow.jpg"
-      },
-      {
-        title: "Guided Learning Flow",
-        description: "Structured sequence for facilitators to guide children through specific learning objectives.",
-        image: "/projects/guided-flow.jpg"
-      }
-    ],
-    researchMethods: [
-      {
-        title: "Observational Research",
-        description: "Observed children interacting with various educational toys to understand engagement patterns.",
-        image: "/projects/child-observation.jpg"
-      },
-      {
-        title: "Expert Consultations",
-        description: "Collaborated with educators and child development specialists to ensure age-appropriate design.",
-        image: "/projects/expert-consult.jpg"
-      }
-    ],
-    process: [
-      {
-        title: "Learning Objective Mapping",
-        description: "Identified key anatomical concepts appropriate for the target age group.",
-        image: "/projects/learning-map.jpg"
-      },
-      {
-        title: "Play Pattern Design",
-        description: "Developed play interactions that naturally lead to learning moments.",
-        image: "/projects/play-design.jpg"
-      }
-    ],
-    ideation: [
-      {
-        title: "Component Concepts",
-        description: "Explored various approaches to representing body systems in engaging, tactile ways.",
-        image: "/projects/component-ideas.jpg"
-      },
-      {
-        title: "Interaction Mechanisms",
-        description: "Developed concepts for how children would manipulate and explore the toy components.",
-        image: "/projects/interaction-concepts.jpg"
-      }
-    ],
-    prototyping: [
-      {
-        title: "Physical Toy Prototypes",
-        description: "Created tangible prototypes to test with children for engagement and understanding.",
-        image: "/projects/toy-prototype.jpg"
-      },
-      {
-        title: "Companion App Mockups",
-        description: "Designed companion digital content to enhance the physical toy experience.",
-        image: "/projects/app-mockups.jpg"
-      }
-    ],
-    results: "The Toy Anatomy project increased children's retention of anatomical concepts by 40% compared to traditional methods, with 85% of children requesting to play with it multiple times.",
-    testimonial: {
-      quote: "This toy makes teaching anatomy fun and effective. Children are genuinely excited to learn, and they retain the information because they've discovered it through play rather than being told.",
-      author: "Dr. Priya Sharma",
-      title: "Educational Psychology Researcher, IISc"
+      title: "Director of Medical Innovation, IISc",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
     }
   }
 ];
@@ -854,7 +587,7 @@ const ProjectDetail = () => {
                         <div key={index} className="bg-white p-6 rounded-lg shadow-md">
                           <div className="mb-4 h-48 overflow-hidden rounded-lg">
                             <img 
-                              src={persona.image || '/placeholder.svg'} 
+                              src={persona.image || 'https://images.unsplash.com/photo-1494172892981-ce47ca2da1fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'} 
                               alt={persona.title}
                               className="w-full h-full object-cover"
                             />
@@ -1080,11 +813,12 @@ const ProjectDetail = () => {
                   "{project.testimonial.quote}"
                 </blockquote>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-bengali-terracotta/20 rounded-full flex items-center justify-center">
-                    <span className="text-bengali-terracotta font-bold text-xl">
+                  <Avatar className="w-12 h-12 border-2 border-bengali-terracotta/20">
+                    <AvatarImage src={project.testimonial.image || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"} alt={project.testimonial.author} />
+                    <AvatarFallback className="bg-bengali-terracotta/20 text-bengali-terracotta font-bold">
                       {project.testimonial.author.charAt(0)}
-                    </span>
-                  </div>
+                    </AvatarFallback>
+                  </Avatar>
                   <div className="ml-4">
                     <div className="font-semibold text-bengali-dark">
                       {project.testimonial.author}

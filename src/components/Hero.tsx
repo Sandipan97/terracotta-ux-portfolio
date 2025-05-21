@@ -46,7 +46,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl animate-fade-in">
                 <img 
-                  src="/placeholder.svg" 
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                   alt="Senior UX Designer and Researcher" 
                   className="w-full h-full object-cover"
                 />
