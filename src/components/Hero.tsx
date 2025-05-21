@@ -129,7 +129,7 @@ const Hero = () => {
             }} transition={{
               duration: 0.3
             }}>
-                <EditableImage src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Senior UX Designer and Researcher" className="w-full h-full object-cover" />
+                <EditableImage alt="Senior UX Designer and Researcher" src="/lovable-uploads/d6f8c20d-1961-4552-a823-c9c0b12a8f05.jpg" className="w-full h-full object-cover" />
               </motion.div>
               <motion.div className="absolute -bottom-4 -right-4 text-bengali-dark px-6 py-3 rounded-full font-medium bg-white backdrop-blur-md border border-white/20 shadow-lg" initial={{
               opacity: 0,
