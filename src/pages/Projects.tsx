@@ -1,4 +1,3 @@
-
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
@@ -19,75 +18,67 @@ type Project = {
 const allProjects: Project[] = [
   {
     id: 1,
-    title: "Healthcare Patient Portal Redesign",
+    title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
     category: "B2B Solutions",
-    image: "/placeholder.svg",
-    description: "Redesigned the patient portal for a major healthcare provider, improving patient engagement and satisfaction.",
-    results: "Increased user retention by 32%",
+    image: "/projects/datalogger.jpg",
+    description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
+    results: "Reduced error rate by 45%",
     featured: true
   },
   {
     id: 2,
-    title: "AR Navigation Application",
-    category: "AR Projects",
-    image: "/placeholder.svg",
-    description: "Developed an AR wayfinding solution for complex indoor environments like hospitals and shopping malls.",
-    results: "Reduced navigation time by 45%",
+    title: "Design System and Revamp Project - Welbilt Kitchen Connect",
+    category: "Design Systems",
+    image: "/projects/kitchen-connect.jpg",
+    description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
+    results: "Accelerated development by 35%",
     featured: true
   },
   {
     id: 3,
-    title: "Biomedical Monitoring Device Interface",
-    category: "Biomedical Design",
-    image: "/placeholder.svg",
-    description: "Created an intuitive interface for a complex biomedical monitoring device used by healthcare professionals.",
-    results: "Decreased training time by 60%",
+    title: "AR Interactive User Manual - LG Cyclops",
+    category: "AR Projects",
+    image: "/projects/ar-manual.jpg",
+    description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
+    results: "Reduced support calls by 60%",
     featured: true
   },
   {
     id: 4,
-    title: "AI-Powered Design System",
-    category: "AI in Design",
-    image: "/placeholder.svg",
-    description: "Designed and implemented an AI-powered design system that adapts to user preferences and behaviors.",
-    results: "Streamlined workflow by 40%",
+    title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
+    category: "Biomedical Design",
+    image: "/projects/oxygen-concentrator.jpg",
+    description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
+    results: "Improved user satisfaction by 85%",
     featured: true
   },
   {
     id: 5,
-    title: "Finance Management Mobile App",
-    category: "Mobile Apps",
-    image: "/placeholder.svg",
-    description: "Designed a personal finance management app with intuitive visualizations and automated insights.",
-    results: "95% user satisfaction rate"
+    title: "Dripometer - IV Drip Monitoring System - IISc",
+    category: "Biomedical Design",
+    image: "/projects/dripometer.jpg",
+    description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
+    results: "Increased monitoring accuracy by 95%"
   },
   {
     id: 6,
-    title: "Supply Chain Management Dashboard",
-    category: "B2B Solutions",
-    image: "/placeholder.svg",
-    description: "Created a comprehensive dashboard for supply chain managers to monitor and optimize operations.",
-    results: "Reduced decision-making time by 35%"
+    title: "Farm Monitoring Mobile Application - HCLTech",
+    category: "Mobile Apps",
+    image: "/projects/farm-app.jpg",
+    description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
+    results: "Improved crop yield by 28%"
   },
   {
     id: 7,
-    title: "VR Medical Training Platform",
-    category: "AR Projects",
-    image: "/placeholder.svg",
-    description: "Designed a VR platform for medical students to practice procedures in a realistic but safe environment.",
-    results: "Improved learning outcomes by 28%"
-  },
-  {
-    id: 8,
-    title: "E-commerce Personalization System",
-    category: "AI in Design",
-    image: "/placeholder.svg",
-    description: "Developed a personalized shopping experience powered by AI recommendations.",
-    results: "Increased conversion rate by 24%"
+    title: "Toy Anatomy - Kids Toy Project - IISc",
+    category: "Educational Design",
+    image: "/projects/toy-anatomy.jpg",
+    description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
+    results: "Increased learning outcomes by 40%"
   }
 ];
 
-const categories = ["All", "B2B Solutions", "AR Projects", "Biomedical Design", "AI in Design", "Mobile Apps"];
+const categories = ["All", "B2B Solutions", "Design Systems", "AR Projects", "Biomedical Design", "Mobile Apps", "Educational Design"];
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");

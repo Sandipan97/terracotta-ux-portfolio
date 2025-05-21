@@ -16,35 +16,35 @@ type Project = {
 const featuredProjects: Project[] = [
   {
     id: 1,
-    title: "Healthcare Patient Portal Redesign",
+    title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
     category: "B2B Solutions",
-    image: "/placeholder.svg",
-    description: "Redesigned the patient portal for a major healthcare provider, improving patient engagement and satisfaction.",
-    results: "Increased user retention by 32%"
+    image: "/projects/datalogger.jpg",
+    description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
+    results: "Reduced error rate by 45%"
   },
   {
     id: 2,
-    title: "AR Navigation Application",
-    category: "AR Projects",
-    image: "/placeholder.svg",
-    description: "Developed an AR wayfinding solution for complex indoor environments like hospitals and shopping malls.",
-    results: "Reduced navigation time by 45%"
+    title: "Design System and Revamp Project - Welbilt Kitchen Connect",
+    category: "Design Systems",
+    image: "/projects/kitchen-connect.jpg",
+    description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
+    results: "Accelerated development by 35%"
   },
   {
     id: 3,
-    title: "Biomedical Monitoring Device Interface",
-    category: "Biomedical Design",
-    image: "/placeholder.svg",
-    description: "Created an intuitive interface for a complex biomedical monitoring device used by healthcare professionals.",
-    results: "Decreased training time by 60%"
+    title: "AR Interactive User Manual - LG Cyclops",
+    category: "AR Projects",
+    image: "/projects/ar-manual.jpg",
+    description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
+    results: "Reduced support calls by 60%"
   },
   {
     id: 4,
-    title: "AI-Powered Design System",
-    category: "AI in Design",
-    image: "/placeholder.svg",
-    description: "Designed and implemented an AI-powered design system that adapts to user preferences and behaviors.",
-    results: "Streamlined workflow by 40%"
+    title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
+    category: "Biomedical Design",
+    image: "/projects/oxygen-concentrator.jpg",
+    description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
+    results: "Improved user satisfaction by 85%"
   }
 ];
 
