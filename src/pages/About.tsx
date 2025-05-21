@@ -1,8 +1,8 @@
-
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
+import ResumeManager from '@/components/ResumeManager';
 
 const About = () => {
   const skills = [
@@ -64,9 +64,9 @@ const About = () => {
                 <p className="text-white/90 text-lg mb-8">
                   A passionate UX Designer and Researcher with 5 years of experience creating impactful digital experiences
                 </p>
-                <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark">
-                  <Download className="mr-2 h-4 w-4" /> Download Resume
-                </Button>
+                <div className="flex gap-4">
+                  <ResumeManager isEditing={false} />
+                </div>
               </div>
               <div className="flex justify-center md:justify-end">
                 <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
@@ -104,6 +104,20 @@ const About = () => {
                 <p>
                   Throughout my career, I've had the privilege of leading design teams, mentoring junior designers, and collaborating with cross-functional teams to bring innovative products to market. I thrive in collaborative environments where design is recognized as a strategic function that drives business success.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Resume Management in Edit Mode */}
+        <section className="py-8 bg-gray-50">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-3xl mx-auto">
+              <h3 className="font-display text-2xl font-bold text-bengali-dark mb-6">
+                Resume Management
+              </h3>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <ResumeManager isEditing={true} />
               </div>
             </div>
           </div>
@@ -212,9 +226,7 @@ const About = () => {
               <Button className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white" asChild>
                 <a href="/contact">Get in Touch</a>
               </Button>
-              <Button variant="outline" className="border-white/40 text-white hover:bg-white hover:text-bengali-dark">
-                <Download className="mr-2 h-4 w-4" /> Download Resume
-              </Button>
+              <ResumeManager />
             </div>
           </div>
         </section>

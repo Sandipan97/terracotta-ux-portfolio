@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
+import ResumeManager from './ResumeManager';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -71,9 +72,7 @@ const Footer = () => {
                 +91 98765 43210
               </li>
             </ul>
-            <Button variant="outline" className="mt-6 border-white/30 text-white hover:bg-white hover:text-bengali-dark">
-              Download Resume
-            </Button>
+            <ResumeManager />
           </div>
         </div>
         

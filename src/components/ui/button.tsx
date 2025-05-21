@@ -43,11 +43,11 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : motion.button
+    const Comp = asChild ? Slot : "button"
+    
+    // Use the standard button but wrap it with motion effects
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
+      <motion.div
         whileHover={{ 
           scale: 1.03,
           boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)"
@@ -58,8 +58,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           stiffness: 400,
           damping: 10
         }}
-        {...props}
-      />
+      >
+        <Comp
+          className={cn(buttonVariants({ variant, size, className }))}
+          ref={ref}
+          {...props}
+        />
+      </motion.div>
     )
   }
 )
