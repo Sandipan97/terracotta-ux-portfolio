@@ -63,12 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors based on the Bengali color palette - updated
+				// Updated Bengali color palette with the new values
 				bengali: {
-					terracotta: '#E2725B',  // Updated to the new terracotta color
-					mustard: '#F9D342',     // Updated to the new yellow color
+					terracotta: '#802f1f',  // Updated darker terracotta
+					mustard: '#D4A017',     // Updated mustard color
 					red: '#A32929',
 					dark: '#333333',
+					background: '#D3cfC6',  // New background color
 				}
 			},
 			borderRadius: {
@@ -124,6 +125,10 @@ export default {
 				'sans': ['Open Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 				'heading': ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 				'display': ['Montserrat', 'serif']
+			},
+			// Adding background patterns
+			backgroundImage: {
+				'subtle-pattern': "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23aeaba3' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E\")",
 			}
 		}
 	},

@@ -2,6 +2,7 @@
 /* Base styles for the app */
 body {
   font-family: 'Open Sans', sans-serif;
+  background-color: #D3cfC6;
 }
 
 h1, h2, h3, h4, h5, h6 {
