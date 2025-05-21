@@ -18,14 +18,12 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1 animate-slide-in">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-bengali-dark mb-4">
-              Designing Impactful User Experiences with Research and Innovation
-            </h1>
-            <p className="text-lg text-bengali-dark/80 mb-8 max-w-md">
-              Senior UX Designer & Researcher with 5 years of experience and a Master's in Design from IISc
-            </p>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-bengali-dark mb-4">Hi
+I am
+Sandipan</h1>
+            <p className="text-lg text-bengali-dark/80 mb-8 max-w-md">Senior UX Designer & Researcher with 5 years of experience and a Masters in Design from IISc</p>
             <div className="flex flex-wrap gap-4">
-              <Button onClick={scrollToProjects} className="bg-bengali-mustard text-bengali-dark">
+              <Button onClick={scrollToProjects} className="bg-bengali-mustard text-bengali-terracotta">
                 View My Work
               </Button>
               <Button variant="outline" className="border-bengali-terracotta text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white" asChild>
@@ -38,7 +36,7 @@ const Hero = () => {
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl animate-fade-in">
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Senior UX Designer and Researcher" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-bengali-mustard text-bengali-dark px-6 py-3 rounded-full font-medium">
+              <div className="absolute -bottom-4 -right-4 text-bengali-dark px-6 py-3 rounded-full font-medium bg-slate-200">
                 5+ Years Experience
               </div>
             </div>
