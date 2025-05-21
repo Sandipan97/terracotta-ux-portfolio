@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
@@ -95,7 +96,7 @@ const Projects = () => {
         {/* Hero Section */}
         <section className="bg-bengali-terracotta py-20">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
               My Projects
             </h1>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
@@ -153,7 +154,7 @@ const Projects = () => {
                     )}
                   </div>
                   <div className="p-6">
-                    <h3 className="font-display text-xl font-semibold text-bengali-dark mb-2">
+                    <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-2">
                       {project.title}
                     </h3>
                     <p className="text-bengali-dark/70 mb-4">
@@ -180,14 +181,14 @@ const Projects = () => {
         {/* Call to Action */}
         <section className="py-16 bg-bengali-terracotta text-white">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
               Interested in Working Together?
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-8">
               Let's discuss how my UX design and research expertise can help your next project succeed.
             </p>
-            <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark" asChild>
-              <a href="/contact">Get in Touch</a>
+            <Button className="bg-bengali-mustard text-bengali-dark hover:bg-white" asChild>
+              <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
         </section>

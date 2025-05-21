@@ -726,7 +726,7 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4 font-heading">Project Not Found</h1>
           <Link to="/projects">
             <Button>Return to Projects</Button>
           </Link>
@@ -748,7 +748,7 @@ const ProjectDetail = () => {
                 <div className="text-white/80 mb-2">
                   {project.category}
                 </div>
-                <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                   {project.title}
                 </h1>
                 <p className="text-white/90 text-lg mb-8">
@@ -792,7 +792,7 @@ const ProjectDetail = () => {
         <section className="py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-display text-3xl font-bold text-bengali-dark mb-6">
+              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-6">
                 Project Overview
               </h2>
               <p className="text-bengali-dark/80 text-lg mb-10">
@@ -801,7 +801,7 @@ const ProjectDetail = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-display text-xl font-semibold text-bengali-dark mb-4">
+                  <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
                     The Challenge
                   </h3>
                   <p className="text-bengali-dark/80">
@@ -809,7 +809,7 @@ const ProjectDetail = () => {
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-display text-xl font-semibold text-bengali-dark mb-4">
+                  <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
                     The Solution
                   </h3>
                   <p className="text-bengali-dark/80">
@@ -829,7 +829,7 @@ const ProjectDetail = () => {
                 
                 {project.userPersona && (
                   <div className="mb-16">
-                    <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+                    <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
                       User Personas
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -842,7 +842,7 @@ const ProjectDetail = () => {
                               className="w-full h-full object-cover"
                             />
                           </div>
-                          <h3 className="font-display text-xl font-semibold text-bengali-dark mb-2">
+                          <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-2">
                             {persona.title}
                           </h3>
                           <p className="text-bengali-dark/80">
@@ -856,7 +856,7 @@ const ProjectDetail = () => {
                 
                 {project.userFlows && (
                   <div>
-                    <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+                    <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
                       User Flows & Journeys
                     </h2>
                     {project.userFlows.map((flow, index) => (
@@ -864,7 +864,7 @@ const ProjectDetail = () => {
                         <div className="flex flex-col md:flex-row gap-8 items-center">
                           <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
                             <div className="bg-white p-6 rounded-lg shadow-md">
-                              <h3 className="font-display text-2xl font-semibold text-bengali-dark mb-4">
+                              <h3 className="font-heading text-2xl font-semibold text-bengali-dark mb-4">
                                 {flow.title}
                               </h3>
                               <p className="text-bengali-dark/80">
@@ -895,7 +895,7 @@ const ProjectDetail = () => {
         {project.researchMethods && (
           <section className="py-16">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
                 Research Methods
               </h2>
               
@@ -903,7 +903,7 @@ const ProjectDetail = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {project.researchMethods.map((method, index) => (
                     <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-bengali-terracotta">
-                      <h3 className="font-display text-xl font-semibold text-bengali-dark mb-4">
+                      <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
                         {method.title}
                       </h3>
                       <p className="text-bengali-dark/80 mb-4">
@@ -930,7 +930,7 @@ const ProjectDetail = () => {
         {project.process && (
           <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
                 Design Process
               </h2>
               
@@ -943,7 +943,7 @@ const ProjectDetail = () => {
                           <div className="text-bengali-terracotta font-medium mb-2">
                             Step {index + 1}
                           </div>
-                          <h3 className="font-display text-2xl font-semibold text-bengali-dark mb-4">
+                          <h3 className="font-heading text-2xl font-semibold text-bengali-dark mb-4">
                             {step.title}
                           </h3>
                           <p className="text-bengali-dark/80">
@@ -972,7 +972,7 @@ const ProjectDetail = () => {
         {project.ideation && (
           <section className="py-16">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
                 Ideation
               </h2>
               
@@ -980,7 +980,7 @@ const ProjectDetail = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {project.ideation.map((item, index) => (
                     <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                      <h3 className="font-display text-xl font-semibold text-bengali-dark mb-4">
+                      <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
                         {item.title}
                       </h3>
                       <p className="text-bengali-dark/80 mb-4">
@@ -1007,7 +1007,7 @@ const ProjectDetail = () => {
         {project.prototyping && (
           <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
                 Prototyping
               </h2>
               
@@ -1017,7 +1017,7 @@ const ProjectDetail = () => {
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                       <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
                         <div className="bg-white p-6 rounded-lg shadow-md">
-                          <h3 className="font-display text-2xl font-semibold text-bengali-dark mb-4">
+                          <h3 className="font-heading text-2xl font-semibold text-bengali-dark mb-4">
                             {proto.title}
                           </h3>
                           <p className="text-bengali-dark/80">
@@ -1045,7 +1045,7 @@ const ProjectDetail = () => {
         {/* Results */}
         <section className="py-16 bg-bengali-terracotta text-white">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="font-display text-3xl font-bold mb-8">
+            <h2 className="font-heading text-3xl font-bold mb-8">
               Results & Impact
             </h2>
             <p className="text-white/90 text-xl max-w-3xl mx-auto">

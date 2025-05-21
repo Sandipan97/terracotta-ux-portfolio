@@ -55,7 +55,7 @@ const FeaturedProjects = () => {
     <section id="featured-projects" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-bengali-dark mb-4">Featured Projects</h2>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-bengali-dark mb-4">Featured Projects</h2>
           <p className="text-bengali-dark/70 max-w-2xl mx-auto">
             A selection of my most impactful work across various domains and industries
           </p>
@@ -87,7 +87,7 @@ const FeaturedProjects = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="font-display text-xl font-semibold text-bengali-dark mb-2">
+                <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-2">
                   {project.title}
                 </h3>
                 <p className="text-bengali-dark/70 mb-4">
@@ -105,7 +105,7 @@ const FeaturedProjects = () => {
 
         <div className="mt-12 text-center">
           <Link to="/projects">
-            <Button className="bg-bengali-dark hover:bg-bengali-terracotta text-white">
+            <Button className="bg-bengali-terracotta hover:bg-bengali-mustard text-white hover:text-bengali-dark">
               View All Projects <ArrowRight size={16} className="ml-2" />
             </Button>
           </Link>

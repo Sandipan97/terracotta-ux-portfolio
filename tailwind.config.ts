@@ -63,10 +63,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors based on the Bengali color palette
+				// Custom colors based on the Bengali color palette - updated
 				bengali: {
-					terracotta: '#C15A36',
-					mustard: '#D4AF37',
+					terracotta: '#E2725B',  // Updated to the new terracotta color
+					mustard: '#F9D342',     // Updated to the new yellow color
 					red: '#A32929',
 					dark: '#333333',
 				}
@@ -121,8 +121,9 @@ export default {
 				'slide-in': 'slide-in 0.5s ease-out'
 			},
 			fontFamily: {
-				'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				'display': ['Playfair Display', 'serif']
+				'sans': ['Open Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				'heading': ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				'display': ['Montserrat', 'serif']
 			}
 		}
 	},
