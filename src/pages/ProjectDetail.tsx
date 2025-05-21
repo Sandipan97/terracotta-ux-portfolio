@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { EditableImage } from '@/components/ui/editable-image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 type Project = {
   id: number;
@@ -225,7 +226,7 @@ const projects: Project[] = [
       {
         title: "Visual Design Concepts",
         description: "Created visual design direction balancing brand identity with usability requirements.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=80"
       }
     ],
     prototyping: [
@@ -237,7 +238,7 @@ const projects: Project[] = [
       {
         title: "System Documentation",
         description: "Created comprehensive documentation and guidelines for implementation.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=80"
       }
     ],
     results: "The design system accelerated development velocity by 35%, reduced design inconsistencies by 90%, and improved user satisfaction scores by 45%. New features are now implemented 60% faster.",
@@ -441,19 +442,315 @@ const projects: Project[] = [
       title: "Director of Medical Innovation, IISc",
       image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
     }
+  },
+  {
+    id: 5,
+    title: "Dripometer - IV Drip Monitoring System - IISc",
+    category: "Biomedical Design",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    client: "Indian Institute of Science (IISc)",
+    duration: "9 months",
+    role: "Lead UX Designer & Medical Device Interface Specialist",
+    description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
+    overview: "The Dripometer project aimed to create a reliable, user-friendly monitoring system for intravenous drips that could alert medical staff to irregularities while being accessible to both professional and home caregivers.",
+    challenge: "IV drips are critical medical interventions, but monitoring them is often manual and error-prone. Creating a device that could automatically monitor flow rates without disrupting existing medical workflows was a significant challenge.",
+    solution: "I designed an intuitive interface with clear visual indicators and a simple alert system that could be understood by users with varying levels of medical training, from doctors to home caregivers.",
+    userPersona: [
+      {
+        title: "Hospital Nurses",
+        description: "Healthcare professionals managing multiple patients who need efficient monitoring tools to reduce their cognitive load.",
+        image: "https://images.unsplash.com/photo-1584516150774-d9dc0e103d8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "Home Caregivers",
+        description: "Family members without formal medical training who need clear, unambiguous guidance on maintaining proper IV care.",
+        image: "https://images.unsplash.com/photo-1574098255495-81c23a7d4112?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      }
+    ],
+    userFlows: [
+      {
+        title: "Initial Setup Flow",
+        description: "Streamlined process for attaching the device to an existing IV line with minimal disruption.",
+        image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Alert Response Flow",
+        description: "Clear step-by-step guidance when flow irregularities are detected, with appropriate urgency indicators.",
+        image: "https://images.unsplash.com/photo-1600443299762-7a1c563a7d25?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    researchMethods: [
+      {
+        title: "Clinical Observations",
+        description: "Shadowed nurses during IV management to understand real-world challenges and constraints.",
+        image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Prototype Testing",
+        description: "Conducted simulated scenarios with healthcare professionals to validate usability in high-stress situations.",
+        image: "https://images.unsplash.com/photo-1576671414121-aa0c81c869e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    process: [
+      {
+        title: "Requirements Gathering",
+        description: "Collaborated with medical professionals to define critical monitoring parameters and alert thresholds.",
+        image: "https://images.unsplash.com/photo-1598984807193-d4eece638c9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Medical Workflow Integration",
+        description: "Designed the system to complement existing medical protocols without adding unnecessary complexity.",
+        image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    ideation: [
+      {
+        title: "Visual Communication System",
+        description: "Developed a universal visual language that conveys critical information regardless of medical training level.",
+        image: "https://images.unsplash.com/photo-1634128221889-82ed6efebfc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Physical Form Exploration",
+        description: "Explored various physical designs that would be unobtrusive in medical settings while remaining highly visible when needed.",
+        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    prototyping: [
+      {
+        title: "Interface Mockups",
+        description: "Created high-fidelity mockups of the digital display and control system with focus on legibility under various lighting conditions.",
+        image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Alert Simulation",
+        description: "Prototyped and tested the alert system to ensure it effectively communicated urgency without causing alarm fatigue.",
+        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    results: "The Dripometer achieved 95% accuracy in flow rate monitoring, reduced alert response time by 67%, and was rated as 'highly intuitive' by 92% of tested users with no prior medical experience.",
+    testimonial: {
+      quote: "The Dripometer has transformed how we manage IVs on our busy ward. The interface is so intuitive that even new staff members can respond appropriately to alerts with minimal training.",
+      author: "Dr. Priya Sharma",
+      title: "Head of Nursing, General Hospital",
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+    }
+  },
+  {
+    id: 6,
+    title: "Farm Monitoring Mobile Application - HCLTech",
+    category: "Mobile Apps",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    client: "HCL Technologies",
+    duration: "7 months",
+    role: "Senior UX Designer & Mobile App Specialist",
+    description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
+    overview: "This project aimed to create an accessible mobile application that empowers farmers with data-driven insights to optimize crop yield, reduce resource waste, and implement sustainable farming practices.",
+    challenge: "Many farmers in developing regions have limited technical knowledge but could greatly benefit from agricultural technology. The app needed to present complex data in an accessible way while functioning reliably in rural areas with poor connectivity.",
+    solution: "I designed a highly visual interface with offline capabilities that presents environmental data, crop health metrics, and actionable recommendations in a simple, intuitive format optimized for outdoor use.",
+    userPersona: [
+      {
+        title: "Traditional Farmers",
+        description: "Experienced agricultural workers with limited technology exposure who need straightforward interfaces with clear benefits.",
+        image: "https://images.unsplash.com/photo-1597465468518-59dda87a1b20?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "Agricultural Technicians",
+        description: "Field workers with technical knowledge who help implement modern farming techniques and need detailed data views.",
+        image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      }
+    ],
+    userFlows: [
+      {
+        title: "Daily Field Check",
+        description: "Optimized flow for quickly scanning multiple field conditions during morning inspections.",
+        image: "https://images.unsplash.com/photo-1595100417477-5a7ffdad731b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Resource Planning Flow",
+        description: "Streamlined process for planning water, fertilizer and pesticide application based on environmental data.",
+        image: "https://images.unsplash.com/photo-1464297162474-d9335c580361?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    researchMethods: [
+      {
+        title: "Field Interviews",
+        description: "Conducted on-site interviews with farmers across different regions and farming methods.",
+        image: "https://images.unsplash.com/photo-1606041643091-4b1e473646c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Usability Testing in Field Conditions",
+        description: "Tested prototypes under bright sunlight, with dirty hands, and in poor connectivity areas.",
+        image: "https://images.unsplash.com/photo-1593038057485-36e94543af24?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    process: [
+      {
+        title: "Environmental Constraint Analysis",
+        description: "Mapped physical, environmental, and infrastructure constraints that would impact app usage.",
+        image: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Visual Interface Mapping",
+        description: "Created a simplified visual language that uses universal agricultural symbols and color coding.",
+        image: "https://images.unsplash.com/photo-1536303158031-c868b371399f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    ideation: [
+      {
+        title: "Offline-First Architecture",
+        description: "Designed data synchronization patterns that prioritize offline usability with strategic updates when connectivity is available.",
+        image: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Simplified Data Visualization",
+        description: "Developed visualization methods that present complex agricultural metrics as actionable insights.",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    prototyping: [
+      {
+        title: "High-Contrast Interface Mockups",
+        description: "Created interfaces specifically designed for outdoor visibility and readability.",
+        image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "One-Handed Interaction Design",
+        description: "Optimized layouts for one-handed operation while users are holding tools or equipment.",
+        image: "https://images.unsplash.com/photo-1544147212-4c3cd4a8720a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    results: "The app increased crop yields by an average of 28%, reduced water usage by 32%, and was successfully adopted by over 15,000 farmers within the first six months of launch.",
+    testimonial: {
+      quote: "This app has changed how I manage my fields. The soil moisture alerts alone have saved me thousands in irrigation costs, and I can plan my day more effectively knowing exactly which fields need attention.",
+      author: "Raj Patel",
+      title: "Farm Owner, Gujarat",
+      image: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+    }
+  },
+  {
+    id: 7,
+    title: "Toy Anatomy - Kids Toy Project - IISc",
+    category: "Educational Design",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    client: "Indian Institute of Science (IISc)",
+    duration: "5 months",
+    role: "UX Designer & Educational Content Developer",
+    description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
+    overview: "The Toy Anatomy project was designed to make human anatomy education engaging and accessible for children aged 6-12, combining physical toys with digital components to create an immersive learning experience.",
+    challenge: "Teaching complex anatomical concepts to young children requires simplification without sacrificing accuracy. The challenge was creating a system that was entertaining enough to maintain engagement while delivering meaningful educational content.",
+    solution: "I designed a modular toy system with augmented reality components that allows children to explore anatomical systems through guided play, using progressive disclosure to gradually introduce more complex concepts as learning progresses.",
+    userPersona: [
+      {
+        title: "Curious Learners (Ages 6-8)",
+        description: "Younger children who are beginning to explore scientific concepts and need highly visual, tactile experiences.",
+        image: "https://images.unsplash.com/photo-1617331140180-e8262094733a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "Active Explorers (Ages 9-12)",
+        description: "Older children who can grasp more abstract concepts and are interested in how bodily systems interconnect.",
+        image: "https://images.unsplash.com/photo-1617727553252-65863c156eb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "Parent Educators",
+        description: "Parents who assist with educational activities and need clear guidance to facilitate learning.",
+        image: "https://images.unsplash.com/photo-1623500606895-0ebb9b489eb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      }
+    ],
+    userFlows: [
+      {
+        title: "Discovery Play Flow",
+        description: "Unstructured exploration that introduces basic anatomical structures through tactile interaction.",
+        image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Guided Learning Flow",
+        description: "Structured activities that build progressive understanding of how body systems function together.",
+        image: "https://images.unsplash.com/photo-1503676382389-4809596d5290?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    researchMethods: [
+      {
+        title: "Child Observation Studies",
+        description: "Observed how children interact with educational toys and identified patterns of engagement and learning.",
+        image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Educational Expert Consultation",
+        description: "Collaborated with child development specialists and science educators to ensure age-appropriate content.",
+        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Interactive Prototype Testing",
+        description: "Iteratively tested prototypes with children to refine engagement mechanics and educational impact.",
+        image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    process: [
+      {
+        title: "Educational Goal Definition",
+        description: "Established clear learning objectives aligned with elementary science curriculum standards.",
+        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Play Pattern Mapping",
+        description: "Identified effective play patterns that naturally lead to discovery and retention of scientific concepts.",
+        image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    ideation: [
+      {
+        title: "Physical-Digital Integration",
+        description: "Explored seamless connections between physical toy components and digital augmentation for enhanced learning.",
+        image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Progressive Discovery System",
+        description: "Designed a layered approach to anatomy education that reveals complexity at appropriate developmental stages.",
+        image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    prototyping: [
+      {
+        title: "Physical Toy Models",
+        description: "Created tactile prototypes with varying textures and mechanisms to represent different body systems.",
+        image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "AR Learning Scenarios",
+        description: "Developed augmented reality scenarios that animate static toy components to demonstrate physiological processes.",
+        image: "https://images.unsplash.com/photo-1558236714-d1a6333ba154?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    results: "The Toy Anatomy system increased science test scores by 40% among participating children and maintained engagement for an average of 45 minutes per session, significantly longer than comparable educational toys.",
+    testimonial: {
+      quote: "My daughter hasn't put down her Toy Anatomy set since we bought it. She's now teaching her younger brother about the circulatory system, and I'm learning things I never knew! The way it combines physical play with digital elements is brilliant.",
+      author: "Neha Gupta",
+      title: "Parent and Elementary Educator",
+      image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+    }
   }
 ];
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const projectId = parseInt(id || "1");
+  const navigate = useNavigate();
   
   const project = projects.find(p => p.id === projectId);
   const nextProject = projects.find(p => p.id === projectId + 1) || projects[0];
   
+  const { scrollYProgress } = useScroll();
+  const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1]);
+  const headerY = useTransform(scrollYProgress, [0, 0.3], [0, 50]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [projectId]);
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   if (!project) {
     return (
@@ -473,52 +770,83 @@ const ProjectDetail = () => {
       <Navbar />
       
       <main className="pt-20">
-        {/* Full-width Hero Image Section - No overlay */}
-        <section className="w-full">
-          <EditableImage 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-[70vh] object-cover"
-            fallbackSrc="/placeholder.svg"
-          />
+        {/* Full-width Hero Image Section with Parallax */}
+        <section className="w-full relative h-[70vh] overflow-hidden">
+          <motion.div 
+            style={{ 
+              scale: heroScale,
+              y: headerY * 0.3
+            }}
+            className="absolute inset-0"
+          >
+            <EditableImage 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover"
+              fallbackSrc="/placeholder.svg"
+            />
+          </motion.div>
+
+          {/* Back button */}
+          <motion.div 
+            className="absolute top-4 left-4 z-20"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <Button 
+              onClick={goBack}
+              variant="ghost" 
+              className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-300"
+              size="icon"
+            >
+              <ArrowLeft size={20} />
+            </Button>
+          </motion.div>
         </section>
 
         {/* Dark Terracotta Title and Project Details Tile */}
-        <section className="py-12 bg-bengali-terracotta text-white">
+        <section className="py-12 bg-gradient-to-br from-bengali-terracotta to-bengali-red text-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-5xl mx-auto">
-              <div className="text-white/80 mb-2 text-lg">
-                {project.category}
-              </div>
-              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                {project.title}
-              </h1>
-              <p className="text-lg">
-                {project.description}
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                {project.client && (
-                  <div>
-                    <h3 className="text-white/80 text-sm mb-1">Client</h3>
-                    <p className="font-medium">{project.client}</p>
-                  </div>
-                )}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="text-white/80 mb-2 text-lg">
+                  {project.category}
+                </div>
+                <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                  {project.title}
+                </h1>
+                <p className="text-lg">
+                  {project.description}
+                </p>
                 
-                {project.duration && (
-                  <div>
-                    <h3 className="text-white/80 text-sm mb-1">Duration</h3>
-                    <p className="font-medium">{project.duration}</p>
-                  </div>
-                )}
-                
-                {project.role && (
-                  <div>
-                    <h3 className="text-white/80 text-sm mb-1">My Role</h3>
-                    <p className="font-medium">{project.role}</p>
-                  </div>
-                )}
-              </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                  {project.client && (
+                    <div>
+                      <h3 className="text-white/80 text-sm mb-1">Client</h3>
+                      <p className="font-medium">{project.client}</p>
+                    </div>
+                  )}
+                  
+                  {project.duration && (
+                    <div>
+                      <h3 className="text-white/80 text-sm mb-1">Duration</h3>
+                      <p className="font-medium">{project.duration}</p>
+                    </div>
+                  )}
+                  
+                  {project.role && (
+                    <div>
+                      <h3 className="text-white/80 text-sm mb-1">My Role</h3>
+                      <p className="font-medium">{project.role}</p>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -528,37 +856,55 @@ const ProjectDetail = () => {
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-5xl mx-auto">
               {project.overview && (
-                <div className="mb-8">
+                <motion.div 
+                  className="mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
                   <h2 className="font-heading text-2xl font-bold text-bengali-dark mb-4">
                     Overview
                   </h2>
                   <p className="text-bengali-dark/80">
                     {project.overview}
                   </p>
-                </div>
+                </motion.div>
               )}
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {project.challenge && (
-                  <div className="bg-gray-50 p-6 rounded-lg">
+                  <motion.div 
+                    className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-white shadow-md backdrop-blur-sm"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
                       The Challenge
                     </h3>
                     <p className="text-bengali-dark/80">
                       {project.challenge}
                     </p>
-                  </div>
+                  </motion.div>
                 )}
                 
                 {project.solution && (
-                  <div className="bg-gray-50 p-6 rounded-lg">
+                  <motion.div 
+                    className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-white shadow-md backdrop-blur-sm"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
                     <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
                       The Solution
                     </h3>
                     <p className="text-bengali-dark/80">
                       {project.solution}
                     </p>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </div>
@@ -567,18 +913,32 @@ const ProjectDetail = () => {
         
         {/* User Personas & Flows */}
         {(project.userPersona || project.userFlows) && (
-          <section className="py-16 bg-gray-50">
+          <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-5xl mx-auto">
                 
                 {project.userPersona && (
                   <div className="mb-16">
-                    <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
+                    <motion.h2 
+                      className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
                       User Personas
-                    </h2>
+                    </motion.h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {project.userPersona.map((persona, index) => (
-                        <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                        <motion.div 
+                          key={index} 
+                          className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                        >
                           <div className="mb-4 h-48 overflow-hidden rounded-lg">
                             <EditableImage 
                               src={persona.image || 'https://images.unsplash.com/photo-1494172892981-ce47ca2da1fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'} 
@@ -593,7 +953,7 @@ const ProjectDetail = () => {
                           <p className="text-bengali-dark/80">
                             {persona.description}
                           </p>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
@@ -601,14 +961,27 @@ const ProjectDetail = () => {
                 
                 {project.userFlows && (
                   <div>
-                    <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
+                    <motion.h2 
+                      className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
                       User Flows & Journeys
-                    </h2>
+                    </motion.h2>
                     {project.userFlows.map((flow, index) => (
-                      <div key={index} className="mb-10 last:mb-0">
+                      <motion.div 
+                        key={index} 
+                        className="mb-10 last:mb-0"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.2 }}
+                      >
                         <div className="flex flex-col md:flex-row gap-8 items-center">
                           <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
+                            <div className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm">
                               <h3 className="font-heading text-2xl font-semibold text-bengali-dark mb-4">
                                 {flow.title}
                               </h3>
@@ -617,7 +990,11 @@ const ProjectDetail = () => {
                               </p>
                             </div>
                           </div>
-                          <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
+                          <motion.div 
+                            className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ duration: 0.3 }}
+                          >
                             <div className="rounded-lg overflow-hidden shadow-md">
                               <EditableImage 
                                 src={flow.image || '/placeholder.svg'} 
@@ -626,9 +1003,9 @@ const ProjectDetail = () => {
                                 fallbackSrc="/placeholder.svg"
                               />
                             </div>
-                          </div>
+                          </motion.div>
                         </div>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 )}
@@ -641,14 +1018,28 @@ const ProjectDetail = () => {
         {project.researchMethods && (
           <section className="py-16">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
+              <motion.h2 
+                className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
                 Research Methods
-              </h2>
+              </motion.h2>
               
               <div className="max-w-5xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {project.researchMethods.map((method, index) => (
-                    <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-bengali-terracotta">
+                    <motion.div 
+                      key={index} 
+                      className="bg-white p-6 rounded-lg shadow-md border-l-4 border-bengali-terracotta backdrop-blur-sm border border-white/40"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                    >
                       <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
                         {method.title}
                       </h3>
@@ -656,16 +1047,20 @@ const ProjectDetail = () => {
                         {method.description}
                       </p>
                       {method.image && (
-                        <div className="rounded-lg overflow-hidden">
+                        <motion.div 
+                          className="rounded-lg overflow-hidden"
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ duration: 0.3 }}
+                        >
                           <EditableImage 
                             src={method.image} 
                             alt={method.title}
                             className="w-full h-auto"
                             fallbackSrc="/placeholder.svg"
                           />
-                        </div>
+                        </motion.div>
                       )}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -675,18 +1070,31 @@ const ProjectDetail = () => {
         
         {/* Design Process */}
         {project.process && (
-          <section className="py-16 bg-gray-50">
+          <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
+              <motion.h2 
+                className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
                 Design Process
-              </h2>
+              </motion.h2>
               
               <div className="max-w-5xl mx-auto">
                 {project.process.map((step, index) => (
-                  <div key={index} className="mb-16 last:mb-0">
+                  <motion.div 
+                    key={index} 
+                    className="mb-16 last:mb-0"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                  >
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                       <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                        <div className="bg-white p-6 rounded-lg shadow-md">
+                        <div className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm">
                           <div className="text-bengali-terracotta font-medium mb-2">
                             Step {index + 1}
                           </div>
@@ -698,7 +1106,11 @@ const ProjectDetail = () => {
                           </p>
                         </div>
                       </div>
-                      <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
+                      <motion.div 
+                        className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         <div className="rounded-lg overflow-hidden shadow-md">
                           <EditableImage 
                             src={step.image || '/placeholder.svg'} 
@@ -707,9 +1119,9 @@ const ProjectDetail = () => {
                             fallbackSrc="/placeholder.svg"
                           />
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -720,14 +1132,28 @@ const ProjectDetail = () => {
         {project.ideation && (
           <section className="py-16">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
+              <motion.h2 
+                className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
                 Ideation
-              </h2>
+              </motion.h2>
               
               <div className="max-w-5xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {project.ideation.map((item, index) => (
-                    <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                    <motion.div 
+                      key={index} 
+                      className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                    >
                       <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
                         {item.title}
                       </h3>
@@ -735,16 +1161,20 @@ const ProjectDetail = () => {
                         {item.description}
                       </p>
                       {item.image && (
-                        <div className="rounded-lg overflow-hidden">
+                        <motion.div 
+                          className="rounded-lg overflow-hidden"
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ duration: 0.3 }}
+                        >
                           <EditableImage 
                             src={item.image} 
                             alt={item.title}
                             className="w-full h-auto"
                             fallbackSrc="/placeholder.svg"
                           />
-                        </div>
+                        </motion.div>
                       )}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -754,18 +1184,31 @@ const ProjectDetail = () => {
         
         {/* Prototyping */}
         {project.prototyping && (
-          <section className="py-16 bg-gray-50">
+          <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center">
+              <motion.h2 
+                className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
                 Prototyping
-              </h2>
+              </motion.h2>
               
               <div className="max-w-5xl mx-auto">
                 {project.prototyping.map((proto, index) => (
-                  <div key={index} className="mb-16 last:mb-0">
+                  <motion.div 
+                    key={index} 
+                    className="mb-16 last:mb-0"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                  >
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                       <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                        <div className="bg-white p-6 rounded-lg shadow-md">
+                        <div className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm">
                           <h3 className="font-heading text-2xl font-semibold text-bengali-dark mb-4">
                             {proto.title}
                           </h3>
@@ -774,7 +1217,11 @@ const ProjectDetail = () => {
                           </p>
                         </div>
                       </div>
-                      <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
+                      <motion.div 
+                        className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         <div className="rounded-lg overflow-hidden shadow-md">
                           <EditableImage 
                             src={proto.image || '/placeholder.svg'} 
@@ -783,9 +1230,9 @@ const ProjectDetail = () => {
                             fallbackSrc="/placeholder.svg"
                           />
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -793,14 +1240,50 @@ const ProjectDetail = () => {
         )}
         
         {/* Results */}
-        <section className="py-16 bg-bengali-terracotta text-white">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="font-heading text-3xl font-bold mb-8">
-              Results & Impact
-            </h2>
-            <p className="text-white/90 text-xl max-w-3xl mx-auto">
-              {project.results}
-            </p>
+        <section className="py-16 bg-gradient-to-br from-bengali-terracotta to-bengali-red text-white relative overflow-hidden">
+          {/* Animated background elements */}
+          <motion.div 
+            className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-white/5 filter blur-xl"
+            animate={{ 
+              y: [0, 20, 0],
+              x: [0, -10, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 10,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div 
+            className="absolute -bottom-40 -left-20 w-80 h-80 rounded-full bg-bengali-mustard/10 filter blur-xl"
+            animate={{ 
+              y: [0, -30, 0],
+              x: [0, 10, 0],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 15,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
+
+          <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="font-heading text-3xl font-bold mb-8">
+                Results & Impact
+              </h2>
+              <p className="text-white/90 text-xl max-w-3xl mx-auto">
+                {project.results}
+              </p>
+            </motion.div>
           </div>
         </section>
         
@@ -808,7 +1291,17 @@ const ProjectDetail = () => {
         {project.testimonial && (
           <section className="py-16">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg border-l-4 border-bengali-mustard">
+              <motion.div 
+                className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg border-l-4 border-bengali-mustard backdrop-blur-sm border border-white/60"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ 
+                  boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.1)",
+                  y: -5
+                }}
+              >
                 <blockquote className="text-bengali-dark/80 text-lg italic mb-6">
                   "{project.testimonial.quote}"
                 </blockquote>
@@ -828,31 +1321,41 @@ const ProjectDetail = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </section>
         )}
         
         {/* Next Project */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <Link to="/projects" className="flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors mb-4 md:mb-0">
-                <ArrowLeft size={16} className="mr-2" /> Back to Projects
-              </Link>
-              
-              <Link 
-                to={`/projects/${nextProject.id}`}
-                className="flex items-center group"
+              <motion.div
+                whileHover={{ x: -3 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="text-right mr-4">
-                  <div className="text-sm text-bengali-dark/70">Next Project</div>
-                  <div className="font-medium text-bengali-dark group-hover:text-bengali-terracotta transition-colors">
-                    {nextProject.title}
+                <Link to="/projects" className="flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors mb-4 md:mb-0">
+                  <ArrowLeft size={16} className="mr-2" /> Back to Projects
+                </Link>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ x: 3 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link 
+                  to={`/projects/${nextProject.id}`}
+                  className="flex items-center group"
+                >
+                  <div className="text-right mr-4">
+                    <div className="text-sm text-bengali-dark/70">Next Project</div>
+                    <div className="font-medium text-bengali-dark group-hover:text-bengali-terracotta transition-colors">
+                      {nextProject.title.length > 30 ? nextProject.title.substring(0, 30) + '...' : nextProject.title}
+                    </div>
                   </div>
-                </div>
-                <ArrowRight size={16} className="text-bengali-terracotta" />
-              </Link>
+                  <ArrowRight size={16} className="text-bengali-terracotta group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </motion.div>
             </div>
           </div>
         </section>
