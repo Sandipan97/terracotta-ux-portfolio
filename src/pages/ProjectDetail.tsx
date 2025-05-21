@@ -1,4 +1,3 @@
-
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -740,81 +739,99 @@ const ProjectDetail = () => {
       <Navbar />
       
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="bg-bengali-terracotta py-20">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-full md:w-1/2">
-                <div className="text-white/80 mb-2">
-                  {project.category}
-                </div>
-                <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                  {project.title}
-                </h1>
-                <p className="text-white/90 text-lg mb-8">
-                  {project.description}
-                </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                  {project.client && (
-                    <div>
-                      <div className="text-white/70 text-sm">Client</div>
-                      <div className="text-white font-medium">{project.client}</div>
-                    </div>
-                  )}
-                  {project.duration && (
-                    <div>
-                      <div className="text-white/70 text-sm">Duration</div>
-                      <div className="text-white font-medium">{project.duration}</div>
-                    </div>
-                  )}
-                  {project.role && (
-                    <div>
-                      <div className="text-white/70 text-sm">My Role</div>
-                      <div className="text-white font-medium">{project.role}</div>
-                    </div>
-                  )}
-                </div>
+        {/* Full-width Hero Image Section */}
+        <section className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
+          <div className="absolute inset-0 bg-bengali-terracotta/90">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover opacity-30 mix-blend-multiply"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-bengali-terracotta/70 to-transparent"></div>
+          <div className="container mx-auto px-4 md:px-6 relative h-full flex items-end pb-12">
+            <div className="max-w-3xl">
+              <div className="text-white/80 mb-2 text-lg">
+                {project.category}
               </div>
-              <div className="w-full md:w-1/2">
-                <div className="rounded-lg overflow-hidden shadow-2xl">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
+              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                {project.title}
+              </h1>
             </div>
           </div>
         </section>
-        
-        {/* Project Overview */}
-        <section className="py-16">
+
+        {/* Project Details */}
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="font-heading text-3xl font-bold text-bengali-dark mb-6">
-                Project Overview
-              </h2>
-              <p className="text-bengali-dark/80 text-lg mb-10">
-                {project.overview}
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
-                    The Challenge
-                  </h3>
-                  <p className="text-bengali-dark/80">
-                    {project.challenge}
-                  </p>
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="w-full md:w-2/3">
+                <p className="text-bengali-dark/80 text-lg mb-8">
+                  {project.description}
+                </p>
+                
+                {project.overview && (
+                  <div className="mb-8">
+                    <h2 className="font-heading text-2xl font-bold text-bengali-dark mb-4">
+                      Overview
+                    </h2>
+                    <p className="text-bengali-dark/80">
+                      {project.overview}
+                    </p>
+                  </div>
+                )}
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  {project.challenge && (
+                    <div className="bg-gray-50 p-6 rounded-lg">
+                      <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
+                        The Challenge
+                      </h3>
+                      <p className="text-bengali-dark/80">
+                        {project.challenge}
+                      </p>
+                    </div>
+                  )}
+                  
+                  {project.solution && (
+                    <div className="bg-gray-50 p-6 rounded-lg">
+                      <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
+                        The Solution
+                      </h3>
+                      <p className="text-bengali-dark/80">
+                        {project.solution}
+                      </p>
+                    </div>
+                  )}
                 </div>
+              </div>
+              
+              <div className="w-full md:w-1/3">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
-                    The Solution
+                    Project Details
                   </h3>
-                  <p className="text-bengali-dark/80">
-                    {project.solution}
-                  </p>
+                  
+                  <div className="space-y-4">
+                    {project.client && (
+                      <div className="flex justify-between">
+                        <span className="text-bengali-dark/70">Client</span>
+                        <span className="text-bengali-dark font-medium">{project.client}</span>
+                      </div>
+                    )}
+                    {project.duration && (
+                      <div className="flex justify-between">
+                        <span className="text-bengali-dark/70">Duration</span>
+                        <span className="text-bengali-dark font-medium">{project.duration}</span>
+                      </div>
+                    )}
+                    {project.role && (
+                      <div className="flex justify-between">
+                        <span className="text-bengali-dark/70">My Role</span>
+                        <span className="text-bengali-dark font-medium">{project.role}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
