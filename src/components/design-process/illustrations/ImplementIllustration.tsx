@@ -29,18 +29,15 @@ const AnimatedRocket = () => {
 
   return (
     <group>
-      {/* Rocket body */}
       <mesh ref={rocketRef} position={[0, 0, 0]}>
         <cylinderGeometry args={[0.15, 0.15, 1]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
       
-      {/* Rocket nose */}
       <Cone args={[0.15, 0.4]} position={[0, 0.7, 0]}>
         <meshStandardMaterial color="#ffffff" />
       </Cone>
       
-      {/* Fins */}
       <mesh position={[0.2, -0.3, 0]} rotation={[0, 0, Math.PI / 6]}>
         <boxGeometry args={[0.1, 0.3, 0.02]} />
         <meshStandardMaterial color="#ffffff" />
@@ -50,7 +47,6 @@ const AnimatedRocket = () => {
         <meshStandardMaterial color="#ffffff" />
       </mesh>
       
-      {/* Flame */}
       <Cone ref={flameRef} args={[0.12, 0.4]} position={[0, -0.7, 0]}>
         <meshStandardMaterial 
           color="#ffffff" 
@@ -61,7 +57,6 @@ const AnimatedRocket = () => {
         />
       </Cone>
       
-      {/* Sparkles */}
       {[...Array(3)].map((_, index) => (
         <Sphere
           key={index}

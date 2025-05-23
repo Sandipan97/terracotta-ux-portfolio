@@ -20,7 +20,6 @@ const AnimatedLightbulb = () => {
 
   return (
     <group>
-      {/* Bulb */}
       <Sphere ref={bulbRef} args={[0.6]} position={[0, 0.2, 0]}>
         <meshStandardMaterial 
           color="#ffffff" 
@@ -31,13 +30,11 @@ const AnimatedLightbulb = () => {
         />
       </Sphere>
       
-      {/* Base */}
       <mesh ref={baseRef} position={[0, -0.5, 0]}>
         <cylinderGeometry args={[0.3, 0.3, 0.4]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
       
-      {/* Filament lines */}
       <group position={[0, 0.2, 0]}>
         <mesh rotation={[0, 0, Math.PI / 4]}>
           <cylinderGeometry args={[0.01, 0.01, 0.6]} />

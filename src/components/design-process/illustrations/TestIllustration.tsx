@@ -22,19 +22,15 @@ const AnimatedChecklist = () => {
 
   return (
     <group>
-      {/* Clipboard */}
       <RoundedBox ref={boardRef} args={[0.8, 1.2, 0.05]} radius={0.05} position={[0, 0, 0]}>
         <meshStandardMaterial color="#ffffff" />
       </RoundedBox>
       
-      {/* Clip */}
       <Box args={[0.2, 0.1, 0.03]} position={[0, 0.55, 0.03]}>
         <meshStandardMaterial color="#ffffff" metalness={0.8} roughness={0.2} />
       </Box>
       
-      {/* Checklist items */}
       <group position={[0, 0, 0.03]}>
-        {/* Lines */}
         <Box args={[0.4, 0.02, 0.01]} position={[0.1, 0.3, 0]}>
           <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.1} />
         </Box>
@@ -45,7 +41,6 @@ const AnimatedChecklist = () => {
           <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.1} />
         </Box>
         
-        {/* Checkmarks */}
         <mesh 
           ref={(el) => el && (checkmarksRef.current[0] = el)}
           position={[-0.2, 0.3, 0]} 

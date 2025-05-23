@@ -26,12 +26,10 @@ const AnimatedScreen = () => {
 
   return (
     <group>
-      {/* Screen */}
       <RoundedBox ref={screenRef} args={[1.2, 0.8, 0.05]} radius={0.05} position={[0, 0.2, 0]}>
         <meshStandardMaterial color="#ffffff" />
       </RoundedBox>
       
-      {/* Screen content - wireframe elements */}
       <group position={[0, 0.2, 0.03]}>
         <Box 
           ref={(el) => el && (elementsRef.current[0] = el)}
@@ -56,13 +54,11 @@ const AnimatedScreen = () => {
         </Box>
       </group>
       
-      {/* Stand */}
       <mesh ref={standRef} position={[0, -0.6, 0]}>
         <cylinderGeometry args={[0.15, 0.15, 0.3]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
       
-      {/* Base */}
       <mesh position={[0, -0.8, 0]}>
         <cylinderGeometry args={[0.3, 0.3, 0.05]} />
         <meshStandardMaterial color="#ffffff" />

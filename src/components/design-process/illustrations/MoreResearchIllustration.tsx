@@ -20,7 +20,6 @@ const AnimatedEnhancedMagnifyingGlass = () => {
 
   return (
     <group>
-      {/* Magnifying glass lens */}
       <Torus
         ref={glassRef}
         args={[0.7, 0.08, 16, 32]}
@@ -29,13 +28,11 @@ const AnimatedEnhancedMagnifyingGlass = () => {
         <meshStandardMaterial color="#ffffff" metalness={0.8} roughness={0.2} />
       </Torus>
       
-      {/* Handle */}
       <mesh position={[0.6, -0.6, 0]} rotation={[0, 0, Math.PI / 4]}>
         <cylinderGeometry args={[0.04, 0.04, 0.5]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
       
-      {/* Plus sign */}
       <group ref={plusRef} position={[0, 0, 0.1]}>
         <Box args={[0.3, 0.05, 0.05]}>
           <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.3} />

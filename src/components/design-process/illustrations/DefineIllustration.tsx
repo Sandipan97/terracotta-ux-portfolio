@@ -21,18 +21,15 @@ const AnimatedPencil = () => {
 
   return (
     <group>
-      {/* Pencil body */}
       <mesh ref={pencilRef} position={[0, 0, 0]}>
         <cylinderGeometry args={[0.1, 0.1, 1.5]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
       
-      {/* Pencil tip */}
       <Cone ref={tipRef} args={[0.1, 0.3]} position={[0, 0.9, 0]}>
         <meshStandardMaterial color="#ffffff" />
       </Cone>
       
-      {/* Eraser */}
       <mesh position={[0, -0.9, 0]}>
         <cylinderGeometry args={[0.12, 0.12, 0.2]} />
         <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.1} />
