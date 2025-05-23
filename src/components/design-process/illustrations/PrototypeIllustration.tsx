@@ -1,79 +1,59 @@
 
-import { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Box, RoundedBox } from '@react-three/drei';
-import { Mesh } from 'three';
-
-const AnimatedScreen = () => {
-  const screenRef = useRef<Mesh>(null);
-  const standRef = useRef<Mesh>(null);
-  const elementsRef = useRef<Mesh[]>([]);
-  
-  useFrame((state) => {
-    if (screenRef.current) {
-      screenRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-    }
-    if (standRef.current) {
-      standRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-    }
-    
-    elementsRef.current.forEach((element, index) => {
-      if (element) {
-        element.scale.x = 1 + Math.sin(state.clock.elapsedTime * 2 + index) * 0.1;
-      }
-    });
-  });
-
-  return (
-    <group>
-      <RoundedBox ref={screenRef} args={[1.2, 0.8, 0.05]} radius={0.05} position={[0, 0.2, 0]}>
-        <meshStandardMaterial color="#ffffff" />
-      </RoundedBox>
-      
-      <group position={[0, 0.2, 0.03]}>
-        <Box 
-          ref={(el) => el && (elementsRef.current[0] = el)}
-          args={[0.4, 0.1, 0.01]} 
-          position={[-0.2, 0.2, 0]}
-        >
-          <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.2} />
-        </Box>
-        <Box 
-          ref={(el) => el && (elementsRef.current[1] = el)}
-          args={[0.6, 0.08, 0.01]} 
-          position={[0.1, 0, 0]}
-        >
-          <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.2} />
-        </Box>
-        <Box 
-          ref={(el) => el && (elementsRef.current[2] = el)}
-          args={[0.3, 0.06, 0.01]} 
-          position={[-0.3, -0.2, 0]}
-        >
-          <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.2} />
-        </Box>
-      </group>
-      
-      <mesh ref={standRef} position={[0, -0.6, 0]}>
-        <cylinderGeometry args={[0.15, 0.15, 0.3]} />
-        <meshStandardMaterial color="#ffffff" />
-      </mesh>
-      
-      <mesh position={[0, -0.8, 0]}>
-        <cylinderGeometry args={[0.3, 0.3, 0.05]} />
-        <meshStandardMaterial color="#ffffff" />
-      </mesh>
-    </group>
-  );
-};
-
 const PrototypeIllustration = () => {
   return (
-    <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
-      <ambientLight intensity={0.6} />
-      <pointLight position={[2, 2, 2]} intensity={0.8} />
-      <AnimatedScreen />
-    </Canvas>
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      {/* Monitor/screen */}
+      <rect 
+        x="20" 
+        y="25" 
+        width="50" 
+        height="35" 
+        fill="currentColor" 
+        opacity="0.1" 
+        rx="3"
+        className="animate-pulse"
+      />
+      <rect 
+        x="22" 
+        y="27" 
+        width="46" 
+        height="31" 
+        fill="none" 
+        stroke="currentColor" 
+        strokeWidth="2" 
+        rx="2"
+      />
+      
+      {/* Screen content - wireframe elements */}
+      <rect x="26" y="32" width="12" height="6" fill="currentColor" opacity="0.3"/>
+      <rect x="42" y="32" width="20" height="3" fill="currentColor" opacity="0.2"/>
+      <rect x="42" y="37" width="16" height="3" fill="currentColor" opacity="0.2"/>
+      
+      <rect x="26" y="44" width="36" height="8" fill="currentColor" opacity="0.15"/>
+      <rect x="28" y="46" width="8" height="4" fill="currentColor" opacity="0.4" className="animate-pulse"/>
+      <rect x="38" y="46" width="8" height="4" fill="currentColor" opacity="0.4" className="animate-pulse" style={{animationDelay: '0.3s'}}/>
+      <rect x="48" y="46" width="8" height="4" fill="currentColor" opacity="0.4" className="animate-pulse" style={{animationDelay: '0.6s'}}/>
+      
+      {/* Stand */}
+      <rect x="43" y="60" width="4" height="8" fill="currentColor" opacity="0.6"/>
+      <rect x="35" y="68" width="20" height="3" fill="currentColor" opacity="0.4" rx="1"/>
+      
+      {/* Building blocks/tools around */}
+      <rect x="10" y="75" width="8" height="8" fill="currentColor" opacity="0.3" rx="1"/>
+      <rect x="80" y="15" width="8" height="8" fill="currentColor" opacity="0.3" rx="1"/>
+      <rect x="75" y="75" width="8" height="8" fill="currentColor" opacity="0.3" rx="1"/>
+      
+      {/* Connecting lines showing iteration */}
+      <path d="M 15 50 Q 10 45 15 40" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.4" markerEnd="url(#arrowhead)"/>
+      <path d="M 85 50 Q 90 55 85 60" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.4" markerEnd="url(#arrowhead)"/>
+      
+      {/* Arrow marker definition */}
+      <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="currentColor" opacity="0.4"/>
+        </marker>
+      </defs>
+    </svg>
   );
 };
 
