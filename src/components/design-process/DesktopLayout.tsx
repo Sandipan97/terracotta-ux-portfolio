@@ -22,24 +22,28 @@ const DesktopLayout = ({
   return (
     <div className="hidden md:block">
       <motion.div 
-        className="flex items-center justify-center gap-4 lg:gap-8"
+        className="flex items-start justify-center gap-4 lg:gap-8"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
       >
         {designPhases.map((phase, index) => (
-          <div key={phase.id} className="flex items-center">
-            <DesignPhaseItem 
-              phase={phase}
-              phaseVariants={phaseVariants}
-              iconVariants={iconVariants}
-            />
+          <div key={phase.id} className="flex items-start">
+            <div className="flex flex-col items-center">
+              <DesignPhaseItem 
+                phase={phase}
+                phaseVariants={phaseVariants}
+                iconVariants={iconVariants}
+              />
+            </div>
 
             {index < designPhases.length - 1 && (
-              <ProcessArrow 
-                arrowVariants={arrowVariants}
-                index={index}
-              />
+              <div className="flex items-center mt-10">
+                <ProcessArrow 
+                  arrowVariants={arrowVariants}
+                  index={index}
+                />
+              </div>
             )}
           </div>
         ))}
