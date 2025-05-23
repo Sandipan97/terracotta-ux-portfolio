@@ -775,7 +775,7 @@ const ProjectDetail = () => {
           <motion.div 
             style={{ 
               scale: heroScale,
-              y: headerY * 0.3
+              y: headerY
             }}
             className="absolute inset-0"
           >
