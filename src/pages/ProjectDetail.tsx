@@ -2,11 +2,21 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { useEffect } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { EditableImage } from '@/components/ui/editable-image';
+import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+
+// Import all project components
+import ProjectHero from '@/components/project/ProjectHero';
+import ProjectOverview from '@/components/project/ProjectOverview';
+import UserPersonas from '@/components/project/UserPersonas';
+import UserFlows from '@/components/project/UserFlows';
+import ResearchMethods from '@/components/project/ResearchMethods';
+import DesignProcess from '@/components/project/DesignProcess';
+import Ideation from '@/components/project/Ideation';
+import Prototyping from '@/components/project/Prototyping';
+import ProjectResults from '@/components/project/ProjectResults';
+import ProjectTestimonial from '@/components/project/ProjectTestimonial';
+import ProjectNavigation from '@/components/project/ProjectNavigation';
 
 type Project = {
   id: number;
@@ -20,6 +30,7 @@ type Project = {
   overview?: string;
   challenge?: string;
   solution?: string;
+  projectType?: string[];
   userPersona?: {
     title: string;
     description: string;
@@ -68,6 +79,7 @@ const projects: Project[] = [
     client: "Procter & Gamble",
     duration: "6 months",
     role: "Lead UX Designer & Accessibility Specialist",
+    projectType: ["B2B", "Enterprise", "Accessibility"],
     description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
     overview: "P&G's data logging system was critical for monitoring manufacturing processes but suffered from poor usability and accessibility issues. This project involved a complete redesign focused on heuristic principles and accessibility standards.",
     challenge: "The existing system had high error rates, steep learning curve, and was not accessible to users with disabilities. It needed to maintain complex functionality while becoming significantly easier to use.",
@@ -165,6 +177,7 @@ const projects: Project[] = [
     client: "Welbilt",
     duration: "8 months",
     role: "Senior UX Designer & Design System Lead",
+    projectType: ["Design System", "Enterprise", "UX Design"],
     description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
     overview: "Welbilt's Kitchen Connect platform needed a consistent design language across its expanding ecosystem of digital products. I led the creation of a scalable design system and platform revamp.",
     challenge: "The platform had grown organically with inconsistent UI patterns, making it difficult to maintain and scale. Different teams were creating divergent experiences that confused users.",
@@ -257,6 +270,7 @@ const projects: Project[] = [
     client: "LG Electronics",
     duration: "10 months",
     role: "Lead UX Designer for AR Experiences",
+    projectType: ["Augmented Reality", "Interactive", "UX Design"],
     description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
     overview: "LG's Cyclops project aimed to revolutionize product manuals by using AR to provide contextual, interactive guidance for home appliances. The goal was to reduce support calls and improve the user experience.",
     challenge: "Traditional product manuals are often ignored by users, leading to improper use, maintenance issues, and high support costs. AR interfaces present unique design challenges in spatial interaction and cognitive load.",
@@ -349,6 +363,7 @@ const projects: Project[] = [
     client: "Merritt Innovation Solutions & Indian Institute of Science",
     duration: "12 months",
     role: "Lead UX Researcher & Medical Device Interface Designer",
+    projectType: ["Medical", "Biomedical", "Interface Design"],
     description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
     overview: "This collaborative project with IISc aimed to create an affordable, user-friendly portable oxygen concentrator for use in both clinical settings and home care, with a focus on usability for non-technical users.",
     challenge: "Medical devices often have interfaces designed by engineers for engineers, making them difficult for patients and caregivers to use safely and effectively, particularly in emergency situations.",
@@ -451,6 +466,7 @@ const projects: Project[] = [
     client: "Indian Institute of Science (IISc)",
     duration: "9 months",
     role: "Lead UX Designer & Medical Device Interface Specialist",
+    projectType: ["Medical", "Biomedical", "IoT"],
     description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
     overview: "The Dripometer project aimed to create a reliable, user-friendly monitoring system for intravenous drips that could alert medical staff to irregularities while being accessible to both professional and home caregivers.",
     challenge: "IV drips are critical medical interventions, but monitoring them is often manual and error-prone. Creating a device that could automatically monitor flow rates without disrupting existing medical workflows was a significant challenge.",
@@ -543,6 +559,7 @@ const projects: Project[] = [
     client: "HCL Technologies",
     duration: "7 months",
     role: "Senior UX Designer & Mobile App Specialist",
+    projectType: ["Mobile", "IoT", "Agricultural"],
     description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
     overview: "This project aimed to create an accessible mobile application that empowers farmers with data-driven insights to optimize crop yield, reduce resource waste, and implement sustainable farming practices.",
     challenge: "Many farmers in developing regions have limited technical knowledge but could greatly benefit from agricultural technology. The app needed to present complex data in an accessible way while functioning reliably in rural areas with poor connectivity.",
@@ -635,6 +652,7 @@ const projects: Project[] = [
     client: "Indian Institute of Science (IISc)",
     duration: "5 months",
     role: "UX Designer & Educational Content Developer",
+    projectType: ["Educational", "Interactive", "Kids"],
     description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
     overview: "The Toy Anatomy project was designed to make human anatomy education engaging and accessible for children aged 6-12, combining physical toys with digital components to create an immersive learning experience.",
     challenge: "Teaching complex anatomical concepts to young children requires simplification without sacrificing accuracy. The challenge was creating a system that was entertaining enough to maintain engagement while delivering meaningful educational content.",
@@ -735,14 +753,13 @@ const ProjectDetail = () => {
   const { id } = useParams();
   const projectId = parseInt(id || "1");
   const navigate = useNavigate();
+  const contentRef = useRef<HTMLDivElement>(null);
   
   const project = projects.find(p => p.id === projectId);
   const nextProject = projects.find(p => p.id === projectId + 1) || projects[0];
   
   const { scrollYProgress } = useScroll();
   const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1]);
-  const headerY = useTransform(scrollYProgress, [0, 0.3], [0, 50]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -750,6 +767,10 @@ const ProjectDetail = () => {
 
   const goBack = () => {
     navigate(-1);
+  };
+
+  const scrollToContent = () => {
+    contentRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   if (!project) {
@@ -769,245 +790,32 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       
-      <main className="pt-20">
-        {/* Full-width Hero Image Section with Parallax */}
-        <section className="w-full relative h-[70vh] overflow-hidden">
-          <motion.div 
-            style={{ 
-              scale: heroScale,
-              y: headerY
-            }}
-            className="absolute inset-0"
-          >
-            <EditableImage 
-              src={project.image} 
-              alt={project.title}
-              className="w-full h-full object-cover"
-              fallbackSrc="/placeholder.svg"
-            />
-          </motion.div>
+      <main className="pt-16 md:pt-20">
+        {/* Hero Section */}
+        <ProjectHero 
+          project={project}
+          heroScale={heroScale}
+          onBack={goBack}
+          onScrollToContent={scrollToContent}
+        />
 
-          {/* Back button */}
-          <motion.div 
-            className="absolute top-4 left-4 z-20"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <Button 
-              onClick={goBack}
-              variant="ghost" 
-              className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-300"
-              size="icon"
-            >
-              <ArrowLeft size={20} />
-            </Button>
-          </motion.div>
-        </section>
+        {/* Content Anchor */}
+        <div ref={contentRef}></div>
 
-        {/* Dark Terracotta Title and Project Details Tile */}
-        <section className="py-12 bg-gradient-to-br from-bengali-terracotta to-bengali-red text-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-5xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="text-white/80 mb-2 text-lg">
-                  {project.category}
-                </div>
-                <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                  {project.title}
-                </h1>
-                <p className="text-lg">
-                  {project.description}
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                  {project.client && (
-                    <div>
-                      <h3 className="text-white/80 text-sm mb-1">Client</h3>
-                      <p className="font-medium">{project.client}</p>
-                    </div>
-                  )}
-                  
-                  {project.duration && (
-                    <div>
-                      <h3 className="text-white/80 text-sm mb-1">Duration</h3>
-                      <p className="font-medium">{project.duration}</p>
-                    </div>
-                  )}
-                  
-                  {project.role && (
-                    <div>
-                      <h3 className="text-white/80 text-sm mb-1">My Role</h3>
-                      <p className="font-medium">{project.role}</p>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Project Details */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-5xl mx-auto">
-              {project.overview && (
-                <motion.div 
-                  className="mb-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <h2 className="font-heading text-2xl font-bold text-bengali-dark mb-4">
-                    Overview
-                  </h2>
-                  <p className="text-bengali-dark/80">
-                    {project.overview}
-                  </p>
-                </motion.div>
-              )}
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                {project.challenge && (
-                  <motion.div 
-                    className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-white shadow-md backdrop-blur-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
-                      The Challenge
-                    </h3>
-                    <p className="text-bengali-dark/80">
-                      {project.challenge}
-                    </p>
-                  </motion.div>
-                )}
-                
-                {project.solution && (
-                  <motion.div 
-                    className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-white shadow-md backdrop-blur-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
-                      The Solution
-                    </h3>
-                    <p className="text-bengali-dark/80">
-                      {project.solution}
-                    </p>
-                  </motion.div>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Project Overview */}
+        <ProjectOverview project={project} />
         
         {/* User Personas & Flows */}
         {(project.userPersona || project.userFlows) && (
-          <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+          <section className="py-12 xs:py-16 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-5xl mx-auto">
-                
                 {project.userPersona && (
-                  <div className="mb-16">
-                    <motion.h2 
-                      className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      User Personas
-                    </motion.h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {project.userPersona.map((persona, index) => (
-                        <motion.div 
-                          key={index} 
-                          className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
-                          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-                        >
-                          <div className="mb-4 h-48 overflow-hidden rounded-lg">
-                            <EditableImage 
-                              src={persona.image || 'https://images.unsplash.com/photo-1494172892981-ce47ca2da1fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'} 
-                              alt={persona.title}
-                              className="w-full h-full object-cover"
-                              fallbackSrc="/placeholder.svg"
-                            />
-                          </div>
-                          <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-2">
-                            {persona.title}
-                          </h3>
-                          <p className="text-bengali-dark/80">
-                            {persona.description}
-                          </p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
+                  <UserPersonas userPersona={project.userPersona} />
                 )}
                 
                 {project.userFlows && (
-                  <div>
-                    <motion.h2 
-                      className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      User Flows & Journeys
-                    </motion.h2>
-                    {project.userFlows.map((flow, index) => (
-                      <motion.div 
-                        key={index} 
-                        className="mb-10 last:mb-0"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.2 }}
-                      >
-                        <div className="flex flex-col md:flex-row gap-8 items-center">
-                          <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm">
-                              <h3 className="font-heading text-2xl font-semibold text-bengali-dark mb-4">
-                                {flow.title}
-                              </h3>
-                              <p className="text-bengali-dark/80">
-                                {flow.description}
-                              </p>
-                            </div>
-                          </div>
-                          <motion.div 
-                            className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <div className="rounded-lg overflow-hidden shadow-md">
-                              <EditableImage 
-                                src={flow.image || '/placeholder.svg'} 
-                                alt={flow.title}
-                                className="w-full h-auto"
-                                fallbackSrc="/placeholder.svg"
-                              />
-                            </div>
-                          </motion.div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
+                  <UserFlows userFlows={project.userFlows} />
                 )}
               </div>
             </div>
@@ -1016,349 +824,36 @@ const ProjectDetail = () => {
         
         {/* Research Methods */}
         {project.researchMethods && (
-          <section className="py-16">
-            <div className="container mx-auto px-4 md:px-6">
-              <motion.h2 
-                className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                Research Methods
-              </motion.h2>
-              
-              <div className="max-w-5xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {project.researchMethods.map((method, index) => (
-                    <motion.div 
-                      key={index} 
-                      className="bg-white p-6 rounded-lg shadow-md border-l-4 border-bengali-terracotta backdrop-blur-sm border border-white/40"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-                    >
-                      <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
-                        {method.title}
-                      </h3>
-                      <p className="text-bengali-dark/80 mb-4">
-                        {method.description}
-                      </p>
-                      {method.image && (
-                        <motion.div 
-                          className="rounded-lg overflow-hidden"
-                          whileHover={{ scale: 1.02 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <EditableImage 
-                            src={method.image} 
-                            alt={method.title}
-                            className="w-full h-auto"
-                            fallbackSrc="/placeholder.svg"
-                          />
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
+          <ResearchMethods researchMethods={project.researchMethods} />
         )}
         
         {/* Design Process */}
         {project.process && (
-          <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-            <div className="container mx-auto px-4 md:px-6">
-              <motion.h2 
-                className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                Design Process
-              </motion.h2>
-              
-              <div className="max-w-5xl mx-auto">
-                {project.process.map((step, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="mb-16 last:mb-0"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2 }}
-                  >
-                    <div className="flex flex-col md:flex-row gap-8 items-center">
-                      <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                        <div className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm">
-                          <div className="text-bengali-terracotta font-medium mb-2">
-                            Step {index + 1}
-                          </div>
-                          <h3 className="font-heading text-2xl font-semibold text-bengali-dark mb-4">
-                            {step.title}
-                          </h3>
-                          <p className="text-bengali-dark/80">
-                            {step.description}
-                          </p>
-                        </div>
-                      </div>
-                      <motion.div 
-                        className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                          <EditableImage 
-                            src={step.image || '/placeholder.svg'} 
-                            alt={step.title}
-                            className="w-full h-auto"
-                            fallbackSrc="/placeholder.svg"
-                          />
-                        </div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <DesignProcess process={project.process} />
         )}
         
         {/* Ideation */}
         {project.ideation && (
-          <section className="py-16">
-            <div className="container mx-auto px-4 md:px-6">
-              <motion.h2 
-                className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                Ideation
-              </motion.h2>
-              
-              <div className="max-w-5xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {project.ideation.map((item, index) => (
-                    <motion.div 
-                      key={index} 
-                      className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-                    >
-                      <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-4">
-                        {item.title}
-                      </h3>
-                      <p className="text-bengali-dark/80 mb-4">
-                        {item.description}
-                      </p>
-                      {item.image && (
-                        <motion.div 
-                          className="rounded-lg overflow-hidden"
-                          whileHover={{ scale: 1.02 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <EditableImage 
-                            src={item.image} 
-                            alt={item.title}
-                            className="w-full h-auto"
-                            fallbackSrc="/placeholder.svg"
-                          />
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
+          <Ideation ideation={project.ideation} />
         )}
         
         {/* Prototyping */}
         {project.prototyping && (
-          <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-            <div className="container mx-auto px-4 md:px-6">
-              <motion.h2 
-                className="font-heading text-3xl font-bold text-bengali-dark mb-10 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                Prototyping
-              </motion.h2>
-              
-              <div className="max-w-5xl mx-auto">
-                {project.prototyping.map((proto, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="mb-16 last:mb-0"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2 }}
-                  >
-                    <div className="flex flex-col md:flex-row gap-8 items-center">
-                      <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                        <div className="bg-white p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm">
-                          <h3 className="font-heading text-2xl font-semibold text-bengali-dark mb-4">
-                            {proto.title}
-                          </h3>
-                          <p className="text-bengali-dark/80">
-                            {proto.description}
-                          </p>
-                        </div>
-                      </div>
-                      <motion.div 
-                        className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                          <EditableImage 
-                            src={proto.image || '/placeholder.svg'} 
-                            alt={proto.title}
-                            className="w-full h-auto"
-                            fallbackSrc="/placeholder.svg"
-                          />
-                        </div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <Prototyping prototyping={project.prototyping} />
         )}
         
         {/* Results */}
-        <section className="py-16 bg-gradient-to-br from-bengali-terracotta to-bengali-red text-white relative overflow-hidden">
-          {/* Animated background elements */}
-          <motion.div 
-            className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-white/5 filter blur-xl"
-            animate={{ 
-              y: [0, 20, 0],
-              x: [0, -10, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 10,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div 
-            className="absolute -bottom-40 -left-20 w-80 h-80 rounded-full bg-bengali-mustard/10 filter blur-xl"
-            animate={{ 
-              y: [0, -30, 0],
-              x: [0, 10, 0],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 15,
-              ease: "easeInOut",
-              delay: 1
-            }}
-          />
-
-          <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="font-heading text-3xl font-bold mb-8">
-                Results & Impact
-              </h2>
-              <p className="text-white/90 text-xl max-w-3xl mx-auto">
-                {project.results}
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        {project.results && (
+          <ProjectResults results={project.results} />
+        )}
         
         {/* Testimonial */}
         {project.testimonial && (
-          <section className="py-16">
-            <div className="container mx-auto px-4 md:px-6">
-              <motion.div 
-                className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg border-l-4 border-bengali-mustard backdrop-blur-sm border border-white/60"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ 
-                  boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.1)",
-                  y: -5
-                }}
-              >
-                <blockquote className="text-bengali-dark/80 text-lg italic mb-6">
-                  "{project.testimonial.quote}"
-                </blockquote>
-                <div className="flex items-center">
-                  <Avatar className="w-12 h-12 border-2 border-bengali-terracotta/20">
-                    <AvatarImage src={project.testimonial.image || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"} alt={project.testimonial.author} />
-                    <AvatarFallback className="bg-bengali-terracotta/20 text-bengali-terracotta font-bold">
-                      {project.testimonial.author.charAt(0)}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="ml-4">
-                    <div className="font-semibold text-bengali-dark">
-                      {project.testimonial.author}
-                    </div>
-                    <div className="text-bengali-dark/70 text-sm">
-                      {project.testimonial.title}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </section>
+          <ProjectTestimonial testimonial={project.testimonial} />
         )}
         
-        {/* Next Project */}
-        <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <motion.div
-                whileHover={{ x: -3 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Link to="/projects" className="flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors mb-4 md:mb-0">
-                  <ArrowLeft size={16} className="mr-2" /> Back to Projects
-                </Link>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ x: 3 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Link 
-                  to={`/projects/${nextProject.id}`}
-                  className="flex items-center group"
-                >
-                  <div className="text-right mr-4">
-                    <div className="text-sm text-bengali-dark/70">Next Project</div>
-                    <div className="font-medium text-bengali-dark group-hover:text-bengali-terracotta transition-colors">
-                      {nextProject.title.length > 30 ? nextProject.title.substring(0, 30) + '...' : nextProject.title}
-                    </div>
-                  </div>
-                  <ArrowRight size={16} className="text-bengali-terracotta group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+        {/* Navigation */}
+        <ProjectNavigation nextProject={nextProject} />
       </main>
       
       <Footer />
