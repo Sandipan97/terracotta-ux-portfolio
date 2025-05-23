@@ -794,7 +794,6 @@ const ProjectDetail = () => {
         {/* Hero Section */}
         <ProjectHero 
           project={project}
-          heroScale={heroScale}
           onBack={goBack}
           onScrollToContent={scrollToContent}
         />
