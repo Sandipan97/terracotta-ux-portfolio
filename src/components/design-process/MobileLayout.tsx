@@ -1,7 +1,6 @@
 
 import { motion } from 'framer-motion';
 import { designPhases } from '@/data/designPhases';
-import DesignPhaseItem from './DesignPhaseItem';
 
 interface MobileLayoutProps {
   isInView: boolean;
@@ -39,14 +38,18 @@ const MobileLayout = ({
                 w-14 h-14 rounded-full ${phase.color} 
                 flex items-center justify-center shadow-lg mb-3
                 group-hover:shadow-xl transition-shadow duration-300 overflow-hidden
+                relative
               `}
               variants={iconVariants}
             >
               <motion.div
+                className="w-full h-full flex items-center justify-center"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               >
-                {phase.illustration}
+                <div className="w-8 h-8">
+                  {phase.illustration}
+                </div>
               </motion.div>
             </motion.div>
             

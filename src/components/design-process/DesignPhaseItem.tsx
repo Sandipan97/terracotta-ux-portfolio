@@ -21,14 +21,18 @@ const DesignPhaseItem = ({ phase, phaseVariants, iconVariants }: DesignPhaseItem
           w-16 h-16 lg:w-20 lg:h-20 rounded-full ${phase.color} 
           flex items-center justify-center shadow-lg mb-3
           group-hover:shadow-xl transition-shadow duration-300 overflow-hidden
+          relative
         `}
         variants={iconVariants}
       >
         <motion.div
+          className="w-full h-full flex items-center justify-center"
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
         >
-          {phase.illustration}
+          <div className="w-10 h-10 lg:w-12 lg:h-12">
+            {phase.illustration}
+          </div>
         </motion.div>
       </motion.div>
       
