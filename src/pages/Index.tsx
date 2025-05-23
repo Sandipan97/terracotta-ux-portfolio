@@ -1,6 +1,7 @@
 
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import DesignProcess from '@/components/DesignProcess';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import AboutPreview from '@/components/AboutPreview';
 import Skills from '@/components/Skills';
@@ -16,6 +17,7 @@ const HomePage = () => {
         <Navbar />
         <Hero />
       </div>
+      <DesignProcess />
       <FeaturedProjects />
       <AboutPreview />
       <Skills />
