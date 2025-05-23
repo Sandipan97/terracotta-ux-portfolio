@@ -1,10 +1,10 @@
-
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { ArrowRight, Filter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { EditableImage } from './ui/editable-image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 type Project = {
   id: number;
@@ -88,6 +88,8 @@ const categories = ["All", ...Array.from(new Set(allProjects.map(project => proj
 const FeaturedProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const filteredProjects = selectedCategory === "All" 
     ? allProjects 
@@ -99,54 +101,71 @@ const FeaturedProjects = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     show: { 
       y: 0, 
       opacity: 1,
       transition: {
         type: "spring",
-        damping: 15
+        damping: 20,
+        stiffness: 100
       }
     }
   };
 
   return (
-    <section id="featured-projects" className="py-20 bg-white relative overflow-hidden">
+    <section id="featured-projects" className="py-20 bg-white relative overflow-hidden" ref={ref}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-bengali-mustard/10 filter blur-3xl animate-[pulse_15s_ease-in-out_infinite]"></div>
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-bengali-terracotta/10 filter blur-3xl animate-[pulse_20s_ease-in-out_infinite]"></div>
+        <motion.div 
+          className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-bengali-mustard/10 filter blur-3xl"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-bengali-terracotta/10 filter blur-3xl"
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{ 
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
       </div>
 
       <motion.div 
         className="container mx-auto px-4 md:px-6 z-10 relative"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+        variants={containerVariants}
       >
         <div className="text-center mb-12">
           <motion.h2 
             className="font-heading text-3xl md:text-4xl font-bold text-bengali-dark mb-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            variants={itemVariants}
           >
             Featured Projects
           </motion.h2>
           <motion.p 
             className="text-bengali-dark/70 max-w-2xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            variants={itemVariants}
           >
             A showcase of my UX design and research work across various industries and technologies
           </motion.p>
@@ -155,30 +174,35 @@ const FeaturedProjects = () => {
         {/* Filter Controls */}
         <motion.div 
           className="flex flex-wrap justify-center items-center gap-3 mb-12"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          variants={itemVariants}
         >
-          <div className="flex items-center bg-bengali-terracotta/5 backdrop-blur-sm p-2 rounded-full">
+          <div className="flex items-center bg-bengali-terracotta/5 backdrop-blur-sm p-2 rounded-full shadow-lg border border-white/30">
             <Filter size={16} className="text-bengali-terracotta mr-2 ml-3" />
             <span className="text-sm font-medium text-bengali-dark mr-3">Filter:</span>
             
-            {categories.map((category) => (
-              <Button
+            {categories.map((category, index) => (
+              <motion.div
                 key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                className={`
-                  rounded-full text-sm px-4 py-1 transition-all duration-300 
-                  ${selectedCategory === category 
-                    ? "bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white" 
-                    : "border-bengali-terracotta/30 text-bengali-dark hover:bg-bengali-terracotta/10"
-                  }
-                `}
-                onClick={() => setSelectedCategory(category)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.3 }}
               >
-                {category}
-              </Button>
+                <Button
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  className={`
+                    rounded-full text-sm px-4 py-1 transition-all duration-300 
+                    ${selectedCategory === category 
+                      ? "bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg" 
+                      : "border-bengali-terracotta/30 text-bengali-dark hover:bg-bengali-terracotta/10"
+                    }
+                  `}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </Button>
+              </motion.div>
             ))}
           </div>
         </motion.div>
@@ -186,45 +210,74 @@ const FeaturedProjects = () => {
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
         >
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <motion.div 
               key={project.id}
-              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 backdrop-blur-sm bg-white/60 border border-white/20"
+              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 backdrop-blur-sm bg-white/80 border border-white/40"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
               variants={itemVariants}
               whileHover={{ 
-                y: -5,
-                transition: { duration: 0.2 }
+                y: -8,
+                transition: { duration: 0.3, ease: "easeOut" }
               }}
+              layout
             >
               <div className="relative h-56 overflow-hidden">
-                <EditableImage 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-bengali-terracotta/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
-                  <Link to={`/projects/${project.id}`}>
-                    <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform group-hover:scale-105">
-                      View Case Study
-                    </Button>
-                  </Link>
-                </div>
-                <div className="absolute top-4 left-4 bg-bengali-mustard text-bengali-dark text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+                <motion.div
+                  className="relative w-full h-full"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <EditableImage 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                
+                {/* Overlay with enhanced animation */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/90 to-bengali-red/90 flex items-center justify-center backdrop-blur-sm"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ 
+                    opacity: hoveredProject === project.id ? 1 : 0,
+                    scale: hoveredProject === project.id ? 1 : 0.8
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ 
+                      opacity: hoveredProject === project.id ? 1 : 0,
+                      y: hoveredProject === project.id ? 0 : 20
+                    }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
+                    <Link to={`/projects/${project.id}`}>
+                      <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        View Case Study
+                      </Button>
+                    </Link>
+                  </motion.div>
+                </motion.div>
+                
+                <div className="absolute top-4 left-4 bg-bengali-mustard text-bengali-dark text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-lg">
                   {project.category}
                 </div>
                 {project.date && (
-                  <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm text-bengali-dark text-xs px-3 py-1 rounded-full">
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-bengali-dark text-xs px-3 py-1 rounded-full shadow-lg">
                     {new Date(project.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
                   </div>
                 )}
               </div>
-              <div className="p-6">
+              
+              <motion.div 
+                className="p-6"
+                whileHover={{ backgroundColor: "rgba(249, 211, 66, 0.05)" }}
+                transition={{ duration: 0.3 }}
+              >
                 <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-2 line-clamp-2">
                   {project.title}
                 </h3>
@@ -232,34 +285,56 @@ const FeaturedProjects = () => {
                   {project.description}
                 </p>
                 {project.results && (
-                  <div className="text-bengali-red font-medium mb-4">
+                  <motion.div 
+                    className="text-bengali-red font-medium mb-4"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
                     Result: {project.results}
-                  </div>
+                  </motion.div>
                 )}
                 <Link 
                   to={`/projects/${project.id}`}
                   className="inline-flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors font-medium group"
                 >
-                  View Details 
-                  <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <motion.span
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    View Details 
+                  </motion.span>
+                  <motion.div
+                    whileHover={{ x: 3 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ArrowRight size={16} className="ml-2" />
+                  </motion.div>
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
 
         <motion.div 
           className="mt-12 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          variants={itemVariants}
         >
           <Link to="/projects">
-            <Button className="bg-bengali-terracotta hover:bg-bengali-mustard text-white hover:text-bengali-dark transition-all duration-300 group">
-              View All Projects 
-              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button className="bg-bengali-terracotta hover:bg-bengali-mustard text-white hover:text-bengali-dark transition-all duration-300 group shadow-lg hover:shadow-xl">
+                View All Projects 
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ArrowRight size={16} className="ml-2" />
+                </motion.div>
+              </Button>
+            </motion.div>
           </Link>
         </motion.div>
       </motion.div>

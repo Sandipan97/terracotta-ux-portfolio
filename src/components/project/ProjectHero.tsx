@@ -19,103 +19,155 @@ type Project = {
 
 interface ProjectHeroProps {
   project: Project;
-  heroScale: any;
   onBack: () => void;
   onScrollToContent: () => void;
 }
 
-const ProjectHero = ({ project, heroScale, onBack, onScrollToContent }: ProjectHeroProps) => {
+const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) => {
   return (
-    <section className="w-full relative h-[50vh] xs:h-[60vh] md:h-[90vh] overflow-hidden">
-      {/* Back button */}
-      <motion.div 
-        className="absolute top-4 left-4 z-30"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        <Button 
-          onClick={onBack}
-          variant="secondary" 
-          className="bg-white/80 backdrop-blur-sm text-bengali-dark hover:bg-white hover:text-bengali-terracotta transition-all duration-300"
-          size="icon"
+    <>
+      {/* Hero Image Section - Half Height */}
+      <section className="w-full relative h-[40vh] xs:h-[45vh] md:h-[50vh] overflow-hidden">
+        {/* Back button */}
+        <motion.div 
+          className="absolute top-4 left-4 z-30"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <ArrowLeft size={20} />
-        </Button>
-      </motion.div>
-
-      {/* Parallax Hero Image */}
-      <motion.div 
-        style={{ scale: heroScale }}
-        className="absolute inset-0 z-10"
-      >
-        <EditableImage 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover"
-          fallbackSrc="/placeholder.svg"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60 z-10"></div>
-      </motion.div>
-
-      {/* Project Title & Info - Centered in the Hero */}
-      <div className="absolute inset-0 z-20 flex flex-col justify-center">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="max-w-4xl mx-auto text-center text-white"
+          <Button 
+            onClick={onBack}
+            variant="secondary" 
+            className="bg-white/80 backdrop-blur-sm text-bengali-dark hover:bg-white hover:text-bengali-terracotta transition-all duration-300"
+            size="icon"
           >
-            <div className="flex flex-wrap gap-2 mb-4 justify-center">
+            <ArrowLeft size={20} />
+          </Button>
+        </motion.div>
+
+        {/* Hero Image */}
+        <motion.div 
+          className="absolute inset-0 z-10"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          <EditableImage 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover"
+            fallbackSrc="/placeholder.svg"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 z-10"></div>
+        </motion.div>
+      </section>
+
+      {/* Information Banner Section */}
+      <section className="w-full bg-white py-8 xs:py-10 md:py-12 border-b border-gray-100">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-6xl mx-auto"
+          >
+            {/* Project Type Chips */}
+            <div className="flex flex-wrap gap-2 mb-4 xs:mb-6 justify-center md:justify-start">
               {project.projectType?.map((type, index) => (
-                <Badge key={index} className="bg-white/20 text-white hover:bg-white hover:text-bengali-terracotta">
-                  {type}
-                </Badge>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                >
+                  <Badge className="bg-bengali-terracotta/10 text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white transition-all duration-300">
+                    {type}
+                  </Badge>
+                </motion.div>
               ))}
             </div>
 
-            <h1 className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow">
+            {/* Project Title */}
+            <motion.h1 
+              className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 xs:mb-6 text-bengali-dark text-center md:text-left"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
               {project.title}
-            </h1>
+            </motion.h1>
             
-            <p className="text-sm sm:text-base md:text-lg mb-6 max-w-3xl mx-auto">
+            {/* Project Description */}
+            <motion.p 
+              className="text-sm sm:text-base md:text-lg mb-6 xs:mb-8 text-bengali-dark/80 text-center md:text-left max-w-4xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               {project.description}
-            </p>
+            </motion.p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-8">
+            {/* Project Details Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 mb-8 xs:mb-10">
               {project.client && (
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 xs:p-4">
-                  <h3 className="text-white/80 text-xs xs:text-sm mb-1">Client</h3>
-                  <p className="font-medium text-sm xs:text-base">{project.client}</p>
-                </div>
+                <motion.div 
+                  className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 xs:p-5 rounded-lg border border-white/60 shadow-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                  whileHover={{ y: -2, boxShadow: "0 8px 25px -8px rgba(0, 0, 0, 0.1)" }}
+                >
+                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">Client</h3>
+                  <p className="font-semibold text-sm xs:text-base text-bengali-dark">{project.client}</p>
+                </motion.div>
               )}
               
               {project.duration && (
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 xs:p-4">
-                  <h3 className="text-white/80 text-xs xs:text-sm mb-1">Duration</h3>
-                  <p className="font-medium text-sm xs:text-base">{project.duration}</p>
-                </div>
+                <motion.div 
+                  className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 xs:p-5 rounded-lg border border-white/60 shadow-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  whileHover={{ y: -2, boxShadow: "0 8px 25px -8px rgba(0, 0, 0, 0.1)" }}
+                >
+                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">Duration</h3>
+                  <p className="font-semibold text-sm xs:text-base text-bengali-dark">{project.duration}</p>
+                </motion.div>
               )}
               
               {project.role && (
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 xs:p-4">
-                  <h3 className="text-white/80 text-xs xs:text-sm mb-1">My Role</h3>
-                  <p className="font-medium text-sm xs:text-base">{project.role}</p>
-                </div>
+                <motion.div 
+                  className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 xs:p-5 rounded-lg border border-white/60 shadow-sm sm:col-span-2 lg:col-span-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  whileHover={{ y: -2, boxShadow: "0 8px 25px -8px rgba(0, 0, 0, 0.1)" }}
+                >
+                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">My Role</h3>
+                  <p className="font-semibold text-sm xs:text-base text-bengali-dark">{project.role}</p>
+                </motion.div>
               )}
             </div>
             
-            <Button 
-              onClick={onScrollToContent}
-              className="backdrop-blur-sm bg-bengali-terracotta/90 hover:bg-bengali-terracotta"
+            {/* CTA Button */}
+            <motion.div 
+              className="text-center md:text-left"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
             >
-              View More <ChevronDown className="ml-1" />
-            </Button>
+              <Button 
+                onClick={onScrollToContent}
+                className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                size="lg"
+              >
+                View More Details <ChevronDown className="ml-2" />
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
