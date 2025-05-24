@@ -10,7 +10,10 @@ const DesktopNavigation = () => {
       <NavigationLinks />
       <ThemeToggle />
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <Button className="bg-bengali-red hover:bg-bengali-terracotta text-white shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-bengali-red-light dark:hover:bg-bengali-red">
+        <Button 
+          size="lg"
+          className="bg-bengali-red hover:bg-bengali-terracotta text-white shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-bengali-red-light dark:hover:bg-bengali-red font-medium"
+        >
           Download Resume
         </Button>
       </motion.div>

@@ -63,32 +63,32 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Enhanced Bengali color palette with dark mode variants
+				// Enhanced Bengali color palette with improved dark mode support
 				bengali: {
 					terracotta: {
-						DEFAULT: '#802f1f',
-						light: '#9a3b2a',
-						dark: '#5c221a'
+						DEFAULT: '#B85450', // Brighter for better contrast
+						light: '#D16B66',
+						dark: '#8B3E3A'
 					},
 					mustard: {
-						DEFAULT: '#F9D342',
-						light: '#fbd85d',
-						dark: '#e6c038'
+						DEFAULT: '#FFD93D', // More vibrant
+						light: '#FFE066',
+						dark: '#E6C234'
 					},
 					red: {
-						DEFAULT: '#A32929',
-						light: '#b83d3d',
-						dark: '#8a2121'
+						DEFAULT: '#C53030', // Better contrast
+						light: '#E53E3E',
+						dark: '#9C2626'
 					},
 					dark: {
-						DEFAULT: '#333333',
-						light: '#4a4a4a',
-						darker: '#1a1a1a'
+						DEFAULT: 'hsl(var(--foreground))',
+						light: 'hsl(var(--foreground))',
+						darker: 'hsl(var(--foreground))'
 					},
 					background: {
-						DEFAULT: '#D3cfC6',
-						light: '#e0ddd6',
-						dark: '#2a2a2a'
+						DEFAULT: 'hsl(var(--background))',
+						light: 'hsl(var(--muted))',
+						dark: 'hsl(var(--card))'
 					}
 				}
 			},
@@ -146,10 +146,9 @@ export default {
 				'heading': ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 				'display': ['Montserrat', 'serif']
 			},
-			// Enhanced background patterns for both light and dark modes
 			backgroundImage: {
-				'subtle-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D3CFC6' fill-opacity='0.15' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='3'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/svg%3E\")",
-				'subtle-pattern-dark': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23404040' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='3'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/svg%3E\")",
+				'subtle-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D3CFC6' fill-opacity='0.08' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E\")",
+				'subtle-pattern-dark': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23404040' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E\")",
 			}
 		}
 	},

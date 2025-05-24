@@ -7,24 +7,24 @@ import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-sm hover:shadow-md",
   {
     variants: {
       variant: {
-        default: "bg-bengali-terracotta text-white hover:bg-bengali-terracotta/90",
+        default: "bg-bengali-terracotta text-white hover:bg-bengali-terracotta/90 shadow-lg hover:shadow-xl dark:bg-bengali-red dark:hover:bg-bengali-red/90",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg hover:shadow-xl",
         outline:
-          "border border-bengali-terracotta text-bengali-terracotta bg-background hover:bg-bengali-terracotta hover:text-white",
+          "border-2 border-bengali-terracotta text-bengali-terracotta bg-background hover:bg-bengali-terracotta hover:text-white shadow-md hover:shadow-lg dark:border-bengali-mustard dark:text-bengali-mustard dark:hover:bg-bengali-mustard dark:hover:text-bengali-dark",
         secondary:
-          "bg-bengali-mustard text-bengali-dark hover:bg-bengali-mustard/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-bengali-terracotta underline-offset-4 hover:underline",
+          "bg-bengali-mustard text-bengali-dark hover:bg-bengali-mustard/80 shadow-md hover:shadow-lg dark:bg-bengali-mustard/90 dark:text-bengali-dark dark:hover:bg-bengali-mustard",
+        ghost: "hover:bg-accent hover:text-accent-foreground hover:shadow-sm",
+        link: "text-bengali-terracotta underline-offset-4 hover:underline dark:text-bengali-mustard",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        default: "h-11 px-6 py-3",
+        sm: "h-9 rounded-md px-4 py-2",
+        lg: "h-12 rounded-lg px-8 py-3 text-base",
         icon: "h-10 w-10",
       },
     },
@@ -45,12 +45,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     
-    // Use the standard button but wrap it with motion effects
     return (
       <motion.div
         whileHover={{ 
-          scale: 1.03,
-          boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)"
+          scale: 1.02,
+          y: -1,
         }}
         whileTap={{ scale: 0.98 }}
         transition={{ 
@@ -58,6 +57,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           stiffness: 400,
           damping: 10
         }}
+        className="inline-block"
       >
         <Comp
           className={cn(buttonVariants({ variant, size, className }))}
