@@ -1,4 +1,5 @@
-import { motion, useInView } from 'framer-motion';
+
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import DesktopLayout from './design-process/DesktopLayout';
 import MobileLayout from './design-process/MobileLayout';
@@ -11,6 +12,7 @@ import IdeateBackground from './design-process/backgrounds/IdeateBackground';
 import PrototypeBackground from './design-process/backgrounds/PrototypeBackground';
 import TestBackground from './design-process/backgrounds/TestBackground';
 import DeployBackground from './design-process/backgrounds/DeployBackground';
+
 const backgroundComponents = {
   'research': ResearchBackground,
   'define': DefineBackground,
@@ -20,9 +22,11 @@ const backgroundComponents = {
   'test': TestBackground,
   'deploy': DeployBackground
 };
+
 interface DesignProcessProps {
   onBackgroundChange?: (theme: string | null) => void;
 }
+
 const DesignProcess = ({
   onBackgroundChange
 }: DesignProcessProps) => {
@@ -62,6 +66,7 @@ const DesignProcess = ({
       autoPlaySequence();
     }
   }, [isInView, hasAutoPlayed, onBackgroundChange]);
+
   const handlePhaseClick = (backgroundTheme: string) => {
     setActiveBackground(backgroundTheme);
     onBackgroundChange?.(backgroundTheme);
@@ -71,6 +76,7 @@ const DesignProcess = ({
       onBackgroundChange?.(null);
     }, 12000);
   };
+
   const scrollToFeaturedProjects = () => {
     const element = document.getElementById('featured-projects');
     if (element) {
@@ -79,20 +85,44 @@ const DesignProcess = ({
       });
     }
   };
+
   const ActiveBackgroundComponent = activeBackground ? backgroundComponents[activeBackground] : null;
-  return <section className="py-8 sm:py-12 lg:py-16 bg-transparent relative overflow-hidden min-h-screen flex flex-col justify-center" ref={ref}>
-      {/* Local section background when active */}
-      {ActiveBackgroundComponent && <motion.div initial={{
-      opacity: 0
-    }} animate={{
-      opacity: 1
-    }} exit={{
-      opacity: 0
-    }} transition={{
-      duration: 0.5
-    }} className="absolute inset-0 z-0">
-          <ActiveBackgroundComponent />
-        </motion.div>}
+
+  return (
+    <section className="py-8 sm:py-12 lg:py-16 bg-transparent relative overflow-hidden min-h-screen flex flex-col justify-center" ref={ref}>
+      {/* Local section background when active with smooth transitions */}
+      <AnimatePresence mode="wait">
+        {ActiveBackgroundComponent && (
+          <motion.div
+            key={activeBackground}
+            initial={{
+              opacity: 0,
+              scale: 1.1,
+              x: 100
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              x: 0
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.9,
+              x: -100
+            }}
+            transition={{
+              duration: 0.8,
+              ease: [0.23, 1, 0.32, 1], // Custom bezier curve for smooth glide
+              opacity: { duration: 0.6 },
+              scale: { duration: 0.7 },
+              x: { duration: 0.8, ease: "easeInOut" }
+            }}
+            className="absolute inset-0 z-0"
+          >
+            <ActiveBackgroundComponent />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10 max-w-7xl">
         <motion.div className="text-center mb-6 sm:mb-8 lg:mb-12" initial={{
@@ -146,6 +176,8 @@ const DesignProcess = ({
           </motion.button>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default DesignProcess;
