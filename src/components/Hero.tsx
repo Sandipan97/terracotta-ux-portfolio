@@ -4,14 +4,12 @@ import HeroTextContent from './hero/HeroTextContent';
 import HeroProfileSection from './hero/HeroProfileSection';
 import HeroScrollButton from './hero/HeroScrollButton';
 import InteractivePolkaDotBackground from './hero/InteractivePolkaDotBackground';
-import EmojiInteractiveOverlay from './hero/EmojiInteractiveOverlay';
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <HeroBackground />
       <InteractivePolkaDotBackground />
-      <EmojiInteractiveOverlay />
 
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
