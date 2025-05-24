@@ -1,3 +1,4 @@
+
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import DesktopLayout from './design-process/DesktopLayout';
@@ -36,6 +37,7 @@ const DesignProcess = ({
   });
   const [activeBackground, setActiveBackground] = useState<string | null>(null);
   const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
+  const [activePhaseId, setActivePhaseId] = useState<number | null>(null);
 
   // Auto-play sequence when section comes into view
   useEffect(() => {
@@ -50,14 +52,16 @@ const DesignProcess = ({
         for (let i = 0; i < designPhases.length; i++) {
           const phase = designPhases[i];
           setActiveBackground(phase.backgroundTheme);
+          setActivePhaseId(phase.id);
           onBackgroundChange?.(phase.backgroundTheme);
           
           // Wait for each phase to display (shorter duration for auto-play)
           await new Promise(resolve => setTimeout(resolve, 2000));
         }
         
-        // Clear the background after the sequence
+        // Clear the background and active phase after the sequence
         setActiveBackground(null);
+        setActivePhaseId(null);
         onBackgroundChange?.(null);
       };
       
@@ -125,6 +129,7 @@ const DesignProcess = ({
             iconVariants={iconVariants}
             arrowVariants={arrowVariants}
             onPhaseClick={handlePhaseClick}
+            activePhaseId={activePhaseId}
           />
 
           <MobileLayout
@@ -134,6 +139,7 @@ const DesignProcess = ({
             iconVariants={iconVariants}
             arrowVariants={arrowVariants}
             onPhaseClick={handlePhaseClick}
+            activePhaseId={activePhaseId}
           />
         </div>
 

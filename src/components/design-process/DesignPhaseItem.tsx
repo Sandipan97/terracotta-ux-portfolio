@@ -8,6 +8,7 @@ interface DesignPhaseItemProps {
   iconVariants: any;
   size?: 'normal' | 'large';
   onClick?: () => void;
+  isActive?: boolean;
 }
 
 const DesignPhaseItem = ({ 
@@ -15,7 +16,8 @@ const DesignPhaseItem = ({
   phaseVariants, 
   iconVariants, 
   size = 'normal',
-  onClick 
+  onClick,
+  isActive = false
 }: DesignPhaseItemProps) => {
   const circleSize = size === 'large' ? 'w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32' : 'w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28';
   const iconSize = size === 'large' ? 'w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20' : 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16';
@@ -26,6 +28,7 @@ const DesignPhaseItem = ({
       variants={phaseVariants}
       whileHover="hover"
       onClick={onClick}
+      animate={isActive ? "hover" : "rest"}
     >
       {/* Phase Number - Now outlined */}
       <motion.div
@@ -49,6 +52,13 @@ const DesignPhaseItem = ({
           scale: 0.95
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        animate={isActive ? {
+          scale: 1.15,
+          boxShadow: "0 20px 40px -5px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.2)",
+        } : {
+          scale: 1,
+          boxShadow: "0 10px 20px -5px rgba(0, 0, 0, 0.2)",
+        }}
       >
         {/* Illustration Container */}
         <div className={`${iconSize} relative z-10`}>

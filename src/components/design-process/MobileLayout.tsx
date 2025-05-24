@@ -10,6 +10,7 @@ interface MobileLayoutProps {
   iconVariants: any;
   arrowVariants: any;
   onPhaseClick?: (backgroundTheme: string) => void;
+  activePhaseId?: number | null;
 }
 
 const MobileLayout = ({ 
@@ -17,7 +18,8 @@ const MobileLayout = ({
   containerVariants, 
   phaseVariants, 
   iconVariants,
-  onPhaseClick
+  onPhaseClick,
+  activePhaseId
 }: MobileLayoutProps) => {
   return (
     <div className="md:hidden px-2">
@@ -35,6 +37,7 @@ const MobileLayout = ({
               iconVariants={iconVariants}
               size="large"
               onClick={() => onPhaseClick?.(phase.backgroundTheme)}
+              isActive={activePhaseId === phase.id}
             />
           </div>
         ))}

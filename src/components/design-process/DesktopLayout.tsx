@@ -10,6 +10,7 @@ interface DesktopLayoutProps {
   iconVariants: any;
   arrowVariants: any;
   onPhaseClick?: (backgroundTheme: string) => void;
+  activePhaseId?: number | null;
 }
 
 const DesktopLayout = ({ 
@@ -17,7 +18,8 @@ const DesktopLayout = ({
   containerVariants, 
   phaseVariants, 
   iconVariants,
-  onPhaseClick
+  onPhaseClick,
+  activePhaseId
 }: DesktopLayoutProps) => {
   return (
     <div className="hidden md:block">
@@ -36,6 +38,7 @@ const DesktopLayout = ({
                 iconVariants={iconVariants}
                 size="large"
                 onClick={() => onPhaseClick?.(phase.backgroundTheme)}
+                isActive={activePhaseId === phase.id}
               />
             </div>
           </div>
