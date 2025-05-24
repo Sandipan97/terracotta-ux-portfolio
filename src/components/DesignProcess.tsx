@@ -93,22 +93,7 @@ const DesignProcess = ({
         </div>
 
         {/* Bottom description */}
-        <motion.div className="text-center mb-6 sm:mb-8" initial={{
-        opacity: 0,
-        y: 20
-      }} animate={isInView ? {
-        opacity: 1,
-        y: 0
-      } : {
-        opacity: 0,
-        y: 20
-      }} transition={{
-        duration: 0.6,
-        delay: 1
-      }}>
-          
-          {activeBackground}
-        </motion.div>
+        
 
         {/* Floating View My Work Button */}
         <motion.div className="flex justify-center" initial={{
