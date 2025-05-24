@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 import NavigationLinks from './NavigationLinks';
 
 interface MobileMenuProps {
@@ -14,13 +15,14 @@ const MobileMenu = ({ isOpen, onToggle, onClose }: MobileMenuProps) => {
   return (
     <>
       {/* Mobile Menu Button */}
-      <div className="md:hidden">
+      <div className="md:hidden flex items-center space-x-2">
+        <ThemeToggle />
         <motion.div whileTap={{ scale: 0.9 }}>
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={onToggle}
-            className="text-bengali-dark hover:bg-bengali-terracotta/10"
+            className="text-bengali-dark hover:bg-bengali-terracotta/10 dark:text-foreground dark:hover:bg-bengali-terracotta/20"
           >
             <AnimatePresence mode="wait">
               {isOpen ? (
@@ -68,7 +70,7 @@ const MobileMenu = ({ isOpen, onToggle, onClose }: MobileMenuProps) => {
             />
             
             <motion.div 
-              className="absolute top-16 right-4 left-4 bg-white rounded-2xl shadow-2xl border border-white/20 overflow-hidden"
+              className="absolute top-16 right-4 left-4 bg-background/95 backdrop-blur-md rounded-2xl shadow-2xl border border-border overflow-hidden dark:bg-card/95"
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
@@ -77,7 +79,7 @@ const MobileMenu = ({ isOpen, onToggle, onClose }: MobileMenuProps) => {
               <div className="p-6 space-y-6">
                 <NavigationLinks onLinkClick={onClose} isMobile={true} />
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Button className="bg-bengali-red hover:bg-bengali-terracotta text-white w-full shadow-lg hover:shadow-xl transition-all duration-300">
+                  <Button className="bg-bengali-red hover:bg-bengali-terracotta text-white w-full shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-bengali-red-light dark:hover:bg-bengali-red">
                     Download Resume
                   </Button>
                 </motion.div>

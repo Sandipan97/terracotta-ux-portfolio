@@ -24,12 +24,12 @@ const HeroBackground = () => {
   return (
     <div className="absolute inset-0 z-0">
       <motion.div 
-        className="absolute bottom-0 left-0 right-0 h-[35%] rounded-t-[50%] transform translate-y-1/4"
+        className="absolute bottom-0 left-0 right-0 h-[35%] rounded-t-[50%] transform translate-y-1/4 dark:opacity-80"
         animate={controls}
       />
       
       <motion.div 
-        className="absolute top-[20%] left-[10%] w-32 h-32 rounded-full bg-bengali-mustard/30 filter blur-xl"
+        className="absolute top-[20%] left-[10%] w-32 h-32 rounded-full bg-bengali-mustard/30 filter blur-xl dark:bg-bengali-mustard-dark/20"
         animate={{
           y: [0, -20, 0],
           x: [0, 10, 0],
@@ -42,7 +42,7 @@ const HeroBackground = () => {
         }}
       />
       <motion.div 
-        className="absolute bottom-[40%] right-[15%] w-40 h-40 rounded-full bg-bengali-terracotta/20 filter blur-xl"
+        className="absolute bottom-[40%] right-[15%] w-40 h-40 rounded-full bg-bengali-terracotta/20 filter blur-xl dark:bg-bengali-terracotta-light/15"
         animate={{
           y: [0, 20, 0],
           x: [0, -15, 0],

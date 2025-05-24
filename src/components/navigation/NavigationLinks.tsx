@@ -39,8 +39,8 @@ const NavigationLinks = ({ onLinkClick, isMobile = false }: NavigationLinksProps
   };
 
   const linkClassName = isMobile 
-    ? "block w-full text-left text-bengali-dark hover:text-bengali-terracotta transition-colors font-medium py-3 border-b border-gray-100"
-    : "text-bengali-dark hover:text-bengali-terracotta transition-colors font-medium";
+    ? "block w-full text-left text-bengali-dark hover:text-bengali-terracotta transition-colors font-medium py-3 border-b border-border dark:text-foreground dark:hover:text-bengali-terracotta-light dark:border-border"
+    : "text-bengali-dark hover:text-bengali-terracotta transition-colors font-medium dark:text-foreground dark:hover:text-bengali-terracotta-light";
 
   const motionProps = isMobile 
     ? { whileHover: { x: 5 }, whileTap: { scale: 0.98 } }

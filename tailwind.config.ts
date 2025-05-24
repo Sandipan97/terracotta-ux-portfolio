@@ -63,13 +63,33 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated Bengali color palette based on the reference image
+				// Enhanced Bengali color palette with dark mode variants
 				bengali: {
-					terracotta: '#802f1f',  // Darker terracotta as requested
-					mustard: '#F9D342',     // Updated mustard color
-					red: '#A32929',
-					dark: '#333333',
-					background: '#D3cfC6',  // Grey color for dots
+					terracotta: {
+						DEFAULT: '#802f1f',
+						light: '#9a3b2a',
+						dark: '#5c221a'
+					},
+					mustard: {
+						DEFAULT: '#F9D342',
+						light: '#fbd85d',
+						dark: '#e6c038'
+					},
+					red: {
+						DEFAULT: '#A32929',
+						light: '#b83d3d',
+						dark: '#8a2121'
+					},
+					dark: {
+						DEFAULT: '#333333',
+						light: '#4a4a4a',
+						darker: '#1a1a1a'
+					},
+					background: {
+						DEFAULT: '#D3cfC6',
+						light: '#e0ddd6',
+						dark: '#2a2a2a'
+					}
 				}
 			},
 			borderRadius: {
@@ -126,9 +146,10 @@ export default {
 				'heading': ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 				'display': ['Montserrat', 'serif']
 			},
-			// Adding background patterns for the subtle polka dots
+			// Enhanced background patterns for both light and dark modes
 			backgroundImage: {
 				'subtle-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D3CFC6' fill-opacity='0.15' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='3'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/svg%3E\")",
+				'subtle-pattern-dark': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23404040' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='3'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/svg%3E\")",
 			}
 		}
 	},
