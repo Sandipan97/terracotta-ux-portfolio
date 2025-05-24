@@ -47,10 +47,17 @@ const DesignProcess = ({ onBackgroundChange }: DesignProcessProps) => {
     }, 12000);
   };
 
+  const scrollToFeaturedProjects = () => {
+    const element = document.getElementById('featured-projects');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const ActiveBackgroundComponent = activeBackground ? backgroundComponents[activeBackground] : null;
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-transparent relative overflow-hidden" ref={ref}>
+    <section className="py-8 sm:py-12 lg:py-16 bg-transparent relative overflow-hidden min-h-screen flex flex-col justify-center" ref={ref}>
       {/* Local section background when active */}
       {ActiveBackgroundComponent && (
         <motion.div
@@ -64,23 +71,23 @@ const DesignProcess = ({ onBackgroundChange }: DesignProcessProps) => {
         </motion.div>
       )}
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10 max-w-7xl">
         <motion.div
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          className="text-center mb-6 sm:mb-8 lg:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
+          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-3 sm:mb-4 lg:mb-6">
             My Design Process
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed">
             A structured, research-driven approach to creating user-centered solutions
           </p>
         </motion.div>
 
         {/* Responsive layouts */}
-        <div className="w-full">
+        <div className="w-full mb-6 sm:mb-8 lg:mb-12">
           <DesktopLayout 
             isInView={isInView}
             containerVariants={containerVariants}
@@ -102,24 +109,41 @@ const DesignProcess = ({ onBackgroundChange }: DesignProcessProps) => {
 
         {/* Bottom description */}
         <motion.div
-          className="mt-12 sm:mt-16 lg:mt-20 text-center"
+          className="text-center mb-6 sm:mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed">
+          <p className="text-muted-foreground max-w-3xl mx-auto text-xs sm:text-sm lg:text-base leading-relaxed">
             This iterative process ensures that every design decision is backed by research and user feedback, 
             creating solutions that are both innovative and user-centered.
           </p>
           {activeBackground && (
             <motion.p
-              className="text-bengali-terracotta font-medium mt-4"
+              className="text-bengali-terracotta font-medium mt-3 text-xs sm:text-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
               Click on any phase to see its themed background animation!
             </motion.p>
           )}
+        </motion.div>
+
+        {/* Floating View My Work Button */}
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+        >
+          <motion.button
+            onClick={scrollToFeaturedProjects}
+            className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View My Work
+          </motion.button>
         </motion.div>
       </div>
     </section>

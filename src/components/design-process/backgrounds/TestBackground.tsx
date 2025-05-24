@@ -4,59 +4,99 @@ import { motion } from 'framer-motion';
 const TestBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Animated checkmarks */}
+      {/* Enhanced testing and validation symbols */}
       <motion.div
-        className="absolute top-24 left-24 text-4xl text-bengali-terracotta/40"
+        className="absolute top-20 left-20 text-6xl opacity-30"
         animate={{
-          scale: [1, 1.3, 1],
+          scale: [1, 1.4, 1],
+          opacity: [0.3, 0.8, 0.3],
           rotate: [0, 10, 0]
         }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 3, repeat: Infinity }}
       >
-        ✓
+        🧪
       </motion.div>
 
       <motion.div
-        className="absolute top-52 right-20 text-3xl text-bengali-mustard/40"
+        className="absolute top-40 right-16 text-4xl opacity-25"
         animate={{
-          scale: [1, 1.2, 1],
-          y: [0, -10, 0]
+          scale: [1, 1.3, 1],
+          rotate: [0, -15, 0],
+          y: [0, -15, 0]
         }}
-        transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+        transition={{ duration: 4, repeat: Infinity, delay: 1 }}
       >
-        ✓
+        🧪
       </motion.div>
 
-      {/* Testing elements */}
-      {[...Array(8)].map((_, i) => (
+      <motion.div
+        className="absolute bottom-32 left-32 text-5xl opacity-20"
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 20, 0]
+        }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 2 }}
+      >
+        🧪
+      </motion.div>
+
+      {/* Enhanced testing particles */}
+      {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-3 h-3 border border-bengali-terracotta/30 rounded-full"
+          className="absolute w-2 h-2 bg-green-500/40 dark:bg-green-400/50 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            scale: [0.5, 1.5, 0.5],
-            borderColor: ['rgba(184, 84, 80, 0.3)', 'rgba(249, 211, 66, 0.5)', 'rgba(184, 84, 80, 0.3)']
+            scale: [0, 3, 0],
+            opacity: [0, 1, 0]
           }}
           transition={{
-            duration: 2.5,
+            duration: 2,
             repeat: Infinity,
-            delay: Math.random() * 2
+            delay: Math.random() * 4
           }}
         />
       ))}
 
-      {/* Validation symbols */}
+      {/* Quality assurance elements */}
       <motion.div
-        className="absolute bottom-32 left-32 w-16 h-12 border-2 border-bengali-mustard/30 rounded opacity-40"
+        className="absolute top-60 left-40 text-3xl opacity-25"
         animate={{
-          borderWidth: [2, 4, 2],
-          opacity: [0.4, 0.7, 0.4]
+          x: [0, 50, 0],
+          scale: [1, 1.2, 1],
+          rotate: [0, 5, 0]
         }}
-        transition={{ duration: 3, repeat: Infinity }}
-      />
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      >
+        ✅
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-40 right-32 text-4xl opacity-30"
+        animate={{
+          x: [0, -40, 0],
+          y: [0, -20, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      >
+        🔍
+      </motion.div>
+
+      {/* Validation elements */}
+      <motion.div
+        className="absolute top-32 right-32 text-3xl opacity-25"
+        animate={{
+          scale: [1, 1.1, 1],
+          rotate: [0, 360]
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+      >
+        📊
+      </motion.div>
     </div>
   );
 };

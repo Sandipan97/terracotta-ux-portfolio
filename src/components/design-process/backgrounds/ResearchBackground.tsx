@@ -4,50 +4,99 @@ import { motion } from 'framer-motion';
 const ResearchBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Animated magnifying glasses */}
+      {/* Enhanced animated magnifying glasses */}
       <motion.div
-        className="absolute top-20 left-10 w-16 h-16 opacity-20"
+        className="absolute top-20 left-20 text-6xl opacity-30"
         animate={{
-          x: [0, 30, 0],
-          y: [0, -20, 0],
-          rotate: [0, 15, 0]
-        }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="w-full h-full border-4 border-bengali-terracotta rounded-full"></div>
-        <div className="w-1 h-8 bg-bengali-terracotta transform rotate-45 absolute -bottom-2 -right-2"></div>
-      </motion.div>
-
-      {/* Floating documents */}
-      <motion.div
-        className="absolute top-40 right-20 w-12 h-16 bg-bengali-mustard/30 rounded opacity-30"
-        animate={{
-          y: [0, -30, 0],
+          scale: [1, 1.4, 1],
+          opacity: [0.3, 0.8, 0.3],
           rotate: [0, 10, 0]
         }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
+        transition={{ duration: 3, repeat: Infinity }}
+      >
+        🔍
+      </motion.div>
 
-      {/* Research dots pattern */}
-      {[...Array(15)].map((_, i) => (
+      <motion.div
+        className="absolute top-40 right-16 text-4xl opacity-25"
+        animate={{
+          scale: [1, 1.3, 1],
+          rotate: [0, -15, 0],
+          y: [0, -15, 0]
+        }}
+        transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+      >
+        🔍
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-32 left-32 text-5xl opacity-20"
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 20, 0]
+        }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 2 }}
+      >
+        🔍
+      </motion.div>
+
+      {/* Enhanced research elements */}
+      {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-bengali-terracotta/20 rounded-full"
+          className="absolute w-2 h-2 bg-red-500/40 dark:bg-red-400/50 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            scale: [0.5, 1.5, 0.5],
-            opacity: [0.2, 0.6, 0.2]
+            scale: [0, 3, 0],
+            opacity: [0, 1, 0]
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: 2,
             repeat: Infinity,
-            delay: Math.random() * 2
+            delay: Math.random() * 4
           }}
         />
       ))}
+
+      {/* Documents and data symbols */}
+      <motion.div
+        className="absolute top-60 left-40 text-3xl opacity-25"
+        animate={{
+          x: [0, 50, 0],
+          scale: [1, 1.2, 1],
+          rotate: [0, 5, 0]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      >
+        📊
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-40 right-32 text-4xl opacity-30"
+        animate={{
+          x: [0, -40, 0],
+          y: [0, -20, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      >
+        📋
+      </motion.div>
+
+      {/* Survey/interview elements */}
+      <motion.div
+        className="absolute top-32 right-32 text-3xl opacity-25"
+        animate={{
+          scale: [1, 1.1, 1],
+          rotate: [0, 360]
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+      >
+        🎯
+      </motion.div>
     </div>
   );
 };

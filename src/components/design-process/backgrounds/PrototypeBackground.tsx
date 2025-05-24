@@ -4,55 +4,98 @@ import { motion } from 'framer-motion';
 const PrototypeBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Animated wireframe elements */}
+      {/* Enhanced prototype building tools */}
       <motion.div
-        className="absolute top-20 left-20 w-16 h-12 border-2 border-bengali-terracotta/30 rounded opacity-40"
+        className="absolute top-20 left-20 text-6xl opacity-30"
         animate={{
-          scale: [1, 1.1, 1],
-          rotate: [0, 5, 0]
+          scale: [1, 1.4, 1],
+          opacity: [0.3, 0.8, 0.3],
+          rotate: [0, 10, 0]
         }}
         transition={{ duration: 3, repeat: Infinity }}
-      />
+      >
+        🛠️
+      </motion.div>
 
       <motion.div
-        className="absolute top-40 right-24 w-12 h-8 border-2 border-bengali-mustard/30 rounded opacity-30"
+        className="absolute top-40 right-16 text-4xl opacity-25"
         animate={{
-          y: [0, -10, 0],
-          scale: [1, 1.2, 1]
+          scale: [1, 1.3, 1],
+          rotate: [0, -15, 0],
+          y: [0, -15, 0]
         }}
         transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-      />
+      >
+        🛠️
+      </motion.div>
 
-      {/* Building blocks */}
-      {[...Array(6)].map((_, i) => (
+      <motion.div
+        className="absolute bottom-32 left-32 text-5xl opacity-20"
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 20, 0]
+        }}
+        transition={{ duration: 3.5, repeat: Infinity, delay: 2 }}
+      >
+        🛠️
+      </motion.div>
+
+      {/* Enhanced building particles */}
+      {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-8 h-8 bg-bengali-terracotta/20 rounded"
+          className="absolute w-2 h-2 bg-indigo-500/40 dark:bg-indigo-400/50 rounded-full"
           style={{
-            left: `${20 + Math.random() * 60}%`,
-            top: `${30 + Math.random() * 40}%`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
           }}
           animate={{
-            rotate: [0, 90, 180, 270, 360],
-            scale: [1, 1.1, 1]
+            scale: [0, 3, 0],
+            opacity: [0, 1, 0]
           }}
           transition={{
-            duration: 8,
+            duration: 2,
             repeat: Infinity,
-            delay: Math.random() * 2
+            delay: Math.random() * 4
           }}
         />
       ))}
 
-      {/* Code-like elements */}
+      {/* Construction and building elements */}
       <motion.div
-        className="absolute bottom-20 left-16 text-bengali-terracotta/30 font-mono text-sm opacity-50"
+        className="absolute top-60 left-40 text-3xl opacity-25"
         animate={{
-          opacity: [0.3, 0.6, 0.3]
+          x: [0, 50, 0],
+          scale: [1, 1.2, 1],
+          rotate: [0, 5, 0]
         }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       >
-        &lt;/&gt;
+        🔧
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-40 right-32 text-4xl opacity-30"
+        animate={{
+          x: [0, -40, 0],
+          y: [0, -20, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      >
+        ⚙️
+      </motion.div>
+
+      {/* Innovation elements */}
+      <motion.div
+        className="absolute top-32 right-32 text-3xl opacity-25"
+        animate={{
+          scale: [1, 1.1, 1],
+          rotate: [0, 360]
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+      >
+        🔩
       </motion.div>
     </div>
   );
