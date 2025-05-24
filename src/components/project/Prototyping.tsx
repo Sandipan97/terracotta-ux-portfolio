@@ -14,10 +14,10 @@ interface PrototypingProps {
 
 const Prototyping = ({ prototyping }: PrototypingProps) => {
   return (
-    <section className="py-12 xs:py-16 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-12 xs:py-16 bg-muted/30 dark:bg-card/30">
       <div className="container mx-auto px-4 md:px-6">
         <motion.h2 
-          className="font-heading text-xl xs:text-2xl md:text-3xl font-bold text-bengali-dark mb-6 xs:mb-10 text-center"
+          className="font-heading text-xl xs:text-2xl md:text-3xl font-bold text-foreground mb-6 xs:mb-10 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,11 +38,11 @@ const Prototyping = ({ prototyping }: PrototypingProps) => {
             >
               <div className="flex flex-col md:flex-row gap-6 xs:gap-8 items-center">
                 <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                  <div className="bg-white p-4 xs:p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm">
-                    <h3 className="font-heading text-lg xs:text-2xl font-semibold text-bengali-dark mb-2 xs:mb-4">
+                  <div className="bg-card p-4 xs:p-6 rounded-lg shadow-md border border-border backdrop-blur-sm">
+                    <h3 className="font-heading text-lg xs:text-2xl font-semibold text-foreground mb-2 xs:mb-4">
                       {proto.title}
                     </h3>
-                    <p className="text-bengali-dark/80 text-sm xs:text-base">
+                    <p className="text-muted-foreground text-sm xs:text-base">
                       {proto.description}
                     </p>
                   </div>
