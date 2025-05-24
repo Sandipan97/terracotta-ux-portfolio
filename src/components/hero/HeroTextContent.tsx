@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
@@ -113,7 +112,7 @@ const HeroTextContent = () => {
       duration: 0.6
     }}>
         <div className="bg-white/80 backdrop-blur-md border border-white/30 rounded-xl p-4 shadow-lg">
-          <p className="text-base md:text-lg text-bengali-dark/90 max-w-md">
+          <p className="text-base md:text-lg max-w-md text-black">
             Senior UX Designer & Researcher with 5 years of experience and a Masters in Design from IISc
           </p>
         </div>
