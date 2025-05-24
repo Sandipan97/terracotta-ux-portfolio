@@ -80,9 +80,7 @@ const DesignProcess = ({
           <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-3 sm:mb-4 lg:mb-6">
             My Design Process
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed">
-            A structured, research-driven approach to creating user-centered solutions
-          </p>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed">Being a Product Designer at core, my research-driven approach creates user-centered solutions every sing</p>
         </motion.div>
 
         {/* Responsive layouts */}
