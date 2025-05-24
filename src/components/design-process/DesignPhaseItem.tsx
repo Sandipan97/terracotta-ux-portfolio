@@ -17,8 +17,8 @@ const DesignPhaseItem = ({
   size = 'normal',
   onClick 
 }: DesignPhaseItemProps) => {
-  const circleSize = size === 'large' ? 'w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36' : 'w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28';
-  const iconSize = size === 'large' ? 'w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24' : 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16';
+  const circleSize = size === 'large' ? 'w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32' : 'w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28';
+  const iconSize = size === 'large' ? 'w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20' : 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16';
 
   return (
     <motion.div
@@ -27,9 +27,9 @@ const DesignPhaseItem = ({
       whileHover="hover"
       onClick={onClick}
     >
-      {/* Phase Number */}
+      {/* Phase Number - Now outlined */}
       <motion.div
-        className="absolute -top-4 -left-4 w-8 h-8 bg-bengali-terracotta text-white rounded-full flex items-center justify-center font-bold text-sm z-20 shadow-lg"
+        className="absolute -top-3 -left-3 w-7 h-7 border-2 border-bengali-terracotta bg-background text-bengali-terracotta rounded-full flex items-center justify-center font-bold text-xs z-20 shadow-lg"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.5, type: "spring", stiffness: 300 }}
@@ -50,7 +50,7 @@ const DesignPhaseItem = ({
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        {/* Illustration Container - Made bigger */}
+        {/* Illustration Container */}
         <div className={`${iconSize} relative z-10`}>
           {phase.illustration}
         </div>
@@ -86,15 +86,15 @@ const DesignPhaseItem = ({
 
       {/* Phase Label with improved typography */}
       <motion.div
-        className="mt-4 sm:mt-5 lg:mt-6 text-center px-2"
+        className="mt-3 sm:mt-4 lg:mt-5 text-center px-1"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        <h3 className="font-semibold text-sm sm:text-base lg:text-lg text-foreground mb-1 sm:mb-2 leading-tight">
+        <h3 className="font-semibold text-xs sm:text-sm lg:text-base text-foreground mb-1 leading-tight">
           {phase.label}
         </h3>
-        <p className="text-xs sm:text-sm lg:text-base text-muted-foreground max-w-[120px] sm:max-w-[140px] lg:max-w-[160px] leading-relaxed">
+        <p className="text-xs sm:text-xs lg:text-sm text-muted-foreground max-w-[100px] sm:max-w-[120px] lg:max-w-[140px] leading-relaxed">
           {phase.description}
         </p>
       </motion.div>

@@ -22,13 +22,13 @@ const DesktopLayout = ({
   return (
     <div className="hidden md:block">
       <motion.div 
-        className="flex items-start justify-center gap-x-6 lg:gap-x-10 xl:gap-x-14 max-w-7xl mx-auto px-4"
+        className="flex items-start justify-center gap-x-3 lg:gap-x-5 xl:gap-x-8 max-w-7xl mx-auto px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
       >
         {designPhases.map((phase) => (
-          <div key={phase.id} className="flex items-start relative flex-1 max-w-[160px] lg:max-w-[180px]">
+          <div key={phase.id} className="flex items-start relative flex-1 max-w-[140px] lg:max-w-[160px] xl:max-w-[180px]">
             <div className="flex flex-col items-center w-full">
               <DesignPhaseItem 
                 phase={phase}

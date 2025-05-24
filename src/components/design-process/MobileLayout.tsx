@@ -20,9 +20,9 @@ const MobileLayout = ({
   onPhaseClick
 }: MobileLayoutProps) => {
   return (
-    <div className="md:hidden">
+    <div className="md:hidden px-4">
       <motion.div 
-        className="grid grid-cols-2 gap-8 sm:gap-10 gap-y-20 sm:gap-y-24 max-w-sm sm:max-w-md mx-auto relative px-4"
+        className="grid grid-cols-2 gap-6 sm:gap-8 gap-y-16 sm:gap-y-20 max-w-sm sm:max-w-lg mx-auto relative"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
