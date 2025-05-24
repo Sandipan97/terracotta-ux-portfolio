@@ -107,13 +107,7 @@ const DesignProcess = ({
         delay: 1
       }}>
           
-          {activeBackground && <motion.p className="text-bengali-terracotta font-medium mt-3 text-xs sm:text-sm" initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }}>
-              Click on any phase to see its themed background animation!
-            </motion.p>}
+          {activeBackground}
         </motion.div>
 
         {/* Floating View My Work Button */}
