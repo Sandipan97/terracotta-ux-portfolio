@@ -11,7 +11,6 @@ interface RippleEffect {
 
 const InteractivePolkaDotBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [ripples, setRipples] = useState<RippleEffect[]>([]);
 
   useEffect(() => {
@@ -20,7 +19,6 @@ const InteractivePolkaDotBackground = () => {
         const rect = containerRef.current.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        setMousePosition({ x, y });
         
         // Add ripple effect
         const newRipple: RippleEffect = {
@@ -60,17 +58,17 @@ const InteractivePolkaDotBackground = () => {
       ref={containerRef}
       className="absolute inset-0 z-0 overflow-hidden"
       style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, 
-          rgb(156 163 175 / 0.15) 1px, 
+        backgroundImage: `radial-gradient(circle at 1px 1px, 
+          rgba(107, 114, 128, 0.3) 1px, 
           transparent 0)`,
-        backgroundSize: '20px 20px'
+        backgroundSize: '15px 15px'
       }}
     >
-      {/* Ripple effects */}
+      {/* Ripple effects that move towards View My Work button */}
       {ripples.map((ripple) => (
         <motion.div
           key={ripple.id}
-          className="absolute rounded-full border border-gray-400/30 dark:border-gray-500/30"
+          className="absolute rounded-full border border-bengali-terracotta/30"
           style={{
             left: ripple.x,
             top: ripple.y,
@@ -78,8 +76,10 @@ const InteractivePolkaDotBackground = () => {
           }}
           initial={{ scale: 0, opacity: 0.8 }}
           animate={{ 
-            scale: 20, 
+            scale: 15,
             opacity: 0,
+            x: window.innerWidth < 768 ? 0 : -200, // Move towards button area
+            y: 150, // Move towards button area
           }}
           transition={{ 
             duration: 2, 

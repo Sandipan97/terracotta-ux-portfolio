@@ -104,7 +104,7 @@ const HeroTextContent = () => {
         </div>
       </motion.div>
       
-      {/* Updated button section */}
+      {/* Updated button section with matching heights and styling */}
       <motion.div 
         className="flex flex-wrap gap-4 justify-center md:justify-start" 
         initial={{ opacity: 0, y: 20 }} 
@@ -117,7 +117,7 @@ const HeroTextContent = () => {
         >
           <Button 
             onClick={scrollToProjects} 
-            className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 border-2 border-bengali-terracotta hover:border-bengali-terracotta/90 dark:bg-bengali-terracotta dark:hover:bg-bengali-terracotta/90 dark:border-bengali-terracotta dark:hover:border-bengali-terracotta/90"
+            className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white font-semibold px-6 py-3 h-12 rounded-lg border-2 border-white shadow-md hover:shadow-lg transform transition-all duration-300 dark:bg-bengali-terracotta dark:hover:bg-bengali-terracotta/90 dark:border-white"
           >
             View My Work
           </Button>
@@ -130,7 +130,7 @@ const HeroTextContent = () => {
           <Button 
             variant="outline" 
             size="icon"
-            className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 hover:border-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:border-blue-500 dark:hover:border-blue-600 w-12 h-12" 
+            className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-white shadow-md hover:shadow-lg transition-all duration-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:border-white h-12 w-12" 
             asChild
           >
             <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
