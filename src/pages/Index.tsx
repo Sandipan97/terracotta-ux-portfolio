@@ -7,7 +7,6 @@ import AboutPreview from '@/components/AboutPreview';
 import Skills from '@/components/Skills';
 import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
-import ContactPreview from '@/components/ContactPreview';
 import Footer from '@/components/Footer';
 
 const HomePage = () => {
@@ -17,12 +16,24 @@ const HomePage = () => {
         <Navbar />
         <Hero />
       </div>
-      <DesignProcess />
-      <FeaturedProjects />
-      <AboutPreview />
-      <Skills />
-      <Testimonials />
-      <ContactForm />
+      <div id="design-process">
+        <DesignProcess />
+      </div>
+      <div id="featured-projects">
+        <FeaturedProjects />
+      </div>
+      <div id="about-preview">
+        <AboutPreview />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="testimonials">
+        <Testimonials />
+      </div>
+      <div id="contact">
+        <ContactForm />
+      </div>
       <Footer />
     </div>
   );

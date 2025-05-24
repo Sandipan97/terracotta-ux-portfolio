@@ -14,16 +14,23 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 10 * 60 * 1000, // 10 minutes
+    },
+  },
+});
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate initial load time
+    // Reduced loading time for better performance
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1000); // Reduced from 3000ms to 1000ms
 
     return () => clearTimeout(timer);
   }, []);

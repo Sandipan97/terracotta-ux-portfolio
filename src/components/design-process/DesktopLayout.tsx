@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { designPhases } from '@/data/designPhases';
 import DesignPhaseItem from './DesignPhaseItem';
-import ProcessArrow from './ProcessArrow';
+import VectorLines from './VectorLines';
 
 interface DesktopLayoutProps {
   isInView: boolean;
@@ -16,35 +16,32 @@ const DesktopLayout = ({
   isInView, 
   containerVariants, 
   phaseVariants, 
-  iconVariants, 
-  arrowVariants 
+  iconVariants 
 }: DesktopLayoutProps) => {
   return (
     <div className="hidden md:block">
       <motion.div 
-        className="flex items-start justify-center gap-4 lg:gap-8"
+        className="flex items-start justify-center gap-2 lg:gap-4"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
       >
         {designPhases.map((phase, index) => (
-          <div key={phase.id} className="flex items-start">
+          <div key={phase.id} className="flex items-start relative">
             <div className="flex flex-col items-center">
               <DesignPhaseItem 
                 phase={phase}
                 phaseVariants={phaseVariants}
                 iconVariants={iconVariants}
+                size="large"
               />
             </div>
 
-            {index < designPhases.length - 1 && (
-              <div className="flex items-center mt-10">
-                <ProcessArrow 
-                  arrowVariants={arrowVariants}
-                  index={index}
-                />
-              </div>
-            )}
+            <VectorLines 
+              phaseIndex={index}
+              totalPhases={designPhases.length}
+              isDesktop={true}
+            />
           </div>
         ))}
       </motion.div>
