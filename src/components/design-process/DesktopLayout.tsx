@@ -21,7 +21,7 @@ const DesktopLayout = ({
   return (
     <div className="hidden md:block">
       <motion.div 
-        className="flex items-start justify-center gap-2 lg:gap-4"
+        className="flex items-start justify-center gap-x-8 lg:gap-x-12"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}

@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 
 const HeroScrollButton = () => {
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById('featured-projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({
+  const scrollToDesignProcess = () => {
+    const designProcessSection = document.getElementById('design-process');
+    if (designProcessSection) {
+      designProcessSection.scrollIntoView({
         behavior: 'smooth'
       });
     }
@@ -20,9 +20,9 @@ const HeroScrollButton = () => {
       transition={{ delay: 1.5, duration: 0.5 }}
     >
       <motion.button 
-        onClick={scrollToProjects}
+        onClick={scrollToDesignProcess}
         className="text-white bg-bengali-dark/20 backdrop-blur-sm p-3 rounded-full hover:bg-bengali-dark/30 transition-colors" 
-        aria-label="Scroll to projects"
+        aria-label="Scroll to design process"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         whileHover={{ scale: 1.1 }}
