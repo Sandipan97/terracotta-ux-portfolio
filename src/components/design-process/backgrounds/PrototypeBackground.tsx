@@ -6,7 +6,7 @@ const PrototypeBackground = () => {
     <div className="absolute inset-0 overflow-hidden">
       {/* Enhanced wireframing and prototyping tools */}
       <motion.div
-        className="absolute top-20 left-20 text-6xl opacity-30"
+        className="absolute top-20 left-20 text-6xl opacity-30 blur-sm"
         animate={{
           scale: [1, 1.4, 1],
           opacity: [0.3, 0.8, 0.3],
@@ -18,7 +18,7 @@ const PrototypeBackground = () => {
       </motion.div>
 
       <motion.div
-        className="absolute top-40 right-16 text-4xl opacity-25"
+        className="absolute top-40 right-16 text-4xl opacity-25 blur-sm"
         animate={{
           scale: [1, 1.3, 1],
           rotate: [0, -15, 0],
@@ -30,7 +30,7 @@ const PrototypeBackground = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-32 left-32 text-5xl opacity-20"
+        className="absolute bottom-32 left-32 text-5xl opacity-20 blur-sm"
         animate={{
           scale: [1, 1.2, 1],
           rotate: [0, 20, 0]
@@ -63,7 +63,7 @@ const PrototypeBackground = () => {
 
       {/* Wireframing and design system elements */}
       <motion.div
-        className="absolute top-60 left-40 text-3xl opacity-25"
+        className="absolute top-60 left-40 text-3xl opacity-25 blur-sm"
         animate={{
           x: [0, 50, 0],
           scale: [1, 1.2, 1],
@@ -75,7 +75,7 @@ const PrototypeBackground = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-40 right-32 text-4xl opacity-30"
+        className="absolute bottom-40 right-32 text-4xl opacity-30 blur-sm"
         animate={{
           x: [0, -40, 0],
           y: [0, -20, 0],
@@ -88,7 +88,7 @@ const PrototypeBackground = () => {
 
       {/* Design system elements */}
       <motion.div
-        className="absolute top-32 right-32 text-3xl opacity-25"
+        className="absolute top-32 right-32 text-3xl opacity-25 blur-sm"
         animate={{
           scale: [1, 1.1, 1],
           rotate: [0, 360]
@@ -99,7 +99,7 @@ const PrototypeBackground = () => {
       </motion.div>
 
       <motion.div
-        className="absolute top-80 left-60 text-2xl opacity-20"
+        className="absolute top-80 left-60 text-2xl opacity-20 blur-sm"
         animate={{
           scale: [1, 1.15, 1],
           y: [0, -10, 0]

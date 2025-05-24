@@ -6,7 +6,7 @@ const IdeateBackground = () => {
     <div className="absolute inset-0 overflow-hidden">
       {/* Enhanced animated light bulbs */}
       <motion.div
-        className="absolute top-20 left-20 text-6xl opacity-30"
+        className="absolute top-20 left-20 text-6xl opacity-30 blur-sm"
         animate={{
           scale: [1, 1.4, 1],
           opacity: [0.3, 0.8, 0.3],
@@ -18,7 +18,7 @@ const IdeateBackground = () => {
       </motion.div>
 
       <motion.div
-        className="absolute top-40 right-16 text-4xl opacity-25"
+        className="absolute top-40 right-16 text-4xl opacity-25 blur-sm"
         animate={{
           scale: [1, 1.3, 1],
           rotate: [0, -15, 0],
@@ -30,7 +30,7 @@ const IdeateBackground = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-32 left-32 text-5xl opacity-20"
+        className="absolute bottom-32 left-32 text-5xl opacity-20 blur-sm"
         animate={{
           scale: [1, 1.2, 1],
           rotate: [0, 20, 0]
@@ -84,7 +84,7 @@ const IdeateBackground = () => {
 
       {/* Brain/thinking elements */}
       <motion.div
-        className="absolute top-32 right-32 text-3xl opacity-25"
+        className="absolute top-32 right-32 text-3xl opacity-25 blur-sm"
         animate={{
           scale: [1, 1.1, 1],
           rotate: [0, 360]

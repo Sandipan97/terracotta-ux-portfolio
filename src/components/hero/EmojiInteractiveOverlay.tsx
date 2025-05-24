@@ -91,7 +91,7 @@ const EmojiInteractiveOverlay = () => {
         return (
           <motion.div
             key={emojiElement.id}
-            className="absolute select-none"
+            className="absolute select-none blur-sm"
             style={{
               left: `${emojiElement.baseX}%`,
               top: `${emojiElement.baseY}%`,
