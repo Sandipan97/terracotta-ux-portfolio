@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
@@ -82,16 +83,16 @@ const HeroTextContent = () => {
           opacity: 1
         }} transition={{
           delay: 1.0
-        }} className="text-red-800">
+        }} className="text-bengali-terracotta-dark dark:text-red-500">
             {displayText}
-            <motion.span className="inline-block w-1 h-16 sm:h-20 bg-bengali-terracotta ml-1" animate={{
+            <motion.span className="inline-block w-1 h-16 sm:h-20 bg-bengali-terracotta-dark dark:bg-red-500 ml-1" animate={{
             opacity: [1, 0, 1]
           }} transition={{
             duration: 1,
             repeat: Infinity
           }} />
           </motion.span>
-          <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-terracotta" initial={{
+          <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-terracotta-dark dark:bg-red-500" initial={{
           width: 0
         }} animate={{
           width: currentIndex === fullText.length ? "100%" : "0%"
