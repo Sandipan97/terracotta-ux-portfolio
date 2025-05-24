@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EditableImage } from '../ui/editable-image';
-import MinimalistAvatar from '../ui/minimalist-avatar';
 
 const HeroProfileSection = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -48,15 +47,19 @@ const HeroProfileSection = () => {
               />
             </div>
             
-            {/* Back side - Avatar */}
+            {/* Back side - New Illustration */}
             <div 
-              className="absolute inset-0 w-full h-full bg-gradient-to-br from-bengali-mustard to-bengali-terracotta p-8"
+              className="absolute inset-0 w-full h-full bg-gradient-to-br from-bengali-mustard to-bengali-terracotta p-8 flex items-center justify-center"
               style={{ 
                 backfaceVisibility: "hidden",
                 transform: "rotateY(180deg)"
               }}
             >
-              <MinimalistAvatar />
+              <img 
+                src="/lovable-uploads/5df3f20d-3a84-4f8a-a055-7374725f634c.png" 
+                alt="Minimalist illustration" 
+                className="w-full h-full object-contain"
+              />
             </div>
           </motion.div>
         </motion.div>
