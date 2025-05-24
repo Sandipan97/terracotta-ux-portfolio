@@ -7,70 +7,70 @@ import PrototypeIllustration from '@/components/design-process/illustrations/Pro
 import TestIllustration from '@/components/design-process/illustrations/TestIllustration';
 import DeployIllustration from '@/components/design-process/illustrations/DeployIllustration';
 
-export type DesignPhase = {
+export interface DesignPhase {
   id: number;
   label: string;
   description: string;
   color: string;
-  illustration: JSX.Element;
+  illustration: React.ReactNode;
   backgroundTheme: string;
-};
+}
 
 export const designPhases: DesignPhase[] = [
   {
     id: 1,
-    label: 'Research',
-    description: 'User insights',
-    color: 'bg-gradient-to-br from-bengali-terracotta to-bengali-red',
+    label: "Research",
+    description: "Understanding users and market needs through comprehensive research",
+    color: "bg-gradient-to-br from-red-500 to-red-600 dark:from-red-400 dark:to-red-500",
     illustration: <ResearchIllustration />,
-    backgroundTheme: 'research'
+    backgroundTheme: "research"
   },
   {
     id: 2,
-    label: 'Define',
-    description: 'Problem clarity',
-    color: 'bg-gradient-to-br from-bengali-mustard to-yellow-400',
+    label: "Define",
+    description: "Synthesizing insights to define clear problem statements",
+    color: "bg-gradient-to-br from-orange-500 to-orange-600 dark:from-orange-400 dark:to-orange-500",
     illustration: <DefineIllustration />,
-    backgroundTheme: 'define'
+    backgroundTheme: "define"
   },
   {
     id: 3,
-    label: 'More Research',
-    description: 'Deep dive',
-    color: 'bg-gradient-to-br from-bengali-red to-red-600',
+    label: "More Research",
+    description: "Deep diving into specific areas for targeted insights",
+    color: "bg-gradient-to-br from-purple-500 to-purple-600 dark:from-purple-400 dark:to-purple-500",
     illustration: <MoreResearchIllustration />,
-    backgroundTheme: 'more-research'
+    backgroundTheme: "more-research"
   },
   {
     id: 4,
-    label: 'Ideate',
-    description: 'Creative solutions',
-    color: 'bg-gradient-to-br from-bengali-terracotta to-orange-600',
+    label: "Ideate",
+    description: "Generating creative solutions through structured ideation",
+    color: "bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500",
     illustration: <IdeateIllustration />,
-    backgroundTheme: 'ideate'
+    backgroundTheme: "ideate"
   },
   {
     id: 5,
-    label: 'Prototype',
-    description: 'Build & test',
-    color: 'bg-gradient-to-br from-bengali-mustard to-amber-500',
+    label: "Prototype",
+    description: "Building tangible representations of design concepts",
+    color: "bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-indigo-400 dark:to-indigo-500",
     illustration: <PrototypeIllustration />,
-    backgroundTheme: 'prototype'
+    backgroundTheme: "prototype"
   },
   {
     id: 6,
-    label: 'Test',
-    description: 'Validate ideas',
-    color: 'bg-gradient-to-br from-bengali-red to-rose-600',
+    label: "Test",
+    description: "Validating designs through user testing and feedback",
+    color: "bg-gradient-to-br from-green-500 to-green-600 dark:from-green-400 dark:to-green-500",
     illustration: <TestIllustration />,
-    backgroundTheme: 'test'
+    backgroundTheme: "test"
   },
   {
     id: 7,
-    label: 'Deploy',
-    description: 'Launch solution',
-    color: 'bg-gradient-to-br from-bengali-terracotta to-red-700',
+    label: "Deploy",
+    description: "Launching the final product and monitoring performance",
+    color: "bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-400 dark:to-emerald-500",
     illustration: <DeployIllustration />,
-    backgroundTheme: 'deploy'
+    backgroundTheme: "deploy"
   }
 ];
