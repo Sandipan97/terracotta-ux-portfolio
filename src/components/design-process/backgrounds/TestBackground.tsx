@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const TestBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Enhanced testing and validation symbols */}
+      {/* Enhanced user testing and validation symbols */}
       <motion.div
         className="absolute top-20 left-20 text-6xl opacity-30"
         animate={{
@@ -26,7 +26,7 @@ const TestBackground = () => {
         }}
         transition={{ duration: 4, repeat: Infinity, delay: 1 }}
       >
-        🧪
+        👤
       </motion.div>
 
       <motion.div
@@ -37,7 +37,7 @@ const TestBackground = () => {
         }}
         transition={{ duration: 3.5, repeat: Infinity, delay: 2 }}
       >
-        🧪
+        ✅
       </motion.div>
 
       {/* Enhanced testing particles */}
@@ -61,7 +61,7 @@ const TestBackground = () => {
         />
       ))}
 
-      {/* Quality assurance elements */}
+      {/* Usability testing and feedback elements */}
       <motion.div
         className="absolute top-60 left-40 text-3xl opacity-25"
         animate={{
@@ -71,7 +71,7 @@ const TestBackground = () => {
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       >
-        ✅
+        🎯
       </motion.div>
 
       <motion.div
@@ -83,10 +83,10 @@ const TestBackground = () => {
         }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       >
-        🔍
+        📝
       </motion.div>
 
-      {/* Validation elements */}
+      {/* Validation and feedback elements */}
       <motion.div
         className="absolute top-32 right-32 text-3xl opacity-25"
         animate={{
@@ -94,6 +94,17 @@ const TestBackground = () => {
           rotate: [0, 360]
         }}
         transition={{ duration: 10, repeat: Infinity }}
+      >
+        🔍
+      </motion.div>
+
+      <motion.div
+        className="absolute top-80 left-60 text-2xl opacity-20"
+        animate={{
+          scale: [1, 1.15, 1],
+          y: [0, -10, 0]
+        }}
+        transition={{ duration: 5, repeat: Infinity, delay: 3 }}
       >
         📊
       </motion.div>

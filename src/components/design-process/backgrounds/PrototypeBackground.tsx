@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const PrototypeBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Enhanced prototype building tools */}
+      {/* Enhanced wireframing and prototyping tools */}
       <motion.div
         className="absolute top-20 left-20 text-6xl opacity-30"
         animate={{
@@ -14,7 +14,7 @@ const PrototypeBackground = () => {
         }}
         transition={{ duration: 3, repeat: Infinity }}
       >
-        🛠️
+        📱
       </motion.div>
 
       <motion.div
@@ -26,7 +26,7 @@ const PrototypeBackground = () => {
         }}
         transition={{ duration: 4, repeat: Infinity, delay: 1 }}
       >
-        🛠️
+        🖼️
       </motion.div>
 
       <motion.div
@@ -37,10 +37,10 @@ const PrototypeBackground = () => {
         }}
         transition={{ duration: 3.5, repeat: Infinity, delay: 2 }}
       >
-        🛠️
+        🎨
       </motion.div>
 
-      {/* Enhanced building particles */}
+      {/* Enhanced prototyping particles */}
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
@@ -61,7 +61,7 @@ const PrototypeBackground = () => {
         />
       ))}
 
-      {/* Construction and building elements */}
+      {/* Wireframing and design system elements */}
       <motion.div
         className="absolute top-60 left-40 text-3xl opacity-25"
         animate={{
@@ -71,7 +71,7 @@ const PrototypeBackground = () => {
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       >
-        🔧
+        📐
       </motion.div>
 
       <motion.div
@@ -83,10 +83,10 @@ const PrototypeBackground = () => {
         }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       >
-        ⚙️
+        💻
       </motion.div>
 
-      {/* Innovation elements */}
+      {/* Design system elements */}
       <motion.div
         className="absolute top-32 right-32 text-3xl opacity-25"
         animate={{
@@ -95,7 +95,18 @@ const PrototypeBackground = () => {
         }}
         transition={{ duration: 10, repeat: Infinity }}
       >
-        🔩
+        🔧
+      </motion.div>
+
+      <motion.div
+        className="absolute top-80 left-60 text-2xl opacity-20"
+        animate={{
+          scale: [1, 1.15, 1],
+          y: [0, -10, 0]
+        }}
+        transition={{ duration: 5, repeat: Infinity, delay: 3 }}
+      >
+        ✏️
       </motion.div>
     </div>
   );

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const DeployBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Enhanced deployment rockets */}
+      {/* Enhanced launch and deployment symbols */}
       <motion.div
         className="absolute top-20 left-20 text-6xl opacity-30"
         animate={{
@@ -26,7 +26,7 @@ const DeployBackground = () => {
         }}
         transition={{ duration: 4, repeat: Infinity, delay: 1 }}
       >
-        🚀
+        🌐
       </motion.div>
 
       <motion.div
@@ -37,10 +37,10 @@ const DeployBackground = () => {
         }}
         transition={{ duration: 3.5, repeat: Infinity, delay: 2 }}
       >
-        🚀
+        📈
       </motion.div>
 
-      {/* Enhanced launch particles */}
+      {/* Enhanced deployment particles */}
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
@@ -61,7 +61,7 @@ const DeployBackground = () => {
         />
       ))}
 
-      {/* Success and celebration elements */}
+      {/* Launch and success celebration elements */}
       <motion.div
         className="absolute top-60 left-40 text-3xl opacity-25"
         animate={{
@@ -86,7 +86,7 @@ const DeployBackground = () => {
         ⭐
       </motion.div>
 
-      {/* Achievement elements */}
+      {/* Success and monitoring elements */}
       <motion.div
         className="absolute top-32 right-32 text-3xl opacity-25"
         animate={{
@@ -94,6 +94,17 @@ const DeployBackground = () => {
           rotate: [0, 360]
         }}
         transition={{ duration: 10, repeat: Infinity }}
+      >
+        📱
+      </motion.div>
+
+      <motion.div
+        className="absolute top-80 left-60 text-2xl opacity-20"
+        animate={{
+          scale: [1, 1.15, 1],
+          y: [0, -10, 0]
+        }}
+        transition={{ duration: 5, repeat: Infinity, delay: 3 }}
       >
         🏆
       </motion.div>
