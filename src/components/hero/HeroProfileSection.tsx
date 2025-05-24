@@ -49,7 +49,7 @@ const HeroProfileSection = () => {
             
             {/* Back side - New Illustration */}
             <div 
-              className="absolute inset-0 w-full h-full bg-gradient-to-br from-bengali-mustard to-bengali-terracotta p-8 flex items-center justify-center"
+              className="absolute inset-0 w-full h-full bg-white flex items-center justify-center"
               style={{ 
                 backfaceVisibility: "hidden",
                 transform: "rotateY(180deg)"
@@ -58,7 +58,7 @@ const HeroProfileSection = () => {
               <img 
                 src="/lovable-uploads/5df3f20d-3a84-4f8a-a055-7374725f634c.png" 
                 alt="Minimalist illustration" 
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
               />
             </div>
           </motion.div>
