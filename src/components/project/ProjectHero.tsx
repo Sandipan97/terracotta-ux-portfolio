@@ -38,7 +38,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
           <Button 
             onClick={onBack}
             variant="secondary" 
-            className="bg-white/80 backdrop-blur-sm text-bengali-dark hover:bg-white hover:text-bengali-terracotta transition-all duration-300"
+            className="bg-card/80 backdrop-blur-sm text-foreground hover:bg-card hover:text-bengali-terracotta dark:hover:text-bengali-terracotta-light transition-all duration-300"
             size="icon"
           >
             <ArrowLeft size={20} />
@@ -63,7 +63,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
       </section>
 
       {/* Information Banner Section */}
-      <section className="w-full bg-white py-8 xs:py-10 md:py-12 border-b border-gray-100">
+      <section className="w-full bg-background py-8 xs:py-10 md:py-12 border-b border-border">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -80,7 +80,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
                 >
-                  <Badge className="bg-bengali-terracotta/10 text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white transition-all duration-300">
+                  <Badge className="bg-bengali-terracotta/10 dark:bg-bengali-terracotta-light/10 text-bengali-terracotta dark:text-bengali-terracotta-light hover:bg-bengali-terracotta hover:text-white dark:hover:bg-bengali-terracotta-light dark:hover:text-background transition-all duration-300">
                     {type}
                   </Badge>
                 </motion.div>
@@ -89,7 +89,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
 
             {/* Project Title */}
             <motion.h1 
-              className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 xs:mb-6 text-bengali-dark text-center md:text-left"
+              className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 xs:mb-6 text-foreground text-center md:text-left"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -99,7 +99,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
             
             {/* Project Description */}
             <motion.p 
-              className="text-sm sm:text-base md:text-lg mb-6 xs:mb-8 text-bengali-dark/80 text-center md:text-left max-w-4xl"
+              className="text-sm sm:text-base md:text-lg mb-6 xs:mb-8 text-muted-foreground text-center md:text-left max-w-4xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -111,40 +111,40 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 mb-8 xs:mb-10">
               {project.client && (
                 <motion.div 
-                  className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 xs:p-5 rounded-lg border border-white/60 shadow-sm"
+                  className="bg-card p-4 xs:p-5 rounded-lg border border-border shadow-sm"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
                   whileHover={{ y: -2, boxShadow: "0 8px 25px -8px rgba(0, 0, 0, 0.1)" }}
                 >
-                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">Client</h3>
-                  <p className="font-semibold text-sm xs:text-base text-bengali-dark">{project.client}</p>
+                  <h3 className="text-bengali-terracotta dark:text-bengali-terracotta-light text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">Client</h3>
+                  <p className="font-semibold text-sm xs:text-base text-foreground">{project.client}</p>
                 </motion.div>
               )}
               
               {project.duration && (
                 <motion.div 
-                  className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 xs:p-5 rounded-lg border border-white/60 shadow-sm"
+                  className="bg-card p-4 xs:p-5 rounded-lg border border-border shadow-sm"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
                   whileHover={{ y: -2, boxShadow: "0 8px 25px -8px rgba(0, 0, 0, 0.1)" }}
                 >
-                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">Duration</h3>
-                  <p className="font-semibold text-sm xs:text-base text-bengali-dark">{project.duration}</p>
+                  <h3 className="text-bengali-terracotta dark:text-bengali-terracotta-light text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">Duration</h3>
+                  <p className="font-semibold text-sm xs:text-base text-foreground">{project.duration}</p>
                 </motion.div>
               )}
               
               {project.role && (
                 <motion.div 
-                  className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 xs:p-5 rounded-lg border border-white/60 shadow-sm sm:col-span-2 lg:col-span-1"
+                  className="bg-card p-4 xs:p-5 rounded-lg border border-border shadow-sm sm:col-span-2 lg:col-span-1"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 }}
                   whileHover={{ y: -2, boxShadow: "0 8px 25px -8px rgba(0, 0, 0, 0.1)" }}
                 >
-                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">My Role</h3>
-                  <p className="font-semibold text-sm xs:text-base text-bengali-dark">{project.role}</p>
+                  <h3 className="text-bengali-terracotta dark:text-bengali-terracotta-light text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">My Role</h3>
+                  <p className="font-semibold text-sm xs:text-base text-foreground">{project.role}</p>
                 </motion.div>
               )}
             </div>
@@ -158,7 +158,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
             >
               <Button 
                 onClick={onScrollToContent}
-                className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 dark:bg-bengali-terracotta-light dark:hover:bg-bengali-terracotta-light/90 text-white dark:text-background shadow-lg hover:shadow-xl transition-all duration-300"
                 size="lg"
               >
                 View More Details <ChevronDown className="ml-2" />
