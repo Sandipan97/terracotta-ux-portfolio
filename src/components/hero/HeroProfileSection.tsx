@@ -1,0 +1,78 @@
+
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { EditableImage } from '../ui/editable-image';
+import MinimalistAvatar from '../ui/minimalist-avatar';
+
+const HeroProfileSection = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleProfileClick = () => {
+    setIsFlipped(!isFlipped);
+  };
+
+  return (
+    <motion.div 
+      className="order-1 md:order-2 flex justify-center md:justify-end"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
+    >
+      <div className="relative">
+        <motion.div 
+          className="w-80 h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer relative"
+          onClick={handleProfileClick}
+          whileHover={{ 
+            scale: 1.05,
+            borderColor: "#802f1f",
+            boxShadow: "0 20px 40px -10px rgba(128, 47, 31, 0.3)"
+          }}
+          transition={{ duration: 0.3 }}
+          style={{ perspective: "1000px" }}
+        >
+          <motion.div
+            className="w-full h-full relative"
+            animate={{ rotateY: isFlipped ? 180 : 0 }}
+            transition={{ duration: 0.6 }}
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            {/* Front side - Profile Image */}
+            <div 
+              className="absolute inset-0 w-full h-full"
+              style={{ backfaceVisibility: "hidden" }}
+            >
+              <EditableImage 
+                alt="Senior UX Designer and Researcher" 
+                src="/lovable-uploads/d6f8c20d-1961-4552-a823-c9c0b12a8f05.jpg" 
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+              />
+            </div>
+            
+            {/* Back side - Avatar */}
+            <div 
+              className="absolute inset-0 w-full h-full bg-gradient-to-br from-bengali-mustard to-bengali-terracotta p-8"
+              style={{ 
+                backfaceVisibility: "hidden",
+                transform: "rotateY(180deg)"
+              }}
+            >
+              <MinimalistAvatar />
+            </div>
+          </motion.div>
+        </motion.div>
+        
+        <motion.div 
+          className="absolute -bottom-4 -right-4 text-bengali-dark px-4 md:px-6 py-2 md:py-3 rounded-full font-medium bg-white backdrop-blur-md border border-white/20 shadow-lg text-sm md:text-base"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          whileHover={{ scale: 1.05, y: -2 }}
+        >
+          5+ Years Experience
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default HeroProfileSection;
