@@ -63,27 +63,27 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Enhanced Bengali color palette with improved dark mode support
+				// Enhanced Bengali color palette with much better dark mode support
 				bengali: {
 					terracotta: {
-						DEFAULT: '#B85450', // Brighter for better contrast
-						light: '#D16B66',
-						dark: '#8B3E3A'
+						DEFAULT: '#D73027', // Brighter, more vibrant red-orange
+						light: '#F46D43',   // Lighter version for dark mode
+						dark: '#A50026'     // Darker version
 					},
 					mustard: {
-						DEFAULT: '#FFD93D', // More vibrant
-						light: '#FFE066',
-						dark: '#E6C234'
+						DEFAULT: '#FFD700', // Bright sunflower yellow (Gold)
+						light: '#FFED4E',   // Even brighter for dark mode visibility
+						dark: '#FFA500'     // Orange-yellow for light mode accents
 					},
 					red: {
-						DEFAULT: '#C53030', // Better contrast
-						light: '#E53E3E',
-						dark: '#9C2626'
+						DEFAULT: '#E31A1C', // Vibrant red with good contrast
+						light: '#FB6A4A',   // Lighter red for dark mode
+						dark: '#B10000'     // Deep red
 					},
 					dark: {
 						DEFAULT: 'hsl(var(--foreground))',
-						light: 'hsl(var(--foreground))',
-						darker: 'hsl(var(--foreground))'
+						light: 'hsl(var(--muted-foreground))',
+						darker: 'hsl(var(--primary))'
 					},
 					background: {
 						DEFAULT: 'hsl(var(--background))',
@@ -148,7 +148,7 @@ export default {
 			},
 			backgroundImage: {
 				'subtle-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D3CFC6' fill-opacity='0.08' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E\")",
-				'subtle-pattern-dark': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23404040' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E\")",
+				'subtle-pattern-dark': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23404040' fill-opacity='0.08' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E\")",
 			}
 		}
 	},

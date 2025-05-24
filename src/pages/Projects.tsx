@@ -1,4 +1,3 @@
-
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useState, useEffect } from 'react';
@@ -103,14 +102,14 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-background overflow-hidden">
       <Navbar />
       
       <main className="pt-20">
         {/* Hero Section with Parallax */}
         <motion.section 
           style={{ opacity: headerOpacity, y: headerY }}
-          className="bg-gradient-to-br from-bengali-terracotta to-bengali-red py-20 relative overflow-hidden"
+          className="bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light py-20 relative overflow-hidden"
         >
           {/* Animated background elements */}
           <div className="absolute inset-0 z-0">
@@ -178,7 +177,7 @@ const Projects = () => {
         </motion.section>
         
         {/* Projects Filter */}
-        <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-12 bg-background dark:bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div 
               className="flex flex-wrap justify-center gap-3 mb-12"
@@ -186,9 +185,9 @@ const Projects = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <div className="flex items-center bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md border border-white/30">
-                <Filter size={16} className="text-bengali-terracotta mr-2 ml-3" />
-                <span className="text-sm font-medium text-bengali-dark mr-3">Filter:</span>
+              <div className="flex items-center bg-card/50 dark:bg-card/80 backdrop-blur-sm p-2 rounded-full shadow-md border border-border">
+                <Filter size={16} className="text-bengali-terracotta dark:text-bengali-mustard-light mr-2 ml-3" />
+                <span className="text-sm font-medium text-foreground mr-3">Filter:</span>
                 
                 {categories.map((category, index) => (
                   <motion.div 
@@ -201,10 +200,11 @@ const Projects = () => {
                   >
                     <Button
                       variant={selectedCategory === category ? "default" : "outline"}
+                      size="sm"
                       className={
                         selectedCategory === category
-                          ? "bg-gradient-to-r from-bengali-terracotta to-bengali-red hover:from-bengali-terracotta/90 hover:to-bengali-red/90 text-white rounded-full"
-                          : "border-bengali-terracotta/30 text-bengali-dark hover:bg-bengali-terracotta/10 rounded-full"
+                          ? "bg-gradient-to-r from-bengali-terracotta to-bengali-red hover:from-bengali-terracotta/90 hover:to-bengali-red/90 text-white rounded-full dark:from-bengali-terracotta-light dark:to-bengali-red-light shadow-lg hover:shadow-xl transition-all duration-300"
+                          : "border-border text-foreground hover:bg-muted rounded-full dark:hover:bg-card/60 shadow-sm hover:shadow-md transition-all duration-300"
                       }
                       onClick={() => setSelectedCategory(category)}
                     >
@@ -232,7 +232,7 @@ const Projects = () => {
               {filteredProjects.map((project, index) => (
                 <motion.div 
                   key={project.id}
-                  className="group bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-white/30"
+                  className="group bg-card/50 dark:bg-card/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-border"
                   variants={{
                     hidden: { y: 20, opacity: 0 },
                     show: { 
@@ -255,37 +255,37 @@ const Projects = () => {
                       alt={project.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/80 to-bengali-red/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/80 to-bengali-red/80 dark:from-bengali-terracotta-light/80 dark:to-bengali-red-light/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
                       <Link to={`/projects/${project.id}`}>
-                        <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform group-hover:scale-105">
+                        <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark dark:bg-background dark:text-bengali-terracotta-light dark:hover:bg-bengali-mustard-light dark:hover:text-background transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl">
                           View Case Study
                         </Button>
                       </Link>
                     </div>
-                    <div className="absolute top-4 left-4 bg-bengali-mustard text-bengali-dark text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+                    <div className="absolute top-4 left-4 bg-bengali-mustard dark:bg-bengali-mustard-light text-bengali-dark dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md">
                       {project.category}
                     </div>
                     {project.featured && (
-                      <div className="absolute top-4 right-4 bg-bengali-red text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+                      <div className="absolute top-4 right-4 bg-bengali-red dark:bg-bengali-red-light text-white dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md">
                         Featured
                       </div>
                     )}
                   </div>
                   <div className="p-6">
-                    <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-2">
+                    <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
                       {project.title}
                     </h3>
-                    <p className="text-bengali-dark/70 mb-4">
+                    <p className="text-muted-foreground mb-4">
                       {project.description}
                     </p>
                     {project.results && (
-                      <div className="text-bengali-red font-medium mb-4">
+                      <div className="text-bengali-red dark:text-bengali-red-light font-medium mb-4">
                         Result: {project.results}
                       </div>
                     )}
                     <Link 
                       to={`/projects/${project.id}`}
-                      className="inline-flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors font-medium group"
+                      className="inline-flex items-center text-bengali-terracotta dark:text-bengali-mustard-light hover:text-bengali-red dark:hover:text-bengali-mustard transition-colors font-medium group"
                     >
                       View Details 
                       <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -298,7 +298,7 @@ const Projects = () => {
         </section>
         
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-br from-bengali-terracotta to-bengali-red text-white relative overflow-hidden">
+        <section className="py-16 bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light relative overflow-hidden">
           {/* Parallax background elements */}
           <motion.div 
             className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-white/5 filter blur-xl"
@@ -335,7 +335,7 @@ const Projects = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
                 Interested in Working Together?
               </h2>
               <p className="text-white/80 max-w-2xl mx-auto mb-8">
@@ -345,7 +345,7 @@ const Projects = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="bg-gradient-to-r from-bengali-mustard to-yellow-500 text-bengali-dark hover:brightness-110 shadow-lg" asChild>
+                <Button className="bg-gradient-to-r from-bengali-mustard to-bengali-mustard-dark dark:from-bengali-mustard-light dark:to-bengali-mustard text-bengali-dark dark:text-background hover:brightness-110 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
                   <Link to="/contact">Get in Touch</Link>
                 </Button>
               </motion.div>

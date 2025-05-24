@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -49,12 +50,12 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-bengali-terracotta py-20">
+        <section className="bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light py-20">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
@@ -82,13 +83,13 @@ const About = () => {
         </section>
         
         {/* Biography Section */}
-        <section className="py-16">
+        <section className="py-16 bg-background dark:bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-display text-3xl font-bold text-bengali-dark mb-6">
+              <h2 className="font-display text-3xl font-bold text-foreground mb-6">
                 My Story
               </h2>
-              <div className="prose prose-lg text-bengali-dark/80 max-w-none">
+              <div className="prose prose-lg text-muted-foreground max-w-none space-y-4">
                 <p>
                   As a Senior UX Designer and Researcher with 5 years of industry experience, I've dedicated my career to creating intuitive, research-driven digital experiences that solve complex problems and delight users.
                 </p>
@@ -110,13 +111,13 @@ const About = () => {
         </section>
         
         {/* Resume Management in Edit Mode */}
-        <section className="py-8 bg-gray-50">
+        <section className="py-8 bg-muted/30 dark:bg-card/30">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
-              <h3 className="font-display text-2xl font-bold text-bengali-dark mb-6">
+              <h3 className="font-display text-2xl font-bold text-foreground mb-6">
                 Resume Management
               </h3>
-              <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-border">
                 <ResumeManager isEditing={true} />
               </div>
             </div>
@@ -124,22 +125,22 @@ const About = () => {
         </section>
         
         {/* Skills Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-background dark:bg-background">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+            <h2 className="font-display text-3xl font-bold text-foreground mb-10 text-center">
               Skills & Expertise
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {skills.map((skillGroup) => (
-                <div key={skillGroup.category} className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="font-display text-xl font-semibold text-bengali-terracotta mb-4">
+                <div key={skillGroup.category} className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-border">
+                  <h3 className="font-display text-xl font-semibold text-bengali-terracotta dark:text-bengali-mustard-light mb-4">
                     {skillGroup.category}
                   </h3>
                   <ul className="space-y-2">
                     {skillGroup.items.map((skill) => (
                       <li key={skill} className="flex items-center">
-                        <div className="w-2 h-2 bg-bengali-mustard rounded-full mr-3"></div>
-                        <span className="text-bengali-dark/80">{skill}</span>
+                        <div className="w-2 h-2 bg-bengali-mustard dark:bg-bengali-mustard-light rounded-full mr-3"></div>
+                        <span className="text-muted-foreground">{skill}</span>
                       </li>
                     ))}
                   </ul>
@@ -150,27 +151,27 @@ const About = () => {
         </section>
         
         {/* Experience Section */}
-        <section className="py-16">
+        <section className="py-16 bg-muted/30 dark:bg-card/30">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+            <h2 className="font-display text-3xl font-bold text-foreground mb-10 text-center">
               Professional Experience
             </h2>
             <div className="max-w-3xl mx-auto">
               <div className="space-y-12">
                 {experienceItems.map((item, index) => (
-                  <div key={index} className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-bengali-terracotta before:rounded-full before:z-10 before:mt-0.5">
-                    <div className="absolute left-1 top-3 h-full w-0.5 bg-bengali-terracotta/30" style={{ display: index === experienceItems.length - 1 ? 'none' : 'block' }}></div>
-                    <div className="bg-bengali-terracotta/5 p-6 rounded-lg">
-                      <div className="text-bengali-mustard font-medium">
+                  <div key={index} className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-bengali-terracotta dark:before:bg-bengali-mustard-light before:rounded-full before:z-10 before:mt-0.5">
+                    <div className="absolute left-1 top-3 h-full w-0.5 bg-bengali-terracotta/30 dark:bg-bengali-mustard-light/30" style={{ display: index === experienceItems.length - 1 ? 'none' : 'block' }}></div>
+                    <div className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-6 rounded-lg border border-border">
+                      <div className="text-bengali-mustard dark:text-bengali-mustard-light font-medium">
                         {item.period}
                       </div>
-                      <h3 className="font-display text-xl font-semibold text-bengali-dark mt-2">
+                      <h3 className="font-display text-xl font-semibold text-foreground mt-2">
                         {item.title}
                       </h3>
-                      <div className="text-bengali-terracotta mb-4">
+                      <div className="text-bengali-terracotta dark:text-bengali-terracotta-light mb-4">
                         {item.company}
                       </div>
-                      <p className="text-bengali-dark/80">
+                      <p className="text-muted-foreground">
                         {item.description}
                       </p>
                     </div>
@@ -182,27 +183,27 @@ const About = () => {
         </section>
         
         {/* Education Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-background dark:bg-background">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="font-display text-3xl font-bold text-bengali-dark mb-10 text-center">
+            <h2 className="font-display text-3xl font-bold text-foreground mb-10 text-center">
               Education
             </h2>
             <div className="max-w-3xl mx-auto">
               <div className="space-y-12">
                 {educationItems.map((item, index) => (
-                  <div key={index} className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-bengali-red before:rounded-full before:z-10 before:mt-0.5">
-                    <div className="absolute left-1 top-3 h-full w-0.5 bg-bengali-red/30" style={{ display: index === educationItems.length - 1 ? 'none' : 'block' }}></div>
-                    <div className="bg-bengali-red/5 p-6 rounded-lg">
-                      <div className="text-bengali-mustard font-medium">
+                  <div key={index} className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-bengali-red dark:before:bg-bengali-red-light before:rounded-full before:z-10 before:mt-0.5">
+                    <div className="absolute left-1 top-3 h-full w-0.5 bg-bengali-red/30 dark:bg-bengali-red-light/30" style={{ display: index === educationItems.length - 1 ? 'none' : 'block' }}></div>
+                    <div className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-6 rounded-lg border border-border">
+                      <div className="text-bengali-mustard dark:text-bengali-mustard-light font-medium">
                         {item.period}
                       </div>
-                      <h3 className="font-display text-xl font-semibold text-bengali-dark mt-2">
+                      <h3 className="font-display text-xl font-semibold text-foreground mt-2">
                         {item.degree}
                       </h3>
-                      <div className="text-bengali-red mb-4">
+                      <div className="text-bengali-red dark:text-bengali-red-light mb-4">
                         {item.school}
                       </div>
-                      <p className="text-bengali-dark/80">
+                      <p className="text-muted-foreground">
                         {item.description}
                       </p>
                     </div>
@@ -214,16 +215,16 @@ const About = () => {
         </section>
         
         {/* Call to Action */}
-        <section className="py-16 bg-bengali-dark text-white">
+        <section className="py-16 bg-gradient-to-br from-bengali-mustard to-bengali-mustard-dark dark:from-bengali-mustard-light dark:to-bengali-mustard">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-bengali-dark dark:text-background mb-6">
               Ready to Work Together?
             </h2>
-            <p className="text-white/80 max-w-2xl mx-auto mb-8">
+            <p className="text-bengali-dark/80 dark:text-background/80 max-w-2xl mx-auto mb-8">
               I'm currently available for freelance projects, full-time opportunities, and consulting engagements.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white" asChild>
+              <Button className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white dark:bg-bengali-terracotta-light dark:hover:bg-bengali-terracotta shadow-lg hover:shadow-xl transition-all duration-300" asChild>
                 <a href="/contact">Get in Touch</a>
               </Button>
               <ResumeManager />

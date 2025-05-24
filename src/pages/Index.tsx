@@ -11,27 +11,27 @@ import Footer from '@/components/Footer';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen">
-      <div id="hero">
+    <div className="min-h-screen bg-background">
+      <div id="hero" className="bg-background">
         <Navbar />
         <Hero />
       </div>
-      <div id="design-process">
+      <div id="design-process" className="bg-background dark:bg-background">
         <DesignProcess />
       </div>
-      <div id="featured-projects">
+      <div id="featured-projects" className="bg-muted/30 dark:bg-card/30">
         <FeaturedProjects />
       </div>
-      <div id="about-preview">
+      <div id="about-preview" className="bg-background dark:bg-background">
         <AboutPreview />
       </div>
-      <div id="skills">
+      <div id="skills" className="bg-muted/30 dark:bg-card/30">
         <Skills />
       </div>
-      <div id="testimonials">
+      <div id="testimonials" className="bg-background dark:bg-background">
         <Testimonials />
       </div>
-      <div id="contact">
+      <div id="contact" className="bg-muted/30 dark:bg-card/30">
         <ContactForm />
       </div>
       <Footer />

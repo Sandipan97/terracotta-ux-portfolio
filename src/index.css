@@ -8,81 +8,81 @@
 @layer base {
   :root {
     --background: 0 0% 100%; /* Pure white for light mode */
-    --foreground: 220 13% 18%; /* Darker text for better contrast */
+    --foreground: 222 84% 4.9%; /* Much darker text for better contrast */
 
     --card: 0 0% 98%;
-    --card-foreground: 220 13% 18%;
+    --card-foreground: 222 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover-foreground: 222 84% 4.9%;
 
-    --primary: 220 13% 18%;
+    --primary: 222 84% 4.9%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 210 40% 96%;
-    --secondary-foreground: 220 13% 18%;
+    --secondary-foreground: 222 84% 4.9%;
 
     --muted: 210 40% 94%;
-    --muted-foreground: 215.4 16.3% 44%;
+    --muted-foreground: 215.4 16.3% 35%; /* Darker for better contrast */
 
-    --accent: 210 40% 94%;
-    --accent-foreground: 220 13% 18%;
+    --accent: 210 40% 92%;
+    --accent-foreground: 222 84% 4.9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 88%;
     --input: 214.3 31.8% 88%;
-    --ring: 220 13% 18%;
+    --ring: 222 84% 4.9%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 220 13% 18%;
-    --sidebar-primary: 220 13% 18%;
+    --sidebar-foreground: 222 84% 4.9%;
+    --sidebar-primary: 222 84% 4.9%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 210 40% 94%;
-    --sidebar-accent-foreground: 220 13% 18%;
+    --sidebar-accent-foreground: 222 84% 4.9%;
     --sidebar-border: 214.3 31.8% 88%;
-    --sidebar-ring: 220 13% 18%;
+    --sidebar-ring: 222 84% 4.9%;
   }
 
   .dark {
-    --background: 220 13% 9%; /* Deeper dark background */
-    --foreground: 210 40% 95%; /* Lighter text for better contrast */
+    --background: 222 84% 4.9%; /* Deep dark background */
+    --foreground: 210 40% 98%; /* Very light text for excellent contrast */
 
-    --card: 220 13% 11%;
+    --card: 222 84% 7%; /* Slightly lighter than background */
     --card-foreground: 210 40% 95%;
 
-    --popover: 220 13% 11%;
+    --popover: 222 84% 6%;
     --popover-foreground: 210 40% 95%;
 
     --primary: 210 40% 95%;
-    --primary-foreground: 220 13% 9%;
+    --primary-foreground: 222 84% 4.9%;
 
-    --secondary: 220 13% 15%;
-    --secondary-foreground: 210 40% 95%;
+    --secondary: 217.2 32.6% 15%; /* Better contrast */
+    --secondary-foreground: 210 40% 92%;
 
-    --muted: 220 13% 15%;
-    --muted-foreground: 215 20.2% 70%;
+    --muted: 217.2 32.6% 13%;
+    --muted-foreground: 215 20.2% 75%; /* Much lighter for better readability */
 
-    --accent: 220 13% 15%;
-    --accent-foreground: 210 40% 95%;
+    --accent: 217.2 32.6% 15%;
+    --accent-foreground: 210 40% 92%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 18%;
-    --input: 220 13% 18%;
+    --border: 217.2 32.6% 18%; /* More visible borders */
+    --input: 217.2 32.6% 18%;
     --ring: 212.7 26.8% 83.9%;
 
-    --sidebar-background: 220 13% 7%;
+    --sidebar-background: 222 84% 3%;
     --sidebar-foreground: 210 40% 95%;
     --sidebar-primary: 210 40% 95%;
-    --sidebar-primary-foreground: 220 13% 7%;
-    --sidebar-accent: 220 13% 15%;
-    --sidebar-accent-foreground: 210 40% 95%;
-    --sidebar-border: 220 13% 18%;
+    --sidebar-primary-foreground: 222 84% 3%;
+    --sidebar-accent: 217.2 32.6% 15%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 217.2 32.6% 18%;
     --sidebar-ring: 212.7 26.8% 83.9%;
   }
 }
@@ -102,31 +102,44 @@
   }
 
   body.dark {
-    --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23404040' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E");
+    --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23404040' fill-opacity='0.08' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading text-foreground;
   }
 
-  /* Improved text contrast */
-  .text-bengali-dark {
+  /* Improved text contrast utility classes */
+  .text-enhanced {
     @apply text-foreground;
   }
 
-  .dark .text-bengali-dark {
+  .text-enhanced-muted {
+    @apply text-muted-foreground;
+  }
+
+  .dark .text-enhanced {
     @apply text-foreground;
   }
 
-  .text-bengali-dark\/70 {
+  .dark .text-enhanced-muted {
     @apply text-muted-foreground;
   }
 
-  .text-bengali-dark\/80 {
-    @apply text-foreground/80;
+  /* Ensure sections have proper backgrounds in dark mode */
+  .section-bg {
+    @apply bg-background;
   }
 
-  .text-bengali-dark\/60 {
-    @apply text-muted-foreground;
+  .section-bg-alt {
+    @apply bg-muted/30;
+  }
+
+  .dark .section-bg {
+    @apply bg-background;
+  }
+
+  .dark .section-bg-alt {
+    @apply bg-card/50;
   }
 }

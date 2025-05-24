@@ -44,12 +44,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-bengali-terracotta py-20">
+        <section className="bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light py-20">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
               Get in Touch
@@ -61,18 +61,18 @@ const Contact = () => {
         </section>
         
         {/* Contact Form and Info */}
-        <section className="py-16">
+        <section className="py-16 bg-background dark:bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
-                <h2 className="font-display text-2xl font-bold text-bengali-dark mb-6">
+              <div className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-8 rounded-lg shadow-md border border-border">
+                <h2 className="font-display text-2xl font-bold text-foreground mb-6">
                   Send a Message
                 </h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-bengali-dark mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                       Your Name
                     </label>
                     <Input 
@@ -82,12 +82,12 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="John Doe"
                       required
-                      className="border-bengali-dark/20 focus-visible:ring-bengali-terracotta"
+                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-bengali-terracotta dark:focus-visible:ring-bengali-mustard-light"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-bengali-dark mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                       Your Email
                     </label>
                     <Input 
@@ -98,12 +98,12 @@ const Contact = () => {
                       type="email"
                       placeholder="john@example.com"
                       required
-                      className="border-bengali-dark/20 focus-visible:ring-bengali-terracotta"
+                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-bengali-terracotta dark:focus-visible:ring-bengali-mustard-light"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-bengali-dark mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                       Your Message
                     </label>
                     <Textarea 
@@ -114,14 +114,14 @@ const Contact = () => {
                       placeholder="I'd like to discuss a project..."
                       rows={5}
                       required
-                      className="border-bengali-dark/20 focus-visible:ring-bengali-terracotta"
+                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-bengali-terracotta dark:focus-visible:ring-bengali-mustard-light"
                     />
                   </div>
                   
                   <Button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-bengali-red hover:bg-bengali-terracotta text-white"
+                    className="w-full bg-bengali-red hover:bg-bengali-terracotta text-white dark:bg-bengali-red-light dark:hover:bg-bengali-terracotta-light shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
@@ -129,37 +129,37 @@ const Contact = () => {
               </div>
               
               {/* Contact Information */}
-              <div>
-                <h2 className="font-display text-2xl font-bold text-bengali-dark mb-6">
+              <div className="bg-card/30 dark:bg-card/60 backdrop-blur-sm p-8 rounded-lg border border-border">
+                <h2 className="font-display text-2xl font-bold text-foreground mb-6">
                   Contact Information
                 </h2>
                 
                 <div className="space-y-8">
                   <div className="flex items-start">
-                    <Mail className="h-6 w-6 text-bengali-terracotta mr-4 mt-1" />
+                    <Mail className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium text-bengali-dark">Email</h4>
-                      <a href="mailto:contact@example.com" className="text-bengali-dark/70 hover:text-bengali-terracotta transition-colors">
+                      <h4 className="font-medium text-foreground">Email</h4>
+                      <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors">
                         contact@example.com
                       </a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <Phone className="h-6 w-6 text-bengali-terracotta mr-4 mt-1" />
+                    <Phone className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium text-bengali-dark">Phone</h4>
-                      <a href="tel:+919876543210" className="text-bengali-dark/70 hover:text-bengali-terracotta transition-colors">
+                      <h4 className="font-medium text-foreground">Phone</h4>
+                      <a href="tel:+919876543210" className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors">
                         +91 98765 43210
                       </a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <Linkedin className="h-6 w-6 text-bengali-terracotta mr-4 mt-1" />
+                    <Linkedin className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium text-bengali-dark">LinkedIn</h4>
-                      <a href="#" className="text-bengali-dark/70 hover:text-bengali-terracotta transition-colors flex items-center">
+                      <h4 className="font-medium text-foreground">LinkedIn</h4>
+                      <a href="#" className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors flex items-center">
                         linkedin.com/in/yourprofile
                         <ExternalLink className="h-4 w-4 ml-1" />
                       </a>
@@ -167,10 +167,10 @@ const Contact = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <Github className="h-6 w-6 text-bengali-terracotta mr-4 mt-1" />
+                    <Github className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium text-bengali-dark">Behance</h4>
-                      <a href="#" className="text-bengali-dark/70 hover:text-bengali-terracotta transition-colors flex items-center">
+                      <h4 className="font-medium text-foreground">Behance</h4>
+                      <a href="#" className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors flex items-center">
                         behance.net/yourprofile
                         <ExternalLink className="h-4 w-4 ml-1" />
                       </a>
@@ -178,11 +178,11 @@ const Contact = () => {
                   </div>
                 </div>
                 
-                <div className="mt-10 pt-8 border-t border-bengali-dark/10">
-                  <h3 className="font-medium text-bengali-dark mb-4">
+                <div className="mt-10 pt-8 border-t border-border">
+                  <h3 className="font-medium text-foreground mb-4">
                     Download My Resume
                   </h3>
-                  <Button className="w-full bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white">
+                  <Button className="w-full bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white dark:bg-bengali-terracotta-light dark:hover:bg-bengali-terracotta shadow-lg hover:shadow-xl transition-all duration-300">
                     <Download className="mr-2 h-4 w-4" /> Download Resume (PDF)
                   </Button>
                 </div>
@@ -192,21 +192,21 @@ const Contact = () => {
         </section>
         
         {/* Location Map */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-muted/30 dark:bg-card/30">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-10">
-              <h2 className="font-display text-3xl font-bold text-bengali-dark mb-4">
+              <h2 className="font-display text-3xl font-bold text-foreground mb-4">
                 Location
               </h2>
-              <p className="text-bengali-dark/70 max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-2xl mx-auto">
                 Based in Bangalore, India. Available for remote work and on-site projects.
               </p>
             </div>
             
-            <div className="max-w-5xl mx-auto h-96 bg-gray-200 rounded-lg overflow-hidden">
+            <div className="max-w-5xl mx-auto h-96 bg-muted/50 dark:bg-card/50 rounded-lg overflow-hidden border border-border">
               {/* Placeholder for map */}
-              <div className="w-full h-full flex items-center justify-center bg-bengali-dark/5">
-                <div className="text-bengali-dark/60 text-lg">
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="text-muted-foreground text-lg">
                   Interactive Map
                 </div>
               </div>
@@ -215,15 +215,15 @@ const Contact = () => {
         </section>
         
         {/* Call to Action */}
-        <section className="py-16 bg-bengali-mustard">
+        <section className="py-16 bg-gradient-to-br from-bengali-mustard to-bengali-mustard-dark dark:from-bengali-mustard-light dark:to-bengali-mustard">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-bengali-dark mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-bengali-dark dark:text-background mb-6">
               Let's Create Something Amazing Together
             </h2>
-            <p className="text-bengali-dark/80 max-w-2xl mx-auto mb-8">
+            <p className="text-bengali-dark/80 dark:text-background/80 max-w-2xl mx-auto mb-8">
               Whether you're looking for a UX designer for your next project, a speaker for your event, or just want to connect, I'd love to hear from you.
             </p>
-            <Button size="lg" className="bg-bengali-red hover:bg-bengali-terracotta text-white">
+            <Button size="lg" className="bg-bengali-red hover:bg-bengali-terracotta text-white dark:bg-bengali-red-light dark:hover:bg-bengali-terracotta-light shadow-lg hover:shadow-xl transition-all duration-300">
               Schedule a Call
             </Button>
           </div>
