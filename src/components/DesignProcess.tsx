@@ -141,7 +141,7 @@ const DesignProcess = () => {
               Click on any phase to see its themed background animation!
             </motion.p>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
