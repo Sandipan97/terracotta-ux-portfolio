@@ -16,19 +16,19 @@ const HomePage = () => {
         <Navbar />
         <Hero />
       </div>
-      <div id="design-process" className="bg-background dark:bg-background">
+      <div id="design-process" className="bg-background">
         <DesignProcess />
       </div>
       <div id="featured-projects" className="bg-muted/30 dark:bg-card/30">
         <FeaturedProjects />
       </div>
-      <div id="about-preview" className="bg-background dark:bg-background">
+      <div id="about-preview" className="bg-background">
         <AboutPreview />
       </div>
       <div id="skills" className="bg-muted/30 dark:bg-card/30">
         <Skills />
       </div>
-      <div id="testimonials" className="bg-background dark:bg-background">
+      <div id="testimonials" className="bg-background">
         <Testimonials />
       </div>
       <div id="contact" className="bg-muted/30 dark:bg-card/30">

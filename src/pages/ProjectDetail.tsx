@@ -1,3 +1,4 @@
+
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -787,7 +788,7 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       <main className="pt-16 md:pt-20">
@@ -806,7 +807,7 @@ const ProjectDetail = () => {
         
         {/* User Personas & Flows */}
         {(project.userPersona || project.userFlows) && (
-          <section className="py-12 xs:py-16 bg-gradient-to-b from-gray-50 to-white">
+          <section className="py-12 xs:py-16 bg-muted/30 dark:bg-card/30">
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-5xl mx-auto">
                 {project.userPersona && (

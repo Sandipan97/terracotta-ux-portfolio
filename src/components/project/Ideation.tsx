@@ -14,10 +14,10 @@ interface IdeationProps {
 
 const Ideation = ({ ideation }: IdeationProps) => {
   return (
-    <section className="py-12 xs:py-16">
+    <section className="py-12 xs:py-16 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <motion.h2 
-          className="font-heading text-xl xs:text-2xl md:text-3xl font-bold text-bengali-dark mb-6 xs:mb-10 text-center"
+          className="font-heading text-xl xs:text-2xl md:text-3xl font-bold text-foreground mb-6 xs:mb-10 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -31,17 +31,17 @@ const Ideation = ({ ideation }: IdeationProps) => {
             {ideation.map((item, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white p-4 xs:p-6 rounded-lg shadow-md border border-white/60 backdrop-blur-sm"
+                className="bg-card p-4 xs:p-6 rounded-lg shadow-md border border-border backdrop-blur-sm"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               >
-                <h3 className="font-heading text-lg xs:text-xl font-semibold text-bengali-dark mb-2 xs:mb-4">
+                <h3 className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-4">
                   {item.title}
                 </h3>
-                <p className="text-bengali-dark/80 text-sm xs:text-base mb-4">
+                <p className="text-muted-foreground text-sm xs:text-base mb-4">
                   {item.description}
                 </p>
                 {item.image && (
