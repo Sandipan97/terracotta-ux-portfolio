@@ -112,9 +112,9 @@ const FeaturedProjects = () => {
       }
     }
   };
-  return <section id="featured-projects" className="py-20 bg-white relative overflow-hidden" ref={ref}>
+  return <section id="featured-projects" className="py-20 bg-background relative overflow-hidden" ref={ref}>
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden z-0 bg-slate-950">
+      <div className="absolute inset-0 overflow-hidden z-0 bg-background">
         <motion.div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-bengali-mustard/10 filter blur-3xl" animate={{
         scale: [1, 1.2, 1],
         opacity: [0.3, 0.6, 0.3]
@@ -135,19 +135,19 @@ const FeaturedProjects = () => {
 
       <motion.div className="container mx-auto px-4 md:px-6 z-10 relative" initial="hidden" animate={isInView ? "show" : "hidden"} variants={containerVariants}>
         <div className="text-center mb-12">
-          <motion.h2 className="font-heading text-3xl md:text-4xl font-bold text-bengali-dark mb-4" variants={itemVariants}>
+          <motion.h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4" variants={itemVariants}>
             Featured Projects
           </motion.h2>
-          <motion.p className="text-bengali-dark/70 max-w-2xl mx-auto" variants={itemVariants}>
+          <motion.p className="text-muted-foreground max-w-2xl mx-auto" variants={itemVariants}>
             A showcase of my UX design and research work across various industries and technologies
           </motion.p>
         </div>
 
         {/* Filter Controls */}
         <motion.div className="flex flex-wrap justify-center items-center gap-3 mb-12" variants={itemVariants}>
-          <div className="flex items-center bg-bengali-terracotta/5 backdrop-blur-sm p-2 rounded-full shadow-lg border border-white/30">
+          <div className="flex items-center bg-muted/50 backdrop-blur-sm p-2 rounded-full shadow-lg border border-border">
             <Filter size={16} className="text-bengali-terracotta mr-2 ml-3" />
-            <span className="text-sm font-medium text-bengali-dark mr-3">Filter:</span>
+            <span className="text-sm font-medium text-foreground mr-3">Filter:</span>
             
             {categories.map((category, index) => <motion.div key={category} whileHover={{
             scale: 1.05
@@ -165,7 +165,7 @@ const FeaturedProjects = () => {
           }}>
                 <Button variant={selectedCategory === category ? "default" : "outline"} className={`
                     rounded-full text-sm px-4 py-1 transition-all duration-300 
-                    ${selectedCategory === category ? "bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg" : "border-bengali-terracotta/30 text-bengali-dark hover:bg-bengali-terracotta/10"}
+                    ${selectedCategory === category ? "bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg" : "border-bengali-terracotta/30 text-foreground hover:bg-bengali-terracotta/10"}
                   `} onClick={() => setSelectedCategory(category)}>
                   {category}
                 </Button>
@@ -174,7 +174,7 @@ const FeaturedProjects = () => {
         </motion.div>
         
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants}>
-          {filteredProjects.map((project, index) => <motion.div key={project.id} className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 backdrop-blur-sm bg-white/80 border border-white/40" onMouseEnter={() => setHoveredProject(project.id)} onMouseLeave={() => setHoveredProject(null)} variants={itemVariants} whileHover={{
+          {filteredProjects.map((project, index) => <motion.div key={project.id} className="group bg-card rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 backdrop-blur-sm border border-border" onMouseEnter={() => setHoveredProject(project.id)} onMouseLeave={() => setHoveredProject(null)} variants={itemVariants} whileHover={{
           y: -8,
           transition: {
             duration: 0.3,
@@ -223,7 +223,7 @@ const FeaturedProjects = () => {
                 <div className="absolute top-4 left-4 bg-bengali-mustard text-bengali-dark text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-lg">
                   {project.category}
                 </div>
-                {project.date && <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-bengali-dark text-xs px-3 py-1 rounded-full shadow-lg">
+                {project.date && <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm text-foreground text-xs px-3 py-1 rounded-full shadow-lg">
                     {new Date(project.date).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short'
@@ -236,10 +236,10 @@ const FeaturedProjects = () => {
           }} transition={{
             duration: 0.3
           }}>
-                <h3 className="font-heading text-xl font-semibold text-bengali-dark mb-2 line-clamp-2">
+                <h3 className="font-heading text-xl font-semibold text-foreground mb-2 line-clamp-2">
                   {project.title}
                 </h3>
-                <p className="text-bengali-dark/70 mb-4 line-clamp-3">
+                <p className="text-muted-foreground mb-4 line-clamp-3">
                   {project.description}
                 </p>
                 {project.results && <motion.div className="text-bengali-red font-medium mb-4" initial={{

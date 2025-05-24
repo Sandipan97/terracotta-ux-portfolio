@@ -39,36 +39,36 @@ const Testimonials = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-  return <section className="py-20 bg-black">
+  return <section className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-bengali-dark mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
             Client Testimonials
           </h2>
-          <p className="text-bengali-dark/70 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             What clients say about working with me
           </p>
         </div>
         
         <div className="relative max-w-4xl mx-auto">
           {testimonials.map((testimonial, index) => <div key={testimonial.id} className={`transition-opacity duration-500 ${index === activeIndex ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'}`}>
-              <Card className="border-none shadow-md bg-gradient-to-br from-white to-gray-50">
+              <Card className="border-border shadow-md bg-card">
                 <CardContent className="p-8">
                   <div className="flex flex-col items-center text-center">
-                    <Avatar className="w-20 h-20 border-4 border-white shadow-lg mb-6">
+                    <Avatar className="w-20 h-20 border-4 border-background shadow-lg mb-6">
                       <AvatarImage src={testimonial.image} alt={testimonial.author} />
                       <AvatarFallback>{testimonial.author[0]}</AvatarFallback>
                     </Avatar>
                     
-                    <blockquote className="text-xl italic text-bengali-dark/90 mb-6">
+                    <blockquote className="text-xl italic text-foreground/90 mb-6">
                       "{testimonial.quote}"
                     </blockquote>
                     
                     <div>
-                      <div className="font-medium text-bengali-dark">
+                      <div className="font-medium text-foreground">
                         {testimonial.author}
                       </div>
-                      <div className="text-bengali-dark/70">
+                      <div className="text-muted-foreground">
                         {testimonial.title}, {testimonial.company}
                       </div>
                     </div>
@@ -79,7 +79,7 @@ const Testimonials = () => {
         </div>
         
         <div className="flex justify-center mt-6">
-          {testimonials.map((_, index) => <button key={index} onClick={() => setActiveIndex(index)} className={`w-3 h-3 rounded-full mx-1 transition-colors ${index === activeIndex ? 'bg-bengali-terracotta' : 'bg-gray-300'}`} aria-label={`Go to testimonial ${index + 1}`} />)}
+          {testimonials.map((_, index) => <button key={index} onClick={() => setActiveIndex(index)} className={`w-3 h-3 rounded-full mx-1 transition-colors ${index === activeIndex ? 'bg-bengali-terracotta' : 'bg-muted-foreground/50'}`} aria-label={`Go to testimonial ${index + 1}`} />)}
         </div>
       </div>
     </section>;
