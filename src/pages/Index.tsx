@@ -10,6 +10,7 @@ import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import PageBackground from '@/components/PageBackground';
+import FloatingChatbot from '@/components/chatbot/FloatingChatbot';
 
 const HomePage = () => {
   const [backgroundTheme, setBackgroundTheme] = useState<string | null>(null);
@@ -41,6 +42,9 @@ const HomePage = () => {
         <ContactForm />
       </div>
       <Footer />
+      
+      {/* Floating Chatbot */}
+      <FloatingChatbot />
     </div>
   );
 };
