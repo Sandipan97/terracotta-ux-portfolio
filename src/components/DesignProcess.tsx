@@ -1,4 +1,3 @@
-
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import DesktopLayout from './design-process/DesktopLayout';
@@ -12,6 +11,7 @@ import IdeateBackground from './design-process/backgrounds/IdeateBackground';
 import PrototypeBackground from './design-process/backgrounds/PrototypeBackground';
 import TestBackground from './design-process/backgrounds/TestBackground';
 import DeployBackground from './design-process/backgrounds/DeployBackground';
+import PointingIllustration from './ui/pointing-illustration';
 
 const backgroundComponents = {
   'research': ResearchBackground,
@@ -150,11 +150,8 @@ const DesignProcess = ({
           <MobileLayout isInView={isInView} containerVariants={containerVariants} phaseVariants={phaseVariants} iconVariants={iconVariants} arrowVariants={arrowVariants} onPhaseClick={handlePhaseClick} activePhaseId={activePhaseId} />
         </div>
 
-        {/* Bottom description */}
-        
-
-        {/* Floating View My Work Button */}
-        <motion.div className="flex justify-center" initial={{
+        {/* Floating View My Work Button with Pointing Illustration */}
+        <motion.div className="flex justify-center items-center gap-4" initial={{
         opacity: 0,
         y: 20
       }} animate={isInView ? {
@@ -167,6 +164,11 @@ const DesignProcess = ({
         duration: 0.6,
         delay: 1.2
       }}>
+          {/* Pointing illustration to the left of button */}
+          <div className="hidden sm:block">
+            <PointingIllustration />
+          </div>
+          
           <motion.button onClick={scrollToFeaturedProjects} className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base" whileHover={{
           scale: 1.05
         }} whileTap={{
