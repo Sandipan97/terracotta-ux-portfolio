@@ -14,8 +14,36 @@ interface PrototypingProps {
 
 const Prototyping = ({ prototyping }: PrototypingProps) => {
   return (
-    <section className="py-12 xs:py-16 bg-muted/30 dark:bg-card/30">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-12 xs:py-16 bg-muted/20 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <motion.div 
+          className="absolute top-10 left-10 w-80 h-80 rounded-full bg-bengali-mustard/5 filter blur-3xl" 
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }} 
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} 
+        />
+        <motion.div 
+          className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-bengali-terracotta/5 filter blur-2xl" 
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.5, 0.2]
+          }} 
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} 
+        />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.h2 
           className="font-heading text-xl xs:text-2xl md:text-3xl font-bold text-foreground mb-6 xs:mb-10 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -38,25 +66,31 @@ const Prototyping = ({ prototyping }: PrototypingProps) => {
             >
               <div className="flex flex-col md:flex-row gap-6 xs:gap-8 items-center">
                 <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                  <div className="bg-card p-4 xs:p-6 rounded-lg shadow-md border border-border backdrop-blur-sm">
-                    <h3 className="font-heading text-lg xs:text-2xl font-semibold text-foreground mb-2 xs:mb-4">
-                      {proto.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm xs:text-base">
-                      {proto.description}
-                    </p>
+                  <div className="bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-start mb-4">
+                      <div className="w-1 h-16 bg-gradient-to-b from-bengali-terracotta to-bengali-mustard rounded-full mr-4 flex-shrink-0"></div>
+                      <div>
+                        <h3 className="font-heading text-lg xs:text-2xl font-semibold text-foreground mb-2 xs:mb-4">
+                          {proto.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm xs:text-base leading-relaxed">
+                          {proto.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+                
                 <motion.div 
                   className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="rounded-lg overflow-hidden shadow-md">
+                  <div className="rounded-2xl overflow-hidden shadow-lg border border-border/30 bg-background/30 backdrop-blur-sm">
                     <EditableImage 
                       src={proto.image || '/placeholder.svg'} 
                       alt={proto.title}
-                      className="w-full h-auto"
+                      className="w-full h-auto hover:scale-105 transition-transform duration-500"
                       fallbackSrc="/placeholder.svg"
                     />
                   </div>

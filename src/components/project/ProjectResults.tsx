@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { Target } from 'lucide-react';
 
 interface ProjectResultsProps {
   results: string;
@@ -43,13 +44,23 @@ const ProjectResults = ({ results }: ProjectResultsProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto"
         >
+          <div className="flex items-center justify-center mb-6">
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full">
+              <Target size={32} className="text-white" />
+            </div>
+          </div>
+          
           <h2 className="font-heading text-xl xs:text-2xl md:text-3xl font-bold mb-6 xs:mb-8">
             Results & Impact
           </h2>
-          <p className="text-white/90 text-sm xs:text-base md:text-lg max-w-3xl mx-auto">
-            {results}
-          </p>
+          
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 xs:p-8">
+            <p className="text-white/90 text-sm xs:text-base md:text-lg leading-relaxed">
+              {results}
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
