@@ -150,7 +150,7 @@ const DesignProcess = ({
           <MobileLayout isInView={isInView} containerVariants={containerVariants} phaseVariants={phaseVariants} iconVariants={iconVariants} arrowVariants={arrowVariants} onPhaseClick={handlePhaseClick} activePhaseId={activePhaseId} />
         </div>
 
-        {/* Floating View My Work Button with Pointing Illustration */}
+        {/* Floating View My Work Button */}
         <motion.div className="flex justify-center items-center gap-4" initial={{
         opacity: 0,
         y: 20
@@ -164,11 +164,6 @@ const DesignProcess = ({
         duration: 0.6,
         delay: 1.2
       }}>
-          {/* Pointing illustration to the left of button */}
-          <div className="hidden sm:block">
-            <PointingIllustration />
-          </div>
-          
           <motion.button onClick={scrollToFeaturedProjects} className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base" whileHover={{
           scale: 1.05
         }} whileTap={{
