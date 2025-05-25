@@ -11,7 +11,6 @@ import IdeateBackground from './design-process/backgrounds/IdeateBackground';
 import PrototypeBackground from './design-process/backgrounds/PrototypeBackground';
 import TestBackground from './design-process/backgrounds/TestBackground';
 import DeployBackground from './design-process/backgrounds/DeployBackground';
-import PointingIllustration from './ui/pointing-illustration';
 
 const backgroundComponents = {
   'research': ResearchBackground,
