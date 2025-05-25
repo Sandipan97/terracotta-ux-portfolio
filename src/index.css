@@ -147,30 +147,30 @@
 @layer utilities {
   /* Dark mode glow utilities */
   .dark-glow-subtle {
-    @apply dark:shadow-lg dark:shadow-slate-500/20;
+    @apply dark:shadow-lg dark:shadow-slate-500/10;
   }
 
   .dark-glow-medium {
-    @apply dark:shadow-xl dark:shadow-slate-500/30;
+    @apply dark:shadow-xl dark:shadow-slate-500/15;
   }
 
   .dark-glow-strong {
-    @apply dark:shadow-2xl dark:shadow-slate-500/40;
+    @apply dark:shadow-2xl dark:shadow-slate-500/20;
   }
 
   .dark-glow-image {
-    @apply dark:shadow-lg dark:shadow-red-500/30;
+    @apply dark:shadow-lg dark:shadow-red-500/15;
   }
 
   .dark-glow-container {
-    @apply dark:shadow-lg dark:shadow-slate-500/20 dark:ring-1 dark:ring-slate-500/20;
+    @apply dark:shadow-lg dark:shadow-slate-500/10 dark:ring-1 dark:ring-slate-500/10;
   }
 
   .dark-glow-card {
-    @apply dark:shadow-xl dark:shadow-slate-500/30 dark:ring-1 dark:ring-slate-500/30;
+    @apply dark:shadow-xl dark:shadow-slate-500/15 dark:ring-1 dark:ring-slate-500/15;
   }
 
   .dark-glow-hero-card {
-    @apply dark:shadow-2xl dark:shadow-yellow-500/25 dark:ring-1 dark:ring-yellow-500/30;
+    @apply dark:shadow-2xl dark:shadow-yellow-500/12 dark:ring-1 dark:ring-yellow-500/15;
   }
 }
