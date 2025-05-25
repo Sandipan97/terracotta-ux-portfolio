@@ -143,3 +143,34 @@
     @apply bg-card/50;
   }
 }
+
+@layer utilities {
+  /* Dark mode glow utilities */
+  .dark-glow-subtle {
+    @apply dark:shadow-lg dark:shadow-white/5;
+  }
+
+  .dark-glow-medium {
+    @apply dark:shadow-xl dark:shadow-white/8;
+  }
+
+  .dark-glow-strong {
+    @apply dark:shadow-2xl dark:shadow-white/10;
+  }
+
+  .dark-glow-image {
+    @apply dark:shadow-lg dark:shadow-bengali-terracotta/20;
+  }
+
+  .dark-glow-container {
+    @apply dark:shadow-lg dark:shadow-white/5 dark:ring-1 dark:ring-white/5;
+  }
+
+  .dark-glow-card {
+    @apply dark:shadow-xl dark:shadow-white/8 dark:ring-1 dark:ring-white/10;
+  }
+
+  .dark-glow-hero-card {
+    @apply dark:shadow-2xl dark:shadow-bengali-mustard/15 dark:ring-1 dark:ring-bengali-mustard/20;
+  }
+}

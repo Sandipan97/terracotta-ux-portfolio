@@ -14,7 +14,7 @@ interface ProjectNavigationProps {
 
 const ProjectNavigation = ({ nextProject }: ProjectNavigationProps) => {
   return (
-    <section className="py-8 xs:py-12 bg-muted/20 relative overflow-hidden">
+    <section className="py-8 xs:py-12 bg-muted/20 relative overflow-hidden dark-glow-subtle">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(249,211,66)_1px,_transparent_0)] bg-[size:20px_20px]"></div>
@@ -29,7 +29,7 @@ const ProjectNavigation = ({ nextProject }: ProjectNavigationProps) => {
           >
             <Link 
               to="/projects" 
-              className="flex items-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-full border border-border/50 text-bengali-terracotta hover:text-bengali-red hover:bg-background/80 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="flex items-center bg-background/60 backdrop-blur-sm px-4 py-2 rounded-full border border-border/50 text-bengali-terracotta hover:text-bengali-red hover:bg-background/80 transition-all duration-300 shadow-lg hover:shadow-xl dark-glow-container"
             >
               <ArrowLeft size={16} className="mr-2" /> 
               Back to Projects
@@ -42,7 +42,7 @@ const ProjectNavigation = ({ nextProject }: ProjectNavigationProps) => {
           >
             <Link 
               to={`/projects/${nextProject.id}`}
-              className="flex items-center group bg-bengali-terracotta/10 backdrop-blur-sm px-4 py-2 rounded-full border border-bengali-terracotta/30 hover:bg-bengali-terracotta hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="flex items-center group bg-bengali-terracotta/10 backdrop-blur-sm px-4 py-2 rounded-full border border-bengali-terracotta/30 hover:bg-bengali-terracotta hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl dark-glow-container"
             >
               <div className="text-right mr-4">
                 <div className="text-xs xs:text-sm text-muted-foreground group-hover:text-white/80">Next Project</div>

@@ -66,7 +66,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
           <Button 
             onClick={onBack}
             variant="secondary" 
-            className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-bengali-terracotta transition-all duration-300 border border-border/50"
+            className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-bengali-terracotta transition-all duration-300 border border-border/50 dark-glow-container"
             size="icon"
           >
             <ArrowLeft size={20} />
@@ -83,7 +83,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
           <EditableImage 
             src={project.image} 
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover dark-glow-image"
             fallbackSrc="/placeholder.svg"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 z-10"></div>
@@ -91,7 +91,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
       </section>
 
       {/* Information Banner Section */}
-      <section className="w-full bg-background/95 backdrop-blur-sm py-8 xs:py-10 md:py-12 border-b border-border/30 relative overflow-hidden">
+      <section className="w-full bg-background/95 backdrop-blur-sm py-8 xs:py-10 md:py-12 border-b border-border/30 relative overflow-hidden dark-glow-subtle">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(249,211,66)_1px,_transparent_0)] bg-[size:20px_20px]"></div>
@@ -114,7 +114,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
                   >
-                    <Badge className="bg-bengali-terracotta/10 text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white transition-all duration-300 border border-bengali-terracotta/20">
+                    <Badge className="bg-bengali-terracotta/10 text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white transition-all duration-300 border border-bengali-terracotta/20 dark-glow-subtle">
                       {type}
                     </Badge>
                   </motion.div>
@@ -146,7 +146,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 mb-8 xs:mb-10">
               {project.client && (
                 <motion.div 
-                  className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-card"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
@@ -159,7 +159,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
               
               {project.duration && (
                 <motion.div 
-                  className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-card"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
@@ -172,7 +172,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
               
               {project.role && (
                 <motion.div 
-                  className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1"
+                  className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1 dark-glow-card"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 }}
@@ -193,7 +193,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
             >
               <Button 
                 onClick={onScrollToContent}
-                className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-container"
                 size="lg"
               >
                 View More Details <ChevronDown className="ml-2" />

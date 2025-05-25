@@ -13,7 +13,7 @@ interface ProjectOverviewProps {
 
 const ProjectOverview = ({ project }: ProjectOverviewProps) => {
   return (
-    <section className="py-12 bg-background relative overflow-hidden">
+    <section className="py-12 bg-background relative overflow-hidden dark-glow-subtle">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <motion.div 
@@ -64,7 +64,7 @@ const ProjectOverview = ({ project }: ProjectOverviewProps) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {project.challenge && (
               <motion.div 
-                className="bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -83,7 +83,7 @@ const ProjectOverview = ({ project }: ProjectOverviewProps) => {
             
             {project.solution && (
               <motion.div 
-                className="bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

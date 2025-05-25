@@ -24,7 +24,7 @@ const ProjectTestimonial = ({ testimonial }: ProjectTestimonialProps) => {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div 
-          className="max-w-4xl mx-auto bg-background/60 backdrop-blur-sm p-6 xs:p-8 md:p-10 rounded-2xl shadow-xl border border-border/50 relative"
+          className="max-w-4xl mx-auto bg-background/60 backdrop-blur-sm p-6 xs:p-8 md:p-10 rounded-2xl shadow-xl border border-border/50 relative dark-glow-card"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -36,7 +36,7 @@ const ProjectTestimonial = ({ testimonial }: ProjectTestimonialProps) => {
         >
           {/* Quote icon */}
           <div className="absolute -top-4 left-8">
-            <div className="bg-bengali-terracotta p-3 rounded-full shadow-lg">
+            <div className="bg-bengali-terracotta p-3 rounded-full shadow-lg dark-glow-subtle">
               <Quote size={20} className="text-white" />
             </div>
           </div>
@@ -48,7 +48,7 @@ const ProjectTestimonial = ({ testimonial }: ProjectTestimonialProps) => {
             </blockquote>
             
             <div className="flex items-center justify-center">
-              <Avatar className="w-12 h-12 xs:w-16 xs:h-16 border-2 border-bengali-terracotta/20 shadow-lg">
+              <Avatar className="w-12 h-12 xs:w-16 xs:h-16 border-2 border-bengali-terracotta/20 shadow-lg dark-glow-image">
                 <AvatarImage 
                   src={testimonial.image || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"} 
                   alt={testimonial.author} 

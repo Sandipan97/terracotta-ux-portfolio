@@ -34,14 +34,14 @@ const UserPersonas = ({ userPersona }: UserPersonasProps) => {
         {userPersona.map((persona, index) => (
           <motion.div 
             key={index} 
-            className="group bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500"
+            className="group bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 dark-glow-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -8, scale: 1.02 }}
           >
-            <div className="mb-4 h-32 xs:h-48 overflow-hidden rounded-xl border border-border/30">
+            <div className="mb-4 h-32 xs:h-48 overflow-hidden rounded-xl border border-border/30 dark-glow-image">
               <EditableImage 
                 src={persona.image || 'https://images.unsplash.com/photo-1494172892981-ce47ca2da1fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'} 
                 alt={persona.title}

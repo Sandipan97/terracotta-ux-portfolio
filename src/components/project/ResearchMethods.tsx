@@ -14,7 +14,7 @@ interface ResearchMethodsProps {
 
 const ResearchMethods = ({ researchMethods }: ResearchMethodsProps) => {
   return (
-    <section className="py-12 xs:py-16 bg-muted/20 relative overflow-hidden">
+    <section className="py-12 xs:py-16 bg-muted/20 relative overflow-hidden dark-glow-subtle">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <motion.div 
@@ -59,7 +59,7 @@ const ResearchMethods = ({ researchMethods }: ResearchMethodsProps) => {
             {researchMethods.map((method, index) => (
               <motion.div 
                 key={index} 
-                className="group bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500"
+                className="group bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 dark-glow-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -80,7 +80,7 @@ const ResearchMethods = ({ researchMethods }: ResearchMethodsProps) => {
                 
                 {method.image && (
                   <motion.div 
-                    className="rounded-xl overflow-hidden border border-border/30"
+                    className="rounded-xl overflow-hidden border border-border/30 dark-glow-image"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >

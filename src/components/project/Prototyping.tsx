@@ -14,7 +14,7 @@ interface PrototypingProps {
 
 const Prototyping = ({ prototyping }: PrototypingProps) => {
   return (
-    <section className="py-12 xs:py-16 bg-muted/20 relative overflow-hidden">
+    <section className="py-12 xs:py-16 bg-muted/20 relative overflow-hidden dark-glow-subtle">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <motion.div 
@@ -66,7 +66,7 @@ const Prototyping = ({ prototyping }: PrototypingProps) => {
             >
               <div className="flex flex-col md:flex-row gap-6 xs:gap-8 items-center">
                 <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                  <div className="bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-card">
                     <div className="flex items-start mb-4">
                       <div className="w-1 h-16 bg-gradient-to-b from-bengali-terracotta to-bengali-mustard rounded-full mr-4 flex-shrink-0"></div>
                       <div>
@@ -86,7 +86,7 @@ const Prototyping = ({ prototyping }: PrototypingProps) => {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="rounded-2xl overflow-hidden shadow-lg border border-border/30 bg-background/30 backdrop-blur-sm">
+                  <div className="rounded-2xl overflow-hidden shadow-lg border border-border/30 bg-background/30 backdrop-blur-sm dark-glow-image">
                     <EditableImage 
                       src={proto.image || '/placeholder.svg'} 
                       alt={proto.title}

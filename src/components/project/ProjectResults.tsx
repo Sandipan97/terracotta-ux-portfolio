@@ -8,7 +8,7 @@ interface ProjectResultsProps {
 
 const ProjectResults = ({ results }: ProjectResultsProps) => {
   return (
-    <section className="py-12 xs:py-16 bg-gradient-to-br from-bengali-terracotta to-bengali-red text-white relative overflow-hidden">
+    <section className="py-12 xs:py-16 bg-gradient-to-br from-bengali-terracotta to-bengali-red text-white relative overflow-hidden dark-glow-medium">
       {/* Animated background elements */}
       <motion.div 
         className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-white/5 filter blur-xl"
@@ -47,7 +47,7 @@ const ProjectResults = ({ results }: ProjectResultsProps) => {
           className="max-w-4xl mx-auto"
         >
           <div className="flex items-center justify-center mb-6">
-            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full">
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full dark-glow-subtle">
               <Target size={32} className="text-white" />
             </div>
           </div>
@@ -56,7 +56,7 @@ const ProjectResults = ({ results }: ProjectResultsProps) => {
             Results & Impact
           </h2>
           
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 xs:p-8">
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 xs:p-8 dark-glow-card">
             <p className="text-white/90 text-sm xs:text-base md:text-lg leading-relaxed">
               {results}
             </p>

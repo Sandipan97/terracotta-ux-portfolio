@@ -7,7 +7,7 @@ import InteractivePolkaDotBackground from './hero/InteractivePolkaDotBackground'
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden dark-glow-subtle">
       <HeroBackground />
       <InteractivePolkaDotBackground />
 
