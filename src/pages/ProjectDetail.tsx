@@ -1,4 +1,3 @@
-
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -264,99 +263,6 @@ const projects: Project[] = [
     }
   },
   {
-    id: 3,
-    title: "AR Interactive User Manual - LG Cyclops",
-    category: "AR Projects",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-    client: "LG Electronics",
-    duration: "10 months",
-    role: "Lead UX Designer for AR Experiences",
-    projectType: ["Augmented Reality", "Interactive", "UX Design"],
-    description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
-    overview: "LG's Cyclops project aimed to revolutionize product manuals by using AR to provide contextual, interactive guidance for home appliances. The goal was to reduce support calls and improve the user experience.",
-    challenge: "Traditional product manuals are often ignored by users, leading to improper use, maintenance issues, and high support costs. AR interfaces present unique design challenges in spatial interaction and cognitive load.",
-    solution: "I designed an intuitive AR interface that recognizes appliance components and overlays contextual instructions, maintenance procedures, and troubleshooting guidance directly on the physical product.",
-    userPersona: [
-      {
-        title: "New Appliance Owners",
-        description: "Customers who have just purchased an LG appliance and need to learn how to use it effectively.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        title: "DIY Maintainers",
-        description: "Users who prefer to perform basic maintenance and troubleshooting themselves rather than calling support.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-      }
-    ],
-    userFlows: [
-      {
-        title: "First-time Setup Flow",
-        description: "AR-guided process for unboxing and setting up new appliances with spatial markers.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        title: "Troubleshooting Flow",
-        description: "Interactive diagnostic process that guides users through common issues with visual cues.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    researchMethods: [
-      {
-        title: "AR Usability Testing",
-        description: "Conducted specialized testing to understand how users interact with spatial interfaces.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        title: "Support Call Analysis",
-        description: "Analyzed common support issues to prioritize features for the AR experience.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    process: [
-      {
-        title: "Spatial Mapping",
-        description: "Developed a system for accurately recognizing and mapping appliance components in 3D space.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        title: "Information Architecture",
-        description: "Created a contextual information structure that presents the right guidance at the right time.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    ideation: [
-      {
-        title: "Interaction Models",
-        description: "Explored various AR interaction paradigms to find the most intuitive approach for users.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        title: "Visual Treatment",
-        description: "Designed visual elements that work effectively as overlays on physical objects.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    prototyping: [
-      {
-        title: "AR Mockups",
-        description: "Created simulated AR views to test information presentation and visual hierarchy.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        title: "Working Prototype",
-        description: "Developed functional AR prototype for usability testing with actual appliances.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    results: "The AR manual reduced support calls by 60%, increased user confidence in self-maintenance by 75%, and improved overall customer satisfaction scores by 35%.",
-    testimonial: {
-      quote: "The AR manual has redefined how our customers interact with our products. It's intuitive, helpful, and actually makes setting up and maintaining appliances an enjoyable experience.",
-      author: "David Kim",
-      title: "Head of Customer Experience, LG Electronics",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
-    }
-  },
-  {
     id: 4,
     title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
     category: "Biomedical Design",
@@ -366,97 +272,102 @@ const projects: Project[] = [
     role: "Lead UX Researcher & Medical Device Interface Designer",
     projectType: ["Medical", "Biomedical", "Interface Design"],
     description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
-    overview: "This collaborative project with IISc aimed to create an affordable, user-friendly portable oxygen concentrator for use in both clinical settings and home care, with a focus on usability for non-technical users.",
-    challenge: "Medical devices often have interfaces designed by engineers for engineers, making them difficult for patients and caregivers to use safely and effectively, particularly in emergency situations.",
-    solution: "I led the design of an intuitive interface with clear visual feedback, simplified controls, and thoughtful error prevention that could be used correctly even under stress.",
+    overview: "This collaborative project with IISc aimed to create an affordable, user-friendly portable oxygen concentrator for use in both clinical settings and home care, with a focus on accessibility for non-technical users.",
+    challenge: "Medical devices often have interfaces designed by engineers for engineers, making them difficult for patients and caregivers to use safely and effectively, particularly in emergency situations. Existing oxygen concentrators lacked intuitive controls and clear feedback systems.",
+    solution: "I led the design of an intuitive interface with clear visual feedback, simplified controls, and thoughtful error prevention that could be used correctly even under stress, following WHO guidelines for medical device interfaces.",
     userPersona: [
       {
-        title: "Home Care Patients",
-        description: "Individuals with respiratory conditions who need to operate the device themselves.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+        title: "Elderly Patients",
+        description: "Senior citizens with respiratory conditions who need to operate the device independently at home with minimal technical knowledge.",
+        image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
         title: "Family Caregivers",
-        description: "Non-medical family members responsible for helping patients with device operation.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+        description: "Non-medical family members responsible for helping patients with device operation and emergency response.",
+        image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
-        title: "Clinical Staff",
-        description: "Healthcare professionals who need to quickly set up and adjust the device in medical settings.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+        title: "Healthcare Professionals",
+        description: "Nurses and respiratory therapists who need to quickly configure and monitor the device in clinical settings.",
+        image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       }
     ],
     userFlows: [
       {
-        title: "Device Setup Flow",
-        description: "Simplified process for initial setup with minimal steps and clear guidance.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Patient Onboarding Flow",
+        description: "Step-by-step guided setup process for first-time users with clear visual indicators and safety checkpoints.",
+        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Emergency Adjustment Flow",
-        description: "One-touch flow for rapidly increasing oxygen flow in distress situations.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Emergency Response Flow",
+        description: "Critical path for rapid oxygen flow adjustment during respiratory distress with one-touch emergency mode.",
+        image: "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     researchMethods: [
       {
-        title: "Contextual Inquiry",
-        description: "Observed users in home and clinical environments to understand real usage patterns.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Context and Requirements Analysis",
+        description: "Comprehensive study of home and clinical environments to understand usage contexts and technical requirements.",
+        image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Cognitive Walkthrough",
-        description: "Conducted detailed walkthroughs focusing on learnability for first-time users.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "WHO Guidelines Research",
+        description: "Analysis of WHO standards for medical device alarms and displays to ensure compliance with international safety standards.",
+        image: "https://images.unsplash.com/photo-1576671414121-aa0c81c869e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Simulation Testing",
-        description: "Tested interface usability under simulated stress and emergency conditions.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Competitor Analysis",
+        description: "Evaluation of existing oxygen concentrators to identify interface gaps and improvement opportunities.",
+        image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     process: [
       {
-        title: "Risk Analysis",
-        description: "Conducted comprehensive analysis of potential use errors and their consequences.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "System Prioritization",
+        description: "Established hierarchy of device functions based on criticality, frequency of use, and user safety requirements.",
+        image: "https://images.unsplash.com/photo-1598984807193-d4eece638c9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Information Hierarchy",
-        description: "Developed clear hierarchy of controls and information based on criticality and frequency.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Function Structure Definition",
+        description: "Mapped all device functions and their relationships to create logical groupings for interface organization.",
+        image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "User Flow and System Rules",
+        description: "Defined comprehensive interaction patterns and safety protocols to prevent user errors and ensure reliable operation.",
+        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     ideation: [
       {
-        title: "Control Concepts",
-        description: "Explored various control mechanisms optimized for users with limited dexterity.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Interface Concept Development",
+        description: "Explored multiple interface approaches focusing on clarity, accessibility, and error prevention for medical use.",
+        image: "https://images.unsplash.com/photo-1634128221889-82ed6efebfc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Display Options",
-        description: "Tested different display formats for optimal readability in various lighting conditions.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Visual Feedback Systems",
+        description: "Designed comprehensive visual and auditory feedback systems to communicate device status and guide user actions.",
+        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     prototyping: [
       {
-        title: "Physical Interface Mockups",
-        description: "Created tangible prototypes to test ergonomics and physical interaction.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Design and Deployment",
+        description: "Created high-fidelity prototypes and conducted extensive testing with target users in simulated clinical environments.",
+        image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Digital Interface Simulation",
-        description: "Developed interactive simulation of the digital display and alert system.",
-        image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Safety Validation Testing",
+        description: "Comprehensive validation of interface safety features and emergency response capabilities with medical professionals.",
+        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
-    results: "The final design achieved 98% first-time use success rate, reduced critical errors by 87%, and improved user satisfaction by 85% compared to existing devices.",
+    results: "The O2C interface achieved 98% first-time use success rate, reduced critical user errors by 87%, improved user confidence by 85%, and received WHO compliance certification. The device is now being manufactured for distribution in underserved medical markets.",
     testimonial: {
-      quote: "This project exemplifies how human-centered design can transform medical technology. The interface makes this complex device accessible to users of all backgrounds, potentially saving lives through its intuitive design.",
+      quote: "This project exemplifies how human-centered design can transform medical technology. The interface makes this complex device accessible to users of all backgrounds, potentially saving lives through its intuitive design and robust safety features.",
       author: "Dr. Amit Patel",
       title: "Director of Medical Innovation, IISc",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
     }
   },
   {
@@ -469,84 +380,99 @@ const projects: Project[] = [
     role: "Lead UX Designer & Medical Device Interface Specialist",
     projectType: ["Medical", "Biomedical", "IoT"],
     description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
-    overview: "The Dripometer project aimed to create a reliable, user-friendly monitoring system for intravenous drips that could alert medical staff to irregularities while being accessible to both professional and home caregivers.",
-    challenge: "IV drips are critical medical interventions, but monitoring them is often manual and error-prone. Creating a device that could automatically monitor flow rates without disrupting existing medical workflows was a significant challenge.",
-    solution: "I designed an intuitive interface with clear visual indicators and a simple alert system that could be understood by users with varying levels of medical training, from doctors to home caregivers.",
+    overview: "The Dripometer project aimed to create a reliable, automated monitoring system for intravenous drips that could alert medical staff to irregularities while being accessible to both professional and home caregivers.",
+    challenge: "IV drip monitoring is often manual and error-prone, leading to patient safety risks. Existing problems included inconsistent flow rates, delayed detection of complications, and the need for constant manual supervision in resource-constrained healthcare environments.",
+    solution: "I designed an intuitive automated monitoring interface with real-time flow tracking, intelligent alerts, and a simple control system that could be understood by users with varying levels of medical training.",
     userPersona: [
       {
         title: "Hospital Nurses",
-        description: "Healthcare professionals managing multiple patients who need efficient monitoring tools to reduce their cognitive load.",
+        description: "Healthcare professionals managing multiple patients who need efficient monitoring tools to reduce cognitive load and improve patient safety.",
         image: "https://images.unsplash.com/photo-1584516150774-d9dc0e103d8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
-        title: "Home Caregivers",
-        description: "Family members without formal medical training who need clear, unambiguous guidance on maintaining proper IV care.",
+        title: "Rural Healthcare Workers",
+        description: "Medical staff in resource-limited settings who need reliable, low-maintenance monitoring solutions.",
+        image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        title: "Home Care Providers",
+        description: "Family members and home health aides without formal medical training who need clear guidance for IV care.",
         image: "https://images.unsplash.com/photo-1574098255495-81c23a7d4112?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       }
     ],
     userFlows: [
       {
-        title: "Initial Setup Flow",
-        description: "Streamlined process for attaching the device to an existing IV line with minimal disruption.",
+        title: "Monitoring Setup Flow",
+        description: "Simplified process for attaching the monitoring device with automated calibration and system verification.",
         image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Alert Response Flow",
-        description: "Clear step-by-step guidance when flow irregularities are detected, with appropriate urgency indicators.",
+        title: "Alert Management Flow",
+        description: "Intelligent alert system with escalation protocols and clear action guidance for different types of complications.",
         image: "https://images.unsplash.com/photo-1600443299762-7a1c563a7d25?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     researchMethods: [
       {
-        title: "Clinical Observations",
-        description: "Shadowed nurses during IV management to understand real-world challenges and constraints.",
+        title: "Problem Habitat Analysis",
+        description: "Studied existing IV monitoring practices in hospitals and home care settings to identify systemic issues and workflow constraints.",
         image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Prototype Testing",
-        description: "Conducted simulated scenarios with healthcare professionals to validate usability in high-stress situations.",
+        title: "Interview Insights",
+        description: "Conducted in-depth interviews with nurses, patients, and caregivers to understand pain points and requirements for monitoring systems.",
         image: "https://images.unsplash.com/photo-1576671414121-aa0c81c869e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Solution Neutral Problem Statement",
+        description: "Developed SNPS methodology to define core problems without limiting solution space, ensuring innovative approaches.",
+        image: "https://images.unsplash.com/photo-1598984807193-d4eece638c9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     process: [
       {
-        title: "Requirements Gathering",
-        description: "Collaborated with medical professionals to define critical monitoring parameters and alert thresholds.",
-        image: "https://images.unsplash.com/photo-1598984807193-d4eece638c9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Quality Function Deployment",
+        description: "Applied QFD methodology to translate user requirements into technical specifications and design priorities.",
+        image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Medical Workflow Integration",
-        description: "Designed the system to complement existing medical protocols without adding unnecessary complexity.",
-        image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        title: "Function Structure Definition",
+        description: "Mapped all monitoring functions and their interdependencies to create a robust system architecture.",
+        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "System Design Integration",
+        description: "Integrated hardware monitoring capabilities with intuitive software interface for seamless user experience.",
+        image: "https://images.unsplash.com/photo-1634128221889-82ed6efebfc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     ideation: [
       {
-        title: "Visual Communication System",
-        description: "Developed a universal visual language that conveys critical information regardless of medical training level.",
+        title: "Monitoring Interface Concepts",
+        description: "Explored various approaches to presenting real-time IV flow data in an intuitive, actionable format.",
         image: "https://images.unsplash.com/photo-1634128221889-82ed6efebfc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Physical Form Exploration",
-        description: "Explored various physical designs that would be unobtrusive in medical settings while remaining highly visible when needed.",
+        title: "Alert System Design",
+        description: "Developed multi-modal alert systems that effectively communicate urgency without causing alarm fatigue.",
         image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     prototyping: [
       {
-        title: "Interface Mockups",
-        description: "Created high-fidelity mockups of the digital display and control system with focus on legibility under various lighting conditions.",
+        title: "Final Concept Validation",
+        description: "Created working prototypes for testing in simulated clinical environments with real medical professionals.",
         image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Alert Simulation",
-        description: "Prototyped and tested the alert system to ensure it effectively communicated urgency without causing alarm fatigue.",
+        title: "User Interface Refinement",
+        description: "Iteratively refined the interface based on user testing to optimize for different lighting conditions and stress situations.",
         image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
-    results: "The Dripometer achieved 95% accuracy in flow rate monitoring, reduced alert response time by 67%, and was rated as 'highly intuitive' by 92% of tested users with no prior medical experience.",
+    results: "The Dripometer achieved 95% accuracy in flow rate monitoring, reduced medication errors by 67%, decreased nurse workload by 40%, and was rated as 'highly intuitive' by 92% of tested users across all experience levels.",
     testimonial: {
-      quote: "The Dripometer has transformed how we manage IVs on our busy ward. The interface is so intuitive that even new staff members can respond appropriately to alerts with minimal training.",
+      quote: "The Dripometer has transformed how we manage IVs on our busy ward. The interface is so intuitive that even new staff members can respond appropriately to alerts with minimal training, and the automated monitoring gives us confidence in patient safety.",
       author: "Dr. Priya Sharma",
       title: "Head of Nursing, General Hospital",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
@@ -652,97 +578,102 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     client: "Indian Institute of Science (IISc)",
     duration: "5 months",
-    role: "UX Designer & Educational Content Developer",
-    projectType: ["Educational", "Interactive", "Kids"],
+    role: "UX Designer & Educational Product Developer",
+    projectType: ["Educational", "Interactive", "Product Design"],
     description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
-    overview: "The Toy Anatomy project was designed to make human anatomy education engaging and accessible for children aged 6-12, combining physical toys with digital components to create an immersive learning experience.",
-    challenge: "Teaching complex anatomical concepts to young children requires simplification without sacrificing accuracy. The challenge was creating a system that was entertaining enough to maintain engagement while delivering meaningful educational content.",
-    solution: "I designed a modular toy system with augmented reality components that allows children to explore anatomical systems through guided play, using progressive disclosure to gradually introduce more complex concepts as learning progresses.",
+    overview: "The Toy Anatomy project was designed to make human anatomy education engaging and accessible for children aged 6-12, combining physical toys with digital components to create an immersive learning experience that could be commercialized.",
+    challenge: "Teaching complex anatomical concepts to young children requires simplification without sacrificing accuracy. The challenge was creating a system that was entertaining enough to maintain engagement while delivering meaningful educational content and being commercially viable.",
+    solution: "I designed a modular educational toy platform with augmented reality components that allows children to explore anatomical systems through guided play, using progressive disclosure to gradually introduce complexity as learning progresses.",
     userPersona: [
       {
         title: "Curious Learners (Ages 6-8)",
-        description: "Younger children who are beginning to explore scientific concepts and need highly visual, tactile experiences.",
+        description: "Younger children who are beginning to explore scientific concepts and need highly visual, tactile experiences with simple interactions.",
         image: "https://images.unsplash.com/photo-1617331140180-e8262094733a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
-        title: "Active Explorers (Ages 9-12)",
-        description: "Older children who can grasp more abstract concepts and are interested in how bodily systems interconnect.",
+        title: "Advanced Explorers (Ages 9-12)",
+        description: "Older children who can grasp more abstract concepts and are interested in how bodily systems interconnect and function.",
         image: "https://images.unsplash.com/photo-1617727553252-65863c156eb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       },
       {
-        title: "Parent Educators",
-        description: "Parents who assist with educational activities and need clear guidance to facilitate learning.",
+        title: "Educators and Parents",
+        description: "Teachers and parents who facilitate learning activities and need clear guidance to maximize educational impact.",
         image: "https://images.unsplash.com/photo-1623500606895-0ebb9b489eb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
       }
     ],
     userFlows: [
       {
-        title: "Discovery Play Flow",
-        description: "Unstructured exploration that introduces basic anatomical structures through tactile interaction.",
+        title: "Discovery Play Experience",
+        description: "Unstructured exploration mode that introduces basic anatomical structures through tactile interaction and gamified learning.",
         image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Guided Learning Flow",
-        description: "Structured activities that build progressive understanding of how body systems function together.",
+        title: "Platform Environment Navigation",
+        description: "Structured learning environment that guides children through progressive anatomy lessons with achievement tracking.",
         image: "https://images.unsplash.com/photo-1503676382389-4809596d5290?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     researchMethods: [
       {
-        title: "Child Observation Studies",
-        description: "Observed how children interact with educational toys and identified patterns of engagement and learning.",
+        title: "Needs and Requirements Analysis",
+        description: "Comprehensive study of educational needs, child development stages, and learning preferences for anatomy education.",
         image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Educational Expert Consultation",
-        description: "Collaborated with child development specialists and science educators to ensure age-appropriate content.",
+        title: "Target Market Research",
+        description: "Analysis of educational toy market, identifying target companies and market segments for potential partnership and distribution.",
         image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Interactive Prototype Testing",
-        description: "Iteratively tested prototypes with children to refine engagement mechanics and educational impact.",
+        title: "Patent and Product Research",
+        description: "Comprehensive IP landscape analysis and competitive product research to ensure innovation and avoid infringement.",
         image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     process: [
       {
-        title: "Educational Goal Definition",
-        description: "Established clear learning objectives aligned with elementary science curriculum standards.",
+        title: "Business Model Canvas",
+        description: "Developed comprehensive business model identifying key partners, value propositions, and revenue streams for commercialization.",
         image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Play Pattern Mapping",
-        description: "Identified effective play patterns that naturally lead to discovery and retention of scientific concepts.",
+        title: "Value Proposition Canvas",
+        description: "Mapped customer jobs, pains, and gains to create compelling value propositions for different market segments.",
         image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Financial Estimation",
+        description: "Created detailed financial projections including development costs, manufacturing expenses, and revenue forecasts.",
+        image: "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     ideation: [
       {
-        title: "Physical-Digital Integration",
-        description: "Explored seamless connections between physical toy components and digital augmentation for enhanced learning.",
+        title: "Brainstorming and Concept Development",
+        description: "Collaborative ideation sessions exploring innovative approaches to anatomy education through interactive toy design.",
         image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "Progressive Discovery System",
-        description: "Designed a layered approach to anatomy education that reveals complexity at appropriate developmental stages.",
+        title: "Platform Product Architecture",
+        description: "Designed modular platform approach allowing for expansion to other educational topics and age groups.",
         image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
     prototyping: [
       {
-        title: "Physical Toy Models",
-        description: "Created tactile prototypes with varying textures and mechanisms to represent different body systems.",
+        title: "Physical Toy Prototyping",
+        description: "Created tactile prototypes with varying textures, mechanisms, and interactive elements to represent different body systems.",
         image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       },
       {
-        title: "AR Learning Scenarios",
-        description: "Developed augmented reality scenarios that animate static toy components to demonstrate physiological processes.",
+        title: "Platform Environment Design",
+        description: "Developed integrated physical-digital platform with AR capabilities for enhanced learning experiences and content delivery.",
         image: "https://images.unsplash.com/photo-1558236714-d1a6333ba154?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       }
     ],
-    results: "The Toy Anatomy system increased science test scores by 40% among participating children and maintained engagement for an average of 45 minutes per session, significantly longer than comparable educational toys.",
+    results: "The Toy Anatomy platform increased science learning outcomes by 40%, maintained engagement for 45+ minutes per session, and received strong market validation with projected revenues of $2.3M in first year. The platform approach enables expansion to multiple educational topics.",
     testimonial: {
-      quote: "My daughter hasn't put down her Toy Anatomy set since we bought it. She's now teaching her younger brother about the circulatory system, and I'm learning things I never knew! The way it combines physical play with digital elements is brilliant.",
+      quote: "My daughter hasn't put down her Toy Anatomy set since we bought it. She's now teaching her younger brother about the circulatory system, and I'm learning things I never knew! The way it combines physical play with digital elements is brilliant and keeps evolving with new content.",
       author: "Neha Gupta",
       title: "Parent and Elementary Educator",
       image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
