@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
-import { ArrowRight, Filter } from 'lucide-react';
+import { ArrowRight, Filter, Calendar, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { EditableImage } from './ui/editable-image';
 import { motion, useInView } from 'framer-motion';
@@ -82,6 +82,7 @@ const FeaturedProjects = () => {
     once: true,
     amount: 0.1
   });
+  
   const filteredProjects = selectedCategory === "All" ? allProjects : allProjects.filter(project => project.category === selectedCategory);
 
   // Animation variants for staggered animations
@@ -97,6 +98,7 @@ const FeaturedProjects = () => {
       }
     }
   };
+  
   const itemVariants = {
     hidden: {
       y: 30,
@@ -112,33 +114,54 @@ const FeaturedProjects = () => {
       }
     }
   };
-  return <section id="featured-projects" className="py-20 bg-background relative overflow-hidden" ref={ref}>
+
+  return (
+    <section id="featured-projects" className="py-20 bg-background relative overflow-hidden" ref={ref}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden z-0 bg-background">
-        <motion.div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-bengali-mustard/10 filter blur-3xl" animate={{
-        scale: [1, 1.2, 1],
-        opacity: [0.3, 0.6, 0.3]
-      }} transition={{
-        duration: 15,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }} />
-        <motion.div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-bengali-terracotta/10 filter blur-3xl" animate={{
-        scale: [1, 1.3, 1],
-        opacity: [0.2, 0.5, 0.2]
-      }} transition={{
-        duration: 20,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }} />
+        <motion.div 
+          className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-bengali-mustard/10 filter blur-3xl" 
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }} 
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} 
+        />
+        <motion.div 
+          className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-bengali-terracotta/10 filter blur-3xl" 
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.5, 0.2]
+          }} 
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} 
+        />
       </div>
 
-      <motion.div className="container mx-auto px-4 md:px-6 z-10 relative" initial="hidden" animate={isInView ? "show" : "hidden"} variants={containerVariants}>
+      <motion.div 
+        className="container mx-auto px-4 md:px-6 z-10 relative" 
+        initial="hidden" 
+        animate={isInView ? "show" : "hidden"} 
+        variants={containerVariants}
+      >
         <div className="text-center mb-12">
-          <motion.h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4" variants={itemVariants}>
+          <motion.h2 
+            className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4" 
+            variants={itemVariants}
+          >
             Featured Projects
           </motion.h2>
-          <motion.p className="text-muted-foreground max-w-2xl mx-auto" variants={itemVariants}>
+          <motion.p 
+            className="text-muted-foreground max-w-2xl mx-auto" 
+            variants={itemVariants}
+          >
             A showcase of my UX design and research work across various industries and technologies
           </motion.p>
         </div>
@@ -152,144 +175,178 @@ const FeaturedProjects = () => {
             </div>
             
             <div className="flex flex-wrap gap-1 sm:gap-2 justify-center sm:justify-start w-full sm:w-auto">
-              {categories.map((category, index) => <motion.div key={category} whileHover={{
-              scale: 1.05
-            }} whileTap={{
-              scale: 0.95
-            }} initial={{
-              opacity: 0,
-              y: 10
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              delay: 0.1 * index,
-              duration: 0.3
-            }} className="flex-shrink-0">
-                  <Button variant={selectedCategory === category ? "default" : "outline"} className={`
+              {categories.map((category, index) => (
+                <motion.div 
+                  key={category} 
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }} 
+                  initial={{ opacity: 0, y: 10 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  transition={{ delay: 0.1 * index, duration: 0.3 }} 
+                  className="flex-shrink-0"
+                >
+                  <Button 
+                    variant={selectedCategory === category ? "default" : "outline"} 
+                    className={`
                       rounded-full text-xs sm:text-sm px-2 sm:px-4 py-1 sm:py-2 transition-all duration-300 whitespace-nowrap
                       ${selectedCategory === category ? "bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg" : "border-bengali-terracotta/30 text-foreground hover:bg-bengali-terracotta/10"}
-                    `} onClick={() => setSelectedCategory(category)}>
+                    `} 
+                    onClick={() => setSelectedCategory(category)}
+                  >
                     {category}
                   </Button>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
           </div>
         </motion.div>
         
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants}>
-          {filteredProjects.map((project, index) => <motion.div key={project.id} className="group bg-card rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 backdrop-blur-sm border border-border" onMouseEnter={() => setHoveredProject(project.id)} onMouseLeave={() => setHoveredProject(null)} variants={itemVariants} whileHover={{
-          y: -8,
-          transition: {
-            duration: 0.3,
-            ease: "easeOut"
-          }
-        }} layout>
-              <div className="relative h-56 overflow-hidden">
-                <motion.div className="relative w-full h-full" whileHover={{
-              scale: 1.05
-            }} transition={{
-              duration: 0.6,
-              ease: "easeOut"
-            }}>
-                  <EditableImage src={project.image} alt={project.title} className="w-full h-full object-cover" />
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" 
+          variants={containerVariants}
+        >
+          {filteredProjects.map((project, index) => (
+            <motion.div 
+              key={project.id} 
+              className="group relative bg-background/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-border/50 hover:border-bengali-terracotta/30 transition-all duration-500 hover:shadow-2xl hover:shadow-bengali-terracotta/10" 
+              onMouseEnter={() => setHoveredProject(project.id)} 
+              onMouseLeave={() => setHoveredProject(null)} 
+              variants={itemVariants} 
+              whileHover={{
+                y: -8,
+                transition: {
+                  duration: 0.3,
+                  ease: "easeOut"
+                }
+              }} 
+              layout
+            >
+              {/* Image Section */}
+              <div className="relative h-56 overflow-hidden rounded-t-2xl">
+                <motion.div 
+                  className="relative w-full h-full" 
+                  whileHover={{ scale: 1.05 }} 
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <EditableImage 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover" 
+                  />
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
                 </motion.div>
                 
-                {/* Overlay with enhanced animation */}
-                <motion.div className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/90 to-bengali-red/90 flex items-center justify-center backdrop-blur-sm" initial={{
-              opacity: 0,
-              scale: 0.8
-            }} animate={{
-              opacity: hoveredProject === project.id ? 1 : 0,
-              scale: hoveredProject === project.id ? 1 : 0.8
-            }} transition={{
-              duration: 0.3,
-              ease: "easeOut"
-            }}>
-                  <motion.div initial={{
-                opacity: 0,
-                y: 20
-              }} animate={{
-                opacity: hoveredProject === project.id ? 1 : 0,
-                y: hoveredProject === project.id ? 0 : 20
-              }} transition={{
-                duration: 0.3,
-                delay: 0.1
-              }}>
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-bengali-terracotta text-xs font-medium px-3 py-1.5 rounded-full border border-bengali-terracotta/20 shadow-lg">
+                  {project.category}
+                </div>
+                
+                {/* Date Badge */}
+                {project.date && (
+                  <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm text-muted-foreground text-xs px-3 py-1.5 rounded-full border border-border/50 shadow-lg flex items-center gap-1">
+                    <Calendar size={10} />
+                    {new Date(project.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short'
+                    })}
+                  </div>
+                )}
+
+                {/* Hover Overlay */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-br from-bengali-terracotta/95 to-bengali-red/95 flex items-center justify-center backdrop-blur-sm" 
+                  initial={{ opacity: 0, scale: 0.8 }} 
+                  animate={{
+                    opacity: hoveredProject === project.id ? 1 : 0,
+                    scale: hoveredProject === project.id ? 1 : 0.8
+                  }} 
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }} 
+                    animate={{
+                      opacity: hoveredProject === project.id ? 1 : 0,
+                      y: hoveredProject === project.id ? 0 : 20
+                    }} 
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
                     <Link to={`/projects/${project.id}`}>
                       <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform hover:scale-105 shadow-lg">
                         View Case Study
+                        <ArrowRight size={16} className="ml-2" />
                       </Button>
                     </Link>
                   </motion.div>
                 </motion.div>
-                
-                <div className="absolute top-4 left-4 bg-bengali-mustard text-bengali-dark text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-lg">
-                  {project.category}
-                </div>
-                {project.date && <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm text-foreground text-xs px-3 py-1 rounded-full shadow-lg">
-                    {new Date(project.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short'
-              })}
-                  </div>}
               </div>
               
-              <motion.div className="p-6" whileHover={{
-            backgroundColor: "rgba(249, 211, 66, 0.05)"
-          }} transition={{
-            duration: 0.3
-          }}>
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-2 line-clamp-2">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-                {project.results && <motion.div className="text-bengali-red font-medium mb-4" initial={{
-              opacity: 0
-            }} whileInView={{
-              opacity: 1
-            }} transition={{
-              delay: 0.2
-            }}>
-                    Result: {project.results}
-                  </motion.div>}
-                <Link to={`/projects/${project.id}`} className="inline-flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors font-medium group">
-                  <motion.span whileHover={{
-                x: 5
-              }} transition={{
-                duration: 0.2
-              }}>
+              {/* Content Section */}
+              <motion.div 
+                className="p-6 space-y-4" 
+                whileHover={{ backgroundColor: "rgba(249, 211, 66, 0.05)" }} 
+                transition={{ duration: 0.3 }}
+              >
+                <div className="space-y-2">
+                  <h3 className="font-heading text-xl font-semibold text-foreground line-clamp-2 group-hover:text-bengali-terracotta transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* Results Section */}
+                {project.results && (
+                  <motion.div 
+                    className="flex items-center gap-2 p-3 bg-bengali-terracotta/5 rounded-lg border border-bengali-terracotta/10" 
+                    initial={{ opacity: 0 }} 
+                    whileInView={{ opacity: 1 }} 
+                    transition={{ delay: 0.2 }}
+                  >
+                    <Target size={14} className="text-bengali-terracotta flex-shrink-0" />
+                    <span className="text-bengali-terracotta font-medium text-sm">
+                      {project.results}
+                    </span>
+                  </motion.div>
+                )}
+
+                {/* Action Link */}
+                <Link 
+                  to={`/projects/${project.id}`} 
+                  className="inline-flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors font-medium group/link text-sm"
+                >
+                  <motion.span 
+                    whileHover={{ x: 5 }} 
+                    transition={{ duration: 0.2 }}
+                  >
                     View Details 
                   </motion.span>
-                  <motion.div whileHover={{
-                x: 3
-              }} transition={{
-                duration: 0.2
-              }}>
-                    <ArrowRight size={16} className="ml-2" />
+                  <motion.div 
+                    whileHover={{ x: 3 }} 
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ArrowRight size={14} className="ml-2" />
                   </motion.div>
                 </Link>
               </motion.div>
-            </motion.div>)}
+            </motion.div>
+          ))}
         </motion.div>
 
         <motion.div className="mt-12 text-center" variants={itemVariants}>
           <Link to="/projects">
-            <motion.div whileHover={{
-            scale: 1.05,
-            y: -2
-          }} whileTap={{
-            scale: 0.95
-          }}>
+            <motion.div 
+              whileHover={{ scale: 1.05, y: -2 }} 
+              whileTap={{ scale: 0.95 }}
+            >
               <Button className="bg-bengali-terracotta hover:bg-bengali-mustard text-white hover:text-bengali-dark transition-all duration-300 group shadow-lg hover:shadow-xl">
                 View All Projects 
-                <motion.div whileHover={{
-                x: 5
-              }} transition={{
-                duration: 0.2
-              }}>
+                <motion.div 
+                  whileHover={{ x: 5 }} 
+                  transition={{ duration: 0.2 }}
+                >
                   <ArrowRight size={16} className="ml-2" />
                 </motion.div>
               </Button>
@@ -297,6 +354,8 @@ const FeaturedProjects = () => {
           </Link>
         </motion.div>
       </motion.div>
-    </section>;
+    </section>
+  );
 };
+
 export default FeaturedProjects;
