@@ -1,18 +1,13 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Skills from '@/components/Skills';
+import DesignProcess from '@/components/DesignProcess';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import ResumeManager from '@/components/ResumeManager';
 
 const About = () => {
-  const skills = [
-    { category: "Design", items: ["User Interface Design", "User Experience Design", "Design Systems", "Interaction Design", "Visual Design", "Responsive Design"] },
-    { category: "Research", items: ["User Research", "Usability Testing", "A/B Testing", "Heuristic Evaluation", "Contextual Inquiry", "Persona Development"] },
-    { category: "Tools", items: ["Figma", "Adobe XD", "Sketch", "InVision", "Principle", "Framer"] },
-    { category: "Specialties", items: ["AR/VR Design", "Biomedical UX", "AI in Design", "B2B UX", "Enterprise UX", "Accessibility"] }
-  ];
-
   const experienceItems = [
     {
       period: "2020 - Present",
@@ -124,31 +119,11 @@ const About = () => {
           </div>
         </section>
         
-        {/* Skills Section */}
-        <section className="py-16 bg-background dark:bg-background">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="font-display text-3xl font-bold text-foreground mb-10 text-center">
-              Skills & Expertise
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {skills.map((skillGroup) => (
-                <div key={skillGroup.category} className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-6 rounded-lg shadow-md border border-border">
-                  <h3 className="font-display text-xl font-semibold text-bengali-terracotta dark:text-bengali-mustard-light mb-4">
-                    {skillGroup.category}
-                  </h3>
-                  <ul className="space-y-2">
-                    {skillGroup.items.map((skill) => (
-                      <li key={skill} className="flex items-center">
-                        <div className="w-2 h-2 bg-bengali-mustard dark:bg-bengali-mustard-light rounded-full mr-3"></div>
-                        <span className="text-muted-foreground">{skill}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Skills Section - Moved above Design Process */}
+        <Skills />
+        
+        {/* Design Process Section */}
+        <DesignProcess />
         
         {/* Experience Section */}
         <section className="py-16 bg-muted/30 dark:bg-card/30">
