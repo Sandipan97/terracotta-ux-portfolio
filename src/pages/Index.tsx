@@ -26,11 +26,11 @@ const HomePage = () => {
       <div id="skills" className="bg-muted/30 dark:bg-card/30 relative z-10">
         <Skills />
       </div>
-      <div id="design-process" className="bg-background relative z-10">
-        <DesignProcess onBackgroundChange={setBackgroundTheme} />
-      </div>
       <div id="featured-projects" className="bg-muted/30 dark:bg-card/30 relative z-10">
         <FeaturedProjects />
+      </div>
+      <div id="design-process" className="bg-background relative z-10">
+        <DesignProcess onBackgroundChange={setBackgroundTheme} />
       </div>
       <div id="about-preview" className="bg-background relative z-10">
         <AboutPreview />

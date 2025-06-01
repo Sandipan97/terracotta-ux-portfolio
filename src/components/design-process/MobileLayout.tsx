@@ -24,7 +24,7 @@ const MobileLayout = ({
   return (
     <div className="md:hidden px-2">
       <motion.div 
-        className="grid grid-cols-2 gap-3 sm:gap-4 gap-y-8 sm:gap-y-10 max-w-xs sm:max-w-md mx-auto relative"
+        className="grid grid-cols-2 gap-2 sm:gap-3 gap-y-6 sm:gap-y-8 max-w-xs sm:max-w-md mx-auto relative"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}

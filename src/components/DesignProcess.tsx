@@ -1,3 +1,4 @@
+
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import DesktopLayout from './design-process/DesktopLayout';
@@ -88,7 +89,7 @@ const DesignProcess = ({
   const ActiveBackgroundComponent = activeBackground ? backgroundComponents[activeBackground] : null;
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 bg-transparent relative overflow-hidden min-h-screen flex flex-col justify-center" ref={ref}>
+    <section className="py-6 sm:py-8 lg:py-10 bg-transparent relative overflow-hidden flex flex-col justify-center" ref={ref}>
       {/* Local section background when active with smooth transitions */}
       <AnimatePresence mode="wait">
         {ActiveBackgroundComponent && (
@@ -123,8 +124,8 @@ const DesignProcess = ({
         )}
       </AnimatePresence>
 
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10 max-w-7xl">
-        <motion.div className="text-center mb-6 sm:mb-8 lg:mb-12" initial={{
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10 max-w-6xl">
+        <motion.div className="text-center mb-4 sm:mb-6 lg:mb-8" initial={{
         opacity: 0,
         y: 20
       }} animate={isInView ? {
@@ -136,14 +137,14 @@ const DesignProcess = ({
       }} transition={{
         duration: 0.6
       }}>
-          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-3 sm:mb-4 lg:mb-6">
+          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-3 lg:mb-4">
             My Design Process
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed">Being a Product Designer at core, my research-driven approach creates user-centered solutions every single time</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed">Being a Product Designer at core, my research-driven approach creates user-centered solutions every single time</p>
         </motion.div>
 
         {/* Responsive layouts */}
-        <div className="w-full mb-6 sm:mb-8 lg:mb-12">
+        <div className="w-full mb-4 sm:mb-6 lg:mb-8">
           <DesktopLayout isInView={isInView} containerVariants={containerVariants} phaseVariants={phaseVariants} iconVariants={iconVariants} arrowVariants={arrowVariants} onPhaseClick={handlePhaseClick} activePhaseId={activePhaseId} />
 
           <MobileLayout isInView={isInView} containerVariants={containerVariants} phaseVariants={phaseVariants} iconVariants={iconVariants} arrowVariants={arrowVariants} onPhaseClick={handlePhaseClick} activePhaseId={activePhaseId} />
@@ -163,7 +164,7 @@ const DesignProcess = ({
         duration: 0.6,
         delay: 1.2
       }}>
-          <motion.button onClick={scrollToFeaturedProjects} className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base" whileHover={{
+          <motion.button onClick={scrollToFeaturedProjects} className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white px-5 py-2.5 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base" whileHover={{
           scale: 1.05
         }} whileTap={{
           scale: 0.95
