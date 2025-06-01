@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { EditableImage } from './ui/editable-image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import ScrollToNextSection from './ui/ScrollToNextSection';
 type Project = {
   id: number;
   title: string;
@@ -353,6 +354,9 @@ const FeaturedProjects = () => {
             </motion.div>
           </Link>
         </motion.div>
+
+        {/* Scroll to next section button */}
+        <ScrollToNextSection targetId="design-process" className="mt-8" />
       </motion.div>
     </section>
   );

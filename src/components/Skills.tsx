@@ -1,7 +1,7 @@
-
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Badge } from '@/components/ui/badge';
+import ScrollToNextSection from '@/components/ui/ScrollToNextSection';
 
 const skillCategories = [
   {
@@ -224,6 +224,9 @@ const Skills = () => {
             ))}
           </div>
         </motion.div>
+
+        {/* Scroll to next section button */}
+        <ScrollToNextSection targetId="featured-projects" className="mt-6" />
       </div>
     </section>
   );
