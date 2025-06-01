@@ -2,10 +2,10 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import Skills from '@/components/Skills';
 import DesignProcess from '@/components/DesignProcess';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import AboutPreview from '@/components/AboutPreview';
-import Skills from '@/components/Skills';
 import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
@@ -23,6 +23,9 @@ const HomePage = () => {
         <Navbar />
         <Hero />
       </div>
+      <div id="skills" className="bg-muted/30 dark:bg-card/30 relative z-10">
+        <Skills />
+      </div>
       <div id="design-process" className="bg-background relative z-10">
         <DesignProcess onBackgroundChange={setBackgroundTheme} />
       </div>
@@ -31,9 +34,6 @@ const HomePage = () => {
       </div>
       <div id="about-preview" className="bg-background relative z-10">
         <AboutPreview />
-      </div>
-      <div id="skills" className="bg-muted/30 dark:bg-card/30 relative z-10">
-        <Skills />
       </div>
       <div id="testimonials" className="bg-background relative z-10">
         <Testimonials />

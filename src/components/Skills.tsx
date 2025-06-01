@@ -61,7 +61,7 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   };
@@ -69,17 +69,17 @@ const Skills = () => {
   const categoryVariants = {
     hidden: { 
       opacity: 0, 
-      y: 30,
-      scale: 0.9
+      y: 20,
+      scale: 0.95
     },
     visible: { 
       opacity: 1, 
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut",
-        staggerChildren: 0.1
+        staggerChildren: 0.08
       }
     }
   };
@@ -87,76 +87,76 @@ const Skills = () => {
   const skillVariants = {
     hidden: { 
       opacity: 0, 
-      x: -20,
-      scale: 0.8
+      x: -15,
+      scale: 0.9
     },
     visible: { 
       opacity: 1, 
       x: 0,
       scale: 1,
       transition: {
-        duration: 0.4,
+        duration: 0.3,
         ease: "easeOut"
       }
     }
   };
 
   return (
-    <section ref={ref} className="py-20 bg-muted/30 dark:bg-card/30">
+    <section ref={ref} className="py-12 md:py-16 bg-muted/20 dark:bg-card/20">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div 
-          className="text-center mb-16" 
+          className="text-center mb-10" 
           initial={{ opacity: 0, y: 20 }} 
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} 
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-3">
             Skills & Expertise
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            My comprehensive skill set spans strategic research, creative design execution, and technical leadership
+          <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
+            Comprehensive skill set spanning strategic research, creative design execution, and technical leadership
           </p>
         </motion.div>
 
         <motion.div 
-          className="max-w-6xl mx-auto"
+          className="max-w-5xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {skillCategories.map((category, categoryIndex) => (
               <motion.div 
                 key={category.title} 
-                className="bg-card/70 dark:bg-card/90 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-border hover:shadow-xl transition-all duration-300" 
+                className="bg-card/60 dark:bg-card/80 backdrop-blur-sm p-4 md:p-6 rounded-lg shadow-md border border-border hover:shadow-lg transition-all duration-300" 
                 variants={categoryVariants}
                 whileHover={{ 
-                  y: -5,
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                  y: -3,
+                  boxShadow: "0 12px 20px -5px rgba(0, 0, 0, 0.08)"
                 }}
               >
-                <div className="flex items-center mb-6">
+                <div className="flex items-center mb-4">
                   <motion.div 
-                    className="text-3xl mr-4"
+                    className="text-2xl mr-3"
                     animate={{ 
-                      rotate: [0, 10, -10, 0],
-                      scale: [1, 1.1, 1]
+                      rotate: [0, 8, -8, 0],
+                      scale: [1, 1.05, 1]
                     }}
                     transition={{ 
-                      duration: 3,
+                      duration: 2.5,
                       repeat: Infinity,
-                      delay: categoryIndex * 0.5
+                      delay: categoryIndex * 0.4
                     }}
                   >
                     {category.icon}
                   </motion.div>
-                  <h3 className="font-heading text-xl font-semibold text-foreground">
+                  <h3 className="font-heading text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
                 </div>
                 
                 <motion.div 
-                  className="flex flex-wrap gap-3"
+                  className="flex flex-wrap gap-2"
                   variants={containerVariants}
                 >
                   {category.skills.map((skill, skillIndex) => (
@@ -164,13 +164,13 @@ const Skills = () => {
                       key={skill}
                       variants={skillVariants}
                       whileHover={{ 
-                        scale: 1.05,
-                        rotate: 1
+                        scale: 1.03,
+                        rotate: 0.5
                       }}
-                      whileTap={{ scale: 0.95 }}
+                      whileTap={{ scale: 0.97 }}
                     >
                       <Badge 
-                        className={`${category.color} px-4 py-2 text-sm font-medium cursor-pointer transition-all duration-300 hover:shadow-md border-0`}
+                        className={`${category.color} px-3 py-1.5 text-xs font-medium cursor-pointer transition-all duration-300 hover:shadow-sm border-0`}
                         variant="secondary"
                       >
                         {skill}
@@ -183,29 +183,29 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        {/* Floating skill highlights */}
+        {/* Compact floating highlights */}
         <motion.div 
-          className="mt-12 text-center"
+          className="mt-8 text-center"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             {['5+ Years Experience', 'AI-Powered Design', 'Design Systems Expert', 'Research-Driven'].map((highlight, index) => (
               <motion.div
                 key={highlight}
-                className="bg-bengali-mustard/20 dark:bg-bengali-mustard-light/20 px-4 py-2 rounded-full border border-bengali-mustard/30 dark:border-bengali-mustard-light/30"
+                className="bg-bengali-mustard/15 dark:bg-bengali-mustard-light/15 px-3 py-1.5 rounded-full border border-bengali-mustard/25 dark:border-bengali-mustard-light/25"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                 transition={{ 
-                  duration: 0.5, 
-                  delay: 1.2 + index * 0.1,
+                  duration: 0.4, 
+                  delay: 1 + index * 0.08,
                   type: "spring",
-                  stiffness: 100
+                  stiffness: 120
                 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.03 }}
               >
-                <span className="text-bengali-mustard-dark dark:text-bengali-mustard-light font-medium text-sm">
+                <span className="text-bengali-mustard-dark dark:text-bengali-mustard-light font-medium text-xs">
                   {highlight}
                 </span>
               </motion.div>
