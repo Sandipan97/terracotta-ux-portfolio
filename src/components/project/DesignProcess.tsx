@@ -22,6 +22,7 @@ const DesignProcess = ({ process }: DesignProcessProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          data-lovable-editable="project-design-process-title"
         >
           Design Process
         </motion.h2>
@@ -39,13 +40,22 @@ const DesignProcess = ({ process }: DesignProcessProps) => {
               <div className="flex flex-col md:flex-row gap-6 xs:gap-8 items-center">
                 <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
                   <div className="bg-card p-4 xs:p-6 rounded-lg shadow-md border border-border backdrop-blur-sm">
-                    <div className="text-bengali-terracotta dark:text-bengali-terracotta-light font-medium text-sm xs:text-base mb-1 xs:mb-2">
+                    <div 
+                      className="text-bengali-terracotta dark:text-bengali-terracotta-light font-medium text-sm xs:text-base mb-1 xs:mb-2"
+                      data-lovable-editable={`project-design-process-step-${index}-number`}
+                    >
                       Step {index + 1}
                     </div>
-                    <h3 className="font-heading text-lg xs:text-2xl font-semibold text-foreground mb-2 xs:mb-4">
+                    <h3 
+                      className="font-heading text-lg xs:text-2xl font-semibold text-foreground mb-2 xs:mb-4"
+                      data-lovable-editable={`project-design-process-step-${index}-title`}
+                    >
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm xs:text-base">
+                    <p 
+                      className="text-muted-foreground text-sm xs:text-base"
+                      data-lovable-editable={`project-design-process-step-${index}-description`}
+                    >
                       {step.description}
                     </p>
                   </div>

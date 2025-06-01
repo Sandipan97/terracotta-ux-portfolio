@@ -58,7 +58,10 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
         </motion.div>
         
         {/* Category Badge */}
-        <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-bengali-terracotta text-xs font-medium px-3 py-1.5 rounded-full border border-bengali-terracotta/20 shadow-lg">
+        <div 
+          className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-bengali-terracotta text-xs font-medium px-3 py-1.5 rounded-full border border-bengali-terracotta/20 shadow-lg"
+          data-lovable-editable={`project-${project.id}-category`}
+        >
           {project.category}
         </div>
         
@@ -66,10 +69,12 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
         {project.date && (
           <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm text-muted-foreground text-xs px-3 py-1.5 rounded-full border border-border/50 shadow-lg flex items-center gap-1">
             <Calendar size={10} />
-            {new Date(project.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'short'
-            })}
+            <span data-lovable-editable={`project-${project.id}-date`}>
+              {new Date(project.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short'
+              })}
+            </span>
           </div>
         )}
 
@@ -92,7 +97,10 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
             transition={{ duration: 0.3, delay: 0.1 }}
           >
             <Link to={`/projects/${project.id}`}>
-              <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Button 
+                className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform hover:scale-105 shadow-lg"
+                data-lovable-editable="project-card-cta-button"
+              >
                 View Case Study
                 <ArrowRight size={16} className="ml-2" />
               </Button>
@@ -108,10 +116,16 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
         transition={{ duration: 0.3 }}
       >
         <div className="space-y-2">
-          <h3 className="font-heading text-xl font-semibold text-foreground line-clamp-2 group-hover:text-bengali-terracotta transition-colors duration-300">
+          <h3 
+            className="font-heading text-xl font-semibold text-foreground line-clamp-2 group-hover:text-bengali-terracotta transition-colors duration-300"
+            data-lovable-editable={`project-${project.id}-title`}
+          >
             {project.title}
           </h3>
-          <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+          <p 
+            className="text-muted-foreground text-sm line-clamp-3 leading-relaxed"
+            data-lovable-editable={`project-${project.id}-description`}
+          >
             {project.description}
           </p>
         </div>
@@ -125,7 +139,10 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
             transition={{ delay: 0.2 }}
           >
             <Target size={14} className="text-bengali-terracotta flex-shrink-0" />
-            <span className="text-bengali-terracotta font-medium text-sm">
+            <span 
+              className="text-bengali-terracotta font-medium text-sm"
+              data-lovable-editable={`project-${project.id}-results`}
+            >
               {project.results}
             </span>
           </motion.div>
@@ -139,6 +156,7 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
           <motion.span 
             whileHover={{ x: 5 }} 
             transition={{ duration: 0.2 }}
+            data-lovable-editable="project-card-view-details"
           >
             View Details 
           </motion.span>

@@ -46,6 +46,7 @@ const SkillBadge = ({ skill, color }: SkillBadgeProps) => {
             // Could add click handler here if needed
           }
         }}
+        data-lovable-editable={`skill-badge-${skill.toLowerCase().replace(/\s+/g, '-')}`}
       >
         {skill}
       </Badge>

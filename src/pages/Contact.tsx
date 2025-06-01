@@ -51,10 +51,16 @@ const Contact = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light py-20">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 
+              className="font-display text-4xl md:text-5xl font-bold text-white mb-4"
+              data-lovable-editable="contact-hero-title"
+            >
               Get in Touch
             </h1>
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            <p 
+              className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
+              data-lovable-editable="contact-hero-description"
+            >
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision
             </p>
           </div>
@@ -66,13 +72,20 @@ const Contact = () => {
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Contact Form */}
               <div className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-8 rounded-lg shadow-md border border-border">
-                <h2 className="font-display text-2xl font-bold text-foreground mb-6">
+                <h2 
+                  className="font-display text-2xl font-bold text-foreground mb-6"
+                  data-lovable-editable="contact-form-title"
+                >
                   Send a Message
                 </h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    <label 
+                      htmlFor="name" 
+                      className="block text-sm font-medium text-foreground mb-2"
+                      data-lovable-editable="contact-form-name-label"
+                    >
                       Your Name
                     </label>
                     <Input 
@@ -87,7 +100,11 @@ const Contact = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    <label 
+                      htmlFor="email" 
+                      className="block text-sm font-medium text-foreground mb-2"
+                      data-lovable-editable="contact-form-email-label"
+                    >
                       Your Email
                     </label>
                     <Input 
@@ -103,7 +120,11 @@ const Contact = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    <label 
+                      htmlFor="message" 
+                      className="block text-sm font-medium text-foreground mb-2"
+                      data-lovable-editable="contact-form-message-label"
+                    >
                       Your Message
                     </label>
                     <Textarea 
@@ -122,6 +143,7 @@ const Contact = () => {
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-bengali-red hover:bg-bengali-terracotta text-white dark:bg-bengali-red-light dark:hover:bg-bengali-terracotta-light shadow-lg hover:shadow-xl transition-all duration-300"
+                    data-lovable-editable="contact-form-submit-button"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
@@ -130,7 +152,10 @@ const Contact = () => {
               
               {/* Contact Information */}
               <div className="bg-card/30 dark:bg-card/60 backdrop-blur-sm p-8 rounded-lg border border-border">
-                <h2 className="font-display text-2xl font-bold text-foreground mb-6">
+                <h2 
+                  className="font-display text-2xl font-bold text-foreground mb-6"
+                  data-lovable-editable="contact-info-title"
+                >
                   Contact Information
                 </h2>
                 
@@ -138,8 +163,17 @@ const Contact = () => {
                   <div className="flex items-start">
                     <Mail className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium text-foreground">Email</h4>
-                      <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors">
+                      <h4 
+                        className="font-medium text-foreground"
+                        data-lovable-editable="contact-email-title"
+                      >
+                        Email
+                      </h4>
+                      <a 
+                        href="mailto:contact@example.com" 
+                        className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors"
+                        data-lovable-editable="contact-email"
+                      >
                         contact@example.com
                       </a>
                     </div>
@@ -148,8 +182,17 @@ const Contact = () => {
                   <div className="flex items-start">
                     <Phone className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium text-foreground">Phone</h4>
-                      <a href="tel:+919876543210" className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors">
+                      <h4 
+                        className="font-medium text-foreground"
+                        data-lovable-editable="contact-phone-title"
+                      >
+                        Phone
+                      </h4>
+                      <a 
+                        href="tel:+919876543210" 
+                        className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors"
+                        data-lovable-editable="contact-phone"
+                      >
                         +91 98765 43210
                       </a>
                     </div>
@@ -158,8 +201,17 @@ const Contact = () => {
                   <div className="flex items-start">
                     <Linkedin className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium text-foreground">LinkedIn</h4>
-                      <a href="#" className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors flex items-center">
+                      <h4 
+                        className="font-medium text-foreground"
+                        data-lovable-editable="contact-linkedin-title"
+                      >
+                        LinkedIn
+                      </h4>
+                      <a 
+                        href="#" 
+                        className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors flex items-center"
+                        data-lovable-editable="contact-linkedin-url"
+                      >
                         linkedin.com/in/yourprofile
                         <ExternalLink className="h-4 w-4 ml-1" />
                       </a>
@@ -169,8 +221,17 @@ const Contact = () => {
                   <div className="flex items-start">
                     <Github className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium text-foreground">Behance</h4>
-                      <a href="#" className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors flex items-center">
+                      <h4 
+                        className="font-medium text-foreground"
+                        data-lovable-editable="contact-behance-title"
+                      >
+                        Behance
+                      </h4>
+                      <a 
+                        href="#" 
+                        className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors flex items-center"
+                        data-lovable-editable="contact-behance-url"
+                      >
                         behance.net/yourprofile
                         <ExternalLink className="h-4 w-4 ml-1" />
                       </a>
@@ -179,11 +240,18 @@ const Contact = () => {
                 </div>
                 
                 <div className="mt-10 pt-8 border-t border-border">
-                  <h3 className="font-medium text-foreground mb-4">
+                  <h3 
+                    className="font-medium text-foreground mb-4"
+                    data-lovable-editable="contact-resume-title"
+                  >
                     Download My Resume
                   </h3>
-                  <Button className="w-full bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white dark:bg-bengali-terracotta-light dark:hover:bg-bengali-terracotta shadow-lg hover:shadow-xl transition-all duration-300">
-                    <Download className="mr-2 h-4 w-4" /> Download Resume (PDF)
+                  <Button 
+                    className="w-full bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white dark:bg-bengali-terracotta-light dark:hover:bg-bengali-terracotta shadow-lg hover:shadow-xl transition-all duration-300"
+                    data-lovable-editable="contact-resume-button"
+                  >
+                    <Download className="mr-2 h-4 w-4" /> 
+                    Download Resume (PDF)
                   </Button>
                 </div>
               </div>
@@ -195,10 +263,16 @@ const Contact = () => {
         <section className="py-12 bg-muted/30 dark:bg-card/30">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-10">
-              <h2 className="font-display text-3xl font-bold text-foreground mb-4">
+              <h2 
+                className="font-display text-3xl font-bold text-foreground mb-4"
+                data-lovable-editable="contact-location-title"
+              >
                 Location
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p 
+                className="text-muted-foreground max-w-2xl mx-auto"
+                data-lovable-editable="contact-location-description"
+              >
                 Based in Bangalore, India. Available for remote work and on-site projects.
               </p>
             </div>
@@ -206,7 +280,10 @@ const Contact = () => {
             <div className="max-w-5xl mx-auto h-96 bg-muted/50 dark:bg-card/50 rounded-lg overflow-hidden border border-border">
               {/* Placeholder for map */}
               <div className="w-full h-full flex items-center justify-center">
-                <div className="text-muted-foreground text-lg">
+                <div 
+                  className="text-muted-foreground text-lg"
+                  data-lovable-editable="contact-map-placeholder"
+                >
                   Interactive Map
                 </div>
               </div>
@@ -217,13 +294,23 @@ const Contact = () => {
         {/* Call to Action */}
         <section className="py-16 bg-gradient-to-br from-bengali-mustard to-bengali-mustard-dark dark:from-bengali-mustard-light dark:to-bengali-mustard">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-bengali-dark dark:text-background mb-6">
+            <h2 
+              className="font-display text-3xl md:text-4xl font-bold text-bengali-dark dark:text-background mb-6"
+              data-lovable-editable="contact-cta-title"
+            >
               Let's Create Something Amazing Together
             </h2>
-            <p className="text-bengali-dark/80 dark:text-background/80 max-w-2xl mx-auto mb-8">
+            <p 
+              className="text-bengali-dark/80 dark:text-background/80 max-w-2xl mx-auto mb-8"
+              data-lovable-editable="contact-cta-description"
+            >
               Whether you're looking for a UX designer for your next project, a speaker for your event, or just want to connect, I'd love to hear from you.
             </p>
-            <Button size="lg" className="bg-bengali-red hover:bg-bengali-terracotta text-white dark:bg-bengali-red-light dark:hover:bg-bengali-terracotta-light shadow-lg hover:shadow-xl transition-all duration-300">
+            <Button 
+              size="lg" 
+              className="bg-bengali-red hover:bg-bengali-terracotta text-white dark:bg-bengali-red-light dark:hover:bg-bengali-terracotta-light shadow-lg hover:shadow-xl transition-all duration-300"
+              data-lovable-editable="contact-cta-button"
+            >
               Schedule a Call
             </Button>
           </div>

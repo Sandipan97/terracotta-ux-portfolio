@@ -22,6 +22,7 @@ const Ideation = ({ ideation }: IdeationProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          data-lovable-editable="project-ideation-title"
         >
           Ideation
         </motion.h2>
@@ -38,10 +39,16 @@ const Ideation = ({ ideation }: IdeationProps) => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               >
-                <h3 className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-4">
+                <h3 
+                  className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-4"
+                  data-lovable-editable={`project-ideation-item-${index}-title`}
+                >
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground text-sm xs:text-base mb-4">
+                <p 
+                  className="text-muted-foreground text-sm xs:text-base mb-4"
+                  data-lovable-editable={`project-ideation-item-${index}-description`}
+                >
                   {item.description}
                 </p>
                 {item.image && (

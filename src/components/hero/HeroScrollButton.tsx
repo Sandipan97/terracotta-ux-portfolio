@@ -27,6 +27,7 @@ const HeroScrollButton = () => {
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
+        data-lovable-editable="hero-scroll-label"
       >
         <ArrowDown size={24} />
       </motion.button>
