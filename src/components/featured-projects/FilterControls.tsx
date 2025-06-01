@@ -32,7 +32,9 @@ const FilterControls = ({ categories, selectedCategory, onCategoryChange, varian
             onClick={() => onCategoryChange(category)}
             data-lovable-editable={`featured-projects-filter-${category.toLowerCase().replace(/\s+/g, '-')}`}
           >
-            {category}
+            <span data-lovable-editable={`filter-button-text-${category.toLowerCase().replace(/\s+/g, '-')}`}>
+              {category}
+            </span>
           </Button>
         </motion.div>
       ))}

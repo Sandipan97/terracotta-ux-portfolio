@@ -42,8 +42,13 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    
+    // Generate editable ID from button text if available
+    const editableId = typeof children === 'string' 
+      ? `button-${children.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`
+      : undefined;
     
     return (
       <motion.div
@@ -62,8 +67,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <Comp
           className={cn(buttonVariants({ variant, size, className }))}
           ref={ref}
+          data-lovable-editable={editableId}
           {...props}
-        />
+        >
+          {children}
+        </Comp>
       </motion.div>
     )
   }

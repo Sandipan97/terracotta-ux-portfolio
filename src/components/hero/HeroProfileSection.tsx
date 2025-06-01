@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { EditableImage } from '../ui/editable-image';
@@ -76,13 +77,14 @@ const HeroProfileSection = () => {
         </motion.div>
         
         <motion.div 
-          className="absolute -bottom-4 -right-4 text-bengali-terracotta-dark px-4 md:px-6 py-2 md:py-3 rounded-full font-medium bg-white backdrop-blur-md border border-white/20 shadow-lg text-sm md:text-base" 
+          className="absolute -bottom-4 -right-4 text-bengali-terracotta-dark dark:text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium bg-white dark:bg-bengali-terracotta-dark backdrop-blur-md border border-white/20 dark:border-bengali-terracotta-dark/20 shadow-lg text-sm md:text-base" 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ delay: 1, duration: 0.5 }} 
           whileHover={{ scale: 1.05, y: -2 }}
+          data-lovable-editable="hero-profile-chip"
         >
-          5+ Years of Design
+          Professional Empathizer
         </motion.div>
       </div>
     </motion.div>
