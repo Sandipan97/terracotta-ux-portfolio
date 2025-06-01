@@ -1,3 +1,4 @@
+
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -159,7 +160,10 @@ const FeaturedProjects = () => {
               whileHover={{ scale: 1.05, y: -2 }} 
               whileTap={{ scale: 0.95 }}
             >
-              <Button className="bg-bengali-terracotta hover:bg-bengali-mustard text-white hover:text-bengali-dark transition-all duration-300 group shadow-lg hover:shadow-xl">
+              <Button 
+                className="bg-bengali-terracotta hover:bg-bengali-mustard text-white hover:text-bengali-dark transition-all duration-300 group shadow-lg hover:shadow-xl"
+                data-lovable-editable="featured-projects-view-all-button"
+              >
                 View All Projects 
                 <motion.div 
                   whileHover={{ x: 5 }} 

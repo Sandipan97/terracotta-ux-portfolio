@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useState, useEffect } from 'react';
@@ -162,6 +163,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              data-lovable-editable="projects-page-title"
             >
               My Projects
             </motion.h1>
@@ -170,6 +172,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              data-lovable-editable="projects-page-description"
             >
               A showcase of my UX design and research work across various industries and technologies
             </motion.p>
@@ -187,7 +190,12 @@ const Projects = () => {
             >
               <div className="flex items-center bg-card/50 dark:bg-card/80 backdrop-blur-sm p-2 rounded-full shadow-md border border-border">
                 <Filter size={16} className="text-bengali-terracotta dark:text-bengali-mustard-light mr-2 ml-3" />
-                <span className="text-sm font-medium text-foreground mr-3">Filter:</span>
+                <span 
+                  className="text-sm font-medium text-foreground mr-3"
+                  data-lovable-editable="projects-filter-label"
+                >
+                  Filter:
+                </span>
                 
                 {categories.map((category, index) => (
                   <motion.div 
@@ -207,6 +215,7 @@ const Projects = () => {
                           : "border-border text-foreground hover:bg-muted rounded-full dark:hover:bg-card/60 shadow-sm hover:shadow-md transition-all duration-300"
                       }
                       onClick={() => setSelectedCategory(category)}
+                      data-lovable-editable={`projects-filter-${category.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {category}
                     </Button>
@@ -257,37 +266,53 @@ const Projects = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/80 to-bengali-red/80 dark:from-bengali-terracotta-light/80 dark:to-bengali-red-light/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
                       <Link to={`/projects/${project.id}`}>
-                        <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark dark:bg-background dark:text-bengali-terracotta-light dark:hover:bg-bengali-mustard-light dark:hover:text-background transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl">
+                        <Button 
+                          className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark dark:bg-background dark:text-bengali-terracotta-light dark:hover:bg-bengali-mustard-light dark:hover:text-background transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl"
+                          data-lovable-editable="projects-page-view-case-study"
+                        >
                           View Case Study
                         </Button>
                       </Link>
                     </div>
-                    <div className="absolute top-4 left-4 bg-bengali-mustard dark:bg-bengali-mustard-light text-bengali-dark dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md">
+                    <div 
+                      className="absolute top-4 left-4 bg-bengali-mustard dark:bg-bengali-mustard-light text-bengali-dark dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md"
+                      data-lovable-editable={`projects-page-category-${project.id}`}
+                    >
                       {project.category}
                     </div>
                     {project.featured && (
-                      <div className="absolute top-4 right-4 bg-bengali-red dark:bg-bengali-red-light text-white dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md">
+                      <div 
+                        className="absolute top-4 right-4 bg-bengali-red dark:bg-bengali-red-light text-white dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md"
+                        data-lovable-editable={`projects-page-featured-${project.id}`}
+                      >
                         Featured
                       </div>
                     )}
                   </div>
                   <div className="p-6">
-                    <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
+                    <h3 
+                      className="font-heading text-xl font-semibold text-foreground mb-2"
+                      data-lovable-editable={`projects-page-title-${project.id}`}
+                    >
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4">
+                    <p 
+                      className="text-muted-foreground mb-4"
+                      data-lovable-editable={`projects-page-description-${project.id}`}
+                    >
                       {project.description}
                     </p>
                     {project.results && (
                       <div className="text-bengali-red dark:text-bengali-red-light font-medium mb-4">
-                        Result: {project.results}
+                        <span data-lovable-editable="projects-page-result-label">Result: </span>
+                        <span data-lovable-editable={`projects-page-result-${project.id}`}>{project.results}</span>
                       </div>
                     )}
                     <Link 
                       to={`/projects/${project.id}`}
                       className="inline-flex items-center text-bengali-terracotta dark:text-bengali-mustard-light hover:text-bengali-red dark:hover:text-bengali-mustard transition-colors font-medium group"
                     >
-                      View Details 
+                      <span data-lovable-editable="projects-page-view-details">View Details</span>
                       <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </Link>
                   </div>
@@ -335,17 +360,27 @@ const Projects = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 
+                className="font-heading text-3xl md:text-4xl font-bold text-white mb-6"
+                data-lovable-editable="projects-page-cta-title"
+              >
                 Interested in Working Together?
               </h2>
-              <p className="text-white/80 max-w-2xl mx-auto mb-8">
+              <p 
+                className="text-white/80 max-w-2xl mx-auto mb-8"
+                data-lovable-editable="projects-page-cta-description"
+              >
                 Let's discuss how my UX design and research expertise can help your next project succeed.
               </p>
               <motion.div 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="bg-gradient-to-r from-bengali-mustard to-bengali-mustard-dark dark:from-bengali-mustard-light dark:to-bengali-mustard text-bengali-dark dark:text-background hover:brightness-110 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
+                <Button 
+                  className="bg-gradient-to-r from-bengali-mustard to-bengali-mustard-dark dark:from-bengali-mustard-light dark:to-bengali-mustard text-bengali-dark dark:text-background hover:brightness-110 shadow-lg hover:shadow-xl transition-all duration-300" 
+                  asChild
+                  data-lovable-editable="projects-page-cta-button"
+                >
                   <Link to="/contact">Get in Touch</Link>
                 </Button>
               </motion.div>

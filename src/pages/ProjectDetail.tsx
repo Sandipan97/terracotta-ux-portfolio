@@ -1,3 +1,4 @@
+
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -709,9 +710,14 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4 font-heading">Project Not Found</h1>
+          <h1 
+            className="text-2xl font-bold mb-4 font-heading"
+            data-lovable-editable="project-not-found-title"
+          >
+            Project Not Found
+          </h1>
           <Link to="/projects">
-            <Button>Return to Projects</Button>
+            <Button data-lovable-editable="project-not-found-button">Return to Projects</Button>
           </Link>
         </div>
       </div>
