@@ -8,25 +8,25 @@ export const designTools = [
   },
   {
     name: 'FigJam',
-    logoUrl: 'https://raw.githubusercontent.com/gilbarbara/logos/main/logos/figma.svg',
+    logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/figma.svg',
     color: 'text-green-500',
     category: 'Collaboration'
   },
   {
     name: 'Axure RP',
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Axure_RP_logo.png',
+    logoUrl: 'https://logowik.com/content/uploads/images/axure7147.jpg',
     color: 'text-blue-500',
     category: 'Prototyping'
   },
   {
     name: 'Fusion 360',
-    logoUrl: 'https://logos-world.net/wp-content/uploads/2021/02/Autodesk-Fusion-360-Logo.png',
+    logoUrl: 'https://seeklogo.com/images/A/autodesk-fusion-360-logo-7F72A76397-seeklogo.com.png',
     color: 'text-orange-500',
     category: '3D Design'
   },
   {
     name: 'Miro',
-    logoUrl: 'https://raw.githubusercontent.com/gilbarbara/logos/main/logos/miro.svg',
+    logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/miro.svg',
     color: 'text-yellow-500',
     category: 'Collaboration'
   },
@@ -38,31 +38,31 @@ export const designTools = [
   },
   {
     name: 'OpenAI',
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1024px-OpenAI_Logo.svg.png',
+    logoUrl: 'https://static-00.iconduck.com/assets.00/openai-icon-2021x2048-4rpe5x7n.png',
     color: 'text-green-400',
     category: 'AI'
   },
   {
     name: 'Deepseek AI',
-    logoUrl: 'https://pbs.twimg.com/profile_images/1739002321700995072/BrAeqvfR_400x400.jpg',
+    logoUrl: 'https://avatars.githubusercontent.com/u/165244770?s=200&v=4',
     color: 'text-indigo-500',
     category: 'AI'
   },
   {
     name: 'Phind AI',
-    logoUrl: 'https://assets-global.website-files.com/628288c5cd3e8411b90a36a4/628288c5cd3e8456260a37a4_Vector.svg',
+    logoUrl: 'https://avatars.githubusercontent.com/u/88676955?s=280&v=4',
     color: 'text-purple-400',
     category: 'AI'
   },
   {
     name: 'Napkin AI',
-    logoUrl: 'https://ph-files.imgix.net/52eab2e1-aa6b-4b85-978b-a89db0bcdab9.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=256&h=256&fit=max&dpr=2',
+    logoUrl: 'https://framerusercontent.com/images/VNYJJGWczG6tQVLvnZufOJPgI.png?scale-down-to=512',
     color: 'text-pink-500',
     category: 'AI'
   },
   {
     name: 'Cursor AI',
-    logoUrl: 'https://github.com/getcursor/cursor/blob/main/assets/logo.png?raw=true',
+    logoUrl: 'https://avatars.githubusercontent.com/u/151964389?s=280&v=4',
     color: 'text-cyan-500',
     category: 'AI'
   }
