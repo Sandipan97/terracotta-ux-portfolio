@@ -1,6 +1,4 @@
 
-
-
 export const designTools = [
   {
     name: 'Figma',
@@ -46,7 +44,7 @@ export const designTools = [
   },
   {
     name: 'Phind AI',
-    logoUrl: 'https://avatars.githubusercontent.com/u/88676955?s=280&v=4',
+    logoUrl: 'https://www.phind.com/assets/images/phind.svg',
     color: 'text-purple-400',
     category: 'AI'
   },
@@ -63,5 +61,3 @@ export const designTools = [
     category: 'AI'
   }
 ];
-
-
