@@ -43,7 +43,7 @@ const DesignSuite = () => {
               <ToolLogo 
                 key={tool.name}
                 name={tool.name}
-                icon={tool.name === 'Figma' ? <Figma className="w-8 h-8" /> : tool.icon}
+                logoUrl={tool.logoUrl}
                 color={tool.color}
               />
             ))}

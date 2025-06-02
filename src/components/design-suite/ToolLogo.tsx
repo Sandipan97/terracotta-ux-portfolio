@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 interface ToolLogoProps {
   name: string;
-  icon: React.ReactNode;
+  logoUrl: string;
   color: string;
 }
 
-const ToolLogo = ({ name, icon, color }: ToolLogoProps) => {
+const ToolLogo = ({ name, logoUrl, color }: ToolLogoProps) => {
   const logoVariants = {
     hidden: { 
       opacity: 0, 
@@ -36,11 +36,16 @@ const ToolLogo = ({ name, icon, color }: ToolLogoProps) => {
       className="flex flex-col items-center justify-center p-4 sm:p-6 bg-card/70 dark:bg-card/85 backdrop-blur-md rounded-lg shadow-md border border-border hover:shadow-lg transition-all duration-300 min-h-[120px] group"
     >
       <motion.div 
-        className={`text-3xl sm:text-4xl mb-2 ${color} group-hover:scale-110 transition-transform duration-300`}
+        className="w-12 h-12 sm:w-16 sm:h-16 mb-2 group-hover:scale-110 transition-transform duration-300"
         whileHover={{ rotate: [0, -5, 5, 0] }}
         transition={{ duration: 0.5 }}
       >
-        {icon}
+        <img 
+          src={logoUrl} 
+          alt={`${name} logo`}
+          className="w-full h-full object-contain"
+          data-lovable-editable={`tool-logo-${name.toLowerCase().replace(/\s+/g, '-')}`}
+        />
       </motion.div>
       <span 
         className="text-xs sm:text-sm font-medium text-foreground text-center leading-tight"
