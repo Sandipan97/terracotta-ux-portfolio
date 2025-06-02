@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';
+import DesignSuite from '@/components/DesignSuite';
 import DesignProcess from '@/components/DesignProcess';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import AboutPreview from '@/components/AboutPreview';
@@ -28,6 +29,9 @@ const HomePage = () => {
       </div>
       <div id="featured-projects" className="bg-muted/30 dark:bg-card/30 relative z-10">
         <FeaturedProjects />
+      </div>
+      <div id="design-suite" className="bg-muted/30 dark:bg-card/30 relative z-10">
+        <DesignSuite />
       </div>
       <div id="design-process" className="bg-background relative z-10">
         <DesignProcess onBackgroundChange={setBackgroundTheme} />

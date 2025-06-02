@@ -1,4 +1,3 @@
-
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -176,7 +175,7 @@ const FeaturedProjects = () => {
           </Link>
         </motion.div>
 
-        <ScrollToNextSection targetId="design-process" className="mt-8" />
+        <ScrollToNextSection targetId="design-suite" className="mt-8" />
       </motion.div>
     </section>
   );
