@@ -8,25 +8,25 @@ export const designTools = [
   },
   {
     name: 'FigJam',
-    logoUrl: 'https://help.figma.com/hc/article_attachments/360094434073/FigJam_app_icon.png',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg',
     color: 'text-green-500',
     category: 'Collaboration'
   },
   {
     name: 'Axure RP',
-    logoUrl: 'https://www.axure.com/wp-content/uploads/2020/01/axure-rp-icon.png',
+    logoUrl: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1489712688/axure-rp.png',
     color: 'text-blue-500',
     category: 'Prototyping'
   },
   {
     name: 'Fusion 360',
-    logoUrl: 'https://seeklogo.com/images/A/autodesk-fusion-360-logo-7F72A76397-seeklogo.com.png',
+    logoUrl: 'https://damassets.autodesk.net/content/dam/autodesk/www/products/fusion-360/overview/fusion-360-logo-stacked.png',
     color: 'text-orange-500',
     category: '3D Design'
   },
   {
     name: 'Miro',
-    logoUrl: 'https://miro.com/static/images/logo/miro-logo-color.svg',
+    logoUrl: 'https://images.ctfassets.net/w6r2i5d8q73s/7DmQeGaUMO6iGW2LYY2DyI/fee04c12b12ebd51d5473ad0dc3b0a32/miro-logo-black.svg',
     color: 'text-yellow-500',
     category: 'Collaboration'
   },
@@ -44,13 +44,13 @@ export const designTools = [
   },
   {
     name: 'Deepseek AI',
-    logoUrl: 'https://chat.deepseek.com/favicon.ico',
+    logoUrl: 'https://raw.githubusercontent.com/deepseek-ai/DeepSeek-LLM/main/figures/logo.svg',
     color: 'text-indigo-500',
     category: 'AI'
   },
   {
     name: 'Phind AI',
-    logoUrl: 'https://www.phind.com/images/phind_logo_blue.svg',
+    logoUrl: 'https://www.phind.com/apple-touch-icon.png',
     color: 'text-purple-400',
     category: 'AI'
   },
