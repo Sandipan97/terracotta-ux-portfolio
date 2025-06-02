@@ -8,13 +8,13 @@ export const designTools = [
   },
   {
     name: 'FigJam',
-    logoUrl: 'https://logos-world.net/wp-content/uploads/2022/01/Figma-Logo.png',
+    logoUrl: 'https://help.figma.com/hc/article_attachments/360094434073/FigJam_app_icon.png',
     color: 'text-green-500',
     category: 'Collaboration'
   },
   {
     name: 'Axure RP',
-    logoUrl: 'https://seeklogo.com/images/A/axure-logo-BD0A378C90-seeklogo.com.png',
+    logoUrl: 'https://www.axure.com/wp-content/uploads/2020/01/axure-rp-icon.png',
     color: 'text-blue-500',
     category: 'Prototyping'
   },
@@ -26,7 +26,7 @@ export const designTools = [
   },
   {
     name: 'Miro',
-    logoUrl: 'https://seeklogo.com/images/M/miro-logo-A9B9217F90-seeklogo.com.png',
+    logoUrl: 'https://miro.com/static/images/logo/miro-logo-color.svg',
     color: 'text-yellow-500',
     category: 'Collaboration'
   },
@@ -44,13 +44,13 @@ export const designTools = [
   },
   {
     name: 'Deepseek AI',
-    logoUrl: 'https://seeklogo.com/images/D/deepseek-logo-85B2E31262-seeklogo.com.png',
+    logoUrl: 'https://chat.deepseek.com/favicon.ico',
     color: 'text-indigo-500',
     category: 'AI'
   },
   {
     name: 'Phind AI',
-    logoUrl: 'https://seeklogo.com/images/P/phind-logo-1B9E6F1F9E-seeklogo.com.png',
+    logoUrl: 'https://www.phind.com/images/phind_logo_blue.svg',
     color: 'text-purple-400',
     category: 'AI'
   },
