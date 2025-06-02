@@ -1,4 +1,5 @@
 
+
 export const designTools = [
   {
     name: 'Figma',
@@ -8,25 +9,25 @@ export const designTools = [
   },
   {
     name: 'FigJam',
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg',
+    logoUrl: 'https://cdn.worldvectorlogo.com/logos/figjam.svg',
     color: 'text-green-500',
     category: 'Collaboration'
   },
   {
     name: 'Axure RP',
-    logoUrl: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1489712688/axure-rp.png',
+    logoUrl: 'https://cdn.worldvectorlogo.com/logos/axure.svg',
     color: 'text-blue-500',
     category: 'Prototyping'
   },
   {
     name: 'Fusion 360',
-    logoUrl: 'https://damassets.autodesk.net/content/dam/autodesk/www/products/fusion-360/overview/fusion-360-logo-stacked.png',
+    logoUrl: 'https://cdn.worldvectorlogo.com/logos/autodesk-fusion-360.svg',
     color: 'text-orange-500',
     category: '3D Design'
   },
   {
     name: 'Miro',
-    logoUrl: 'https://images.ctfassets.net/w6r2i5d8q73s/7DmQeGaUMO6iGW2LYY2DyI/fee04c12b12ebd51d5473ad0dc3b0a32/miro-logo-black.svg',
+    logoUrl: 'https://cdn.worldvectorlogo.com/logos/miro-2.svg',
     color: 'text-yellow-500',
     category: 'Collaboration'
   },
@@ -38,32 +39,33 @@ export const designTools = [
   },
   {
     name: 'OpenAI',
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg',
+    logoUrl: 'https://static.vecteezy.com/system/resources/previews/021/059/825/non_2x/chatgpt-logo-chat-gpt-icon-on-white-background-free-vector.jpg',
     color: 'text-green-400',
     category: 'AI'
   },
   {
     name: 'Deepseek AI',
-    logoUrl: 'https://raw.githubusercontent.com/deepseek-ai/DeepSeek-LLM/main/figures/logo.svg',
+    logoUrl: 'https://seeklogo.com/images/D/deepseek-logo-B588DBAE6F-seeklogo.com.png',
     color: 'text-indigo-500',
     category: 'AI'
   },
   {
     name: 'Phind AI',
-    logoUrl: 'https://www.phind.com/apple-touch-icon.png',
+    logoUrl: 'https://seeklogo.com/images/P/phind-logo-3E87E4D7C5-seeklogo.com.png',
     color: 'text-purple-400',
     category: 'AI'
   },
   {
     name: 'Napkin AI',
-    logoUrl: 'https://www.napkin.ai/favicon.ico',
+    logoUrl: 'https://framerusercontent.com/images/VNYJJGWczG6tQVLvnZufOJPgI.png',
     color: 'text-pink-500',
     category: 'AI'
   },
   {
     name: 'Cursor AI',
-    logoUrl: 'https://cursor.sh/favicon.ico',
+    logoUrl: 'https://www.cursor.com/brand/icon.svg',
     color: 'text-cyan-500',
     category: 'AI'
   }
 ];
+
