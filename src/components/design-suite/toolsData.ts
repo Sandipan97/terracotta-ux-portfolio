@@ -1,4 +1,5 @@
 
+
 export const designTools = [
   {
     name: 'Figma',
@@ -44,7 +45,7 @@ export const designTools = [
   },
   {
     name: 'Deepseek AI',
-    logoUrl: 'https://avatars.githubusercontent.com/u/165244770?s=200&v=4',
+    logoUrl: 'https://deepseek.com/favicon.ico',
     color: 'text-indigo-500',
     category: 'AI'
   },
@@ -56,7 +57,7 @@ export const designTools = [
   },
   {
     name: 'Napkin AI',
-    logoUrl: 'https://framerusercontent.com/images/VNYJJGWczG6tQVLvnZufOJPgI.png?scale-down-to=512',
+    logoUrl: 'https://www.napkin.ai/favicon.ico',
     color: 'text-pink-500',
     category: 'AI'
   },
@@ -67,3 +68,4 @@ export const designTools = [
     category: 'AI'
   }
 ];
+
