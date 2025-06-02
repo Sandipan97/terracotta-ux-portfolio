@@ -1,5 +1,6 @@
 
 
+
 export const designTools = [
   {
     name: 'Figma',
@@ -12,12 +13,6 @@ export const designTools = [
     logoUrl: 'https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/figma.svg',
     color: 'text-green-500',
     category: 'Collaboration'
-  },
-  {
-    name: 'Axure RP',
-    logoUrl: 'https://logowik.com/content/uploads/images/axure7147.jpg',
-    color: 'text-blue-500',
-    category: 'Prototyping'
   },
   {
     name: 'Fusion 360',
@@ -45,7 +40,7 @@ export const designTools = [
   },
   {
     name: 'Deepseek AI',
-    logoUrl: 'https://deepseek.com/favicon.ico',
+    logoUrl: 'https://cdn.deepseek.com/logo.png?x-image-process=image%2Fresize%2Cw_828',
     color: 'text-indigo-500',
     category: 'AI'
   },
@@ -63,9 +58,10 @@ export const designTools = [
   },
   {
     name: 'Cursor AI',
-    logoUrl: 'https://avatars.githubusercontent.com/u/151964389?s=280&v=4',
+    logoUrl: 'https://www.cursor.com/favicon.ico',
     color: 'text-cyan-500',
     category: 'AI'
   }
 ];
+
 
