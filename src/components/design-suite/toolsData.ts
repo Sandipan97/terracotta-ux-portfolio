@@ -1,5 +1,4 @@
 
-
 export const designTools = [
   {
     name: 'Figma',
@@ -9,25 +8,25 @@ export const designTools = [
   },
   {
     name: 'FigJam',
-    logoUrl: 'https://cdn.worldvectorlogo.com/logos/figjam.svg',
+    logoUrl: 'https://raw.githubusercontent.com/gilbarbara/logos/main/logos/figma.svg',
     color: 'text-green-500',
     category: 'Collaboration'
   },
   {
     name: 'Axure RP',
-    logoUrl: 'https://cdn.worldvectorlogo.com/logos/axure.svg',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Axure_RP_logo.png',
     color: 'text-blue-500',
     category: 'Prototyping'
   },
   {
     name: 'Fusion 360',
-    logoUrl: 'https://cdn.worldvectorlogo.com/logos/autodesk-fusion-360.svg',
+    logoUrl: 'https://logos-world.net/wp-content/uploads/2021/02/Autodesk-Fusion-360-Logo.png',
     color: 'text-orange-500',
     category: '3D Design'
   },
   {
     name: 'Miro',
-    logoUrl: 'https://cdn.worldvectorlogo.com/logos/miro-2.svg',
+    logoUrl: 'https://raw.githubusercontent.com/gilbarbara/logos/main/logos/miro.svg',
     color: 'text-yellow-500',
     category: 'Collaboration'
   },
@@ -39,33 +38,32 @@ export const designTools = [
   },
   {
     name: 'OpenAI',
-    logoUrl: 'https://static.vecteezy.com/system/resources/previews/021/059/825/non_2x/chatgpt-logo-chat-gpt-icon-on-white-background-free-vector.jpg',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1024px-OpenAI_Logo.svg.png',
     color: 'text-green-400',
     category: 'AI'
   },
   {
     name: 'Deepseek AI',
-    logoUrl: 'https://seeklogo.com/images/D/deepseek-logo-B588DBAE6F-seeklogo.com.png',
+    logoUrl: 'https://pbs.twimg.com/profile_images/1739002321700995072/BrAeqvfR_400x400.jpg',
     color: 'text-indigo-500',
     category: 'AI'
   },
   {
     name: 'Phind AI',
-    logoUrl: 'https://seeklogo.com/images/P/phind-logo-3E87E4D7C5-seeklogo.com.png',
+    logoUrl: 'https://assets-global.website-files.com/628288c5cd3e8411b90a36a4/628288c5cd3e8456260a37a4_Vector.svg',
     color: 'text-purple-400',
     category: 'AI'
   },
   {
     name: 'Napkin AI',
-    logoUrl: 'https://framerusercontent.com/images/VNYJJGWczG6tQVLvnZufOJPgI.png',
+    logoUrl: 'https://ph-files.imgix.net/52eab2e1-aa6b-4b85-978b-a89db0bcdab9.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=256&h=256&fit=max&dpr=2',
     color: 'text-pink-500',
     category: 'AI'
   },
   {
     name: 'Cursor AI',
-    logoUrl: 'https://www.cursor.com/brand/icon.svg',
+    logoUrl: 'https://github.com/getcursor/cursor/blob/main/assets/logo.png?raw=true',
     color: 'text-cyan-500',
     category: 'AI'
   }
 ];
-
