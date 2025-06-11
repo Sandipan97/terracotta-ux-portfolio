@@ -22,8 +22,8 @@ const WelbiltKitchenConnect = () => {
     offset: ["start start", "end end"]
   });
 
-  const isHeroInView = useInView(heroRef, { threshold: 0.5 });
-  const isContentInView = useInView(contentRef, { threshold: 0.1 });
+  const isHeroInView = useInView(heroRef, { amount: 0.5 });
+  const isContentInView = useInView(contentRef, { amount: 0.1 });
 
   // Transform background color based on scroll
   const backgroundColor = useTransform(
@@ -157,14 +157,14 @@ const WelbiltKitchenConnect = () => {
           >
             <motion.h1 
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-              style={{ color: textColor }}
+              style={{ color: textColor as any }}
             >
               Welbilt Kitchen
               <span className="block text-[#00B140]">Connect</span>
             </motion.h1>
             <motion.p 
               className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90"
-              style={{ color: textColor }}
+              style={{ color: textColor as any }}
             >
               Transforming enterprise kitchen management through intuitive design and scalable systems
             </motion.p>
@@ -189,7 +189,7 @@ const WelbiltKitchenConnect = () => {
               >
                 {counters.products}
               </motion.div>
-              <div className="text-sm opacity-80" style={{ color: textColor }}>products</div>
+              <div className="text-sm opacity-80" style={{ color: textColor as any }}>products</div>
             </motion.div>
             <Separator orientation="vertical" className="h-12 bg-current opacity-30" />
             <motion.div 
@@ -204,7 +204,7 @@ const WelbiltKitchenConnect = () => {
               >
                 {counters.delivery}%
               </motion.div>
-              <div className="text-sm opacity-80" style={{ color: textColor }}>faster delivery</div>
+              <div className="text-sm opacity-80" style={{ color: textColor as any }}>faster delivery</div>
             </motion.div>
           </motion.div>
 
