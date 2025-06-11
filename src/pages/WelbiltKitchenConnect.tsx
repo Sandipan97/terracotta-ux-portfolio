@@ -119,11 +119,11 @@ const WelbiltKitchenConnect = () => {
         animate={{ opacity: isContentInView ? 1 : 0 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Project Snapshot with Welbilt accents */}
-        <section className="py-20 bg-gradient-to-b from-bengali-terracotta to-background">
+        {/* Project Snapshot with improved visibility and Welbilt blue accents */}
+        <section className="py-20 bg-gradient-to-b from-[#0056B3] via-[#0056B3]/90 to-background dark:from-[#0056B3] dark:via-[#0056B3]/80 dark:to-background">
           <div className="container mx-auto px-4 md:px-6">
             <motion.h2 
-              className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
+              className="text-3xl md:text-4xl font-bold text-center mb-12 text-white dark:text-white"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -155,18 +155,18 @@ const WelbiltKitchenConnect = () => {
                   }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Card className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 transition-all duration-300">
+                  <Card className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:shadow-xl hover:scale-105 transition-all duration-300 dark:bg-white/10 dark:border-white/20 dark:text-white">
                     <CardContent className="p-6 text-center">
-                      <stat.icon className="w-12 h-12 mx-auto mb-4 text-[#00B140]" />
-                      <h3 className="text-lg font-semibold mb-2">{stat.label}</h3>
-                      <p className="text-2xl font-bold text-[#00B140]">{stat.value}</p>
+                      <stat.icon className="w-12 h-12 mx-auto mb-4 text-white dark:text-white" />
+                      <h3 className="text-lg font-semibold mb-2 text-white dark:text-white">{stat.label}</h3>
+                      <p className="text-2xl font-bold text-white dark:text-white">{stat.value}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Animated Stats Counter */}
+            {/* Animated Stats Counter with improved visibility */}
             <motion.div 
               className="flex justify-center items-center space-x-8 mt-12"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -180,28 +180,28 @@ const WelbiltKitchenConnect = () => {
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 <motion.div 
-                  className="text-3xl md:text-4xl font-bold text-[#00B140]"
+                  className="text-3xl md:text-4xl font-bold text-white dark:text-white"
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
                   {counters.products}
                 </motion.div>
-                <div className="text-sm opacity-80 text-white">products</div>
+                <div className="text-sm opacity-90 text-white dark:text-white">products</div>
               </motion.div>
-              <Separator orientation="vertical" className="h-12 bg-white/30" />
+              <Separator orientation="vertical" className="h-12 bg-white/40 dark:bg-white/40" />
               <motion.div 
                 className="text-center"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
               >
                 <motion.div 
-                  className="text-3xl md:text-4xl font-bold text-[#00B140]"
+                  className="text-3xl md:text-4xl font-bold text-white dark:text-white"
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
                 >
                   {counters.delivery}%
                 </motion.div>
-                <div className="text-sm opacity-80 text-white">faster delivery</div>
+                <div className="text-sm opacity-90 text-white dark:text-white">faster delivery</div>
               </motion.div>
             </motion.div>
           </div>
@@ -248,8 +248,8 @@ const WelbiltKitchenConnect = () => {
                     
                     <Card className="group hover:shadow-xl transition-all duration-300">
                       <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4 text-[#00B140]">After: Welbilt Customized</h3>
-                        <div className="bg-gradient-to-r from-[#0056B3] to-[#00B140] p-4 rounded-lg mb-4 shadow-lg">
+                        <h3 className="text-xl font-bold mb-4 text-[#0056B3]">After: Welbilt Customized</h3>
+                        <div className="bg-gradient-to-r from-[#0056B3] to-[#0075D1] p-4 rounded-lg mb-4 shadow-lg">
                           <motion.div 
                             className="w-full h-10 bg-white rounded text-[#0056B3] flex items-center justify-center text-sm font-medium shadow-md"
                             whileHover={{ scale: 1.02, y: -1 }}
@@ -275,8 +275,8 @@ const WelbiltKitchenConnect = () => {
                             <span className="text-sm font-mono">#0056B3 - Primary Blue</span>
                           </div>
                           <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 rounded-full bg-[#00B140]"></div>
-                            <span className="text-sm font-mono">#00B140 - Success Green</span>
+                            <div className="w-8 h-8 rounded-full bg-[#0075D1]"></div>
+                            <span className="text-sm font-mono">#0075D1 - Secondary Blue</span>
                           </div>
                         </div>
                       </CardContent>
@@ -310,11 +310,11 @@ const WelbiltKitchenConnect = () => {
                           <p className="text-sm">Review Process</p>
                         </div>
                         <div className="text-center">
-                          <div className="w-16 h-16 bg-[#00B140] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">3</div>
+                          <div className="w-16 h-16 bg-[#0075D1] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">3</div>
                           <p className="text-sm">Implementation</p>
                         </div>
                         <div className="text-center">
-                          <div className="w-16 h-16 bg-[#00B140] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">4</div>
+                          <div className="w-16 h-16 bg-[#0075D1] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">4</div>
                           <p className="text-sm">Documentation</p>
                         </div>
                       </div>
@@ -358,17 +358,17 @@ const WelbiltKitchenConnect = () => {
                               <p className="text-muted-foreground">{feature.before}</p>
                             </div>
                             <div>
-                              <Badge className="mb-2 bg-[#00B140]">After</Badge>
+                              <Badge className="mb-2 bg-[#0056B3] hover:bg-[#0075D1]">After</Badge>
                               <p>{feature.after}</p>
                             </div>
-                            <div className="bg-gradient-to-r from-[#0056B3]/10 to-[#00B140]/10 p-4 rounded-lg">
+                            <div className="bg-gradient-to-r from-[#0056B3]/10 to-[#0075D1]/10 p-4 rounded-lg">
                               <p className="font-semibold text-[#0056B3]">Impact: {feature.improvement}</p>
                             </div>
                           </div>
                         </div>
                         <div className="relative">
                           <motion.div 
-                            className="aspect-video bg-gradient-to-br from-[#0056B3]/10 to-[#00B140]/10 rounded-lg flex items-center justify-center"
+                            className="aspect-video bg-gradient-to-br from-[#0056B3]/10 to-[#0075D1]/10 rounded-lg flex items-center justify-center"
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.3 }}
                           >
@@ -403,9 +403,9 @@ const WelbiltKitchenConnect = () => {
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
               {[
-                { value: counters.downtime, suffix: "%", label: "Reduced Downtime", color: "#00B140" },
+                { value: counters.downtime, suffix: "%", label: "Reduced Downtime", color: "#0075D1" },
                 { value: counters.dau, suffix: "%", label: "Increased DAU", color: "#0056B3" },
-                { value: "35", suffix: "%", label: "Faster Development", color: "#00B140" },
+                { value: "35", suffix: "%", label: "Faster Development", color: "#0075D1" },
                 { value: "2023", suffix: "", label: "Innovation Award", color: "#0056B3" }
               ].map((metric, index) => (
                 <motion.div
@@ -445,7 +445,7 @@ const WelbiltKitchenConnect = () => {
               viewport={{ once: true }}
             >
               <Button 
-                className="bg-gradient-to-r from-[#0056B3] to-[#00B140] hover:from-[#0056B3]/90 hover:to-[#00B140]/90 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-[#0056B3] to-[#0075D1] hover:from-[#0056B3]/90 hover:to-[#0075D1]/90 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                 size="lg"
               >
                 <Download className="w-5 h-5 mr-2" />
