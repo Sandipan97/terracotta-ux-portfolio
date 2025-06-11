@@ -22,7 +22,7 @@ const allProjects: Project[] = [
   {
     id: 1,
     title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
-    category: "B2B Solutions",
+    category: "UX Design",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
     results: "Reduced error rate by 45%",
@@ -32,7 +32,7 @@ const allProjects: Project[] = [
     id: 2,
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
     category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
     results: "Accelerated development by 35%",
     featured: true
@@ -49,7 +49,7 @@ const allProjects: Project[] = [
   {
     id: 4,
     title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
-    category: "Biomedical Design",
+    category: "Product Design",
     image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
     results: "Improved user satisfaction by 85%",
@@ -58,7 +58,7 @@ const allProjects: Project[] = [
   {
     id: 5,
     title: "Dripometer - IV Drip Monitoring System - IISc",
-    category: "Biomedical Design",
+    category: "Product Design",
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
     results: "Increased monitoring accuracy by 95%"
@@ -66,7 +66,7 @@ const allProjects: Project[] = [
   {
     id: 6,
     title: "Farm Monitoring Mobile Application - HCLTech",
-    category: "Mobile Apps",
+    category: "UX Design",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
     results: "Improved crop yield by 28%"
@@ -74,14 +74,14 @@ const allProjects: Project[] = [
   {
     id: 7,
     title: "Toy Anatomy - Kids Toy Project - IISc",
-    category: "Educational Design",
+    category: "Others",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
     results: "Increased learning outcomes by 40%"
   }
 ];
 
-const categories = ["All", "B2B Solutions", "Design Systems", "AR Projects", "Biomedical Design", "Mobile Apps", "Educational Design"];
+const categories = ["All", "UX Design", "Design Systems", "AR Projects", "Product Design", "Others"];
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -100,6 +100,13 @@ const Projects = () => {
 
   const goBack = () => {
     navigate(-1);
+  };
+
+  const getProjectLink = (project: any) => {
+    if (project.id === 2) {
+      return '/projects/welbilt-kitchen-connect';
+    }
+    return `/projects/${project.id}`;
   };
 
   return (
@@ -265,7 +272,7 @@ const Projects = () => {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/80 to-bengali-red/80 dark:from-bengali-terracotta-light/80 dark:to-bengali-red-light/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
-                      <Link to={`/projects/${project.id}`}>
+                      <Link to={getProjectLink(project)}>
                         <Button 
                           className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark dark:bg-background dark:text-bengali-terracotta-light dark:hover:bg-bengali-mustard-light dark:hover:text-background transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl"
                           data-lovable-editable="projects-page-view-case-study"
@@ -309,7 +316,7 @@ const Projects = () => {
                       </div>
                     )}
                     <Link 
-                      to={`/projects/${project.id}`}
+                      to={getProjectLink(project)}
                       className="inline-flex items-center text-bengali-terracotta dark:text-bengali-mustard-light hover:text-bengali-red dark:hover:text-bengali-mustard transition-colors font-medium group"
                     >
                       <span data-lovable-editable="projects-page-view-details">View Details</span>

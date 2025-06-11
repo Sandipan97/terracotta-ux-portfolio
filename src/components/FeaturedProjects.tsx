@@ -1,8 +1,6 @@
+
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
 import ScrollToNextSection from './ui/ScrollToNextSection';
 import FeaturedProjectsHeader from './featured-projects/FeaturedProjectsHeader';
 import FilterControls from './featured-projects/FilterControls';
@@ -153,28 +151,6 @@ const FeaturedProjects = () => {
               variants={itemVariants}
             />
           ))}
-        </motion.div>
-
-        <motion.div className="mt-12 text-center" variants={itemVariants}>
-          <Link to="/projects">
-            <motion.div 
-              whileHover={{ scale: 1.05, y: -2 }} 
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                className="bg-bengali-terracotta hover:bg-bengali-mustard text-white hover:text-bengali-dark transition-all duration-300 group shadow-lg hover:shadow-xl"
-                data-lovable-editable="featured-projects-view-all-button"
-              >
-                View All Projects 
-                <motion.div 
-                  whileHover={{ x: 5 }} 
-                  transition={{ duration: 0.2 }}
-                >
-                  <ArrowRight size={16} className="ml-2" />
-                </motion.div>
-              </Button>
-            </motion.div>
-          </Link>
         </motion.div>
 
         <ScrollToNextSection targetId="design-suite" className="mt-8" />
