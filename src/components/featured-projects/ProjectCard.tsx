@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
@@ -17,6 +18,9 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
     }
     if (project.id === 2) {
       return '/projects/welbilt-kitchen-connect';
+    }
+    if (project.id === 3) {
+      return '/projects/lg-cyclops-ar';
     }
     return `/projects/${project.id}`;
   };

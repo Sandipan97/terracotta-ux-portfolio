@@ -31,7 +31,7 @@ const allProjects: Project[] = [
     id: 2,
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
     category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1558655146-364adeca9b33?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
     results: "Accelerated development by 35%",
     featured: true
@@ -66,7 +66,7 @@ const allProjects: Project[] = [
     id: 6,
     title: "Farm Monitoring Mobile Application - HCLTech",
     category: "UX Design",
-    image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
     results: "Improved crop yield by 28%"
   },
@@ -74,7 +74,7 @@ const allProjects: Project[] = [
     id: 7,
     title: "Toy Anatomy - Kids Toy Project - IISc",
     category: "Others",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
     results: "Increased learning outcomes by 40%"
   }
@@ -104,6 +104,9 @@ const Projects = () => {
   const getProjectLink = (project: any) => {
     if (project.id === 2) {
       return '/projects/welbilt-kitchen-connect';
+    }
+    if (project.id === 3) {
+      return '/projects/lg-cyclops-ar';
     }
     return `/projects/${project.id}`;
   };
