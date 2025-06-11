@@ -17,6 +17,7 @@ type Project = {
   description: string;
   results?: string;
   date?: string;
+  slug?: string;
 };
 
 const allProjects: Project[] = [
@@ -33,10 +34,11 @@ const allProjects: Project[] = [
     id: 2,
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
     category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
     results: "Accelerated development by 35%",
-    date: "2023-11"
+    date: "2023-11",
+    slug: "welbilt-kitchen-connect"
   },
   {
     id: 3,

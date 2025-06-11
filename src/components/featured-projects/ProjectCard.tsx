@@ -1,12 +1,10 @@
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Button } from '../ui/button';
-import { EditableImage } from '../ui/editable-image';
-import { ArrowRight, Calendar, Target } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
-interface Project {
+type Project = {
   id: number;
   title: string;
   category: string;
@@ -14,7 +12,8 @@ interface Project {
   description: string;
   results?: string;
   date?: string;
-}
+  slug?: string;
+};
 
 interface ProjectCardProps {
   project: Project;
@@ -23,151 +22,68 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const projectLink = project.slug ? `/projects/${project.slug}` : `/projects/${project.id}`;
 
   return (
-    <motion.div 
-      className="group relative bg-background/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-border/50 hover:border-bengali-terracotta/30 transition-all duration-500 hover:shadow-2xl hover:shadow-bengali-terracotta/10" 
-      onMouseEnter={() => setIsHovered(true)} 
-      onMouseLeave={() => setIsHovered(false)} 
-      variants={variants} 
-      whileHover={{
-        y: -8,
-        transition: {
-          duration: 0.3,
-          ease: "easeOut"
-        }
-      }} 
-      layout
-    >
-      {/* Image Section */}
-      <div className="relative h-56 overflow-hidden rounded-t-2xl">
-        <motion.div 
-          className="relative w-full h-full" 
-          whileHover={{ scale: 1.05 }} 
-          transition={{ duration: 0.6, ease: "easeOut" }}
+    <motion.div variants={variants}>
+      <Link to={projectLink}>
+        <motion.div
+          whileHover={{ y: -8, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="h-full"
         >
-          <EditableImage 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-full object-cover" 
-          />
-          
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-        </motion.div>
-        
-        {/* Category Badge */}
-        <div 
-          className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-bengali-terracotta text-xs font-medium px-3 py-1.5 rounded-full border border-bengali-terracotta/20 shadow-lg"
-          data-lovable-editable={`project-${project.id}-category`}
-        >
-          {project.category}
-        </div>
-        
-        {/* Date Badge */}
-        {project.date && (
-          <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm text-muted-foreground text-xs px-3 py-1.5 rounded-full border border-border/50 shadow-lg flex items-center gap-1">
-            <Calendar size={10} />
-            <span data-lovable-editable={`project-${project.id}-date`}>
-              {new Date(project.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short'
-              })}
-            </span>
-          </div>
-        )}
-
-        {/* Hover Overlay */}
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-bengali-terracotta/95 to-bengali-red/95 flex items-center justify-center backdrop-blur-sm" 
-          initial={{ opacity: 0, scale: 0.8 }} 
-          animate={{
-            opacity: isHovered ? 1 : 0,
-            scale: isHovered ? 1 : 0.8
-          }} 
-          transition={{ duration: 0.3, ease: "easeOut" }}
-        >
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{
-              opacity: isHovered ? 1 : 0,
-              y: isHovered ? 0 : 20
-            }} 
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
-            <Link to={`/projects/${project.id}`}>
-              <Button 
-                className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform hover:scale-105 shadow-lg"
-                data-lovable-editable="project-card-cta-button"
+          <Card className="overflow-hidden h-full group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 dark-glow-card">
+            <div className="relative overflow-hidden">
+              <motion.img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
+              <Badge 
+                className="absolute top-3 left-3 bg-bengali-terracotta text-white shadow-lg"
               >
-                View Case Study
-                <ArrowRight size={16} className="ml-2" />
-              </Button>
-            </Link>
-          </motion.div>
+                {project.category}
+              </Badge>
+              {project.date && (
+                <Badge 
+                  variant="secondary" 
+                  className="absolute top-3 right-3 bg-background/90 text-foreground shadow-lg"
+                >
+                  {project.date}
+                </Badge>
+              )}
+            </div>
+            <CardContent className="p-6">
+              <motion.h3 
+                className="font-heading text-xl font-bold text-foreground mb-3 group-hover:text-bengali-terracotta transition-colors duration-300"
+                layoutId={`title-${project.id}`}
+              >
+                {project.title}
+              </motion.h3>
+              <p className="text-muted-foreground mb-4 line-clamp-3">
+                {project.description}
+              </p>
+              {project.results && (
+                <motion.div 
+                  className="flex items-center text-sm text-bengali-terracotta font-medium"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="mr-2">📈</span>
+                  {project.results}
+                </motion.div>
+              )}
+            </CardContent>
+          </Card>
         </motion.div>
-      </div>
-      
-      {/* Content Section */}
-      <motion.div 
-        className="p-6 space-y-4" 
-        whileHover={{ backgroundColor: "rgba(249, 211, 66, 0.05)" }} 
-        transition={{ duration: 0.3 }}
-      >
-        <div className="space-y-2">
-          <h3 
-            className="font-heading text-xl font-semibold text-foreground line-clamp-2 group-hover:text-bengali-terracotta transition-colors duration-300"
-            data-lovable-editable={`project-${project.id}-title`}
-          >
-            {project.title}
-          </h3>
-          <p 
-            className="text-muted-foreground text-sm line-clamp-3 leading-relaxed"
-            data-lovable-editable={`project-${project.id}-description`}
-          >
-            {project.description}
-          </p>
-        </div>
-
-        {/* Results Section */}
-        {project.results && (
-          <motion.div 
-            className="flex items-center gap-2 p-3 bg-bengali-terracotta/5 rounded-lg border border-bengali-terracotta/10" 
-            initial={{ opacity: 0 }} 
-            whileInView={{ opacity: 1 }} 
-            transition={{ delay: 0.2 }}
-          >
-            <Target size={14} className="text-bengali-terracotta flex-shrink-0" />
-            <span 
-              className="text-bengali-terracotta font-medium text-sm"
-              data-lovable-editable={`project-${project.id}-results`}
-            >
-              {project.results}
-            </span>
-          </motion.div>
-        )}
-
-        {/* Action Link */}
-        <Link 
-          to={`/projects/${project.id}`} 
-          className="inline-flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors font-medium group/link text-sm"
-        >
-          <motion.span 
-            whileHover={{ x: 5 }} 
-            transition={{ duration: 0.2 }}
-            data-lovable-editable="project-card-view-details"
-          >
-            View Details 
-          </motion.span>
-          <motion.div 
-            whileHover={{ x: 3 }} 
-            transition={{ duration: 0.2 }}
-          >
-            <ArrowRight size={14} className="ml-2" />
-          </motion.div>
-        </Link>
-      </motion.div>
+      </Link>
     </motion.div>
   );
 };
