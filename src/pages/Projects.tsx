@@ -1,4 +1,3 @@
-
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useState, useEffect } from 'react';
@@ -23,7 +22,7 @@ const allProjects: Project[] = [
     id: 1,
     title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
     category: "UX Design",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
     results: "Reduced error rate by 45%",
     featured: true
@@ -32,7 +31,7 @@ const allProjects: Project[] = [
     id: 2,
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
     category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558655146-364adeca9b33?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
     results: "Accelerated development by 35%",
     featured: true
@@ -41,7 +40,7 @@ const allProjects: Project[] = [
     id: 3,
     title: "AR Interactive User Manual - LG Cyclops",
     category: "AR Projects",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
     results: "Reduced support calls by 60%",
     featured: true
@@ -50,7 +49,7 @@ const allProjects: Project[] = [
     id: 4,
     title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
     category: "Product Design",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
     results: "Improved user satisfaction by 85%",
     featured: true
@@ -59,7 +58,7 @@ const allProjects: Project[] = [
     id: 5,
     title: "Dripometer - IV Drip Monitoring System - IISc",
     category: "Product Design",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
     results: "Increased monitoring accuracy by 95%"
   },
@@ -67,7 +66,7 @@ const allProjects: Project[] = [
     id: 6,
     title: "Farm Monitoring Mobile Application - HCLTech",
     category: "UX Design",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
     results: "Improved crop yield by 28%"
   },
@@ -75,7 +74,7 @@ const allProjects: Project[] = [
     id: 7,
     title: "Toy Anatomy - Kids Toy Project - IISc",
     category: "Others",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
     results: "Increased learning outcomes by 40%"
   }

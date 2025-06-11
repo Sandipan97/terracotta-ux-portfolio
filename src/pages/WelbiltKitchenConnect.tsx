@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
@@ -51,7 +50,7 @@ const WelbiltKitchenConnect = () => {
     id: 2,
     title: "Welbilt Kitchen Connect - Design System & Revamp",
     category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558655146-364adeca9b33?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Complete design system overhaul and UX transformation for Welbilt's enterprise kitchen management platform, improving consistency, development efficiency, and user experience across 12 products.",
     client: "Welbilt Inc.",
     duration: "6 months",
