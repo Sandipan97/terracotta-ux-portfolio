@@ -1,7 +1,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Download, ExternalLink, Users, Clock, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -10,37 +10,20 @@ import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ProjectHero from '@/components/project/ProjectHero';
 
 const WelbiltKitchenConnect = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef(null);
-  const heroRef = useRef(null);
-  const contentRef = useRef(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
-  const isHeroInView = useInView(heroRef, { amount: 0.5 });
   const isContentInView = useInView(contentRef, { amount: 0.1 });
-
-  // Transform background color based on scroll
-  const backgroundColor = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    ["hsl(var(--background))", "#0056B3"]
-  );
-
-  const textColor = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    ["hsl(var(--foreground))", "#ffffff"]
-  );
-
-  // Parallax effects
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   // Counter animation values
   const [counters, setCounters] = useState({
@@ -51,7 +34,7 @@ const WelbiltKitchenConnect = () => {
   });
 
   useEffect(() => {
-    if (isHeroInView) {
+    if (isContentInView) {
       const timer = setTimeout(() => {
         setCounters({
           products: 12,
@@ -62,7 +45,19 @@ const WelbiltKitchenConnect = () => {
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, [isHeroInView]);
+  }, [isContentInView]);
+
+  const projectData = {
+    id: 2,
+    title: "Welbilt Kitchen Connect - Design System & Revamp",
+    category: "Design Systems",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Complete design system overhaul and UX transformation for Welbilt's enterprise kitchen management platform, improving consistency, development efficiency, and user experience across 12 products.",
+    client: "Welbilt Inc.",
+    duration: "6 months",
+    role: "Lead UX Designer",
+    projectType: ["Design Systems", "Enterprise UX", "B2B Platform"]
+  };
 
   const projectStats = [
     { label: "Role", value: "Lead UX Designer", icon: Users },
@@ -91,148 +86,41 @@ const WelbiltKitchenConnect = () => {
     }
   ];
 
+  const handleBack = () => {
+    navigate('/projects');
+  };
+
+  const scrollToContent = () => {
+    contentRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <motion.div 
       ref={containerRef}
-      className="min-h-screen relative overflow-hidden"
-      style={{ backgroundColor }}
+      className="min-h-screen relative overflow-hidden bg-background"
     >
       {/* Navigation */}
       <div className="fixed top-0 left-0 w-full z-50">
         <Navbar />
       </div>
 
-      {/* Hero Section */}
-      <motion.section 
-        ref={heroRef}
-        className="min-h-screen flex items-center justify-center relative pt-20"
-        style={{ y, opacity }}
-      >
-        {/* Parallax Background Elements */}
-        <motion.div 
-          className="absolute inset-0 overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 2 }}
-        >
-          {/* Kitchen Equipment Silhouettes */}
-          <motion.div
-            className="absolute top-20 left-10 w-32 h-32 bg-current opacity-10"
-            animate={{ 
-              y: [0, -20, 0],
-              rotate: [0, 5, 0]
-            }}
-            transition={{ 
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            style={{ 
-              clipPath: "polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)" 
-            }}
-          />
-          <motion.div
-            className="absolute bottom-20 right-20 w-24 h-40 bg-current opacity-10"
-            animate={{ 
-              y: [0, 15, 0],
-              rotate: [0, -3, 0]
-            }}
-            transition={{ 
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2
-            }}
-            style={{ 
-              clipPath: "polygon(30% 0%, 70% 0%, 100% 30%, 70% 100%, 30% 100%, 0% 30%)" 
-            }}
-          />
-        </motion.div>
+      {/* Hero Section using ProjectHero component */}
+      <ProjectHero 
+        project={projectData}
+        onBack={handleBack}
+        onScrollToContent={scrollToContent}
+      />
 
-        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-              style={{ color: textColor as any }}
-            >
-              Welbilt Kitchen
-              <span className="block text-[#00B140]">Connect</span>
-            </motion.h1>
-            <motion.p 
-              className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90"
-              style={{ color: textColor as any }}
-            >
-              Transforming enterprise kitchen management through intuitive design and scalable systems
-            </motion.p>
-          </motion.div>
-
-          {/* Animated Stats Counter */}
-          <motion.div 
-            className="flex justify-center items-center space-x-8 mb-12"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <motion.div 
-              className="text-center"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <motion.div 
-                className="text-3xl md:text-4xl font-bold text-[#00B140]"
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                {counters.products}
-              </motion.div>
-              <div className="text-sm opacity-80" style={{ color: textColor as any }}>products</div>
-            </motion.div>
-            <Separator orientation="vertical" className="h-12 bg-current opacity-30" />
-            <motion.div 
-              className="text-center"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-            >
-              <motion.div 
-                className="text-3xl md:text-4xl font-bold text-[#00B140]"
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-              >
-                {counters.delivery}%
-              </motion.div>
-              <div className="text-sm opacity-80" style={{ color: textColor as any }}>faster delivery</div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <Link to="/projects">
-              <Button variant="outline" className="mb-8 border-current text-current hover:bg-current hover:text-background">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Projects
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Content Section with Welbilt Brand Colors */}
+      {/* Content Section */}
       <motion.div 
         ref={contentRef}
-        className="relative z-10 bg-background text-foreground"
+        className="relative z-10 bg-background"
         initial={{ opacity: 0 }}
         animate={{ opacity: isContentInView ? 1 : 0 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Project Snapshot */}
-        <section className="py-20 bg-gradient-to-b from-[#0056B3] to-background">
+        {/* Project Snapshot with Welbilt accents */}
+        <section className="py-20 bg-gradient-to-b from-bengali-terracotta to-background">
           <div className="container mx-auto px-4 md:px-6">
             <motion.h2 
               className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
@@ -276,6 +164,45 @@ const WelbiltKitchenConnect = () => {
                   </Card>
                 </motion.div>
               ))}
+            </motion.div>
+
+            {/* Animated Stats Counter */}
+            <motion.div 
+              className="flex justify-center items-center space-x-8 mt-12"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <motion.div 
+                className="text-center"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <motion.div 
+                  className="text-3xl md:text-4xl font-bold text-[#00B140]"
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  {counters.products}
+                </motion.div>
+                <div className="text-sm opacity-80 text-white">products</div>
+              </motion.div>
+              <Separator orientation="vertical" className="h-12 bg-white/30" />
+              <motion.div 
+                className="text-center"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                <motion.div 
+                  className="text-3xl md:text-4xl font-bold text-[#00B140]"
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
+                >
+                  {counters.delivery}%
+                </motion.div>
+                <div className="text-sm opacity-80 text-white">faster delivery</div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
