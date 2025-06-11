@@ -3,8 +3,10 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { CheckCircle, AlertTriangle, Zap, Target, Eye, Keyboard } from 'lucide-react';
 
 // Import all project components
 import ProjectHero from '@/components/project/ProjectHero';
@@ -687,6 +689,7 @@ const ProjectDetail = () => {
   const projectId = parseInt(id || "1");
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
+  const [visibleMetrics, setVisibleMetrics] = useState<number[]>([]);
   
   const project = projects.find(p => p.id === projectId);
   const nextProject = projects.find(p => p.id === projectId + 1) || projects[0];
@@ -704,6 +707,33 @@ const ProjectDetail = () => {
 
   const scrollToContent = () => {
     contentRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Counter animation component
+  const AnimatedCounter = ({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
+    const [count, setCount] = useState(0);
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    useEffect(() => {
+      if (isInView) {
+        let startTime: number;
+        const animate = (timestamp: number) => {
+          if (!startTime) startTime = timestamp;
+          const progress = (timestamp - startTime) / duration;
+          
+          if (progress < 1) {
+            setCount(Math.floor(end * progress));
+            requestAnimationFrame(animate);
+          } else {
+            setCount(end);
+          }
+        };
+        requestAnimationFrame(animate);
+      }
+    }, [isInView, end, duration]);
+
+    return <span ref={ref}>{count}{suffix}</span>;
   };
 
   if (!project) {
@@ -724,6 +754,426 @@ const ProjectDetail = () => {
     );
   }
 
+  // P&G Datalogger specific sections
+  const renderPGDataloggerSections = () => {
+    if (projectId !== 1) return null;
+
+    return (
+      <>
+        {/* Problem Statement Section */}
+        <motion.section 
+          className="py-16 bg-muted/30"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-6xl mx-auto">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-heading font-bold text-center mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                The Fragmented Control System
+              </motion.h2>
+              
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <p className="text-lg text-muted-foreground mb-6">
+                    The SEEED XIAO AI board application suffered from critical UX debt: No accessibility compliance, 
+                    disjointed workflows, and visual chaos hindered P&G technicians. Key pain points included:
+                  </p>
+                  
+                  <div className="space-y-4">
+                    {[
+                      "Zero WCAG compliance (keyboard nav, contrast errors)",
+                      "Undiscoverable controls with inconsistent labeling", 
+                      "Critical data buried in layout jumbles",
+                      "No error prevention or system feedback"
+                    ].map((point, index) => (
+                      <motion.div 
+                        key={index}
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+                        viewport={{ once: true }}
+                      >
+                        <AlertTriangle className="w-5 h-5 text-destructive mt-1 flex-shrink-0" />
+                        <span className="text-foreground">{point}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="relative"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="bg-card rounded-lg overflow-hidden shadow-lg border">
+                    <img 
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                      alt="Before: Fragmented interface with accessibility violations"
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-destructive/10">
+                      <div className="absolute top-4 left-4 bg-destructive text-destructive-foreground px-2 py-1 rounded text-xs">
+                        Accessibility Violations
+                      </div>
+                      <div className="absolute bottom-4 right-4 bg-destructive text-destructive-foreground px-2 py-1 rounded text-xs">
+                        Poor Contrast
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Process Showcase - Animated Tabs */}
+        <motion.section 
+          className="py-16 bg-background"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-6xl mx-auto">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-heading font-bold text-center mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Process Showcase
+              </motion.h2>
+
+              <Tabs defaultValue="heuristic" className="w-full">
+                <TabsList className="grid w-full grid-cols-3 mb-8">
+                  <TabsTrigger value="heuristic" className="focus-visible:ring-2 focus-visible:ring-ring">
+                    Heuristic Deep Dive
+                  </TabsTrigger>
+                  <TabsTrigger value="restructuring" className="focus-visible:ring-2 focus-visible:ring-ring">
+                    Restructuring Logic
+                  </TabsTrigger>
+                  <TabsTrigger value="accessibility" className="focus-visible:ring-2 focus-visible:ring-ring">
+                    Inclusive Foundations
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="heuristic" className="space-y-6">
+                  <motion.div 
+                    className="grid md:grid-cols-2 gap-8 items-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">Evaluated 63 violations against Nielsen's principles + WCAG 2.1. Critical finds:</h3>
+                      <div className="space-y-3">
+                        {[
+                          "Status invisibility during firmware updates",
+                          "Arbitrary terminology mismatches", 
+                          "No error recovery paths"
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-3">
+                            <Target className="w-4 h-4 text-bengali-terracotta" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="bg-card rounded-lg p-6 border">
+                      <img 
+                        src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="Heatmap overlay showing UI violations"
+                        className="w-full h-48 object-cover rounded"
+                      />
+                      <p className="text-sm text-muted-foreground mt-2">Heatmap overlay on original UI</p>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+
+                <TabsContent value="restructuring" className="space-y-6">
+                  <motion.div 
+                    className="grid md:grid-cols-2 gap-8 items-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">Re-engineered IA through:</h3>
+                      <div className="space-y-3">
+                        {[
+                          "Task flow analysis with technicians",
+                          "Progressive disclosure patterns",
+                          "Unified control taxonomy"
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-3">
+                            <Zap className="w-4 h-4 text-bengali-terracotta" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="bg-card rounded-lg p-6 border">
+                      <img 
+                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="User flow diagram comparison"
+                        className="w-full h-48 object-cover rounded"
+                      />
+                      <p className="text-sm text-muted-foreground mt-2">User flow diagram (old vs new)</p>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+
+                <TabsContent value="accessibility" className="space-y-6">
+                  <motion.div 
+                    className="grid md:grid-cols-2 gap-8 items-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">Embedded accessibility:</h3>
+                      <div className="space-y-3">
+                        {[
+                          "Dynamic contrast modes",
+                          "Screen reader-compatible data grids",
+                          "Keyboard-operated sensor controls"
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-3">
+                            <Eye className="w-4 h-4 text-bengali-terracotta" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="bg-card rounded-lg p-6 border">
+                      <img 
+                        src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="Focus indicator demonstration"
+                        className="w-full h-48 object-cover rounded"
+                      />
+                      <p className="text-sm text-muted-foreground mt-2">Focus indicator demo</p>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+              </Tabs>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Solution Gallery */}
+        <motion.section 
+          className="py-16 bg-muted/30"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-6xl mx-auto">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-heading font-bold text-center mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Solution Gallery
+              </motion.h2>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "Dashboard Revamp",
+                    description: "Before/after data visualization with annotations showing hierarchy improvements",
+                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                  },
+                  {
+                    title: "Task Flow Transformation", 
+                    description: "Animated prototype embed of calibration sequence",
+                    image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                  },
+                  {
+                    title: "Accessibility Toolkit",
+                    description: "Interactive WCAG compliance checklist toggles",
+                    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-card rounded-lg overflow-hidden shadow-lg border hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="relative overflow-hidden">
+                      <img 
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-bengali-terracotta/0 group-hover:bg-bengali-terracotta/10 transition-all duration-300" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Impact Visualization */}
+        <motion.section 
+          className="py-16 bg-background"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-6xl mx-auto">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-heading font-bold text-center mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Metrics That Matter
+              </motion.h2>
+
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
+                {[
+                  { value: 92, suffix: "%", label: "reduction in misconfigured devices" },
+                  { value: 40, suffix: "s", label: "faster task completion (UT study)" },
+                  { value: 100, suffix: "%", label: "AA compliance across all core flows" }
+                ].map((metric, index) => (
+                  <motion.div
+                    key={index}
+                    className="text-center p-6 bg-card rounded-lg border shadow-sm"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-4xl md:text-5xl font-bold text-bengali-terracotta mb-2">
+                      <AnimatedCounter end={metric.value} suffix={metric.suffix} />
+                    </div>
+                    <p className="text-muted-foreground">{metric.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div 
+                className="text-center p-8 bg-bengali-mustard/10 rounded-lg border border-bengali-mustard/20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <blockquote className="text-xl md:text-2xl font-medium text-foreground mb-4">
+                  "Finally feels like enterprise software"
+                </blockquote>
+                <cite className="text-muted-foreground">- P&G Lead Engineer</cite>
+              </motion.div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Design System Spotlight */}
+        <motion.section 
+          className="py-16 bg-muted/30"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-6xl mx-auto">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-heading font-bold text-center mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Components Built for Scalability
+              </motion.h2>
+              
+              <motion.p 
+                className="text-center text-muted-foreground mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Token-driven theming for future SKUs
+              </motion.p>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "Accessible Data Slider",
+                    description: "ARIA-compliant range control with haptic feedback",
+                    icon: <Keyboard className="w-8 h-8 text-bengali-terracotta" />
+                  },
+                  {
+                    title: "Contextual Help Pattern", 
+                    description: "Progressive disclosure with screen reader support",
+                    icon: <Eye className="w-8 h-8 text-bengali-terracotta" />
+                  },
+                  {
+                    title: "Unified Control Panel",
+                    description: "Modular interface blocks with consistent interactions",
+                    icon: <Target className="w-8 h-8 text-bengali-terracotta" />
+                  }
+                ].map((component, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-card rounded-lg p-6 border shadow-sm hover:shadow-md transition-all duration-300 group"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300 w-fit">
+                      {component.icon}
+                    </div>
+                    <h3 className="font-semibold text-lg mb-2">{component.title}</h3>
+                    <p className="text-muted-foreground text-sm">{component.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.section>
+      </>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -741,6 +1191,9 @@ const ProjectDetail = () => {
 
         {/* Project Overview */}
         <ProjectOverview project={project} />
+        
+        {/* P&G Datalogger Specific Sections */}
+        {renderPGDataloggerSections()}
         
         {/* User Personas & Flows */}
         {(project.userPersona || project.userFlows) && (
