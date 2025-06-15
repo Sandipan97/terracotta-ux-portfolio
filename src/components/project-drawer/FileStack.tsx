@@ -24,8 +24,8 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     
-    mouseX.set((e.clientX - centerX) * 0.8);
-    mouseY.set((e.clientY - centerY) * 0.8);
+    mouseX.set((e.clientX - centerX) * 0.3);
+    mouseY.set((e.clientY - centerY) * 0.3);
   };
 
   const handleMouseLeave = () => {
@@ -34,28 +34,28 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
     setHoveredIndex(null);
   };
 
+  // Arrange files in perspective rows
+  const getFilePosition = (index: number) => {
+    const row = Math.floor(index / 3);
+    const col = index % 3;
+    
+    return {
+      x: col * 180 + 60, // Horizontal spacing
+      y: row * 120 + 40, // Vertical spacing with perspective depth
+      z: -row * 20, // Depth for perspective
+    };
+  };
+
   const getFileRotation = (index: number) => {
-    const baseRotation = (Math.sin(index * 0.5) * 8) + (Math.cos(index * 0.3) * 4); // Natural variation
+    const baseRotation = (index % 2 === 0 ? 2 : -2) + (Math.sin(index * 0.7) * 3);
     
     if (hoveredIndex !== null) {
       if (index === hoveredIndex) return 0; // Straighten hovered file
       const distance = Math.abs(index - hoveredIndex);
-      const direction = index < hoveredIndex ? -1 : 1;
-      return baseRotation + (distance * 3 * direction);
+      return baseRotation + (distance > 2 ? baseRotation * 0.5 : baseRotation);
     }
     
     return baseRotation;
-  };
-
-  const getFileOffset = (index: number) => {
-    const baseOffset = index * 8; // Tighter stack spacing
-    
-    if (hoveredIndex !== null) {
-      if (index === hoveredIndex) return baseOffset - 5; // Lift the hovered file
-      if (index > hoveredIndex) return baseOffset + 25; // Push files apart
-    }
-    
-    return baseOffset;
   };
 
   const getZIndex = (index: number) => {
@@ -65,78 +65,89 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
     return files.length - index;
   };
 
-  // Show all files, not just first 4
-  const visibleFiles = files;
-
   return (
     <motion.div
-      className="relative h-full flex items-center justify-center"
+      className="relative h-full flex items-start justify-start overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ x: parallaxX, y: parallaxY }}
+      style={{ 
+        x: parallaxX, 
+        y: parallaxY,
+        perspective: '1000px',
+        transformStyle: 'preserve-3d'
+      }}
     >
-      {/* File Stack Container */}
-      <div className="relative w-full max-w-4xl h-96">
-        {visibleFiles.map((file, index) => (
-          <motion.div
-            key={file.id}
-            className="absolute"
-            style={{
-              zIndex: getZIndex(index),
-              left: `${15 + (index % 3) * 12}%`, // Arrange in layers across width
-              top: `${20 + getFileOffset(index)}px`,
-            }}
-            initial={{ 
-              opacity: 0, 
-              y: 80,
-              rotate: getFileRotation(index),
-              scale: 0.9
-            }}
-            animate={isVisible ? {
-              opacity: 1,
-              y: 0,
-              rotate: getFileRotation(index),
-              scale: 1
-            } : {
-              opacity: 0,
-              y: 80,
-              rotate: getFileRotation(index),
-              scale: 0.9
-            }}
-            transition={{
-              duration: 0.8,
-              delay: index * 0.15,
-              type: "spring",
-              mass: 0.7,
-              stiffness: 120,
-              damping: 15
-            }}
-            whileHover={{
-              y: -25,
-              rotate: 0,
-              scale: 1.08,
-              transition: {
+      {/* File Grid Container with Perspective */}
+      <div className="relative w-full h-[500px]" style={{ transformStyle: 'preserve-3d' }}>
+        {files.map((file, index) => {
+          const position = getFilePosition(index);
+          
+          return (
+            <motion.div
+              key={file.id}
+              className="absolute"
+              style={{
+                zIndex: getZIndex(index),
+                left: `${position.x}px`,
+                top: `${position.y}px`,
+                transformStyle: 'preserve-3d'
+              }}
+              initial={{ 
+                opacity: 0, 
+                y: 60,
+                rotateX: 45,
+                rotateZ: getFileRotation(index),
+                scale: 0.8
+              }}
+              animate={isVisible ? {
+                opacity: 1,
+                y: 0,
+                rotateX: 15, // Slight tilt for top-down perspective
+                rotateZ: getFileRotation(index),
+                scale: 1
+              } : {
+                opacity: 0,
+                y: 60,
+                rotateX: 45,
+                rotateZ: getFileRotation(index),
+                scale: 0.8
+              }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.1,
                 type: "spring",
-                mass: 0.5,
-                stiffness: 200,
-                damping: 12
-              }
-            }}
-            onHoverStart={() => setHoveredIndex(index)}
-            onHoverEnd={() => setHoveredIndex(null)}
-          >
-            <ProjectFile 
-              file={file}
-              index={index}
-              isHovered={hoveredIndex === index}
-            />
-          </motion.div>
-        ))}
+                mass: 0.7,
+                stiffness: 120,
+                damping: 15
+              }}
+              whileHover={{
+                y: -15,
+                rotateX: 5,
+                rotateZ: 0,
+                scale: 1.05,
+                transition: {
+                  type: "spring",
+                  mass: 0.5,
+                  stiffness: 200,
+                  damping: 12
+                }
+              }}
+              onHoverStart={() => setHoveredIndex(index)}
+              onHoverEnd={() => setHoveredIndex(null)}
+            >
+              <ProjectFile 
+                file={file}
+                index={index}
+                isHovered={hoveredIndex === index}
+              />
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Stack depth indicator */}
       <motion.div
-        className="absolute bottom-6 right-8 bg-amber-100/90 dark:bg-amber-900/60 rounded-full px-4 py-2 text-sm font-medium text-amber-800 dark:text-amber-200 backdrop-blur-sm shadow-lg"
+        className="absolute bottom-4 right-4 bg-slate-700/90 backdrop-blur-sm rounded-lg px-4 py-2 text-sm font-medium text-slate-200 shadow-lg border border-slate-600/50"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
         transition={{ delay: 1.2, type: "spring", stiffness: 150 }}

@@ -45,96 +45,84 @@ const ProjectFile = ({ file, index, isHovered }: ProjectFileProps) => {
 
   return (
     <motion.div
-      className="relative w-72 h-80 cursor-pointer select-none"
+      className="relative w-60 h-72 cursor-pointer select-none"
       onHoverStart={() => setIsFlapOpen(true)}
       onHoverEnd={() => setIsFlapOpen(false)}
       onClick={handleFileClick}
-      whileHover={{ 
-        rotateY: 3,
-        rotateX: 1,
-      }}
-      whileTap={{
-        scale: 0.98,
-        transition: { duration: 0.1 }
-      }}
+      style={{ transformStyle: 'preserve-3d' }}
     >
-      {/* Enhanced File Shadow with depth */}
+      {/* File Shadow */}
       <motion.div
-        className="absolute inset-0 bg-black/25 rounded-lg blur-md"
+        className="absolute inset-0 bg-black/30 rounded-lg blur-sm"
         style={{
-          transform: 'translate(6px, 10px)',
+          transform: 'translate(4px, 8px) rotateX(90deg) translateZ(-10px)',
         }}
         animate={{
-          opacity: isHovered ? 0.5 : 0.25,
-          transform: isHovered ? 'translate(12px, 18px)' : 'translate(6px, 10px)',
-          scale: isHovered ? 1.02 : 1,
+          opacity: isHovered ? 0.4 : 0.2,
+          transform: isHovered 
+            ? 'translate(8px, 15px) rotateX(90deg) translateZ(-10px) scale(1.1)' 
+            : 'translate(4px, 8px) rotateX(90deg) translateZ(-10px)',
         }}
-        transition={{ duration: 0.3, type: "spring", stiffness: 150 }}
+        transition={{ duration: 0.3 }}
       />
 
-      {/* Manila Folder with enhanced texture */}
+      {/* Manila File Folder */}
       <motion.div
-        className="relative w-full h-full rounded-lg overflow-hidden border border-amber-200/50"
+        className="relative w-full h-full rounded-lg overflow-hidden border border-amber-200/30"
         style={{
           background: `linear-gradient(145deg, #F5F0E6 0%, #E8DCC0 50%, #D4C5A0 100%)`,
           backgroundImage: `
-            radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
-            repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 3px,
-              rgba(139, 69, 19, 0.02) 3px,
-              rgba(139, 69, 19, 0.02) 6px
-            )
-          `
+            linear-gradient(90deg, rgba(139, 69, 19, 0.03) 50%, transparent 50%),
+            linear-gradient(0deg, rgba(139, 69, 19, 0.02) 50%, transparent 50%)
+          `,
+          backgroundSize: '8px 8px, 12px 12px',
+          transformStyle: 'preserve-3d'
         }}
         animate={{
+          rotateY: isHovered ? 2 : 0,
           scale: isHovered ? 1.02 : 1,
-          rotateX: isHovered ? 2 : 0,
         }}
         transition={{ duration: 0.3, type: "spring", stiffness: 120 }}
       >
-        {/* Category Tab with enhanced styling */}
+        {/* Category Tab */}
         <motion.div
-          className="absolute -top-8 right-12 px-4 py-2 rounded-t-lg text-xs font-bold text-white shadow-lg"
+          className="absolute -top-6 right-8 px-3 py-1 rounded-t-md text-xs font-bold text-white shadow-md z-10"
           style={{ 
             backgroundColor: getCategoryColor(file.category),
-            transform: 'perspective(150px) rotateX(-20deg)',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+            transform: 'rotateX(-20deg)',
           }}
           animate={{
-            y: isHovered ? -3 : 0,
-            rotateX: isHovered ? -25 : -20,
+            y: isHovered ? -2 : 0,
+            rotateX: isHovered ? -30 : -20,
           }}
           transition={{ duration: 0.3 }}
         >
           {file.category}
         </motion.div>
 
-        {/* Enhanced dog-eared corner */}
+        {/* File Corner Fold */}
         <div 
-          className="absolute top-0 right-0 w-10 h-10 bg-gradient-to-br from-amber-200/60 to-amber-300/40"
+          className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-br from-amber-200/40 to-amber-300/30"
           style={{
             clipPath: 'polygon(0 0, 100% 0, 0 100%)',
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))'
+            filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))'
           }}
         />
 
-        {/* Animated File Flap */}
+        {/* File Opening Animation */}
         <motion.div
-          className="absolute top-16 left-0 right-0 h-6 bg-gradient-to-r from-amber-100 via-amber-200 to-amber-100 border-b-2 border-amber-300/50 shadow-sm"
+          className="absolute top-12 left-0 right-0 h-5 bg-gradient-to-r from-amber-100 via-amber-200 to-amber-100 border-b border-amber-300/40"
           style={{
             transformOrigin: 'left center',
-            backgroundImage: 'linear-gradient(90deg, rgba(139,69,19,0.03) 0%, transparent 50%, rgba(139,69,19,0.03) 100%)'
+            transformStyle: 'preserve-3d'
           }}
           animate={{
-            rotateY: isFlapOpen ? 40 : 0,
-            rotateX: isFlapOpen ? -5 : 0,
+            rotateY: isFlapOpen ? 25 : 0,
+            rotateX: isFlapOpen ? -8 : 0,
           }}
           transition={{
-            duration: 0.6,
-            delay: isHovered ? 0.2 : 0,
+            duration: 0.5,
+            delay: isHovered ? 0.1 : 0,
             type: "spring",
             mass: 0.8,
             stiffness: 100,
@@ -142,97 +130,77 @@ const ProjectFile = ({ file, index, isHovered }: ProjectFileProps) => {
           }}
         />
 
-        {/* Enhanced Project Preview Card */}
+        {/* Project Preview Card */}
         <motion.div
-          className="absolute top-20 left-4 right-4 bottom-4 bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100"
-          initial={{ y: 30, opacity: 0, scale: 0.95 }}
+          className="absolute top-16 left-3 right-3 bottom-3 bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
+          initial={{ y: 20, opacity: 0, scale: 0.95 }}
           animate={{
-            y: isFlapOpen ? 0 : 30,
+            y: isFlapOpen ? 0 : 20,
             opacity: isFlapOpen ? 1 : 0,
             scale: isFlapOpen ? 1 : 0.95,
+            rotateX: isFlapOpen ? 0 : 15,
           }}
           transition={{
-            duration: 0.5,
-            delay: isFlapOpen ? 0.3 : 0,
+            duration: 0.4,
+            delay: isFlapOpen ? 0.2 : 0,
             type: "spring",
             mass: 0.6,
             stiffness: 120,
             damping: 15
           }}
+          style={{ transformStyle: 'preserve-3d' }}
         >
-          {/* Project Thumbnail with overlay */}
-          <div className="h-28 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+          {/* Project Thumbnail */}
+          <div className="h-20 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
             <img
               src={file.image}
               alt={file.title}
               className="w-full h-full object-cover transition-transform duration-500"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-            
-            {/* Quick action overlay */}
-            <motion.div
-              className="absolute inset-0 bg-bengali-terracotta/90 flex items-center justify-center opacity-0"
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.2 }}
-            >
-              <button
-                onClick={handlePeekClick}
-                className="bg-white text-bengali-terracotta px-4 py-2 rounded-lg font-semibold text-sm flex items-center space-x-2 shadow-lg hover:shadow-xl transition-all"
-              >
-                <ExternalLink size={14} />
-                <span>Open Project</span>
-              </button>
-            </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </div>
 
-          {/* Enhanced Project Info */}
-          <div className="p-4 space-y-3">
-            <h3 className="font-heading text-sm font-bold text-gray-900 line-clamp-2 leading-tight">
+          {/* Project Info */}
+          <div className="p-3 space-y-2">
+            <h3 className="font-heading text-xs font-bold text-gray-900 line-clamp-2 leading-tight">
               {file.title}
             </h3>
             
-            <p className="text-xs text-gray-600 line-clamp-3 leading-relaxed">
+            <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
               {file.description}
             </p>
 
-            {/* Enhanced Project Meta */}
+            {/* Project Meta */}
             <div className="flex items-center justify-between text-xs">
               <div className="flex items-center space-x-1 text-gray-500">
-                <Calendar size={12} />
+                <Calendar size={10} />
                 <span>{file.duration || '3-6 months'}</span>
               </div>
               {file.results && (
                 <div className="flex items-center space-x-1 bg-green-50 text-green-700 px-2 py-1 rounded-full">
-                  <Award size={10} />
+                  <Award size={8} />
                   <span className="font-medium text-xs">Impact</span>
                 </div>
               )}
             </div>
 
-            {/* Enhanced View Project Link */}
+            {/* View Project Button */}
             <motion.button
               onClick={handlePeekClick}
-              className="w-full inline-flex items-center justify-center text-sm text-bengali-terracotta hover:text-white hover:bg-bengali-terracotta transition-all duration-300 font-semibold group mt-2 py-2 px-4 rounded-lg border-2 border-bengali-terracotta"
+              className="w-full inline-flex items-center justify-center text-xs text-bengali-terracotta hover:text-white hover:bg-bengali-terracotta transition-all duration-300 font-semibold group py-1.5 px-3 rounded-md border border-bengali-terracotta"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              View Case Study
-              <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              View Project
+              <ArrowRight size={10} className="ml-1 group-hover:translate-x-1 transition-transform duration-300" />
             </motion.button>
           </div>
         </motion.div>
 
-        {/* Enhanced file edge highlighting */}
-        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-white/30 via-white/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-        
-        {/* File binding holes */}
-        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 space-y-4">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="w-2 h-2 bg-gray-400/30 rounded-full border border-gray-500/20" />
-          ))}
-        </div>
+        {/* File Edge Highlighting */}
+        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-white/20 via-white/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-black/5 to-transparent" />
       </motion.div>
     </motion.div>
   );

@@ -13,53 +13,22 @@ const ProjectDrawer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  // Enhanced physics-based spring values
-  const drawerY = useSpring(80, { 
-    mass: 0.8, 
-    stiffness: 150, 
-    damping: 18 
-  });
-
   const filteredFiles = selectedCategory === 'All' 
     ? projectFiles 
     : projectFiles.filter(file => file.category === selectedCategory);
 
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
-    drawerY.set(isDrawerOpen ? 80 : 15);
   };
 
   return (
     <section 
       ref={ref}
-      className="py-24 bg-gradient-to-b from-background to-amber-50/20 dark:to-amber-900/5 relative overflow-hidden"
+      className="py-24 bg-gradient-to-b from-background to-slate-100/30 dark:to-slate-800/10 relative overflow-hidden"
       style={{ minHeight: '100vh' }}
     >
-      {/* Enhanced wooden surface background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-amber-50/15 to-amber-50/30 dark:via-amber-900/5 dark:to-amber-900/10" />
-      
-      {/* Subtle wood grain texture overlay */}
-      <div 
-        className="absolute inset-0 opacity-20 dark:opacity-10"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(
-              90deg,
-              transparent 0px,
-              rgba(139, 69, 19, 0.03) 1px,
-              transparent 2px,
-              rgba(139, 69, 19, 0.02) 4px,
-              transparent 6px
-            ),
-            repeating-linear-gradient(
-              0deg,
-              transparent 0px,
-              rgba(139, 69, 19, 0.02) 1px,
-              transparent 3px
-            )
-          `
-        }}
-      />
+      {/* Background with subtle texture */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-slate-50/20 to-slate-100/40 dark:via-slate-800/10 dark:to-slate-800/20" />
       
       <motion.div
         className="container mx-auto px-4 md:px-6 relative z-10"
@@ -67,7 +36,7 @@ const ProjectDrawer = () => {
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        {/* Enhanced Section Header */}
+        {/* Section Header */}
         <motion.div 
           className="text-center mb-20"
           initial={{ y: 40, opacity: 0 }}
@@ -88,93 +57,78 @@ const ProjectDrawer = () => {
             animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Browse through my project portfolio like flipping through a professional file drawer. 
-            Hover over each file to peek inside and discover detailed case studies, insights, and results.
+            Browse through my project portfolio like looking into a professional file drawer from above. 
+            Hover over each file to peek inside and discover detailed case studies and insights.
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Category Filter */}
+        {/* Category Filter */}
         <CategoryChips 
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
           isVisible={isInView}
         />
 
-        {/* Enhanced Wooden Drawer Container */}
+        {/* Top-Down File Drawer Container */}
         <motion.div
-          className="relative mx-auto max-w-6xl"
-          style={{ y: drawerY }}
-          initial={{ y: 120, scale: 0.95 }}
-          animate={isInView ? { y: 80, scale: 1 } : { y: 120, scale: 0.95 }}
+          className="relative mx-auto max-w-6xl perspective-[1000px]"
+          initial={{ y: 60, opacity: 0, rotateX: 15 }}
+          animate={isInView ? { y: 0, opacity: 1, rotateX: 0 } : { y: 60, opacity: 0, rotateX: 15 }}
           transition={{ duration: 1.2, delay: 0.7, type: "spring", mass: 1, stiffness: 100, damping: 20 }}
         >
-          {/* Enhanced Drawer Handle */}
-          <DrawerHandle 
-            isOpen={isDrawerOpen}
-            onToggle={handleDrawerToggle}
-          />
-
-          {/* Enhanced Wooden Drawer Body */}
+          {/* Drawer Frame - Top View */}
           <motion.div
-            className="relative rounded-t-2xl shadow-2xl overflow-hidden"
+            className="relative rounded-2xl shadow-2xl overflow-hidden transform-gpu"
             style={{
-              background: `linear-gradient(145deg, #8B4513 0%, #A0522D 30%, #D2691E 70%, #8B4513 100%)`,
-              backgroundImage: `
-                repeating-linear-gradient(
-                  90deg,
-                  transparent,
-                  transparent 3px,
-                  rgba(0,0,0,0.1) 3px,
-                  rgba(0,0,0,0.05) 6px,
-                  transparent 6px,
-                  transparent 12px
-                ),
-                repeating-linear-gradient(
-                  0deg,
-                  transparent,
-                  transparent 1px,
-                  rgba(0,0,0,0.03) 1px,
-                  rgba(0,0,0,0.03) 2px
-                )
+              background: `linear-gradient(135deg, #64748B 0%, #475569 30%, #334155 70%, #1E293B 100%)`,
+              boxShadow: `
+                0 0 0 8px #374151,
+                0 0 0 12px #4B5563,
+                0 25px 50px -12px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2)
               `
             }}
             whileHover={{ 
-              boxShadow: '0 30px 60px -12px rgba(0, 0, 0, 0.4)' 
+              boxShadow: `
+                0 0 0 8px #374151,
+                0 0 0 12px #4B5563,
+                0 35px 70px -12px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2)
+              `
             }}
             transition={{ duration: 0.3 }}
           >
-            {/* Wood edge banding */}
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-b from-amber-700 to-amber-800" />
-            <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-r from-amber-700 to-amber-800" />
-            <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-l from-amber-700 to-amber-800" />
-
-            {/* Enhanced Felt Interior */}
+            {/* Drawer Interior */}
             <div 
-              className="bg-slate-900 rounded-t-xl p-12 min-h-[500px] relative"
+              className="bg-slate-800 p-8 min-h-[600px] relative"
               style={{
-                background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)',
-                backgroundImage: `
-                  radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 80%, rgba(255,255,255,0.02) 0%, transparent 50%),
-                  repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(255,255,255,0.01) 2px,
-                    rgba(255,255,255,0.01) 4px
-                  )
-                `
+                background: `
+                  linear-gradient(135deg, #1E293B 0%, #0F172A 50%, #1E293B 100%),
+                  radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)
+                `,
+                boxShadow: 'inset 0 0 50px rgba(0, 0, 0, 0.3)'
               }}
             >
-              {/* Felt texture highlight */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+              {/* Drawer Rail Lines */}
+              <div className="absolute left-4 top-4 bottom-4 w-1 bg-gradient-to-b from-slate-600 to-slate-700 rounded-full opacity-60" />
+              <div className="absolute right-4 top-4 bottom-4 w-1 bg-gradient-to-b from-slate-600 to-slate-700 rounded-full opacity-60" />
               
-              {/* Enhanced File Stack */}
+              {/* File Stack in Perspective */}
               <FileStack 
                 files={filteredFiles}
                 isDrawerOpen={isDrawerOpen}
                 isVisible={isInView}
               />
+            </div>
+
+            {/* Drawer Label */}
+            <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
+              <div className="bg-slate-600/80 backdrop-blur-sm px-4 py-2 rounded-lg">
+                <span className="text-white text-sm font-medium">PROJECT PORTFOLIO</span>
+              </div>
             </div>
           </motion.div>
         </motion.div>
