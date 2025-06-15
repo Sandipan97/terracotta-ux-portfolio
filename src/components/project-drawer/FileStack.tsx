@@ -35,26 +35,38 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
   };
 
   const getFileRotation = (index: number) => {
-    const baseRotation = Math.random() * 16 - 8; // -8° to +8°
+    const baseRotation = (Math.sin(index * 0.5) * 8) + (Math.cos(index * 0.3) * 4); // Natural variation
     
     if (hoveredIndex !== null) {
       if (index === hoveredIndex) return 0; // Straighten hovered file
       const distance = Math.abs(index - hoveredIndex);
-      return baseRotation + (distance * 5 * (index < hoveredIndex ? -1 : 1));
+      const direction = index < hoveredIndex ? -1 : 1;
+      return baseRotation + (distance * 3 * direction);
     }
     
     return baseRotation;
   };
 
   const getFileOffset = (index: number) => {
-    const baseOffset = index * 15; // Stack spacing
+    const baseOffset = index * 8; // Tighter stack spacing
     
-    if (hoveredIndex !== null && index > hoveredIndex) {
-      return baseOffset + 40; // Push files apart when one is lifted
+    if (hoveredIndex !== null) {
+      if (index === hoveredIndex) return baseOffset - 5; // Lift the hovered file
+      if (index > hoveredIndex) return baseOffset + 25; // Push files apart
     }
     
     return baseOffset;
   };
+
+  const getZIndex = (index: number) => {
+    if (hoveredIndex !== null && index === hoveredIndex) {
+      return 100; // Bring hovered file to front
+    }
+    return files.length - index;
+  };
+
+  // Show all files, not just first 4
+  const visibleFiles = files;
 
   return (
     <motion.div
@@ -64,47 +76,50 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
       style={{ x: parallaxX, y: parallaxY }}
     >
       {/* File Stack Container */}
-      <div className="relative w-full max-w-2xl h-80">
-        {files.slice(0, 4).map((file, index) => (
+      <div className="relative w-full max-w-4xl h-96">
+        {visibleFiles.map((file, index) => (
           <motion.div
             key={file.id}
             className="absolute"
             style={{
-              zIndex: files.length - index,
-              left: `${20 + index * 8}%`,
-              top: `${10 + getFileOffset(index)}px`,
+              zIndex: getZIndex(index),
+              left: `${15 + (index % 3) * 12}%`, // Arrange in layers across width
+              top: `${20 + getFileOffset(index)}px`,
             }}
             initial={{ 
               opacity: 0, 
-              y: 50,
-              rotate: Math.random() * 16 - 8
+              y: 80,
+              rotate: getFileRotation(index),
+              scale: 0.9
             }}
             animate={isVisible ? {
               opacity: 1,
               y: 0,
-              rotate: getFileRotation(index)
+              rotate: getFileRotation(index),
+              scale: 1
             } : {
               opacity: 0,
-              y: 50,
-              rotate: Math.random() * 16 - 8
+              y: 80,
+              rotate: getFileRotation(index),
+              scale: 0.9
             }}
             transition={{
               duration: 0.8,
-              delay: index * 0.2,
+              delay: index * 0.15,
               type: "spring",
-              stiffness: 100,
+              mass: 0.7,
+              stiffness: 120,
               damping: 15
             }}
             whileHover={{
-              y: -20,
+              y: -25,
               rotate: 0,
-              scale: 1.05,
-              zIndex: 100,
+              scale: 1.08,
               transition: {
                 type: "spring",
-                mass: 0.7,
-                stiffness: 180,
-                damping: 15
+                mass: 0.5,
+                stiffness: 200,
+                damping: 12
               }
             }}
             onHoverStart={() => setHoveredIndex(index)}
@@ -119,17 +134,15 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
         ))}
       </div>
 
-      {/* Stack indicator for remaining files */}
-      {files.length > 4 && (
-        <motion.div
-          className="absolute bottom-4 right-4 bg-amber-100 dark:bg-amber-900/50 rounded-full px-4 py-2 text-sm font-medium text-amber-800 dark:text-amber-200"
-          initial={{ opacity: 0 }}
-          animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 1 }}
-        >
-          +{files.length - 4} more projects
-        </motion.div>
-      )}
+      {/* Stack depth indicator */}
+      <motion.div
+        className="absolute bottom-6 right-8 bg-amber-100/90 dark:bg-amber-900/60 rounded-full px-4 py-2 text-sm font-medium text-amber-800 dark:text-amber-200 backdrop-blur-sm shadow-lg"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+        transition={{ delay: 1.2, type: "spring", stiffness: 150 }}
+      >
+        📁 {files.length} Project Files
+      </motion.div>
     </motion.div>
   );
 };
