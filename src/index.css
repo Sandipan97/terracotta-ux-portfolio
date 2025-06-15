@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -141,6 +140,128 @@
 
   .dark .section-bg-alt {
     @apply bg-card/50;
+  }
+}
+
+@layer utilities {
+  /* Dark mode glow utilities */
+  .dark-glow-subtle {
+    @apply dark:shadow-lg dark:shadow-slate-500/10;
+  }
+
+  .dark-glow-medium {
+    @apply dark:shadow-xl dark:shadow-slate-500/15;
+  }
+
+  .dark-glow-strong {
+    @apply dark:shadow-2xl dark:shadow-slate-500/20;
+  }
+
+  .dark-glow-image {
+    @apply dark:shadow-lg dark:shadow-red-500/15;
+  }
+
+  .dark-glow-container {
+    @apply dark:shadow-lg dark:shadow-slate-500/10 dark:ring-1 dark:ring-slate-500/10;
+  }
+
+  .dark-glow-card {
+    @apply dark:shadow-xl dark:shadow-slate-500/15 dark:ring-1 dark:ring-slate-500/15;
+  }
+
+  .dark-glow-hero-card {
+    @apply dark:shadow-2xl dark:shadow-yellow-500/12 dark:ring-1 dark:ring-yellow-500/15;
+  }
+}
+
+@layer components {
+  /* Project Card Dynamic Color System */
+  .project-card {
+    --primary: var(--foreground);
+    --secondary: var(--muted-foreground);
+    --accent: var(--bengali-terracotta);
+    --accent-light: var(--bengali-terracotta-light);
+    
+    /* Performance optimizations */
+    will-change: transform, opacity;
+    transform: translateZ(0); /* GPU acceleration */
+  }
+
+  /* Dynamic color inheritance for specific projects */
+  [data-color-theme="welbilt-kitchen-connect"] {
+    --primary: #1E40AF;
+    --secondary: #3B82F6;
+    --accent: #60A5FA;
+    --accent-light: #DBEAFE;
+  }
+
+  [data-color-theme="lg-cyclops-ar"] {
+    --primary: #7C2D12;
+    --secondary: #EA580C;
+    --accent: #FB923C;
+    --accent-light: #FED7AA;
+  }
+
+  /* Hover animations with cubic-bezier easing */
+  .project-card:hover {
+    transform: translateY(-8px) translateZ(0);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .project-card:hover .project-card-title {
+    color: var(--accent);
+  }
+
+  .project-card:hover .project-card-border {
+    border-color: var(--primary);
+  }
+
+  /* Smooth preview animations */
+  .hover-preview {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hover-preview.visible {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  /* Mobile-specific drawer animations */
+  @media (max-width: 768px) {
+    .project-drawer {
+      transform: translateY(100%);
+      transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
+    .project-drawer.open {
+      transform: translateY(0);
+    }
+  }
+
+  /* Desktop drawer animations */
+  @media (min-width: 769px) {
+    .project-drawer {
+      transform: translateX(100%);
+      transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
+    .project-drawer.open {
+      transform: translateX(0);
+    }
+  }
+
+  /* Stagger animation utilities */
+  .stagger-children > * {
+    animation-delay: calc(var(--stagger-delay, 0.1s) * var(--index, 0));
+  }
+
+  /* High-performance transitions */
+  .gpu-accelerated {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }
 
