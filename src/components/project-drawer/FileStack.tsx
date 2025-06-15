@@ -34,20 +34,21 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
     setHoveredIndex(null);
   };
 
-  // Arrange files in perspective rows
+  // Stack files on top of each other with slight offsets
   const getFilePosition = (index: number) => {
-    const row = Math.floor(index / 3);
-    const col = index % 3;
+    const stackOffset = index * 8; // Small offset for depth
+    const randomX = (Math.sin(index * 1.7) * 15); // Slight random positioning
+    const randomY = (Math.cos(index * 2.3) * 12);
     
     return {
-      x: col * 180 + 60, // Horizontal spacing
-      y: row * 120 + 40, // Vertical spacing with perspective depth
-      z: -row * 20, // Depth for perspective
+      x: 50 + randomX, // Center the stack with slight variation
+      y: 50 + stackOffset + randomY, // Stack vertically with depth
+      z: -index * 2, // Depth for perspective
     };
   };
 
   const getFileRotation = (index: number) => {
-    const baseRotation = (index % 2 === 0 ? 2 : -2) + (Math.sin(index * 0.7) * 3);
+    const baseRotation = (Math.sin(index * 0.7) * 4) + (index % 2 === 0 ? 1 : -1) * 2;
     
     if (hoveredIndex !== null) {
       if (index === hoveredIndex) return 0; // Straighten hovered file
@@ -65,9 +66,18 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
     return files.length - index;
   };
 
+  const getFileScale = (index: number) => {
+    if (hoveredIndex !== null) {
+      if (index === hoveredIndex) return 1.0; // Keep hovered file normal size
+      const distance = Math.abs(index - hoveredIndex);
+      return 0.98 - (distance * 0.01); // Slightly shrink nearby files
+    }
+    return 0.98 - (index * 0.005); // Natural depth scaling
+  };
+
   return (
     <motion.div
-      className="relative h-full flex items-start justify-start overflow-hidden"
+      className="relative h-full flex items-center justify-center overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ 
@@ -77,8 +87,8 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
         transformStyle: 'preserve-3d'
       }}
     >
-      {/* File Grid Container with Perspective */}
-      <div className="relative w-full h-[500px]" style={{ transformStyle: 'preserve-3d' }}>
+      {/* File Stack Container with Perspective */}
+      <div className="relative w-full h-[500px] flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
         {files.map((file, index) => {
           const position = getFilePosition(index);
           
@@ -104,7 +114,7 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
                 y: 0,
                 rotateX: 15, // Slight tilt for top-down perspective
                 rotateZ: getFileRotation(index),
-                scale: 1
+                scale: getFileScale(index)
               } : {
                 opacity: 0,
                 y: 60,
@@ -121,7 +131,7 @@ const FileStack = ({ files, isDrawerOpen, isVisible }: FileStackProps) => {
                 damping: 15
               }}
               whileHover={{
-                y: -15,
+                y: -20,
                 rotateX: 5,
                 rotateZ: 0,
                 scale: 1.05,
