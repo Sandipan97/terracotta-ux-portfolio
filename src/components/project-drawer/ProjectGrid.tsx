@@ -1,5 +1,5 @@
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, Award, ArrowRight } from 'lucide-react';
@@ -16,6 +16,25 @@ const ProjectGrid = ({ files, isVisible }: ProjectGridProps) => {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Scroll to top smoothly when navigating to project pages
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    // Listen for route changes to scroll to top
+    const handleRouteChange = () => {
+      scrollToTop();
+    };
+
+    return () => {
+      // Cleanup if needed
+    };
+  }, []);
 
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -51,7 +70,18 @@ const ProjectGrid = ({ files, isVisible }: ProjectGridProps) => {
   };
 
   const handleProjectClick = (file: ProjectFileData) => {
-    navigate(getProjectLink(file));
+    const projectPath = getProjectLink(file);
+    
+    // Navigate to the project page
+    navigate(projectPath);
+    
+    // Smooth scroll to top after a short delay to ensure navigation is complete
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
   };
 
   // Detect touch device
