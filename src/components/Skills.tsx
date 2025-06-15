@@ -52,7 +52,7 @@ const Skills = () => {
         <SkillsHighlights />
 
         {/* Scroll to next section button */}
-        <ScrollToNextSection targetId="featured-projects" className="mt-6 sm:mt-8" />
+        <ScrollToNextSection targetId="project-drawer" className="mt-6 sm:mt-8" />
       </div>
     </section>
   );
