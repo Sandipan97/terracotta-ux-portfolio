@@ -1,4 +1,3 @@
-
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -90,27 +89,24 @@ const ProjectGrid = ({ files, isVisible }: ProjectGridProps) => {
   };
 
   return (
-    <motion.div
+    <div
       ref={gridRef}
       className="relative max-w-6xl mx-auto"
       onMouseMove={handleMouseMove}
       onTouchStart={handleTouchStart}
-      initial={{ y: 60, opacity: 0 }}
-      animate={isVisible ? { y: 0, opacity: 1 } : { y: 60, opacity: 0 }}
-      transition={{ duration: 1, delay: 0.7, type: "spring", stiffness: 100, damping: 20 }}
     >
-      {/* Project Grid */}
+      {/* Project Grid - Always visible */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {files.map((file, index) => (
           <motion.div
             key={file.id}
             className="project-card group cursor-pointer"
             data-color-theme={file.slug || file.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.6,
-              delay: 0.9 + index * 0.1,
+              duration: 0.5,
+              delay: index * 0.1,
               type: "spring",
               stiffness: 120,
               damping: 15
@@ -250,15 +246,15 @@ const ProjectGrid = ({ files, isVisible }: ProjectGridProps) => {
       <motion.div
         className="text-center mt-12"
         initial={{ opacity: 0 }}
-        animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
       >
         <div className="inline-flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 shadow-md">
           <span>📁</span>
           <span>{files.length} Projects Available</span>
         </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -31,12 +31,7 @@ const CategoryChips = ({ selectedCategory, onCategoryChange, isVisible }: Catego
   };
 
   return (
-    <motion.div 
-      className="flex flex-wrap justify-center gap-3 mb-12"
-      initial={{ y: 20, opacity: 0 }}
-      animate={isVisible ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-      transition={{ duration: 0.6, delay: 0.4 }}
-    >
+    <div className="flex flex-wrap justify-center gap-3 mb-12">
       {categories.map((category, index) => (
         <motion.button
           key={category}
@@ -50,10 +45,10 @@ const CategoryChips = ({ selectedCategory, onCategoryChange, isVisible }: Catego
             }
           `}
           initial={{ opacity: 0, y: 10 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ 
             duration: 0.4, 
-            delay: 0.6 + index * 0.1,
+            delay: index * 0.05,
             type: "spring",
             stiffness: 200,
             damping: 15
@@ -68,7 +63,7 @@ const CategoryChips = ({ selectedCategory, onCategoryChange, isVisible }: Catego
           <span>{category}</span>
         </motion.button>
       ))}
-    </motion.div>
+    </div>
   );
 };
 
