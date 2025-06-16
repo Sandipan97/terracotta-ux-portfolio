@@ -18,11 +18,11 @@ const ProjectDrawer = () => {
   return (
     <section 
       ref={ref}
-      className="py-24 bg-gradient-to-b from-background to-slate-100/30 dark:to-slate-800/10 relative overflow-hidden"
+      className="py-24 bg-gradient-to-b from-background to-slate-100/50 dark:to-slate-800/30 relative overflow-hidden"
       style={{ minHeight: '100vh' }}
     >
-      {/* Background with subtle texture */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-slate-50/20 to-slate-100/40 dark:via-slate-800/10 dark:to-slate-800/20" />
+      {/* Background with better contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-slate-50/40 to-slate-100/60 dark:via-slate-800/20 dark:to-slate-800/40" />
       
       <motion.div
         className="container mx-auto px-4 md:px-6 relative z-10"
