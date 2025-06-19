@@ -14,7 +14,8 @@ const categories = [
   'Research',
   'Design Systems',
   'AR Projects',
-  'Product Design'
+  'Product Design',
+  'Mobile App'
 ];
 
 const CategoryChips = ({ selectedCategory, onCategoryChange, isVisible }: CategoryChipsProps) => {
@@ -26,6 +27,7 @@ const CategoryChips = ({ selectedCategory, onCategoryChange, isVisible }: Catego
       case 'Design Systems': return '🧩';
       case 'AR Projects': return '🥽';
       case 'Product Design': return '📱';
+      case 'Mobile App': return '📲';
       default: return '📂';
     }
   };
@@ -44,7 +46,7 @@ const CategoryChips = ({ selectedCategory, onCategoryChange, isVisible }: Catego
               : 'bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700 shadow-md hover:shadow-lg hover:scale-102'
             }
           `}
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
             duration: 0.4, 

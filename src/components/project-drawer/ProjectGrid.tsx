@@ -1,3 +1,4 @@
+
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -43,6 +44,7 @@ const ProjectGrid = ({ files, isVisible }: ProjectGridProps) => {
       case 'Design Systems': return '#10B981';
       case 'AR Projects': return '#EF4444';
       case 'Product Design': return '#8B5CF6';
+      case 'Mobile App': return '#06B6D4';
       default: return '#6B7280';
     }
   };
@@ -102,7 +104,7 @@ const ProjectGrid = ({ files, isVisible }: ProjectGridProps) => {
             key={file.id}
             className="project-card group cursor-pointer"
             data-color-theme={file.slug || file.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.5,

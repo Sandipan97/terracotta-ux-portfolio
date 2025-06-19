@@ -75,5 +75,15 @@ export const projectFiles: ProjectFileData[] = [
     description: "Educational toy system helping children learn human anatomy through interactive play.",
     results: "40% learning improvement",
     duration: "6 months"
+  },
+  {
+    id: 8,
+    title: "Gharana - Home Food Delivery App",
+    category: "Mobile App",
+    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Mobile app platform connecting home-based cloud kitchens with customers seeking authentic home-made food delivery.",
+    results: "200% order increase",
+    duration: "8 months",
+    slug: "gharana-food-delivery"
   }
 ];
