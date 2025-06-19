@@ -116,21 +116,7 @@ const GharanaFoodDelivery = () => {
     }
   ];
 
-  const resultsData = {
-    results: {
-      metrics: [
-        { label: "Home Chef Registrations", value: "200%", description: "increase in first 6 months" },
-        { label: "Customer Satisfaction", value: "85%", description: "based on app store reviews" },
-        { label: "Order Fulfillment Time", value: "40%", description: "reduction in delivery time" },
-        { label: "App Store Rating", value: "4.6/5", description: "across iOS and Android" }
-      ],
-      testimonial: {
-        quote: "Gharana transformed how I run my home kitchen business. The interface is intuitive, and I can focus on cooking while the app handles everything else seamlessly.",
-        author: "Meera Sharma",
-        role: "Home Chef Partner"
-      }
-    }
-  };
+  const projectResults = "The Gharana app achieved remarkable success with a 200% increase in home chef registrations within the first 6 months, 85% customer satisfaction rate based on app store reviews, and 40% reduction in order fulfillment time. The platform successfully bridged the gap between home chefs and customers, creating a thriving ecosystem for authentic homemade food delivery.";
 
   const handleBack = () => {
     navigate('/');
@@ -173,12 +159,11 @@ const GharanaFoodDelivery = () => {
           <Prototyping prototyping={prototypingData} />
 
           {/* Results */}
-          <ProjectResults {...resultsData} />
+          <ProjectResults results={projectResults} />
 
           {/* Navigation */}
           <ProjectNavigation 
-            previousProject={{ title: "LG Cyclops AR", slug: "lg-cyclops-ar" }}
-            nextProject={{ title: "Welbilt Kitchen Connect", slug: "welbilt-kitchen-connect" }}
+            nextProject={{ id: 2, title: "Welbilt Kitchen Connect" }}
           />
         </div>
       </div>
