@@ -17,29 +17,34 @@ import Footer from '@/components/Footer';
 const GharanaFoodDelivery = () => {
   const navigate = useNavigate();
 
-  const projectData = {
+  const project = {
+    id: 8,
     title: "Gharana - Home Food Delivery App",
-    subtitle: "Connecting Home Kitchens with Food Lovers",
-    description: "A mobile platform that bridges the gap between home-based cloud kitchens and customers seeking authentic, homemade meals. Designed to empower home chefs while providing customers with fresh, locally-sourced food options.",
+    category: "Mobile App",
     image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    description: "A mobile platform that bridges the gap between home-based cloud kitchens and customers seeking authentic, homemade meals. Designed to empower home chefs while providing customers with fresh, locally-sourced food options.",
     duration: "8 months",
     role: "Lead UX/UI Designer",
-    team: "4 members",
-    category: "Mobile App Design"
+    client: "Gharana Food Tech",
+    projectType: ["Mobile App Design", "UX Research", "UI Design"]
   };
 
   const overviewData = {
-    challenge: "Home chefs struggle to reach customers effectively while food lovers find it difficult to discover authentic homemade meals in their locality. Traditional food delivery platforms focus on restaurants, leaving a gap in the home-cooking market.",
-    solution: "Gharana creates a dedicated ecosystem for home-based food businesses, featuring chef verification, real-time order tracking, community reviews, and seamless payment integration to build trust and convenience.",
-    impact: "200% increase in home chef registrations, 85% customer satisfaction rate, and 40% reduction in order fulfillment time.",
-    keyFeatures: [
-      "Chef verification system",
-      "Real-time order tracking",
-      "Community-driven reviews",
-      "Flexible menu management",
-      "Integrated payment gateway",
-      "Delivery optimization"
-    ]
+    project: {
+      challenge: "Home chefs struggle to reach customers effectively while food lovers find it difficult to discover authentic homemade meals in their locality. Traditional food delivery platforms focus on restaurants, leaving a gap in the home-cooking market.",
+      solution: "Gharana creates a dedicated ecosystem for home-based food businesses, featuring chef verification, real-time order tracking, community reviews, and seamless payment integration to build trust and convenience.",
+      impact: "200% increase in home chef registrations, 85% customer satisfaction rate, and 40% reduction in order fulfillment time."
+    },
+    overview: {
+      keyFeatures: [
+        "Chef verification system",
+        "Real-time order tracking", 
+        "Community-driven reviews",
+        "Flexible menu management",
+        "Integrated payment gateway",
+        "Delivery optimization"
+      ]
+    }
   };
 
   const userPersonas = [
@@ -54,7 +59,7 @@ const GharanaFoodDelivery = () => {
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
     },
     {
-      title: "Sunita - The Family Organizer",
+      title: "Sunita - The Family Organizer", 
       description: "A busy mother managing household meals and occasionally ordering food for family gatherings. Seeks healthy, trusted food options with transparent ingredients.",
       image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
     }
@@ -78,13 +83,13 @@ const GharanaFoodDelivery = () => {
     }
   ];
 
-  const ideationProcess = [
+  const ideationData = [
     {
       title: "Problem Mapping",
       description: "Created comprehensive problem maps for both home chefs and customers, identifying key friction points in the current food discovery and ordering process."
     },
     {
-      title: "Feature Brainstorming",
+      title: "Feature Brainstorming", 
       description: "Conducted collaborative workshops to generate innovative features that would address identified pain points while creating unique value propositions."
     },
     {
@@ -93,32 +98,48 @@ const GharanaFoodDelivery = () => {
     }
   ];
 
-  const prototypingStages = [
+  const prototypingData = [
     {
       title: "Low-Fidelity Wireframes",
-      description: "Started with paper sketches and digital wireframes to explore layout concepts and user flow structures for both chef and customer interfaces."
+      description: "Started with paper sketches and digital wireframes to explore layout concepts and user flow structures for both chef and customer interfaces.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
       title: "Interactive Prototypes",
-      description: "Built clickable prototypes using Figma to test core user flows including registration, menu creation, ordering, and payment processes."
+      description: "Built clickable prototypes using Figma to test core user flows including registration, menu creation, ordering, and payment processes.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
       title: "High-Fidelity Designs",
-      description: "Developed polished visual designs with custom illustrations, micro-interactions, and a cohesive design system that reflects Indian culinary culture."
+      description: "Developed polished visual designs with custom illustrations, micro-interactions, and a cohesive design system that reflects Indian culinary culture.",
+      image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
-  const projectResults = {
-    metrics: [
-      { label: "Home Chef Registrations", value: "200%", description: "increase in first 6 months" },
-      { label: "Customer Satisfaction", value: "85%", description: "based on app store reviews" },
-      { label: "Order Fulfillment Time", value: "40%", description: "reduction in delivery time" },
-      { label: "App Store Rating", value: "4.6/5", description: "across iOS and Android" }
-    ],
-    testimonial: {
-      quote: "Gharana transformed how I run my home kitchen business. The interface is intuitive, and I can focus on cooking while the app handles everything else seamlessly.",
-      author: "Meera Sharma",
-      role: "Home Chef Partner"
+  const resultsData = {
+    results: {
+      metrics: [
+        { label: "Home Chef Registrations", value: "200%", description: "increase in first 6 months" },
+        { label: "Customer Satisfaction", value: "85%", description: "based on app store reviews" },
+        { label: "Order Fulfillment Time", value: "40%", description: "reduction in delivery time" },
+        { label: "App Store Rating", value: "4.6/5", description: "across iOS and Android" }
+      ],
+      testimonial: {
+        quote: "Gharana transformed how I run my home kitchen business. The interface is intuitive, and I can focus on cooking while the app handles everything else seamlessly.",
+        author: "Meera Sharma",
+        role: "Home Chef Partner"
+      }
+    }
+  };
+
+  const handleBack = () => {
+    navigate('/');
+  };
+
+  const handleScrollToContent = () => {
+    const element = document.getElementById('project-content');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -127,25 +148,15 @@ const GharanaFoodDelivery = () => {
       <Navbar />
       
       <div className="pt-20">
-        {/* Back Button */}
-        <div className="container mx-auto px-4 md:px-6 py-6">
-          <motion.button
-            onClick={() => navigate('/')}
-            className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Projects
-          </motion.button>
-        </div>
-
         {/* Project Hero */}
-        <ProjectHero {...projectData} />
+        <ProjectHero 
+          project={project}
+          onBack={handleBack}
+          onScrollToContent={handleScrollToContent}
+        />
 
         {/* Project Content */}
-        <div className="container mx-auto px-4 md:px-6 py-12 space-y-16">
+        <div id="project-content" className="container mx-auto px-4 md:px-6 py-12 space-y-16">
           {/* Project Overview */}
           <ProjectOverview {...overviewData} />
 
@@ -156,13 +167,13 @@ const GharanaFoodDelivery = () => {
           <ResearchMethods researchMethods={researchMethods} />
 
           {/* Ideation Process */}
-          <Ideation ideationProcess={ideationProcess} />
+          <Ideation ideation={ideationData} />
 
           {/* Prototyping */}
-          <Prototyping prototypingStages={prototypingStages} />
+          <Prototyping prototyping={prototypingData} />
 
           {/* Results */}
-          <ProjectResults {...projectResults} />
+          <ProjectResults {...resultsData} />
 
           {/* Navigation */}
           <ProjectNavigation 
