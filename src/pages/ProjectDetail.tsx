@@ -1,4 +1,5 @@
 
+
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -776,6 +777,7 @@ const ProjectDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
+                data-lovable-editable="pg-datalogger-problem-title"
               >
                 The Fragmented Control System
               </motion.h2>
@@ -787,7 +789,10 @@ const ProjectDetail = () => {
                   transition={{ delay: 0.3, duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <p className="text-lg text-muted-foreground mb-6">
+                  <p 
+                    className="text-lg text-muted-foreground mb-6"
+                    data-lovable-editable="pg-datalogger-problem-description"
+                  >
                     The SEEED XIAO AI board application suffered from critical UX debt: No accessibility compliance, 
                     disjointed workflows, and visual chaos hindered P&G technicians. Key pain points included:
                   </p>
@@ -808,7 +813,12 @@ const ProjectDetail = () => {
                         viewport={{ once: true }}
                       >
                         <AlertTriangle className="w-5 h-5 text-destructive mt-1 flex-shrink-0" />
-                        <span className="text-foreground">{point}</span>
+                        <span 
+                          className="text-foreground"
+                          data-lovable-editable={`pg-datalogger-pain-point-${index + 1}`}
+                        >
+                          {point}
+                        </span>
                       </motion.div>
                     ))}
                   </div>
@@ -828,10 +838,16 @@ const ProjectDetail = () => {
                       className="w-full h-64 object-cover"
                     />
                     <div className="absolute inset-0 bg-destructive/10">
-                      <div className="absolute top-4 left-4 bg-destructive text-destructive-foreground px-2 py-1 rounded text-xs">
+                      <div 
+                        className="absolute top-4 left-4 bg-destructive text-destructive-foreground px-2 py-1 rounded text-xs"
+                        data-lovable-editable="pg-datalogger-violation-label-1"
+                      >
                         Accessibility Violations
                       </div>
-                      <div className="absolute bottom-4 right-4 bg-destructive text-destructive-foreground px-2 py-1 rounded text-xs">
+                      <div 
+                        className="absolute bottom-4 right-4 bg-destructive text-destructive-foreground px-2 py-1 rounded text-xs"
+                        data-lovable-editable="pg-datalogger-violation-label-2"
+                      >
                         Poor Contrast
                       </div>
                     </div>
@@ -858,19 +874,32 @@ const ProjectDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
+                data-lovable-editable="pg-datalogger-process-title"
               >
                 Process Showcase
               </motion.h2>
 
               <Tabs defaultValue="heuristic" className="w-full">
                 <TabsList className="grid w-full grid-cols-3 mb-8">
-                  <TabsTrigger value="heuristic" className="focus-visible:ring-2 focus-visible:ring-ring">
+                  <TabsTrigger 
+                    value="heuristic" 
+                    className="focus-visible:ring-2 focus-visible:ring-ring"
+                    data-lovable-editable="pg-datalogger-tab-heuristic"
+                  >
                     Heuristic Deep Dive
                   </TabsTrigger>
-                  <TabsTrigger value="restructuring" className="focus-visible:ring-2 focus-visible:ring-ring">
+                  <TabsTrigger 
+                    value="restructuring" 
+                    className="focus-visible:ring-2 focus-visible:ring-ring"
+                    data-lovable-editable="pg-datalogger-tab-restructuring"
+                  >
                     Restructuring Logic
                   </TabsTrigger>
-                  <TabsTrigger value="accessibility" className="focus-visible:ring-2 focus-visible:ring-ring">
+                  <TabsTrigger 
+                    value="accessibility" 
+                    className="focus-visible:ring-2 focus-visible:ring-ring"
+                    data-lovable-editable="pg-datalogger-tab-accessibility"
+                  >
                     Inclusive Foundations
                   </TabsTrigger>
                 </TabsList>
@@ -883,7 +912,12 @@ const ProjectDetail = () => {
                     transition={{ duration: 0.5 }}
                   >
                     <div>
-                      <h3 className="text-xl font-semibold mb-4">Evaluated 63 violations against Nielsen's principles + WCAG 2.1. Critical finds:</h3>
+                      <h3 
+                        className="text-xl font-semibold mb-4"
+                        data-lovable-editable="pg-datalogger-heuristic-title"
+                      >
+                        Evaluated 63 violations against Nielsen's principles + WCAG 2.1. Critical finds:
+                      </h3>
                       <div className="space-y-3">
                         {[
                           "Status invisibility during firmware updates",
@@ -892,7 +926,9 @@ const ProjectDetail = () => {
                         ].map((item, index) => (
                           <div key={index} className="flex items-center gap-3">
                             <Target className="w-4 h-4 text-bengali-terracotta" />
-                            <span>{item}</span>
+                            <span data-lovable-editable={`pg-datalogger-heuristic-item-${index + 1}`}>
+                              {item}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -903,7 +939,12 @@ const ProjectDetail = () => {
                         alt="Heatmap overlay showing UI violations"
                         className="w-full h-48 object-cover rounded"
                       />
-                      <p className="text-sm text-muted-foreground mt-2">Heatmap overlay on original UI</p>
+                      <p 
+                        className="text-sm text-muted-foreground mt-2"
+                        data-lovable-editable="pg-datalogger-heuristic-caption"
+                      >
+                        Heatmap overlay on original UI
+                      </p>
                     </div>
                   </motion.div>
                 </TabsContent>
@@ -916,7 +957,12 @@ const ProjectDetail = () => {
                     transition={{ duration: 0.5 }}
                   >
                     <div>
-                      <h3 className="text-xl font-semibold mb-4">Re-engineered IA through:</h3>
+                      <h3 
+                        className="text-xl font-semibold mb-4"
+                        data-lovable-editable="pg-datalogger-restructuring-title"
+                      >
+                        Re-engineered IA through:
+                      </h3>
                       <div className="space-y-3">
                         {[
                           "Task flow analysis with technicians",
@@ -925,7 +971,9 @@ const ProjectDetail = () => {
                         ].map((item, index) => (
                           <div key={index} className="flex items-center gap-3">
                             <Zap className="w-4 h-4 text-bengali-terracotta" />
-                            <span>{item}</span>
+                            <span data-lovable-editable={`pg-datalogger-restructuring-item-${index + 1}`}>
+                              {item}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -936,7 +984,12 @@ const ProjectDetail = () => {
                         alt="User flow diagram comparison"
                         className="w-full h-48 object-cover rounded"
                       />
-                      <p className="text-sm text-muted-foreground mt-2">User flow diagram (old vs new)</p>
+                      <p 
+                        className="text-sm text-muted-foreground mt-2"
+                        data-lovable-editable="pg-datalogger-restructuring-caption"
+                      >
+                        User flow diagram (old vs new)
+                      </p>
                     </div>
                   </motion.div>
                 </TabsContent>
@@ -949,7 +1002,12 @@ const ProjectDetail = () => {
                     transition={{ duration: 0.5 }}
                   >
                     <div>
-                      <h3 className="text-xl font-semibold mb-4">Embedded accessibility:</h3>
+                      <h3 
+                        className="text-xl font-semibold mb-4"
+                        data-lovable-editable="pg-datalogger-accessibility-title"
+                      >
+                        Embedded accessibility:
+                      </h3>
                       <div className="space-y-3">
                         {[
                           "Dynamic contrast modes",
@@ -958,7 +1016,9 @@ const ProjectDetail = () => {
                         ].map((item, index) => (
                           <div key={index} className="flex items-center gap-3">
                             <Eye className="w-4 h-4 text-bengali-terracotta" />
-                            <span>{item}</span>
+                            <span data-lovable-editable={`pg-datalogger-accessibility-item-${index + 1}`}>
+                              {item}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -969,7 +1029,12 @@ const ProjectDetail = () => {
                         alt="Focus indicator demonstration"
                         className="w-full h-48 object-cover rounded"
                       />
-                      <p className="text-sm text-muted-foreground mt-2">Focus indicator demo</p>
+                      <p 
+                        className="text-sm text-muted-foreground mt-2"
+                        data-lovable-editable="pg-datalogger-accessibility-caption"
+                      >
+                        Focus indicator demo
+                      </p>
                     </div>
                   </motion.div>
                 </TabsContent>
@@ -994,6 +1059,7 @@ const ProjectDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
+                data-lovable-editable="pg-datalogger-solution-title"
               >
                 Solution Gallery
               </motion.h2>
@@ -1034,8 +1100,18 @@ const ProjectDetail = () => {
                       <div className="absolute inset-0 bg-bengali-terracotta/0 group-hover:bg-bengali-terracotta/10 transition-all duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm">{item.description}</p>
+                      <h3 
+                        className="font-semibold text-lg mb-2"
+                        data-lovable-editable={`pg-datalogger-solution-${index + 1}-title`}
+                      >
+                        {item.title}
+                      </h3>
+                      <p 
+                        className="text-muted-foreground text-sm"
+                        data-lovable-editable={`pg-datalogger-solution-${index + 1}-description`}
+                      >
+                        {item.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -1060,6 +1136,7 @@ const ProjectDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
+                data-lovable-editable="pg-datalogger-metrics-title"
               >
                 Metrics That Matter
               </motion.h2>
@@ -1081,7 +1158,12 @@ const ProjectDetail = () => {
                     <div className="text-4xl md:text-5xl font-bold text-bengali-terracotta mb-2">
                       <AnimatedCounter end={metric.value} suffix={metric.suffix} />
                     </div>
-                    <p className="text-muted-foreground">{metric.label}</p>
+                    <p 
+                      className="text-muted-foreground"
+                      data-lovable-editable={`pg-datalogger-metric-${index + 1}-label`}
+                    >
+                      {metric.label}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -1093,10 +1175,18 @@ const ProjectDetail = () => {
                 transition={{ delay: 0.6, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <blockquote className="text-xl md:text-2xl font-medium text-foreground mb-4">
+                <blockquote 
+                  className="text-xl md:text-2xl font-medium text-foreground mb-4"
+                  data-lovable-editable="pg-datalogger-quote-text"
+                >
                   "Finally feels like enterprise software"
                 </blockquote>
-                <cite className="text-muted-foreground">- P&G Lead Engineer</cite>
+                <cite 
+                  className="text-muted-foreground"
+                  data-lovable-editable="pg-datalogger-quote-author"
+                >
+                  - P&G Lead Engineer
+                </cite>
               </motion.div>
             </div>
           </div>
@@ -1118,6 +1208,7 @@ const ProjectDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
+                data-lovable-editable="pg-datalogger-components-title"
               >
                 Components Built for Scalability
               </motion.h2>
@@ -1128,6 +1219,7 @@ const ProjectDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
                 viewport={{ once: true }}
+                data-lovable-editable="pg-datalogger-components-subtitle"
               >
                 Token-driven theming for future SKUs
               </motion.p>
@@ -1162,8 +1254,18 @@ const ProjectDetail = () => {
                     <div className="mb-4 group-hover:scale-110 transition-transform duration-300 w-fit">
                       {component.icon}
                     </div>
-                    <h3 className="font-semibold text-lg mb-2">{component.title}</h3>
-                    <p className="text-muted-foreground text-sm">{component.description}</p>
+                    <h3 
+                      className="font-semibold text-lg mb-2"
+                      data-lovable-editable={`pg-datalogger-component-${index + 1}-title`}
+                    >
+                      {component.title}
+                    </h3>
+                    <p 
+                      className="text-muted-foreground text-sm"
+                      data-lovable-editable={`pg-datalogger-component-${index + 1}-description`}
+                    >
+                      {component.description}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -1252,3 +1354,4 @@ const ProjectDetail = () => {
 };
 
 export default ProjectDetail;
+
