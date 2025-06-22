@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
@@ -127,6 +128,7 @@ const WelbiltKitchenConnect = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              data-lovable-editable="welbilt-project-snapshot-title"
             >
               Project Snapshot
             </motion.h2>
@@ -157,8 +159,8 @@ const WelbiltKitchenConnect = () => {
                   <Card className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:shadow-xl hover:scale-105 transition-all duration-300 dark:bg-white/10 dark:border-white/20 dark:text-white">
                     <CardContent className="p-6 text-center">
                       <stat.icon className="w-12 h-12 mx-auto mb-4 text-white dark:text-white" />
-                      <h3 className="text-lg font-semibold mb-2 text-white dark:text-white">{stat.label}</h3>
-                      <p className="text-2xl font-bold text-white dark:text-white">{stat.value}</p>
+                      <h3 className="text-lg font-semibold mb-2 text-white dark:text-white" data-lovable-editable={`welbilt-stat-label-${index}`}>{stat.label}</h3>
+                      <p className="text-2xl font-bold text-white dark:text-white" data-lovable-editable={`welbilt-stat-value-${index}`}>{stat.value}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -185,7 +187,7 @@ const WelbiltKitchenConnect = () => {
                 >
                   {counters.products}
                 </motion.div>
-                <div className="text-sm opacity-90 text-white dark:text-white">products</div>
+                <div className="text-sm opacity-90 text-white dark:text-white" data-lovable-editable="welbilt-products-label">products</div>
               </motion.div>
               <Separator orientation="vertical" className="h-12 bg-white/40 dark:bg-white/40" />
               <motion.div 
@@ -200,7 +202,7 @@ const WelbiltKitchenConnect = () => {
                 >
                   {counters.delivery}%
                 </motion.div>
-                <div className="text-sm opacity-90 text-white dark:text-white">faster delivery</div>
+                <div className="text-sm opacity-90 text-white dark:text-white" data-lovable-editable="welbilt-delivery-label">faster delivery</div>
               </motion.div>
             </motion.div>
           </div>
@@ -215,6 +217,7 @@ const WelbiltKitchenConnect = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              data-lovable-editable="welbilt-design-system-title"
             >
               Design System Hub
             </motion.h2>
@@ -226,38 +229,39 @@ const WelbiltKitchenConnect = () => {
             >
               <Tabs defaultValue="components" className="w-full">
                 <TabsList className="grid w-full grid-cols-3 mb-8">
-                  <TabsTrigger value="components">Customized Components</TabsTrigger>
-                  <TabsTrigger value="tokens">Token System</TabsTrigger>
-                  <TabsTrigger value="governance">Governance</TabsTrigger>
+                  <TabsTrigger value="components" data-lovable-editable="welbilt-tab-components">Customized Components</TabsTrigger>
+                  <TabsTrigger value="tokens" data-lovable-editable="welbilt-tab-tokens">Token System</TabsTrigger>
+                  <TabsTrigger value="governance" data-lovable-editable="welbilt-tab-governance">Governance</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="components" className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <Card className="group hover:shadow-xl transition-all duration-300">
                       <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4 text-[#0056B3]">Before: Material UI Base</h3>
+                        <h3 className="text-xl font-bold mb-4 text-[#0056B3]" data-lovable-editable="welbilt-before-title">Before: Material UI Base</h3>
                         <div className="bg-gray-100 p-4 rounded-lg mb-4 border-2 border-dashed border-gray-300">
-                          <div className="w-full h-10 bg-blue-500 rounded text-white flex items-center justify-center text-sm">
+                          <div className="w-full h-10 bg-blue-500 rounded text-white flex items-center justify-center text-sm" data-lovable-editable="welbilt-before-button-text">
                             Standard MUI Button
                           </div>
                         </div>
-                        <p className="text-sm text-muted-foreground">Generic Material UI components</p>
+                        <p className="text-sm text-muted-foreground" data-lovable-editable="welbilt-before-description">Generic Material UI components</p>
                       </CardContent>
                     </Card>
                     
                     <Card className="group hover:shadow-xl transition-all duration-300">
                       <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4 text-[#0056B3]">After: Welbilt Customized</h3>
+                        <h3 className="text-xl font-bold mb-4 text-[#0056B3]" data-lovable-editable="welbilt-after-title">After: Welbilt Customized</h3>
                         <div className="bg-gradient-to-r from-[#0056B3] to-[#0075D1] p-4 rounded-lg mb-4 shadow-lg">
                           <motion.div 
                             className="w-full h-10 bg-white rounded text-[#0056B3] flex items-center justify-center text-sm font-medium shadow-md"
                             whileHover={{ scale: 1.02, y: -1 }}
                             transition={{ duration: 0.2 }}
+                            data-lovable-editable="welbilt-after-button-text"
                           >
                             Welbilt Action Button
                           </motion.div>
                         </div>
-                        <p className="text-sm text-muted-foreground">Brand-aligned with enterprise aesthetics</p>
+                        <p className="text-sm text-muted-foreground" data-lovable-editable="welbilt-after-description">Brand-aligned with enterprise aesthetics</p>
                       </CardContent>
                     </Card>
                   </div>
@@ -267,15 +271,15 @@ const WelbiltKitchenConnect = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <Card>
                       <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4">Color Palette</h3>
+                        <h3 className="text-xl font-bold mb-4" data-lovable-editable="welbilt-color-palette-title">Color Palette</h3>
                         <div className="space-y-3">
                           <div className="flex items-center space-x-3">
                             <div className="w-8 h-8 rounded-full bg-[#0056B3]"></div>
-                            <span className="text-sm font-mono">#0056B3 - Primary Blue</span>
+                            <span className="text-sm font-mono" data-lovable-editable="welbilt-primary-color">#0056B3 - Primary Blue</span>
                           </div>
                           <div className="flex items-center space-x-3">
                             <div className="w-8 h-8 rounded-full bg-[#0075D1]"></div>
-                            <span className="text-sm font-mono">#0075D1 - Secondary Blue</span>
+                            <span className="text-sm font-mono" data-lovable-editable="welbilt-secondary-color">#0075D1 - Secondary Blue</span>
                           </div>
                         </div>
                       </CardContent>
@@ -283,12 +287,12 @@ const WelbiltKitchenConnect = () => {
                     
                     <Card>
                       <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4">Typography Scale</h3>
+                        <h3 className="text-xl font-bold mb-4" data-lovable-editable="welbilt-typography-title">Typography Scale</h3>
                         <div className="space-y-3">
-                          <div className="text-2xl font-bold">Heading 1</div>
-                          <div className="text-xl font-semibold">Heading 2</div>
-                          <div className="text-base">Body Text</div>
-                          <div className="text-sm text-muted-foreground">Caption</div>
+                          <div className="text-2xl font-bold" data-lovable-editable="welbilt-heading-1">Heading 1</div>
+                          <div className="text-xl font-semibold" data-lovable-editable="welbilt-heading-2">Heading 2</div>
+                          <div className="text-base" data-lovable-editable="welbilt-body-text">Body Text</div>
+                          <div className="text-sm text-muted-foreground" data-lovable-editable="welbilt-caption">Caption</div>
                         </div>
                       </CardContent>
                     </Card>
@@ -298,23 +302,23 @@ const WelbiltKitchenConnect = () => {
                 <TabsContent value="governance" className="space-y-8">
                   <Card>
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-bold mb-6">Contributor Process Flow</h3>
+                      <h3 className="text-xl font-bold mb-6" data-lovable-editable="welbilt-process-flow-title">Contributor Process Flow</h3>
                       <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
                         <div className="text-center">
                           <div className="w-16 h-16 bg-[#0056B3] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">1</div>
-                          <p className="text-sm">Design Proposal</p>
+                          <p className="text-sm" data-lovable-editable="welbilt-step-1">Design Proposal</p>
                         </div>
                         <div className="text-center">
                           <div className="w-16 h-16 bg-[#0056B3] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">2</div>
-                          <p className="text-sm">Review Process</p>
+                          <p className="text-sm" data-lovable-editable="welbilt-step-2">Review Process</p>
                         </div>
                         <div className="text-center">
                           <div className="w-16 h-16 bg-[#0075D1] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">3</div>
-                          <p className="text-sm">Implementation</p>
+                          <p className="text-sm" data-lovable-editable="welbilt-step-3">Implementation</p>
                         </div>
                         <div className="text-center">
                           <div className="w-16 h-16 bg-[#0075D1] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">4</div>
-                          <p className="text-sm">Documentation</p>
+                          <p className="text-sm" data-lovable-editable="welbilt-step-4">Documentation</p>
                         </div>
                       </div>
                     </CardContent>
@@ -334,6 +338,7 @@ const WelbiltKitchenConnect = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              data-lovable-editable="welbilt-feature-transformations-title"
             >
               Feature Transformations
             </motion.h2>
@@ -350,18 +355,21 @@ const WelbiltKitchenConnect = () => {
                     <CardContent className="p-8">
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                         <div>
-                          <h3 className="text-2xl font-bold mb-4 text-[#0056B3]">{feature.title}</h3>
+                          <h3 className="text-2xl font-bold mb-4 text-[#0056B3]" data-lovable-editable={`welbilt-feature-title-${index}`}>{feature.title}</h3>
                           <div className="space-y-4">
                             <div>
-                              <Badge variant="destructive" className="mb-2">Before</Badge>
-                              <p className="text-muted-foreground">{feature.before}</p>
+                              <Badge variant="destructive" className="mb-2" data-lovable-editable="welbilt-before-badge">Before</Badge>
+                              <p className="text-muted-foreground" data-lovable-editable={`welbilt-feature-before-${index}`}>{feature.before}</p>
                             </div>
                             <div>
-                              <Badge className="mb-2 bg-[#0056B3] hover:bg-[#0075D1]">After</Badge>
-                              <p>{feature.after}</p>
+                              <Badge className="mb-2 bg-[#0056B3] hover:bg-[#0075D1]" data-lovable-editable="welbilt-after-badge">After</Badge>
+                              <p data-lovable-editable={`welbilt-feature-after-${index}`}>{feature.after}</p>
                             </div>
                             <div className="bg-gradient-to-r from-[#0056B3]/10 to-[#0075D1]/10 p-4 rounded-lg">
-                              <p className="font-semibold text-[#0056B3]">Impact: {feature.improvement}</p>
+                              <p className="font-semibold text-[#0056B3]">
+                                <span data-lovable-editable="welbilt-impact-label">Impact: </span>
+                                <span data-lovable-editable={`welbilt-feature-improvement-${index}`}>{feature.improvement}</span>
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -375,7 +383,7 @@ const WelbiltKitchenConnect = () => {
                               <div className="w-16 h-16 bg-[#0056B3] rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
                                 {index + 1}
                               </div>
-                              <p className="text-sm text-muted-foreground">Interactive Demo</p>
+                              <p className="text-sm text-muted-foreground" data-lovable-editable="welbilt-interactive-demo">Interactive Demo</p>
                             </div>
                           </motion.div>
                         </div>
@@ -397,6 +405,7 @@ const WelbiltKitchenConnect = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              data-lovable-editable="welbilt-measurable-impact-title"
             >
               Measurable Impact
             </motion.h2>
@@ -430,7 +439,7 @@ const WelbiltKitchenConnect = () => {
                     >
                       {metric.value}{metric.suffix}
                     </motion.div>
-                    <p className="text-sm text-muted-foreground">{metric.label}</p>
+                    <p className="text-sm text-muted-foreground" data-lovable-editable={`welbilt-metric-label-${index}`}>{metric.label}</p>
                   </Card>
                 </motion.div>
               ))}
@@ -448,7 +457,7 @@ const WelbiltKitchenConnect = () => {
                 size="lg"
               >
                 <Download className="w-5 h-5 mr-2" />
-                View Design System PDF
+                <span data-lovable-editable="welbilt-download-button">View Design System PDF</span>
               </Button>
             </motion.div>
           </div>
