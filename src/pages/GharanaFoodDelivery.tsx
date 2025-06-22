@@ -135,19 +135,217 @@ const GharanaFoodDelivery = () => {
       
       <div className="pt-20">
         {/* Project Hero */}
-        <ProjectHero 
-          project={project}
-          onBack={handleBack}
-          onScrollToContent={handleScrollToContent}
-        />
+        <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-bengali-terracotta via-bengali-red to-bengali-terracotta-dark overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0">
+            <motion.div
+              className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"
+              animate={{
+                x: [0, 50, 0],
+                y: [0, 30, 0],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
+              className="absolute bottom-20 right-10 w-48 h-48 bg-bengali-mustard/20 rounded-full blur-2xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
+
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <motion.button
+                onClick={handleBack}
+                className="inline-flex items-center gap-2 mb-8 text-white/80 hover:text-white transition-colors"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ArrowLeft size={20} />
+                <span data-lovable-editable="gharana-back-button">Back to Projects</span>
+              </motion.button>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold mb-6" data-lovable-editable="gharana-project-title">
+                  {project.title}
+                </h1>
+                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed" data-lovable-editable="gharana-project-description">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap justify-center gap-4 mb-8">
+                  <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <span className="text-sm font-medium" data-lovable-editable="gharana-project-duration">{project.duration}</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <span className="text-sm font-medium" data-lovable-editable="gharana-project-role">{project.role}</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <span className="text-sm font-medium" data-lovable-editable="gharana-project-client">{project.client}</span>
+                  </div>
+                </div>
+
+                <motion.button
+                  onClick={handleScrollToContent}
+                  className="bg-white text-bengali-terracotta px-8 py-3 rounded-full font-semibold hover:bg-white/90 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span data-lovable-editable="gharana-explore-button">Explore Project</span>
+                </motion.button>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
         {/* Project Content */}
         <div id="project-content" className="container mx-auto px-4 md:px-6 py-12 space-y-16">
           {/* Project Overview */}
-          <ProjectOverview {...overviewData} />
+          <section className="mb-12 xs:mb-16">
+            <motion.h2
+              className="font-heading text-xl xs:text-2xl md:text-3xl font-bold text-foreground mb-6 xs:mb-10 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              data-lovable-editable="gharana-overview-title"
+            >
+              Project Overview
+            </motion.h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xs:gap-12">
+              <motion.div
+                className="space-y-6 xs:space-y-8"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="bg-background/60 backdrop-blur-sm p-6 xs:p-8 rounded-2xl border border-border/50 shadow-lg dark-glow-card">
+                  <h3 className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-4" data-lovable-editable="gharana-challenge-title">
+                    Challenge
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm xs:text-base" data-lovable-editable="gharana-challenge-text">
+                    {overviewData.project.challenge}
+                  </p>
+                </div>
+
+                <div className="bg-background/60 backdrop-blur-sm p-6 xs:p-8 rounded-2xl border border-border/50 shadow-lg dark-glow-card">
+                  <h3 className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-4" data-lovable-editable="gharana-solution-title">
+                    Solution
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm xs:text-base" data-lovable-editable="gharana-solution-text">
+                    {overviewData.project.solution}
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-gradient-to-br from-bengali-mustard/10 to-bengali-terracotta/10 p-6 xs:p-8 rounded-2xl border border-bengali-mustard/20 dark-glow-card"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <h3 className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-6" data-lovable-editable="gharana-features-title">
+                  Key Features
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4">
+                  {overviewData.overview.keyFeatures.map((feature, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-3 bg-white/50 dark:bg-background/50 rounded-xl border border-white/30 dark:border-border/30"
+                    >
+                      <div className="w-2 h-2 bg-bengali-terracotta rounded-full flex-shrink-0" />
+                      <span className="text-foreground text-sm xs:text-base font-medium" data-lovable-editable={`gharana-feature-${index}`}>
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              className="mt-8 xs:mt-12 bg-gradient-to-r from-bengali-terracotta to-bengali-red text-white p-6 xs:p-8 rounded-2xl text-center dark-glow-medium"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <h3 className="font-heading text-lg xs:text-xl font-semibold mb-4" data-lovable-editable="gharana-impact-title">
+                Project Impact
+              </h3>
+              <p className="text-white/90 leading-relaxed text-sm xs:text-base max-w-3xl mx-auto" data-lovable-editable="gharana-impact-text">
+                {overviewData.project.impact}
+              </p>
+            </motion.div>
+          </section>
 
           {/* User Personas */}
-          <UserPersonas userPersona={userPersonas} />
+          <section className="mb-12 xs:mb-16 relative">
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(249,211,66)_1px,_transparent_0)] bg-[size:30px_30px]"></div>
+            </div>
+            
+            <motion.h2 
+              className="font-heading text-xl xs:text-2xl md:text-3xl font-bold text-foreground mb-6 xs:mb-10 text-center relative z-10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              data-lovable-editable="gharana-personas-title"
+            >
+              User Personas
+            </motion.h2>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-8 relative z-10">
+              {userPersonas.map((persona, index) => (
+                <motion.div 
+                  key={index} 
+                  className="group bg-background/60 backdrop-blur-sm p-4 xs:p-6 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 dark-glow-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                >
+                  <div className="mb-4 h-32 xs:h-48 overflow-hidden rounded-xl border border-border/30 dark-glow-image">
+                    <img 
+                      src={persona.image} 
+                      alt={persona.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <h3 className="font-heading text-base xs:text-xl font-semibold text-foreground group-hover:text-bengali-terracotta transition-colors duration-300" data-lovable-editable={`gharana-persona-title-${index}`}>
+                      {persona.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm xs:text-base leading-relaxed" data-lovable-editable={`gharana-persona-description-${index}`}>
+                      {persona.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
 
           {/* Research Methods */}
           <ResearchMethods researchMethods={researchMethods} />
