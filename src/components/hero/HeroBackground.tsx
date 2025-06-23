@@ -1,13 +1,28 @@
 
 import { motion } from 'framer-motion';
-import { LavaLamp } from '@/components/ui/fluid-blob';
+import { Waves } from '@/components/ui/waves-background';
+import { useTheme } from '@/hooks/useTheme';
 
 const HeroBackground = () => {
+  const { theme } = useTheme();
+  
   return (
     <div className="absolute inset-0 z-0">
-      {/* Fluid blob animation background */}
-      <div className="absolute inset-0 opacity-20 dark:opacity-30">
-        <LavaLamp />
+      {/* Interactive waves background */}
+      <div className="absolute inset-0 opacity-30 dark:opacity-40">
+        <Waves
+          lineColor={theme === "dark" ? "rgba(255, 237, 78, 0.4)" : "rgba(215, 48, 39, 0.3)"}
+          backgroundColor="transparent"
+          waveSpeedX={0.02}
+          waveSpeedY={0.01}
+          waveAmpX={40}
+          waveAmpY={20}
+          friction={0.9}
+          tension={0.01}
+          maxCursorMove={120}
+          xGap={12}
+          yGap={36}
+        />
       </div>
       
       {/* Bengali color overlay gradients */}

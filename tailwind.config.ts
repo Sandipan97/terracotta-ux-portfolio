@@ -133,13 +133,18 @@ export default {
 						transform: 'translateX(0)',
 						opacity: '1'
 					}
+				},
+				'wave-pulse': {
+					'0%, 100%': { opacity: '0.4' },
+					'50%': { opacity: '0.7' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
-				'slide-in': 'slide-in 0.5s ease-out'
+				'slide-in': 'slide-in 0.5s ease-out',
+				'wave-pulse': 'wave-pulse 4s ease-in-out infinite'
 			},
 			fontFamily: {
 				'sans': ['Open Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
