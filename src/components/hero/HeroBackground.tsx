@@ -23,14 +23,14 @@ const HeroBackground = () => {
         }}
       />
       
-      {/* Floating colored orbs that complement the fluid background - changed to yellow */}
+      {/* Floating mustard orbs with increased brightness and opacity */}
       <motion.div 
-        className="absolute top-[20%] left-[10%] w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-bengali-mustard/40 filter blur-2xl dark:bg-bengali-mustard/50"
+        className="absolute top-[20%] left-[10%] w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-bengali-mustard/70 filter blur-2xl dark:bg-bengali-mustard-light/80"
         animate={{
           y: [0, -20, 0],
           x: [0, 10, 0],
           scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
+          opacity: [0.6, 0.9, 0.6],
         }}
         transition={{
           duration: 10,
@@ -40,12 +40,12 @@ const HeroBackground = () => {
       />
       
       <motion.div 
-        className="absolute bottom-[40%] right-[15%] w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-bengali-mustard/30 filter blur-2xl dark:bg-bengali-mustard/40"
+        className="absolute bottom-[40%] right-[15%] w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-bengali-mustard/60 filter blur-2xl dark:bg-bengali-mustard-light/70"
         animate={{
           y: [0, 25, 0],
           x: [0, -20, 0],
           scale: [1, 1.3, 1],
-          opacity: [0.2, 0.5, 0.2],
+          opacity: [0.5, 0.8, 0.5],
         }}
         transition={{
           duration: 15,
@@ -56,12 +56,12 @@ const HeroBackground = () => {
       />
       
       <motion.div 
-        className="absolute top-[60%] left-[70%] w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-bengali-mustard/35 filter blur-xl dark:bg-bengali-mustard/45"
+        className="absolute top-[60%] left-[70%] w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-bengali-mustard/65 filter blur-xl dark:bg-bengali-mustard-light/75"
         animate={{
           y: [0, -18, 0],
           x: [0, 12, 0],
           scale: [1, 1.1, 1],
-          opacity: [0.3, 0.7, 0.3],
+          opacity: [0.6, 1.0, 0.6],
         }}
         transition={{
           duration: 12,
