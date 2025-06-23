@@ -23,7 +23,7 @@ const HeroBackground = () => {
         }}
       />
       
-      {/* Floating colored orbs that complement the fluid background */}
+      {/* Floating colored orbs that complement the fluid background - changed to yellow */}
       <motion.div 
         className="absolute top-[20%] left-[10%] w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-bengali-mustard/40 filter blur-2xl dark:bg-bengali-mustard/50"
         animate={{
@@ -40,7 +40,7 @@ const HeroBackground = () => {
       />
       
       <motion.div 
-        className="absolute bottom-[40%] right-[15%] w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-bengali-terracotta/30 filter blur-2xl dark:bg-bengali-terracotta/40"
+        className="absolute bottom-[40%] right-[15%] w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-bengali-mustard/30 filter blur-2xl dark:bg-bengali-mustard/40"
         animate={{
           y: [0, 25, 0],
           x: [0, -20, 0],
@@ -56,7 +56,7 @@ const HeroBackground = () => {
       />
       
       <motion.div 
-        className="absolute top-[60%] left-[70%] w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-bengali-red/35 filter blur-xl dark:bg-bengali-red/45"
+        className="absolute top-[60%] left-[70%] w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-bengali-mustard/35 filter blur-xl dark:bg-bengali-mustard/45"
         animate={{
           y: [0, -18, 0],
           x: [0, 12, 0],
