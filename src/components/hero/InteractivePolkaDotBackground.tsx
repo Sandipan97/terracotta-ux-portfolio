@@ -59,7 +59,7 @@ const InteractivePolkaDotBackground = () => {
       />
 
       <motion.div
-        className="absolute w-80 h-80 rounded-full bg-gradient-to-bl from-bengali-red/15 to-bengali-mustard/20 blur-2xl"
+        className="absolute w-80 h-80 rounded-full bg-bengali-mustard/25 blur-2xl"
         style={{
           top: '60%',
           right: '10%',
