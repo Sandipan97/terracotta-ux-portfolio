@@ -70,7 +70,7 @@ const HeroTextContent = () => {
         opacity: 1
       }} transition={{
         delay: 0.7
-      }} data-lovable-editable="hero-intro" className="text-amber-600">
+      }} data-lovable-editable="hero-intro" className="text-amber-600 text-lg">
           I am
         </motion.span>
         <br />
