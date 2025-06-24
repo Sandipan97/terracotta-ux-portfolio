@@ -114,7 +114,10 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
                   >
-                    <Badge className="bg-bengali-terracotta/10 text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white transition-all duration-300 border border-bengali-terracotta/20 dark-glow-subtle">
+                    <Badge 
+                      className="bg-bengali-terracotta/10 text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white transition-all duration-300 border border-bengali-terracotta/20 dark-glow-subtle"
+                      data-lovable-editable={`project-type-${index}`}
+                    >
                       {type}
                     </Badge>
                   </motion.div>
@@ -128,6 +131,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
+              data-lovable-editable="project-hero-title"
             >
               {project.title}
             </motion.h1>
@@ -138,6 +142,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
+              data-lovable-editable="project-hero-description"
             >
               {project.description}
             </motion.p>
@@ -152,8 +157,18 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                   transition={{ duration: 0.5, delay: 0.7 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">Client</h3>
-                  <p className="font-semibold text-sm xs:text-base text-foreground">{project.client}</p>
+                  <h3 
+                    className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
+                    data-lovable-editable="project-client-label"
+                  >
+                    Client
+                  </h3>
+                  <p 
+                    className="font-semibold text-sm xs:text-base text-foreground"
+                    data-lovable-editable="project-client-value"
+                  >
+                    {project.client}
+                  </p>
                 </motion.div>
               )}
               
@@ -165,8 +180,18 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                   transition={{ duration: 0.5, delay: 0.8 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">Duration</h3>
-                  <p className="font-semibold text-sm xs:text-base text-foreground">{project.duration}</p>
+                  <h3 
+                    className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
+                    data-lovable-editable="project-duration-label"
+                  >
+                    Duration
+                  </h3>
+                  <p 
+                    className="font-semibold text-sm xs:text-base text-foreground"
+                    data-lovable-editable="project-duration-value"
+                  >
+                    {project.duration}
+                  </p>
                 </motion.div>
               )}
               
@@ -178,8 +203,18 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                   transition={{ duration: 0.5, delay: 0.9 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide">My Role</h3>
-                  <p className="font-semibold text-sm xs:text-base text-foreground">{project.role}</p>
+                  <h3 
+                    className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
+                    data-lovable-editable="project-role-label"
+                  >
+                    My Role
+                  </h3>
+                  <p 
+                    className="font-semibold text-sm xs:text-base text-foreground"
+                    data-lovable-editable="project-role-value"
+                  >
+                    {project.role}
+                  </p>
                 </motion.div>
               )}
             </div>
@@ -195,6 +230,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                 onClick={onScrollToContent}
                 className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-container"
                 size="lg"
+                data-lovable-editable="project-cta-button"
               >
                 View More Details <ChevronDown className="ml-2" />
               </Button>

@@ -43,24 +43,39 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/80 to-bengali-red/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
           <Link to={getProjectLink(project)}>
-            <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl">
+            <Button 
+              className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl"
+              data-lovable-editable={`project-card-${project.id}-cta`}
+            >
               View Case Study
             </Button>
           </Link>
         </div>
-        <div className="absolute top-4 left-4 bg-bengali-mustard text-bengali-dark text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md">
+        <div 
+          className="absolute top-4 left-4 bg-bengali-mustard text-bengali-dark text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md"
+          data-lovable-editable={`project-card-${project.id}-category`}
+        >
           {project.category}
         </div>
       </div>
       <div className="p-6">
-        <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
+        <h3 
+          className="font-heading text-xl font-semibold text-foreground mb-2"
+          data-lovable-editable={`project-card-${project.id}-title`}
+        >
           {project.title}
         </h3>
-        <p className="text-muted-foreground mb-4">
+        <p 
+          className="text-muted-foreground mb-4"
+          data-lovable-editable={`project-card-${project.id}-description`}
+        >
           {project.description}
         </p>
         {project.results && (
-          <div className="text-bengali-red font-medium mb-4">
+          <div 
+            className="text-bengali-red font-medium mb-4"
+            data-lovable-editable={`project-card-${project.id}-results`}
+          >
             Result: {project.results}
           </div>
         )}
@@ -68,7 +83,9 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
           to={getProjectLink(project)}
           className="inline-flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors font-medium group"
         >
-          View Details
+          <span data-lovable-editable={`project-card-${project.id}-link-text`}>
+            View Details
+          </span>
           <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
         </Link>
       </div>

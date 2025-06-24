@@ -43,7 +43,10 @@ const ProjectTestimonial = ({ testimonial }: ProjectTestimonialProps) => {
 
           {/* Testimonial content */}
           <div className="pt-6">
-            <blockquote className="text-foreground/80 text-sm xs:text-base md:text-lg italic mb-6 xs:mb-8 leading-relaxed text-center">
+            <blockquote 
+              className="text-foreground/80 text-sm xs:text-base md:text-lg italic mb-6 xs:mb-8 leading-relaxed text-center"
+              data-lovable-editable="project-testimonial-quote"
+            >
               "{testimonial.quote}"
             </blockquote>
             
@@ -59,10 +62,16 @@ const ProjectTestimonial = ({ testimonial }: ProjectTestimonialProps) => {
               </Avatar>
               
               <div className="ml-4 text-center">
-                <div className="font-semibold text-sm xs:text-base text-foreground">
+                <div 
+                  className="font-semibold text-sm xs:text-base text-foreground"
+                  data-lovable-editable="project-testimonial-author"
+                >
                   {testimonial.author}
                 </div>
-                <div className="text-muted-foreground text-xs xs:text-sm">
+                <div 
+                  className="text-muted-foreground text-xs xs:text-sm"
+                  data-lovable-editable="project-testimonial-title"
+                >
                   {testimonial.title}
                 </div>
               </div>

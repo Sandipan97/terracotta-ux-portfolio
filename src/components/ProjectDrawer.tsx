@@ -32,10 +32,16 @@ const ProjectDrawer = () => {
           animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h2 className="font-heading text-5xl font-bold text-foreground mb-6">
+          <h2 
+            className="font-heading text-5xl font-bold text-foreground mb-6"
+            data-lovable-editable="project-drawer-title"
+          >
             📁 Project File Drawer
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-xl leading-relaxed">
+          <p 
+            className="text-muted-foreground max-w-3xl mx-auto text-xl leading-relaxed"
+            data-lovable-editable="project-drawer-description"
+          >
             Browse through my project portfolio with interactive hover previews. 
             Discover detailed case studies and insights with seamless color-matched animations.
           </p>
