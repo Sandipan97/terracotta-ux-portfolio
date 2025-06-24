@@ -110,7 +110,8 @@ const HeroTextContent = () => {
       duration: 0.6
     }}>
         <div className="bg-white/80 backdrop-blur-md border border-white/30 rounded-xl p-4 shadow-lg">
-          <p className="text-base md:text-lg max-w-md text-black" data-lovable-editable="hero-description">Sr. UX Designer &amp; Researcher with 5 years of experience  designing intuitive digital and tangible solutionsand a Masters in Design from Indian Institute of Science (IISc)</p>
+          <p className="text-base md:text-lg max-w-md text-black" data-lovable-editable="hero-description">Sr. UX Designer &amp; Researcher with 5 years of designing intuitive digital and tangible solutions and a Masters in Design from Indian Institute of Science (IISc). 
+My approach is rooted in Empathy, Clarity and alignment with Business Goals - delivering scalable Future-ready solutions.</p>
         </div>
       </motion.div>
       
