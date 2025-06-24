@@ -45,7 +45,7 @@ const HeroTextContent = () => {
     }} transition={{
       delay: 0.2,
       duration: 0.6
-    }} className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-bengali-dark mb-4 md:mb-6">
+    }} className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-bengali-dark mb-4 md:mb-6 px-0 py-0 my-0">
         <motion.span initial={{
         opacity: 0
       }} animate={{
