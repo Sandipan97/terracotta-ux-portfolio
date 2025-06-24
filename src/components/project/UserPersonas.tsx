@@ -26,7 +26,9 @@ const UserPersonas = ({ userPersona }: UserPersonasProps) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        data-lovable-editable="user-personas-title"
+        data-lovable-editable="true"
+        data-lovable-key="user-personas-section-title"
+        data-lovable-path="project.userPersonas.title"
       >
         User Personas
       </motion.h2>
@@ -54,13 +56,17 @@ const UserPersonas = ({ userPersona }: UserPersonasProps) => {
             <div className="space-y-2">
               <h3 
                 className="font-heading text-base xs:text-xl font-semibold text-foreground group-hover:text-bengali-terracotta transition-colors duration-300"
-                data-lovable-editable={`user-persona-${index}-title`}
+                data-lovable-editable="true"
+                data-lovable-key={`user-persona-${index}-title`}
+                data-lovable-path={`project.userPersonas.items.${index}.title`}
               >
                 {persona.title}
               </h3>
               <p 
                 className="text-muted-foreground text-sm xs:text-base leading-relaxed"
-                data-lovable-editable={`user-persona-${index}-description`}
+                data-lovable-editable="true"
+                data-lovable-key={`user-persona-${index}-description`}
+                data-lovable-path={`project.userPersonas.items.${index}.description`}
               >
                 {persona.description}
               </p>

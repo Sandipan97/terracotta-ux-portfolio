@@ -22,7 +22,9 @@ const DesignProcess = ({ process }: DesignProcessProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          data-lovable-editable="project-design-process-title"
+          data-lovable-editable="true"
+          data-lovable-key="project-design-process-section-title"
+          data-lovable-path="project.designProcess.title"
         >
           Design Process
         </motion.h2>
@@ -42,19 +44,25 @@ const DesignProcess = ({ process }: DesignProcessProps) => {
                   <div className="bg-card p-4 xs:p-6 rounded-lg shadow-md border border-border backdrop-blur-sm">
                     <div 
                       className="text-bengali-terracotta dark:text-bengali-terracotta-light font-medium text-sm xs:text-base mb-1 xs:mb-2"
-                      data-lovable-editable={`project-design-process-step-${index}-number`}
+                      data-lovable-editable="true"
+                      data-lovable-key={`project-design-process-step-${index}-number`}
+                      data-lovable-path={`project.designProcess.steps.${index}.stepNumber`}
                     >
                       Step {index + 1}
                     </div>
                     <h3 
                       className="font-heading text-lg xs:text-2xl font-semibold text-foreground mb-2 xs:mb-4"
-                      data-lovable-editable={`project-design-process-step-${index}-title`}
+                      data-lovable-editable="true"
+                      data-lovable-key={`project-design-process-step-${index}-title`}
+                      data-lovable-path={`project.designProcess.steps.${index}.title`}
                     >
                       {step.title}
                     </h3>
                     <p 
                       className="text-muted-foreground text-sm xs:text-base"
-                      data-lovable-editable={`project-design-process-step-${index}-description`}
+                      data-lovable-editable="true"
+                      data-lovable-key={`project-design-process-step-${index}-description`}
+                      data-lovable-path={`project.designProcess.steps.${index}.description`}
                     >
                       {step.description}
                     </p>

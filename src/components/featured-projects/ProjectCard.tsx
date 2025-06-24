@@ -45,7 +45,9 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
           <Link to={getProjectLink(project)}>
             <Button 
               className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl"
-              data-lovable-editable={`project-card-${project.id}-cta`}
+              data-lovable-editable="true"
+              data-lovable-key={`project-card-${project.id}-cta-button`}
+              data-lovable-path={`featuredProjects.${project.id}.ctaButton`}
             >
               View Case Study
             </Button>
@@ -53,7 +55,9 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
         </div>
         <div 
           className="absolute top-4 left-4 bg-bengali-mustard text-bengali-dark text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md"
-          data-lovable-editable={`project-card-${project.id}-category`}
+          data-lovable-editable="true"
+          data-lovable-key={`project-card-${project.id}-category-badge`}
+          data-lovable-path={`featuredProjects.${project.id}.category`}
         >
           {project.category}
         </div>
@@ -61,20 +65,26 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
       <div className="p-6">
         <h3 
           className="font-heading text-xl font-semibold text-foreground mb-2"
-          data-lovable-editable={`project-card-${project.id}-title`}
+          data-lovable-editable="true"
+          data-lovable-key={`project-card-${project.id}-title`}
+          data-lovable-path={`featuredProjects.${project.id}.title`}
         >
           {project.title}
         </h3>
         <p 
           className="text-muted-foreground mb-4"
-          data-lovable-editable={`project-card-${project.id}-description`}
+          data-lovable-editable="true"
+          data-lovable-key={`project-card-${project.id}-description`}
+          data-lovable-path={`featuredProjects.${project.id}.description`}
         >
           {project.description}
         </p>
         {project.results && (
           <div 
             className="text-bengali-red font-medium mb-4"
-            data-lovable-editable={`project-card-${project.id}-results`}
+            data-lovable-editable="true"
+            data-lovable-key={`project-card-${project.id}-results`}
+            data-lovable-path={`featuredProjects.${project.id}.results`}
           >
             Result: {project.results}
           </div>
@@ -83,7 +93,11 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
           to={getProjectLink(project)}
           className="inline-flex items-center text-bengali-terracotta hover:text-bengali-red transition-colors font-medium group"
         >
-          <span data-lovable-editable={`project-card-${project.id}-link-text`}>
+          <span 
+            data-lovable-editable="true"
+            data-lovable-key={`project-card-${project.id}-link-text`}
+            data-lovable-path={`featuredProjects.${project.id}.linkText`}
+          >
             View Details
           </span>
           <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />

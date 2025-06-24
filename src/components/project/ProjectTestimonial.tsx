@@ -45,7 +45,9 @@ const ProjectTestimonial = ({ testimonial }: ProjectTestimonialProps) => {
           <div className="pt-6">
             <blockquote 
               className="text-foreground/80 text-sm xs:text-base md:text-lg italic mb-6 xs:mb-8 leading-relaxed text-center"
-              data-lovable-editable="project-testimonial-quote"
+              data-lovable-editable="true"
+              data-lovable-key="project-testimonial-quote-text"
+              data-lovable-path="project.testimonial.quote"
             >
               "{testimonial.quote}"
             </blockquote>
@@ -64,13 +66,17 @@ const ProjectTestimonial = ({ testimonial }: ProjectTestimonialProps) => {
               <div className="ml-4 text-center">
                 <div 
                   className="font-semibold text-sm xs:text-base text-foreground"
-                  data-lovable-editable="project-testimonial-author"
+                  data-lovable-editable="true"
+                  data-lovable-key="project-testimonial-author-name"
+                  data-lovable-path="project.testimonial.author"
                 >
                   {testimonial.author}
                 </div>
                 <div 
                   className="text-muted-foreground text-xs xs:text-sm"
-                  data-lovable-editable="project-testimonial-title"
+                  data-lovable-editable="true"
+                  data-lovable-key="project-testimonial-author-title"
+                  data-lovable-path="project.testimonial.authorTitle"
                 >
                   {testimonial.title}
                 </div>

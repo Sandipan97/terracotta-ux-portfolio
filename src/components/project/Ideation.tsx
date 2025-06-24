@@ -22,7 +22,9 @@ const Ideation = ({ ideation }: IdeationProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          data-lovable-editable="project-ideation-title"
+          data-lovable-editable="true"
+          data-lovable-key="project-ideation-section-title"
+          data-lovable-path="project.ideation.title"
         >
           Ideation
         </motion.h2>
@@ -41,13 +43,17 @@ const Ideation = ({ ideation }: IdeationProps) => {
               >
                 <h3 
                   className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-4"
-                  data-lovable-editable={`project-ideation-item-${index}-title`}
+                  data-lovable-editable="true"
+                  data-lovable-key={`project-ideation-item-${index}-title`}
+                  data-lovable-path={`project.ideation.items.${index}.title`}
                 >
                   {item.title}
                 </h3>
                 <p 
                   className="text-muted-foreground text-sm xs:text-base mb-4"
-                  data-lovable-editable={`project-ideation-item-${index}-description`}
+                  data-lovable-editable="true"
+                  data-lovable-key={`project-ideation-item-${index}-description`}
+                  data-lovable-path={`project.ideation.items.${index}.description`}
                 >
                   {item.description}
                 </p>

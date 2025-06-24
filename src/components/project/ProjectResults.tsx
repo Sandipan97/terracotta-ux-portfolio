@@ -54,7 +54,9 @@ const ProjectResults = ({ results }: ProjectResultsProps) => {
           
           <h2 
             className="font-heading text-xl xs:text-2xl md:text-3xl font-bold mb-6 xs:mb-8"
-            data-lovable-editable="project-results-title"
+            data-lovable-editable="true"
+            data-lovable-key="project-results-section-title"
+            data-lovable-path="project.results.title"
           >
             Results & Impact
           </h2>
@@ -62,7 +64,9 @@ const ProjectResults = ({ results }: ProjectResultsProps) => {
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 xs:p-8 dark-glow-card">
             <p 
               className="text-white/90 text-sm xs:text-base md:text-lg leading-relaxed"
-              data-lovable-editable="project-results-content"
+              data-lovable-editable="true"
+              data-lovable-key="project-results-content-text"
+              data-lovable-path="project.results.content"
             >
               {results}
             </p>
