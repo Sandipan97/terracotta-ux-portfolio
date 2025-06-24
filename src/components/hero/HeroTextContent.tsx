@@ -1,14 +1,11 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 import { Linkedin } from 'lucide-react';
-
 const HeroTextContent = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const fullText = 'Sandipan';
-
   useEffect(() => {
     if (currentIndex < fullText.length) {
       const timeout = setTimeout(() => {
@@ -18,7 +15,6 @@ const HeroTextContent = () => {
       return () => clearTimeout(timeout);
     }
   }, [currentIndex, fullText]);
-
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('featured-projects');
     if (projectsSection) {
@@ -30,60 +26,71 @@ const HeroTextContent = () => {
 
   // LinkedIn profile URL - easily editable
   const linkedInUrl = "https://www.linkedin.com/in/your-profile";
-
-  return (
-    <motion.div 
-      className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left"
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <motion.h1 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-bengali-dark mb-4 md:mb-6 px-0 py-0 my-0"
-      >
-        <motion.span 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          data-lovable-editable="hero-greeting" 
-          className="relative inline-block py-0 my-[20px] text-yellow-400 text-3xl"
-        >
+  return <motion.div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left" initial={{
+    opacity: 0,
+    x: -50
+  }} animate={{
+    opacity: 1,
+    x: 0
+  }} transition={{
+    duration: 0.8,
+    ease: "easeOut"
+  }}>
+      <motion.h1 initial={{
+      opacity: 0,
+      y: 20
+    }} animate={{
+      opacity: 1,
+      y: 0
+    }} transition={{
+      delay: 0.2,
+      duration: 0.6
+    }} className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-bengali-dark mb-4 md:mb-6 px-0 py-0 my-0">
+        <motion.span initial={{
+        opacity: 0
+      }} animate={{
+        opacity: 1
+      }} transition={{
+        delay: 0.5
+      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 my-[20px] text-3xl text-amber-600">
           <span className="relative inline-block">
             Hi
-            <motion.span 
-              className="absolute -bottom-1 left-0 h-1 bg-bengali-mustard"
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            />
+            <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-mustard" initial={{
+            width: 0
+          }} animate={{
+            width: "100%"
+          }} transition={{
+            delay: 1.2,
+            duration: 0.8
+          }} />
           </span>
           , I am
         </motion.span>
         <br />
         <span className="relative inline-block text-5xl sm:text-6xl lg:text-7xl py-0 my-[16px]">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.0 }}
-            className="text-bengali-terracotta-dark dark:text-red-500" 
-            data-lovable-editable="hero-name"
-          >
+          <motion.span initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1.0
+        }} className="text-bengali-terracotta-dark dark:text-red-500" data-lovable-editable="hero-name">
             {displayText}
-            <motion.span 
-              className="inline-block w-1 h-16 sm:h-20 bg-bengali-terracotta-dark dark:bg-red-500 ml-1"
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            />
+            <motion.span className="inline-block w-1 h-16 sm:h-20 bg-bengali-terracotta-dark dark:bg-red-500 ml-1" animate={{
+            opacity: [1, 0, 1]
+          }} transition={{
+            duration: 1,
+            repeat: Infinity
+          }} />
           </motion.span>
-          <motion.span 
-            className="absolute -bottom-1 left-0 h-1 bg-bengali-terracotta-dark dark:bg-red-500"
-            initial={{ width: 0 }}
-            animate={{ width: currentIndex === fullText.length ? "100%" : "0%" }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-          />
+          <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-terracotta-dark dark:bg-red-500" initial={{
+          width: 0
+        }} animate={{
+          width: currentIndex === fullText.length ? "100%" : "0%"
+        }} transition={{
+          delay: 1.4,
+          duration: 0.8
+        }} />
         </span>
       </motion.h1>
       
@@ -135,8 +142,6 @@ My approach is rooted in Empathy, Clarity and alignment with Business Goals - de
           </Button>
         </motion.div>
       </motion.div>
-    </motion.div>
-  );
+    </motion.div>;
 };
-
 export default HeroTextContent;
