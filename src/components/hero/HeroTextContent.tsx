@@ -52,7 +52,7 @@ const HeroTextContent = () => {
         opacity: 1
       }} transition={{
         delay: 0.5
-      }} className="relative inline-block py-0 my-[20px] text-yellow-400" data-lovable-editable="hero-greeting">
+      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 my-[20px] text-yellow-400 text-3xl">
           Hi
           <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-mustard" initial={{
           width: 0
