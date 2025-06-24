@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
@@ -50,13 +51,16 @@ const HeroTextContent = () => {
           data-lovable-editable="hero-greeting" 
           className="relative inline-block py-0 my-[20px] text-yellow-400 text-3xl"
         >
-          Hi, I am
-          <motion.span 
-            className="absolute -bottom-1 left-0 h-1 bg-bengali-mustard"
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-          />
+          <span className="relative inline-block">
+            Hi
+            <motion.span 
+              className="absolute -bottom-1 left-0 h-1 bg-bengali-mustard"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            />
+          </span>
+          , I am
         </motion.span>
         <br />
         <span className="relative inline-block text-5xl sm:text-6xl lg:text-7xl py-0 my-[16px]">
