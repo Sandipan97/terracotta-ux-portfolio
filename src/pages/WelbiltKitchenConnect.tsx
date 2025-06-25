@@ -1,471 +1,64 @@
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Download, ExternalLink, Users, Clock, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ProjectHero from '@/components/project/ProjectHero';
 
 const WelbiltKitchenConnect = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const containerRef = useRef(null);
-  const contentRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const isContentInView = useInView(contentRef, { amount: 0.1 });
-
-  // Counter animation values
-  const [counters, setCounters] = useState({
-    products: 0,
-    delivery: 0,
-    dau: 0,
-    downtime: 0
-  });
-
-  useEffect(() => {
-    if (isContentInView) {
-      const timer = setTimeout(() => {
-        setCounters({
-          products: 12,
-          delivery: 40,
-          dau: 25,
-          downtime: 30
-        });
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isContentInView]);
-
-  const projectData = {
-    id: 2,
-    title: "Welbilt Kitchen Connect - Design System & Revamp",
-    category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1558655146-364adeca9b33?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Complete design system overhaul and UX transformation for Welbilt's enterprise kitchen management platform, improving consistency, development efficiency, and user experience across 12 products.",
-    client: "Welbilt Inc.",
-    duration: "6 months",
-    role: "Lead UX Designer",
-    projectType: ["Design Systems", "Enterprise UX", "B2B Platform"]
-  };
-
-  const projectStats = [
-    { label: "Role", value: "Lead UX Designer", icon: Users },
-    { label: "Timeline", value: "6 months", icon: Clock },
-    { label: "Impact", value: "25% DAU increase", icon: TrendingUp }
-  ];
-
-  const beforeAfterFeatures = [
-    {
-      title: "User Management",
-      before: "5-step form with multiple pages",
-      after: "Drag-drop org tree interface",
-      improvement: "75% faster setup"
-    },
-    {
-      title: "SmartTag Dashboard",
-      before: "Legacy list view with static data",
-      after: "IoT status with real-time pulse indicators",
-      improvement: "Real-time monitoring"
-    },
-    {
-      title: "Error Resolution",
-      before: "Manual troubleshooting guides",
-      after: "Interactive playbook with guided workflows",
-      improvement: "60% faster resolution"
-    }
-  ];
 
   const handleBack = () => {
     navigate('/projects');
   };
 
-  const scrollToContent = () => {
-    contentRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <motion.div 
-      ref={containerRef}
-      className="min-h-screen relative overflow-hidden bg-background"
-    >
-      {/* Navigation */}
-      <div className="fixed top-0 left-0 w-full z-50">
-        <Navbar />
-      </div>
-
-      {/* Hero Section using ProjectHero component */}
-      <ProjectHero 
-        project={projectData}
-        onBack={handleBack}
-        onScrollToContent={scrollToContent}
-      />
-
-      {/* Content Section */}
-      <motion.div 
-        ref={contentRef}
-        className="relative z-10 bg-background"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isContentInView ? 1 : 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* Project Snapshot with improved visibility and Welbilt blue accents */}
-        <section className="py-20 bg-gradient-to-b from-[#0056B3] via-[#0056B3]/90 to-background dark:from-[#0056B3] dark:via-[#0056B3]/80 dark:to-background">
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      
+      <main className="pt-20">
+        {/* Back Button */}
+        <section className="w-full py-8">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.h2 
-              className="text-3xl md:text-4xl font-bold text-center mb-12 text-white dark:text-white"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              data-lovable-editable="welbilt-project-snapshot-title"
-            >
-              Project Snapshot
-            </motion.h2>
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-              initial="hidden"
-              whileInView="show"
-              variants={{
-                hidden: { opacity: 0 },
-                show: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.2
-                  }
-                }
-              }}
-              viewport={{ once: true }}
-            >
-              {projectStats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  variants={{
-                    hidden: { opacity: 0, y: 50 },
-                    show: { opacity: 1, y: 0 }
-                  }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <Card className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:shadow-xl hover:scale-105 transition-all duration-300 dark:bg-white/10 dark:border-white/20 dark:text-white">
-                    <CardContent className="p-6 text-center">
-                      <stat.icon className="w-12 h-12 mx-auto mb-4 text-white dark:text-white" />
-                      <h3 className="text-lg font-semibold mb-2 text-white dark:text-white" data-lovable-editable={`welbilt-stat-label-${index}`}>{stat.label}</h3>
-                      <p className="text-2xl font-bold text-white dark:text-white" data-lovable-editable={`welbilt-stat-value-${index}`}>{stat.value}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Animated Stats Counter with improved visibility */}
-            <motion.div 
-              className="flex justify-center items-center space-x-8 mt-12"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <motion.div 
-                className="text-center"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <motion.div 
-                  className="text-3xl md:text-4xl font-bold text-white dark:text-white"
-                  animate={{ opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  {counters.products}
-                </motion.div>
-                <div className="text-sm opacity-90 text-white dark:text-white" data-lovable-editable="welbilt-products-label">products</div>
-              </motion.div>
-              <Separator orientation="vertical" className="h-12 bg-white/40 dark:bg-white/40" />
-              <motion.div 
-                className="text-center"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-              >
-                <motion.div 
-                  className="text-3xl md:text-4xl font-bold text-white dark:text-white"
-                  animate={{ opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-                >
-                  {counters.delivery}%
-                </motion.div>
-                <div className="text-sm opacity-90 text-white dark:text-white" data-lovable-editable="welbilt-delivery-label">faster delivery</div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Design System Hub */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.h2 
-              className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              data-lovable-editable="welbilt-design-system-title"
-            >
-              Design System Hub
-            </motion.h2>
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Tabs defaultValue="components" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 mb-8">
-                  <TabsTrigger value="components" data-lovable-editable="welbilt-tab-components">Customized Components</TabsTrigger>
-                  <TabsTrigger value="tokens" data-lovable-editable="welbilt-tab-tokens">Token System</TabsTrigger>
-                  <TabsTrigger value="governance" data-lovable-editable="welbilt-tab-governance">Governance</TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="components" className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <Card className="group hover:shadow-xl transition-all duration-300">
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4 text-[#0056B3]" data-lovable-editable="welbilt-before-title">Before: Material UI Base</h3>
-                        <div className="bg-gray-100 p-4 rounded-lg mb-4 border-2 border-dashed border-gray-300">
-                          <div className="w-full h-10 bg-blue-500 rounded text-white flex items-center justify-center text-sm" data-lovable-editable="welbilt-before-button-text">
-                            Standard MUI Button
-                          </div>
-                        </div>
-                        <p className="text-sm text-muted-foreground" data-lovable-editable="welbilt-before-description">Generic Material UI components</p>
-                      </CardContent>
-                    </Card>
-                    
-                    <Card className="group hover:shadow-xl transition-all duration-300">
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4 text-[#0056B3]" data-lovable-editable="welbilt-after-title">After: Welbilt Customized</h3>
-                        <div className="bg-gradient-to-r from-[#0056B3] to-[#0075D1] p-4 rounded-lg mb-4 shadow-lg">
-                          <motion.div 
-                            className="w-full h-10 bg-white rounded text-[#0056B3] flex items-center justify-center text-sm font-medium shadow-md"
-                            whileHover={{ scale: 1.02, y: -1 }}
-                            transition={{ duration: 0.2 }}
-                            data-lovable-editable="welbilt-after-button-text"
-                          >
-                            Welbilt Action Button
-                          </motion.div>
-                        </div>
-                        <p className="text-sm text-muted-foreground" data-lovable-editable="welbilt-after-description">Brand-aligned with enterprise aesthetics</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="tokens" className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <Card>
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4" data-lovable-editable="welbilt-color-palette-title">Color Palette</h3>
-                        <div className="space-y-3">
-                          <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 rounded-full bg-[#0056B3]"></div>
-                            <span className="text-sm font-mono" data-lovable-editable="welbilt-primary-color">#0056B3 - Primary Blue</span>
-                          </div>
-                          <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 rounded-full bg-[#0075D1]"></div>
-                            <span className="text-sm font-mono" data-lovable-editable="welbilt-secondary-color">#0075D1 - Secondary Blue</span>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    
-                    <Card>
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-bold mb-4" data-lovable-editable="welbilt-typography-title">Typography Scale</h3>
-                        <div className="space-y-3">
-                          <div className="text-2xl font-bold" data-lovable-editable="welbilt-heading-1">Heading 1</div>
-                          <div className="text-xl font-semibold" data-lovable-editable="welbilt-heading-2">Heading 2</div>
-                          <div className="text-base" data-lovable-editable="welbilt-body-text">Body Text</div>
-                          <div className="text-sm text-muted-foreground" data-lovable-editable="welbilt-caption">Caption</div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="governance" className="space-y-8">
-                  <Card>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-bold mb-6" data-lovable-editable="welbilt-process-flow-title">Contributor Process Flow</h3>
-                      <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
-                        <div className="text-center">
-                          <div className="w-16 h-16 bg-[#0056B3] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">1</div>
-                          <p className="text-sm" data-lovable-editable="welbilt-step-1">Design Proposal</p>
-                        </div>
-                        <div className="text-center">
-                          <div className="w-16 h-16 bg-[#0056B3] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">2</div>
-                          <p className="text-sm" data-lovable-editable="welbilt-step-2">Review Process</p>
-                        </div>
-                        <div className="text-center">
-                          <div className="w-16 h-16 bg-[#0075D1] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">3</div>
-                          <p className="text-sm" data-lovable-editable="welbilt-step-3">Implementation</p>
-                        </div>
-                        <div className="text-center">
-                          <div className="w-16 h-16 bg-[#0075D1] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2">4</div>
-                          <p className="text-sm" data-lovable-editable="welbilt-step-4">Documentation</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              </Tabs>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Feature Revamps */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.h2 
-              className="text-3xl md:text-4xl font-bold text-center mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              data-lovable-editable="welbilt-feature-transformations-title"
-            >
-              Feature Transformations
-            </motion.h2>
-            <div className="space-y-12">
-              {beforeAfterFeatures.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="overflow-hidden">
-                    <CardContent className="p-8">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                        <div>
-                          <h3 className="text-2xl font-bold mb-4 text-[#0056B3]" data-lovable-editable={`welbilt-feature-title-${index}`}>{feature.title}</h3>
-                          <div className="space-y-4">
-                            <div>
-                              <Badge variant="destructive" className="mb-2" data-lovable-editable="welbilt-before-badge">Before</Badge>
-                              <p className="text-muted-foreground" data-lovable-editable={`welbilt-feature-before-${index}`}>{feature.before}</p>
-                            </div>
-                            <div>
-                              <Badge className="mb-2 bg-[#0056B3] hover:bg-[#0075D1]" data-lovable-editable="welbilt-after-badge">After</Badge>
-                              <p data-lovable-editable={`welbilt-feature-after-${index}`}>{feature.after}</p>
-                            </div>
-                            <div className="bg-gradient-to-r from-[#0056B3]/10 to-[#0075D1]/10 p-4 rounded-lg">
-                              <p className="font-semibold text-[#0056B3]">
-                                <span data-lovable-editable="welbilt-impact-label">Impact: </span>
-                                <span data-lovable-editable={`welbilt-feature-improvement-${index}`}>{feature.improvement}</span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="relative">
-                          <motion.div 
-                            className="aspect-video bg-gradient-to-br from-[#0056B3]/10 to-[#0075D1]/10 rounded-lg flex items-center justify-center"
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <div className="text-center">
-                              <div className="w-16 h-16 bg-[#0056B3] rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
-                                {index + 1}
-                              </div>
-                              <p className="text-sm text-muted-foreground" data-lovable-editable="welbilt-interactive-demo">Interactive Demo</p>
-                            </div>
-                          </motion.div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Results Showcase */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.h2 
-              className="text-3xl md:text-4xl font-bold text-center mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              data-lovable-editable="welbilt-measurable-impact-title"
-            >
-              Measurable Impact
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {[
-                { value: counters.downtime, suffix: "%", label: "Reduced Downtime", color: "#0075D1" },
-                { value: counters.dau, suffix: "%", label: "Increased DAU", color: "#0056B3" },
-                { value: "35", suffix: "%", label: "Faster Development", color: "#0075D1" },
-                { value: "2023", suffix: "", label: "Innovation Award", color: "#0056B3" }
-              ].map((metric, index) => (
-                <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="text-center p-6 hover:shadow-xl transition-all duration-300">
-                    <motion.div 
-                      className="text-4xl font-bold mb-2"
-                      style={{ color: metric.color }}
-                      animate={{ 
-                        scale: [1, 1.05, 1],
-                        opacity: [0.8, 1, 0.8]
-                      }}
-                      transition={{ 
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      {metric.value}{metric.suffix}
-                    </motion.div>
-                    <p className="text-sm text-muted-foreground" data-lovable-editable={`welbilt-metric-label-${index}`}>{metric.label}</p>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-            
-            <motion.div 
-              className="text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
             >
               <Button 
-                className="bg-gradient-to-r from-[#0056B3] to-[#0075D1] hover:from-[#0056B3]/90 hover:to-[#0075D1]/90 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                size="lg"
+                onClick={handleBack}
+                variant="secondary" 
+                className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-blue-600 transition-all duration-300 border border-border/50"
+                size="icon"
               >
-                <Download className="w-5 h-5 mr-2" />
-                <span data-lovable-editable="welbilt-download-button">View Design System PDF</span>
+                <ArrowLeft size={20} />
               </Button>
             </motion.div>
           </div>
         </section>
 
-        <Footer />
-      </motion.div>
-    </motion.div>
+        {/* Main Content Area - Ready for new design */}
+        <section className="w-full min-h-[60vh] flex items-center justify-center">
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4">
+                Project 2
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Ready for new content design
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      </main>
+      
+      <Footer />
+    </div>
   );
 };
 
