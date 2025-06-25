@@ -16,6 +16,7 @@ const ProjectDetail = lazy(() => import('@/pages/ProjectDetail'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 const GharanaFoodDelivery = lazy(() => import('@/pages/GharanaFoodDelivery'));
 const LGCyclopsAR = lazy(() => import('@/pages/LGCyclopsAR'));
+const LGCyclopsARProject = lazy(() => import('@/pages/LGCyclopsARProject'));
 const WelbiltKitchenConnect = lazy(() => import('@/pages/WelbiltKitchenConnect'));
 const PGResearchRazor = lazy(() => import('@/pages/PGResearchRazor'));
 
@@ -39,6 +40,7 @@ function App() {
                   <Route path="/projects/2" element={<LGCyclopsAR />} />
                   <Route path="/projects/3" element={<WelbiltKitchenConnect />} />
                   <Route path="/projects/8" element={<PGResearchRazor />} />
+                  <Route path="/projects/lg-cyclops-ar" element={<LGCyclopsARProject />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
