@@ -1,5 +1,3 @@
-
-
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -24,6 +22,7 @@ import ProjectNavigation from '@/components/project/ProjectNavigation';
 
 type Project = {
   id: number;
+  slug?: string;
   title: string;
   category: string;
   image: string;
@@ -175,9 +174,10 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    slug: "welbilt-kitchen-connect",
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
     category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     client: "Welbilt",
     duration: "8 months",
     role: "Senior UX Designer & Design System Lead",
@@ -687,20 +687,28 @@ const projects: Project[] = [
 
 const ProjectDetail = () => {
   const { id } = useParams();
-  const projectId = parseInt(id || "1");
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
   const [visibleMetrics, setVisibleMetrics] = useState<number[]>([]);
   
-  const project = projects.find(p => p.id === projectId);
-  const nextProject = projects.find(p => p.id === projectId + 1) || projects[0];
+  // Handle both numeric IDs and slug-based routing
+  let project: Project | undefined;
+  
+  if (id === 'welbilt-kitchen-connect') {
+    project = projects.find(p => p.slug === 'welbilt-kitchen-connect' || p.id === 2);
+  } else {
+    const projectId = parseInt(id || "1");
+    project = projects.find(p => p.id === projectId);
+  }
+  
+  const nextProject = project ? (projects.find(p => p.id === project.id + 1) || projects[0]) : projects[0];
   
   const { scrollYProgress } = useScroll();
   const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [projectId]);
+  }, [id]);
 
   const goBack = () => {
     navigate(-1);
@@ -757,7 +765,7 @@ const ProjectDetail = () => {
 
   // P&G Datalogger specific sections
   const renderPGDataloggerSections = () => {
-    if (projectId !== 1) return null;
+    if (project?.id !== 1) return null;
 
     return (
       <>
@@ -1354,4 +1362,3 @@ const ProjectDetail = () => {
 };
 
 export default ProjectDetail;
-
