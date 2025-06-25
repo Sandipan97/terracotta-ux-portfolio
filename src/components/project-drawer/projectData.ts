@@ -1,89 +1,112 @@
+import { Project } from "@/types";
 
-export interface ProjectFileData {
-  id: number;
-  title: string;
-  category: string;
-  image: string;
-  description: string;
-  results?: string;
-  duration?: string;
-  slug?: string;
-}
-
-export const projectFiles: ProjectFileData[] = [
+export const projects: Project[] = [
   {
     id: 1,
-    title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
-    category: "UX",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Complete UX overhaul focusing on accessibility compliance and improved usability for industrial data logging systems.",
-    results: "45% error reduction",
-    duration: "4 months"
+    title: "Gharana Food Delivery",
+    category: "Mobile App",
+    image: "/placeholder.svg",
+    description: "A comprehensive food delivery app with real-time tracking and seamless user experience.",
+    client: "Gharana Foods",
+    duration: "6 Months",
+    role: "Lead UX/UI Designer",
+    tags: ["UX Design", "Mobile App", "Food Tech"],
+    featured: true
   },
   {
     id: 2,
-    title: "Design System and Revamp Project - Welbilt Kitchen Connect",
-    category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Comprehensive design system creation for kitchen management platform, improving consistency and development efficiency.",
-    results: "35% faster development",
-    duration: "6 months",
-    slug: "welbilt-kitchen-connect"
+    title: "LG Cyclops AR",
+    category: "AR/VR",
+    image: "/placeholder.svg",
+    description: "Augmented reality application for industrial maintenance and training.",
+    client: "LG Electronics",
+    duration: "8 Months",
+    role: "AR/VR Designer",
+    tags: ["AR/VR", "Industrial", "Training"],
+    featured: true
   },
   {
     id: 3,
-    title: "AR Interactive User Manual - LG Cyclops",
-    category: "AR Projects",
-    image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Augmented reality solution transforming traditional product manuals into interactive experiences.",
-    results: "60% support call reduction",
-    duration: "5 months",
-    slug: "lg-cyclops-ar"
+    title: "Welbilt Kitchen Connect",
+    category: "IoT Platform",
+    image: "/placeholder.svg",
+    description: "IoT platform for commercial kitchen management and monitoring.",
+    client: "Welbilt Inc.",
+    duration: "4 Months",
+    role: "Product Designer",
+    tags: ["IoT", "Dashboard", "Commercial"],
+    featured: true
   },
   {
     id: 4,
-    title: "Oxygen Concentrator O2C Project",
-    category: "Product Design",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "User-centered interface design for portable oxygen concentrator device for medical applications.",
-    results: "85% user satisfaction",
-    duration: "4 months"
+    title: "Digital Banking Platform",
+    category: "Fintech",
+    image: "/placeholder.svg",
+    description: "Modern banking interface with focus on user experience and security.",
+    client: "Regional Bank",
+    duration: "5 Months",
+    role: "UX Designer",
+    tags: ["Fintech", "Banking", "Security"],
+    featured: false
   },
   {
     id: 5,
-    title: "Dripometer - IV Drip Monitoring System",
-    category: "Product Design",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Innovative monitoring system for intravenous drips improving accuracy and patient safety.",
-    results: "95% accuracy improvement",
-    duration: "3 months"
+    title: "Healthcare Dashboard",
+    category: "Healthcare",
+    image: "/placeholder.svg",
+    description: "Medical data visualization and patient management system.",
+    client: "MedTech Solutions",
+    duration: "7 Months",
+    role: "Product Designer",
+    tags: ["Healthcare", "Dashboard", "Data Viz"],
+    featured: false
   },
   {
     id: 6,
-    title: "Farm Monitoring Mobile Application",
-    category: "UI",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
-    results: "28% crop yield improvement",
-    duration: "5 months"
+    title: "E-learning Platform",
+    category: "Education",
+    image: "/placeholder.svg",
+    description: "Interactive learning platform with gamification elements.",
+    client: "EduTech Innovations",
+    duration: "6 Months",
+    role: "UX/UI Designer",
+    tags: ["Education", "E-learning", "Gamification"],
+    featured: false
   },
   {
     id: 7,
-    title: "Toy Anatomy - Kids Educational Project",
-    category: "Research",
-    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Educational toy system helping children learn human anatomy through interactive play.",
-    results: "40% learning improvement",
-    duration: "6 months"
+    title: "Smart Home Control",
+    category: "IoT",
+    image: "/placeholder.svg",
+    description: "Unified control interface for smart home devices and automation.",
+    client: "Home Automation Co.",
+    duration: "4 Months",
+    role: "Product Designer",
+    tags: ["IoT", "Smart Home", "Mobile"],
+    featured: false
   },
   {
     id: 8,
-    title: "Gharana - Home Food Delivery App",
-    category: "Mobile App",
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Mobile app platform connecting home-based cloud kitchens with customers seeking authentic home-made food delivery.",
-    results: "200% order increase",
-    duration: "8 months",
-    slug: "gharana-food-delivery"
+    title: "P&G Research Razor – UX/UI Redesign",
+    category: "Industrial UX",
+    image: "/placeholder.svg",
+    description: "A comprehensive UX redesign of P&G's Datalogger application used in industrial and research environments.",
+    client: "Procter & Gamble",
+    duration: "3 Months",
+    role: "Lead UX/UI Designer & Researcher",
+    tags: ["UX Research", "UI Design", "Accessibility", "Industrial Design"],
+    featured: true
   }
+];
+
+export const categories = [
+  "All",
+  "Mobile App",
+  "AR/VR",
+  "IoT Platform",
+  "Fintech",
+  "Healthcare",
+  "Education",
+  "IoT",
+  "Industrial UX"
 ];

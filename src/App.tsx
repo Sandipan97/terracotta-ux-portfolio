@@ -1,73 +1,54 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
-import { ThemeProvider } from "@/hooks/useTheme";
-import LoadingAnimation from "@/components/LoadingAnimation";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
-import ProjectDetail from "./pages/ProjectDetail";
-import WelbiltKitchenConnect from "./pages/WelbiltKitchenConnect";
-import LGCyclopsAR from "./pages/LGCyclopsAR";
-import GharanaFoodDelivery from "./pages/GharanaFoodDelivery";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import { Suspense, lazy } from 'react';
+import { Toaster } from '@/components/ui/sonner';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ThemeProvider } from 'next-themes';
+import LoadingAnimation from '@/components/LoadingAnimation';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      gcTime: 10 * 60 * 1000, // 10 minutes
-    },
-  },
-});
+// Lazy load components
+const Index = lazy(() => import('@/pages/Index'));
+const About = lazy(() => import('@/pages/About'));
+const Contact = lazy(() => import('@/pages/Contact'));
+const Projects = lazy(() => import('@/pages/Projects'));
+const ProjectDetail = lazy(() => import('@/pages/ProjectDetail'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
+const GharanaFoodDelivery = lazy(() => import('@/pages/GharanaFoodDelivery'));
+const LGCyclopsAR = lazy(() => import('@/pages/LGCyclopsAR'));
+const WelbiltKitchenConnect = lazy(() => import('@/pages/WelbiltKitchenConnect'));
+const PGResearchRazor = lazy(() => import('@/pages/PGResearchRazor'));
 
-const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+const queryClient = new QueryClient();
 
-  useEffect(() => {
-    // Reduced loading time for better performance
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // Reduced from 3000ms to 1000ms
-
-    return () => clearTimeout(timer);
-  }, []);
-
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="light" storageKey="portfolio-theme">
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <AnimatePresence mode="wait">
-            {isLoading ? (
-              <LoadingAnimation key="loading" onComplete={() => setIsLoading(false)} />
-            ) : (
-              <BrowserRouter key="app">
+          <Router>
+            <div className="min-h-screen bg-background text-foreground">
+              <Suspense fallback={<LoadingAnimation />}>
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/projects/:id" element={<ProjectDetail />} />
-                  <Route path="/projects/welbilt-kitchen-connect" element={<WelbiltKitchenConnect />} />
-                  <Route path="/projects/lg-cyclops-ar" element={<LGCyclopsAR />} />
-                  <Route path="/projects/gharana-food-delivery" element={<GharanaFoodDelivery />} />
-                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/projects/1" element={<GharanaFoodDelivery />} />
+                  <Route path="/projects/2" element={<LGCyclopsAR />} />
+                  <Route path="/projects/3" element={<WelbiltKitchenConnect />} />
+                  <Route path="/projects/8" element={<PGResearchRazor />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
-              </BrowserRouter>
-            )}
-          </AnimatePresence>
+              </Suspense>
+              <Toaster />
+            </div>
+          </Router>
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
-};
+}
 
 export default App;
