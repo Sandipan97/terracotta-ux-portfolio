@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 interface LoadingAnimationProps {
-  onComplete: () => void;
+  onComplete?: () => void;
 }
 
 const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
@@ -14,7 +14,9 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(onComplete, 500);
+          if (onComplete) {
+            setTimeout(onComplete, 500);
+          }
           return 100;
         }
         return prev + 2;

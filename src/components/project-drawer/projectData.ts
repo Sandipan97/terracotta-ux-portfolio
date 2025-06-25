@@ -1,4 +1,27 @@
-import { Project } from "@/types";
+
+export interface Project {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  client: string;
+  duration: string;
+  role: string;
+  tags: string[];
+  featured: boolean;
+}
+
+export interface ProjectFileData {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  duration?: string;
+  results?: string;
+  slug?: string;
+}
 
 export const projects: Project[] = [
   {
@@ -98,6 +121,16 @@ export const projects: Project[] = [
     featured: true
   }
 ];
+
+export const projectFiles: ProjectFileData[] = projects.map(project => ({
+  id: project.id,
+  title: project.title,
+  category: project.category,
+  image: project.image,
+  description: project.description,
+  duration: project.duration,
+  slug: project.id === 8 ? 'pg-research-razor' : undefined
+}));
 
 export const categories = [
   "All",
