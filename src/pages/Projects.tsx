@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, ArrowLeft, Filter } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { EditableImage } from '@/components/ui/editable-image';
+import { projects } from '@/components/project-drawer/projectData';
 
 type Project = {
   id: number;
@@ -15,72 +16,29 @@ type Project = {
   description: string;
   results?: string;
   featured?: boolean;
+  slug?: string;
 };
 
-const allProjects: Project[] = [
-  {
-    id: 1,
-    title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
-    category: "UX Design",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
-    results: "Reduced error rate by 45%",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Design System and Revamp Project - Welbilt Kitchen Connect",
-    category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
-    results: "Accelerated development by 35%",
-    featured: true
-  },
-  {
-    id: 3,
-    title: "AR Interactive User Manual - LG Cyclops",
-    category: "AR Projects",
-    image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
-    results: "Reduced support calls by 60%",
-    featured: true
-  },
-  {
-    id: 4,
-    title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
-    category: "Product Design",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
-    results: "Improved user satisfaction by 85%",
-    featured: true
-  },
-  {
-    id: 5,
-    title: "Dripometer - IV Drip Monitoring System - IISc",
-    category: "Product Design",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
-    results: "Increased monitoring accuracy by 95%"
-  },
-  {
-    id: 6,
-    title: "Farm Monitoring Mobile Application - HCLTech",
-    category: "UX Design",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
-    results: "Improved crop yield by 28%"
-  },
-  {
-    id: 7,
-    title: "Toy Anatomy - Kids Toy Project - IISc",
-    category: "Others",
-    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
-    results: "Increased learning outcomes by 40%"
-  }
-];
+// Map the project data to match the expected format
+const allProjects: Project[] = projects.map(project => ({
+  id: project.id,
+  title: project.title,
+  category: project.category,
+  image: project.image,
+  description: project.description,
+  slug: project.slug,
+  results: project.id === 1 ? "Reduced error rate by 45%" :
+           project.id === 2 ? "Accelerated development by 35%" :
+           project.id === 3 ? "Reduced support calls by 60%" :
+           project.id === 4 ? "Improved user satisfaction by 85%" :
+           project.id === 5 ? "Increased monitoring accuracy by 95%" :
+           project.id === 6 ? "Improved crop yield by 28%" :
+           project.id === 7 ? "Increased learning outcomes by 40%" :
+           undefined,
+  featured: project.featured
+}));
 
-const categories = ["All", "UX Design", "Design Systems", "AR Projects", "Product Design", "Others"];
+const categories = ["All", ...Array.from(new Set(allProjects.map(project => project.category)))];
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -102,11 +60,8 @@ const Projects = () => {
   };
 
   const getProjectLink = (project: any) => {
-    if (project.id === 2) {
-      return '/projects/welbilt-kitchen-connect';
-    }
-    if (project.id === 3) {
-      return '/projects/lg-cyclops-ar';
+    if (project.slug) {
+      return `/projects/${project.slug}`;
     }
     return `/projects/${project.id}`;
   };

@@ -1,4 +1,3 @@
-
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import ScrollToNextSection from './ui/ScrollToNextSection';
@@ -6,6 +5,7 @@ import FeaturedProjectsHeader from './featured-projects/FeaturedProjectsHeader';
 import FilterControls from './featured-projects/FilterControls';
 import ProjectCard from './featured-projects/ProjectCard';
 import AnimatedBackground from './featured-projects/AnimatedBackground';
+import { projects } from './project-drawer/projectData';
 
 type Project = {
   id: number;
@@ -18,73 +18,31 @@ type Project = {
   slug?: string;
 };
 
-const allProjects: Project[] = [
-  {
-    id: 1,
-    title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
-    category: "UX Design",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
-    results: "Reduced error rate by 45%",
-    date: "2024-02"
-  },
-  {
-    id: 2,
-    title: "Design System and Revamp Project - Welbilt Kitchen Connect",
-    category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
-    results: "Accelerated development by 35%",
-    date: "2023-11",
-    slug: "welbilt-kitchen-connect"
-  },
-  {
-    id: 3,
-    title: "AR Interactive User Manual - LG Cyclops",
-    category: "AR Projects", 
-    image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
-    results: "Reduced support calls by 60%",
-    date: "2023-08",
-    slug: "lg-cyclops-ar"
-  },
-  {
-    id: 4,
-    title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
-    category: "Product Design",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
-    results: "Improved user satisfaction by 85%",
-    date: "2023-05"
-  },
-  {
-    id: 5,
-    title: "Dripometer - IV Drip Monitoring System - IISc",
-    category: "Product Design",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
-    results: "Increased monitoring accuracy by 95%",
-    date: "2023-03"
-  },
-  {
-    id: 6,
-    title: "Farm Monitoring Mobile Application - HCLTech",
-    category: "UX Design",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
-    results: "Improved crop yield by 28%",
-    date: "2022-11"
-  },
-  {
-    id: 7,
-    title: "Toy Anatomy - Kids Toy Project - IISc",
-    category: "Others",
-    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
-    results: "Increased learning outcomes by 40%",
-    date: "2022-08"
-  }
-];
+// Map the project data to match the expected format
+const allProjects: Project[] = projects.map(project => ({
+  id: project.id,
+  title: project.title,
+  category: project.category,
+  image: project.image,
+  description: project.description,
+  slug: project.slug,
+  results: project.id === 1 ? "Reduced error rate by 45%" :
+           project.id === 2 ? "Accelerated development by 35%" :
+           project.id === 3 ? "Reduced support calls by 60%" :
+           project.id === 4 ? "Improved user satisfaction by 85%" :
+           project.id === 5 ? "Increased monitoring accuracy by 95%" :
+           project.id === 6 ? "Improved crop yield by 28%" :
+           project.id === 7 ? "Increased learning outcomes by 40%" :
+           undefined,
+  date: project.id === 1 ? "2024-02" :
+        project.id === 2 ? "2023-11" :
+        project.id === 3 ? "2023-08" :
+        project.id === 4 ? "2023-05" :
+        project.id === 5 ? "2023-03" :
+        project.id === 6 ? "2022-11" :
+        project.id === 7 ? "2022-08" :
+        "2024-01"
+}));
 
 const categories = ["All", ...Array.from(new Set(allProjects.map(project => project.category)))];
 

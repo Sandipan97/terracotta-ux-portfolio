@@ -10,6 +10,7 @@ export interface Project {
   role: string;
   tags: string[];
   featured: boolean;
+  slug?: string;
 }
 
 export interface ProjectFileData {
@@ -26,93 +27,96 @@ export interface ProjectFileData {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Gharana Food Delivery",
-    category: "Mobile App",
-    image: "/placeholder.svg",
-    description: "A comprehensive food delivery app with real-time tracking and seamless user experience.",
-    client: "Gharana Foods",
+    title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
+    category: "UX Design",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
+    client: "Procter & Gamble",
     duration: "6 Months",
     role: "Lead UX/UI Designer",
-    tags: ["UX Design", "Mobile App", "Food Tech"],
+    tags: ["UX Design", "Accessibility", "Industrial"],
     featured: true
   },
   {
     id: 2,
-    title: "LG Cyclops AR",
-    category: "AR/VR",
-    image: "/placeholder.svg",
-    description: "Augmented reality application for industrial maintenance and training.",
-    client: "LG Electronics",
+    slug: "welbilt-kitchen-connect",
+    title: "Design System and Revamp Project - Welbilt Kitchen Connect",
+    category: "Design Systems",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
+    client: "Welbilt Inc.",
     duration: "8 Months",
+    role: "Senior UX Designer & Design System Lead",
+    tags: ["Design Systems", "IoT Platform", "Commercial"],
+    featured: true
+  },
+  {
+    id: 3,
+    slug: "lg-cyclops-ar",
+    title: "AR Interactive User Manual - LG Cyclops",
+    category: "AR Projects",
+    image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
+    client: "LG Electronics",
+    duration: "4 Months",
     role: "AR/VR Designer",
     tags: ["AR/VR", "Industrial", "Training"],
     featured: true
   },
   {
-    id: 3,
-    title: "Welbilt Kitchen Connect",
-    category: "IoT Platform",
-    image: "/placeholder.svg",
-    description: "IoT platform for commercial kitchen management and monitoring.",
-    client: "Welbilt Inc.",
-    duration: "4 Months",
+    id: 4,
+    title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
+    category: "Product Design",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
+    client: "Merritt Innovation Solutions & IISc",
+    duration: "5 Months",
     role: "Product Designer",
-    tags: ["IoT", "Dashboard", "Commercial"],
+    tags: ["Healthcare", "Product Design", "Medical"],
     featured: true
   },
   {
-    id: 4,
-    title: "Digital Banking Platform",
-    category: "Fintech",
-    image: "/placeholder.svg",
-    description: "Modern banking interface with focus on user experience and security.",
-    client: "Regional Bank",
-    duration: "5 Months",
-    role: "UX Designer",
-    tags: ["Fintech", "Banking", "Security"],
-    featured: false
-  },
-  {
     id: 5,
-    title: "Healthcare Dashboard",
-    category: "Healthcare",
-    image: "/placeholder.svg",
-    description: "Medical data visualization and patient management system.",
-    client: "MedTech Solutions",
+    title: "Dripometer - IV Drip Monitoring System - IISc",
+    category: "Product Design",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
+    client: "IISc",
     duration: "7 Months",
     role: "Product Designer",
-    tags: ["Healthcare", "Dashboard", "Data Viz"],
+    tags: ["Healthcare", "Product Design", "Medical"],
     featured: false
   },
   {
     id: 6,
-    title: "E-learning Platform",
-    category: "Education",
-    image: "/placeholder.svg",
-    description: "Interactive learning platform with gamification elements.",
-    client: "EduTech Innovations",
+    title: "Farm Monitoring Mobile Application - HCLTech",
+    category: "UX Design",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
+    client: "HCLTech",
     duration: "6 Months",
-    role: "UX/UI Designer",
-    tags: ["Education", "E-learning", "Gamification"],
+    role: "UX Designer",
+    tags: ["UX Design", "Mobile App", "Agriculture"],
     featured: false
   },
   {
     id: 7,
-    title: "Smart Home Control",
-    category: "IoT",
-    image: "/placeholder.svg",
-    description: "Unified control interface for smart home devices and automation.",
-    client: "Home Automation Co.",
+    title: "Toy Anatomy - Kids Toy Project - IISc",
+    category: "Educational Design",
+    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
+    client: "IISc",
     duration: "4 Months",
     role: "Product Designer",
-    tags: ["IoT", "Smart Home", "Mobile"],
+    tags: ["Education", "Product Design", "Interactive"],
     featured: false
   },
   {
     id: 8,
+    slug: "pg-research-razor",
     title: "P&G Research Razor – UX/UI Redesign",
     category: "Industrial UX",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "A comprehensive UX redesign of P&G's Datalogger application used in industrial and research environments.",
     client: "Procter & Gamble",
     duration: "3 Months",
@@ -129,17 +133,23 @@ export const projectFiles: ProjectFileData[] = projects.map(project => ({
   image: project.image,
   description: project.description,
   duration: project.duration,
-  slug: project.id === 8 ? 'pg-research-razor' : undefined
+  slug: project.slug,
+  results: project.id === 1 ? "Reduced error rate by 45%" :
+           project.id === 2 ? "Accelerated development by 35%" :
+           project.id === 3 ? "Reduced support calls by 60%" :
+           project.id === 4 ? "Improved user satisfaction by 85%" :
+           project.id === 5 ? "Increased monitoring accuracy by 95%" :
+           project.id === 6 ? "Improved crop yield by 28%" :
+           project.id === 7 ? "Increased learning outcomes by 40%" :
+           undefined
 }));
 
 export const categories = [
   "All",
-  "Mobile App",
-  "AR/VR",
-  "IoT Platform",
-  "Fintech",
-  "Healthcare",
-  "Education",
-  "IoT",
+  "UX Design",
+  "Design Systems", 
+  "AR Projects",
+  "Product Design",
+  "Educational Design",
   "Industrial UX"
 ];
