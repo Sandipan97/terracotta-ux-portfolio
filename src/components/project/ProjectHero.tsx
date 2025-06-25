@@ -24,6 +24,17 @@ interface ProjectHeroProps {
 }
 
 const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) => {
+  // Override project data for P&G Research Razor project
+  const projectData = project.id === 1 ? {
+    ...project,
+    title: "P&G Research Razor – UX/UI Redesign",
+    description: "A comprehensive UX redesign of P&G's Datalogger application used in industrial and research environments. The goal was to enhance usability, accessibility, and security through heuristic evaluation, user-centered design, and modern UI practices.",
+    client: "Procter & Gamble",
+    duration: "3 Months",
+    role: "Lead UX/UI Designer & Researcher",
+    projectType: ["UX Research", "UI Design", "Accessibility", "Industrial Design"]
+  } : project;
+
   return (
     <>
       {/* Hero Image Section */}
@@ -31,7 +42,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden z-0">
           <motion.div 
-            className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-bengali-mustard/10 filter blur-3xl" 
+            className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-500/10 filter blur-3xl" 
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.6, 0.3]
@@ -43,7 +54,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
             }} 
           />
           <motion.div 
-            className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-bengali-terracotta/10 filter blur-xl" 
+            className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-slate-500/10 filter blur-xl" 
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.2, 0.5, 0.2]
@@ -66,7 +77,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
           <Button 
             onClick={onBack}
             variant="secondary" 
-            className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-bengali-terracotta transition-all duration-300 border border-border/50 dark-glow-container"
+            className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-blue-600 transition-all duration-300 border border-border/50 dark-glow-container"
             size="icon"
           >
             <ArrowLeft size={20} />
@@ -81,8 +92,8 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <EditableImage 
-            src={project.image} 
-            alt={project.title}
+            src="/placeholder.svg" 
+            alt="P&G Research Razor Datalogger Interface"
             className="w-full h-full object-cover dark-glow-image"
             fallbackSrc="/placeholder.svg"
           />
@@ -94,7 +105,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
       <section className="w-full bg-background/95 backdrop-blur-sm py-8 xs:py-10 md:py-12 border-b border-border/30 relative overflow-hidden dark-glow-subtle">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(249,211,66)_1px,_transparent_0)] bg-[size:20px_20px]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(0,161,223)_1px,_transparent_0)] bg-[size:20px_20px]"></div>
         </div>
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -105,9 +116,9 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
             className="max-w-6xl mx-auto"
           >
             {/* Project Type Chips */}
-            {project.projectType && (
+            {projectData.projectType && (
               <div className="flex flex-wrap gap-2 mb-4 xs:mb-6 justify-center md:justify-start">
-                {project.projectType.map((type, index) => (
+                {projectData.projectType.map((type, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -115,8 +126,9 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                     transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
                   >
                     <Badge 
-                      className="bg-bengali-terracotta/10 text-bengali-terracotta hover:bg-bengali-terracotta hover:text-white transition-all duration-300 border border-bengali-terracotta/20 dark-glow-subtle"
-                      data-lovable-editable={`project-type-${index}`}
+                      className="bg-blue-500/10 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 border border-blue-500/20 dark-glow-subtle"
+                      data-lovable-editable="true"
+                      data-lovable-key={`project-type-${index}`}
                     >
                       {type}
                     </Badge>
@@ -131,9 +143,10 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              data-lovable-editable="project-hero-title"
+              data-lovable-editable="true"
+              data-lovable-key="project-hero-title"
             >
-              {project.title}
+              {projectData.title}
             </motion.h1>
             
             {/* Project Description */}
@@ -142,14 +155,15 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              data-lovable-editable="project-hero-description"
+              data-lovable-editable="true"
+              data-lovable-key="project-hero-description"
             >
-              {project.description}
+              {projectData.description}
             </motion.p>
             
             {/* Project Details Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 mb-8 xs:mb-10">
-              {project.client && (
+              {projectData.client && (
                 <motion.div 
                   className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-card"
                   initial={{ opacity: 0, y: 20 }}
@@ -158,21 +172,23 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
                   <h3 
-                    className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
-                    data-lovable-editable="project-client-label"
+                    className="text-blue-600 text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
+                    data-lovable-editable="true"
+                    data-lovable-key="project-client-label"
                   >
                     Client
                   </h3>
                   <p 
                     className="font-semibold text-sm xs:text-base text-foreground"
-                    data-lovable-editable="project-client-value"
+                    data-lovable-editable="true"
+                    data-lovable-key="project-client-value"
                   >
-                    {project.client}
+                    {projectData.client}
                   </p>
                 </motion.div>
               )}
               
-              {project.duration && (
+              {projectData.duration && (
                 <motion.div 
                   className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-card"
                   initial={{ opacity: 0, y: 20 }}
@@ -181,21 +197,23 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
                   <h3 
-                    className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
-                    data-lovable-editable="project-duration-label"
+                    className="text-blue-600 text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
+                    data-lovable-editable="true"
+                    data-lovable-key="project-duration-label"
                   >
                     Duration
                   </h3>
                   <p 
                     className="font-semibold text-sm xs:text-base text-foreground"
-                    data-lovable-editable="project-duration-value"
+                    data-lovable-editable="true"
+                    data-lovable-key="project-duration-value"
                   >
-                    {project.duration}
+                    {projectData.duration}
                   </p>
                 </motion.div>
               )}
               
-              {project.role && (
+              {projectData.role && (
                 <motion.div 
                   className="bg-background/60 backdrop-blur-sm p-4 xs:p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1 dark-glow-card"
                   initial={{ opacity: 0, y: 20 }}
@@ -204,16 +222,18 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
                   <h3 
-                    className="text-bengali-terracotta text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
-                    data-lovable-editable="project-role-label"
+                    className="text-blue-600 text-xs xs:text-sm font-medium mb-1 xs:mb-2 uppercase tracking-wide"
+                    data-lovable-editable="true"
+                    data-lovable-key="project-role-label"
                   >
                     My Role
                   </h3>
                   <p 
                     className="font-semibold text-sm xs:text-base text-foreground"
-                    data-lovable-editable="project-role-value"
+                    data-lovable-editable="true"
+                    data-lovable-key="project-role-value"
                   >
-                    {project.role}
+                    {projectData.role}
                   </p>
                 </motion.div>
               )}
@@ -228,11 +248,12 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
             >
               <Button 
                 onClick={onScrollToContent}
-                className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-container"
+                className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 dark-glow-container"
                 size="lg"
-                data-lovable-editable="project-cta-button"
+                data-lovable-editable="true"
+                data-lovable-key="project-cta-button"
               >
-                View More Details <ChevronDown className="ml-2" />
+                View Design Process <ChevronDown className="ml-2" />
               </Button>
             </motion.div>
           </motion.div>
