@@ -495,14 +495,17 @@ const WelbiltKitchenConnect = () => {
               <p className="text-white/80 text-lg">– Inspired by Don Norman</p>
               
               <motion.div className="mt-12">
-                <Button 
-                  className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
-                  onClick={() => navigate('/contact')}
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Let's Create Something Amazing
-                </Button>
+                  <Button 
+                    className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
+                    onClick={() => navigate('/contact')}
+                  >
+                    Let's Create Something Amazing
+                  </Button>
+                </motion.div>
               </motion.div>
             </motion.div>
           </div>
