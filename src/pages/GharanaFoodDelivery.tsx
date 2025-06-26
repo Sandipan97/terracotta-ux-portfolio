@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Target, Lightbulb, Palette, Code, TestTube } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import ProjectHero from '@/components/project/ProjectHero';
 import ProjectOverview from '@/components/project/ProjectOverview';
 import UserPersonas from '@/components/project/UserPersonas';
@@ -13,6 +15,7 @@ import ProjectResults from '@/components/project/ProjectResults';
 import ProjectNavigation from '@/components/project/ProjectNavigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { EditableImage } from '@/components/ui/editable-image';
 
 const GharanaFoodDelivery = () => {
   const navigate = useNavigate();
@@ -118,99 +121,113 @@ const GharanaFoodDelivery = () => {
 
   const projectResults = "The Gharana app achieved remarkable success with a 200% increase in home chef registrations within the first 6 months, 85% customer satisfaction rate based on app store reviews, and 40% reduction in order fulfillment time. The platform successfully bridged the gap between home chefs and customers, creating a thriving ecosystem for authentic homemade food delivery.";
 
-  const handleBack = () => {
-    navigate('/');
-  };
-
-  const handleScrollToContent = () => {
-    const element = document.getElementById('project-content');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const goBack = () => {
+    navigate(-1);
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <div className="pt-20">
-        {/* Project Hero */}
-        <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-bengali-terracotta via-bengali-red to-bengali-terracotta-dark overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0">
-            <motion.div
-              className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"
-              animate={{
-                x: [0, 50, 0],
-                y: [0, 30, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <motion.div
-              className="absolute bottom-20 right-10 w-48 h-48 bg-bengali-mustard/20 rounded-full blur-2xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </div>
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="w-full relative h-[50vh] overflow-hidden">
+          <motion.div 
+            className="absolute top-4 left-4 z-30"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <Button 
+              onClick={goBack}
+              variant="secondary" 
+              className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-bengali-mustard transition-all duration-300 border border-border/50"
+              size="icon"
+            >
+              <ArrowLeft size={20} />
+            </Button>
+          </motion.div>
 
+          <motion.div 
+            className="absolute inset-0 z-10"
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            <EditableImage 
+              src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Gharana - Home Food Delivery App"
+              className="w-full h-full object-cover"
+              fallbackSrc="/placeholder.svg"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 z-10"></div>
+          </motion.div>
+        </section>
+
+        {/* Project Information */}
+        <section className="w-full bg-background/95 backdrop-blur-sm py-12 border-b border-border/30 relative overflow-hidden">
           <div className="container mx-auto px-4 md:px-6 relative z-10">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <motion.button
-                onClick={handleBack}
-                className="inline-flex items-center gap-2 mb-8 text-white/80 hover:text-white transition-colors"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <ArrowLeft size={20} />
-                <span data-lovable-editable="gharana-back-button">Back to Projects</span>
-              </motion.button>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="max-w-6xl mx-auto"
+            >
+              <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+                <Badge className="bg-bengali-mustard/10 text-bengali-mustard hover:bg-bengali-mustard hover:text-white transition-all duration-300 border border-bengali-mustard/20">
+                  <span data-lovable-editable="gharana-badge-mobile-app">Mobile App</span>
+                </Badge>
+                <Badge className="bg-bengali-mustard/10 text-bengali-mustard hover:bg-bengali-mustard hover:text-white transition-all duration-300 border border-bengali-mustard/20">
+                  <span data-lovable-editable="gharana-badge-ux-research">UX Research</span>
+                </Badge>
+                <Badge className="bg-bengali-mustard/10 text-bengali-mustard hover:bg-bengali-mustard hover:text-white transition-all duration-300 border border-bengali-mustard/20">
+                  <span data-lovable-editable="gharana-badge-ui-design">UI Design</span>
+                </Badge>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold mb-6" data-lovable-editable="gharana-project-title">
-                  {project.title}
-                </h1>
-                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed" data-lovable-editable="gharana-project-description">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap justify-center gap-4 mb-8">
-                  <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className="text-sm font-medium" data-lovable-editable="gharana-project-duration">{project.duration}</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className="text-sm font-medium" data-lovable-editable="gharana-project-role">{project.role}</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className="text-sm font-medium" data-lovable-editable="gharana-project-client">{project.client}</span>
-                  </div>
-                </div>
-
-                <motion.button
-                  onClick={handleScrollToContent}
-                  className="bg-white text-bengali-terracotta px-8 py-3 rounded-full font-semibold hover:bg-white/90 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground text-center md:text-left" data-lovable-editable="gharana-main-title">
+                {project.title}
+              </h1>
+              
+              <p className="text-lg mb-8 text-muted-foreground text-center md:text-left max-w-4xl leading-relaxed" data-lovable-editable="gharana-main-description">
+                {project.description}
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                <motion.div 
+                  className="bg-background/60 backdrop-blur-sm p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                  whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <span data-lovable-editable="gharana-explore-button">Explore Project</span>
-                </motion.button>
-              </motion.div>
-            </div>
+                  <h3 className="text-bengali-mustard text-sm font-medium mb-2 uppercase tracking-wide" data-lovable-editable="gharana-client-label">Client</h3>
+                  <p className="font-semibold text-foreground" data-lovable-editable="gharana-client-name">{project.client}</p>
+                </motion.div>
+                
+                <motion.div 
+                  className="bg-background/60 backdrop-blur-sm p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  whileHover={{ y: -2, scale: 1.02 }}
+                >
+                  <h3 className="text-bengali-mustard text-sm font-medium mb-2 uppercase tracking-wide" data-lovable-editable="gharana-duration-label">Duration</h3>
+                  <p className="font-semibold text-foreground" data-lovable-editable="gharana-duration-value">{project.duration}</p>
+                </motion.div>
+                
+                <motion.div 
+                  className="bg-background/60 backdrop-blur-sm p-5 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  whileHover={{ y: -2, scale: 1.02 }}
+                >
+                  <h3 className="text-bengali-mustard text-sm font-medium mb-2 uppercase tracking-wide" data-lovable-editable="gharana-role-label">My Role</h3>
+                  <p className="font-semibold text-foreground" data-lovable-editable="gharana-role-value">{project.role}</p>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -257,7 +274,7 @@ const GharanaFoodDelivery = () => {
               </motion.div>
 
               <motion.div
-                className="bg-gradient-to-br from-bengali-mustard/10 to-bengali-terracotta/10 p-6 xs:p-8 rounded-2xl border border-bengali-mustard/20 dark-glow-card"
+                className="bg-gradient-to-br from-bengali-mustard/10 to-bengali-mustard/20 p-6 xs:p-8 rounded-2xl border border-bengali-mustard/20 dark-glow-card"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -272,7 +289,7 @@ const GharanaFoodDelivery = () => {
                       key={index}
                       className="flex items-center gap-3 p-3 bg-white/50 dark:bg-background/50 rounded-xl border border-white/30 dark:border-border/30"
                     >
-                      <div className="w-2 h-2 bg-bengali-terracotta rounded-full flex-shrink-0" />
+                      <div className="w-2 h-2 bg-bengali-mustard rounded-full flex-shrink-0" />
                       <span className="text-foreground text-sm xs:text-base font-medium" data-lovable-editable={`gharana-feature-${index}`}>
                         {feature}
                       </span>
@@ -283,7 +300,7 @@ const GharanaFoodDelivery = () => {
             </div>
 
             <motion.div
-              className="mt-8 xs:mt-12 bg-gradient-to-r from-bengali-terracotta to-bengali-red text-white p-6 xs:p-8 rounded-2xl text-center dark-glow-medium"
+              className="mt-8 xs:mt-12 bg-gradient-to-r from-bengali-mustard to-bengali-mustard/80 text-white p-6 xs:p-8 rounded-2xl text-center dark-glow-medium"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -335,7 +352,7 @@ const GharanaFoodDelivery = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <h3 className="font-heading text-base xs:text-xl font-semibold text-foreground group-hover:text-bengali-terracotta transition-colors duration-300" data-lovable-editable={`gharana-persona-title-${index}`}>
+                    <h3 className="font-heading text-base xs:text-xl font-semibold text-foreground group-hover:text-bengali-mustard transition-colors duration-300" data-lovable-editable={`gharana-persona-title-${index}`}>
                       {persona.title}
                     </h3>
                     <p className="text-muted-foreground text-sm xs:text-base leading-relaxed" data-lovable-editable={`gharana-persona-description-${index}`}>
@@ -364,7 +381,7 @@ const GharanaFoodDelivery = () => {
             nextProject={{ id: 2, title: "Welbilt Kitchen Connect" }}
           />
         </div>
-      </div>
+      </main>
 
       <Footer />
     </div>
