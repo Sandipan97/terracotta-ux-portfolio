@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Target, Lightbulb, Palette, Code, TestTube } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -141,7 +140,7 @@ const GharanaFoodDelivery = () => {
             <Button 
               onClick={goBack}
               variant="secondary" 
-              className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-bengali-mustard transition-all duration-300 border border-border/50"
+              className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-amber-600 transition-all duration-300 border border-border/50"
               size="icon"
             >
               <ArrowLeft size={20} />
@@ -174,13 +173,13 @@ const GharanaFoodDelivery = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-bengali-mustard/10 text-bengali-mustard hover:bg-bengali-mustard hover:text-white transition-all duration-300 border border-bengali-mustard/20">
+                <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-600 hover:text-white transition-all duration-300 border border-amber-200 dark:bg-amber-900/20 dark:text-amber-300 dark:border-amber-800/30 dark:hover:bg-amber-700">
                   <span data-lovable-editable="gharana-badge-mobile-app">Mobile App</span>
                 </Badge>
-                <Badge className="bg-bengali-mustard/10 text-bengali-mustard hover:bg-bengali-mustard hover:text-white transition-all duration-300 border border-bengali-mustard/20">
+                <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-600 hover:text-white transition-all duration-300 border border-amber-200 dark:bg-amber-900/20 dark:text-amber-300 dark:border-amber-800/30 dark:hover:bg-amber-700">
                   <span data-lovable-editable="gharana-badge-ux-research">UX Research</span>
                 </Badge>
-                <Badge className="bg-bengali-mustard/10 text-bengali-mustard hover:bg-bengali-mustard hover:text-white transition-all duration-300 border border-bengali-mustard/20">
+                <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-600 hover:text-white transition-all duration-300 border border-amber-200 dark:bg-amber-900/20 dark:text-amber-300 dark:border-amber-800/30 dark:hover:bg-amber-700">
                   <span data-lovable-editable="gharana-badge-ui-design">UI Design</span>
                 </Badge>
               </div>
@@ -201,7 +200,7 @@ const GharanaFoodDelivery = () => {
                   transition={{ duration: 0.5, delay: 0.7 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-bengali-mustard text-sm font-medium mb-2 uppercase tracking-wide" data-lovable-editable="gharana-client-label">Client</h3>
+                  <h3 className="text-amber-600 text-sm font-medium mb-2 uppercase tracking-wide dark:text-amber-400" data-lovable-editable="gharana-client-label">Client</h3>
                   <p className="font-semibold text-foreground" data-lovable-editable="gharana-client-name">{project.client}</p>
                 </motion.div>
                 
@@ -212,7 +211,7 @@ const GharanaFoodDelivery = () => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-bengali-mustard text-sm font-medium mb-2 uppercase tracking-wide" data-lovable-editable="gharana-duration-label">Duration</h3>
+                  <h3 className="text-amber-600 text-sm font-medium mb-2 uppercase tracking-wide dark:text-amber-400" data-lovable-editable="gharana-duration-label">Duration</h3>
                   <p className="font-semibold text-foreground" data-lovable-editable="gharana-duration-value">{project.duration}</p>
                 </motion.div>
                 
@@ -223,7 +222,7 @@ const GharanaFoodDelivery = () => {
                   transition={{ duration: 0.5, delay: 0.9 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-bengali-mustard text-sm font-medium mb-2 uppercase tracking-wide" data-lovable-editable="gharana-role-label">My Role</h3>
+                  <h3 className="text-amber-600 text-sm font-medium mb-2 uppercase tracking-wide dark:text-amber-400" data-lovable-editable="gharana-role-label">My Role</h3>
                   <p className="font-semibold text-foreground" data-lovable-editable="gharana-role-value">{project.role}</p>
                 </motion.div>
               </div>
@@ -274,7 +273,7 @@ const GharanaFoodDelivery = () => {
               </motion.div>
 
               <motion.div
-                className="bg-gradient-to-br from-bengali-mustard/10 to-bengali-mustard/20 p-6 xs:p-8 rounded-2xl border border-bengali-mustard/20 dark-glow-card"
+                className="bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/10 dark:to-amber-800/20 p-6 xs:p-8 rounded-2xl border border-amber-200 dark:border-amber-800/20 dark-glow-card"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -287,9 +286,9 @@ const GharanaFoodDelivery = () => {
                   {overviewData.overview.keyFeatures.map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-3 p-3 bg-white/50 dark:bg-background/50 rounded-xl border border-white/30 dark:border-border/30"
+                      className="flex items-center gap-3 p-3 bg-white/70 dark:bg-background/50 rounded-xl border border-amber-200/50 dark:border-border/30"
                     >
-                      <div className="w-2 h-2 bg-bengali-mustard rounded-full flex-shrink-0" />
+                      <div className="w-2 h-2 bg-amber-600 dark:bg-amber-400 rounded-full flex-shrink-0" />
                       <span className="text-foreground text-sm xs:text-base font-medium" data-lovable-editable={`gharana-feature-${index}`}>
                         {feature}
                       </span>
@@ -300,7 +299,7 @@ const GharanaFoodDelivery = () => {
             </div>
 
             <motion.div
-              className="mt-8 xs:mt-12 bg-gradient-to-r from-bengali-mustard to-bengali-mustard/80 text-white p-6 xs:p-8 rounded-2xl text-center dark-glow-medium"
+              className="mt-8 xs:mt-12 bg-gradient-to-r from-amber-600 to-amber-700 dark:from-amber-700 dark:to-amber-800 text-white p-6 xs:p-8 rounded-2xl text-center dark-glow-medium"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -318,7 +317,7 @@ const GharanaFoodDelivery = () => {
           {/* User Personas */}
           <section className="mb-12 xs:mb-16 relative">
             <div className="absolute inset-0 opacity-5">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(249,211,66)_1px,_transparent_0)] bg-[size:30px_30px]"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(245,158,11)_1px,_transparent_0)] bg-[size:30px_30px]"></div>
             </div>
             
             <motion.h2 
@@ -352,7 +351,7 @@ const GharanaFoodDelivery = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <h3 className="font-heading text-base xs:text-xl font-semibold text-foreground group-hover:text-bengali-mustard transition-colors duration-300" data-lovable-editable={`gharana-persona-title-${index}`}>
+                    <h3 className="font-heading text-base xs:text-xl font-semibold text-foreground group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300" data-lovable-editable={`gharana-persona-title-${index}`}>
                       {persona.title}
                     </h3>
                     <p className="text-muted-foreground text-sm xs:text-base leading-relaxed" data-lovable-editable={`gharana-persona-description-${index}`}>
