@@ -63,6 +63,34 @@ const FeaturedProjects = () => {
       }
     }
   };
-  return;
+  return (
+    <section ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 dark:bg-card/30">
+      <div className="max-w-7xl mx-auto">
+        <FeaturedProjectsHeader variants={itemVariants} />
+        
+        <FilterControls 
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          variants={itemVariants}
+        />
+        
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
+          {filteredProjects.map((project, index) => (
+            <motion.div key={project.id} variants={itemVariants}>
+              <ProjectCard project={project} index={index} variants={itemVariants} />
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        <ScrollToNextSection targetId="design-suite" />
+      </div>
+    </section>
+  );
 };
 export default FeaturedProjects;
