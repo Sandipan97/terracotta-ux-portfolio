@@ -30,7 +30,7 @@ const ResearchQuestions = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible defaultValue="research-questions" className="w-full">
             <AccordionItem value="research-questions" className="border border-teal-200/50 rounded-2xl px-6 bg-teal-50/30 dark:bg-teal-900/10 dark:border-teal-800/50">
               <AccordionTrigger className="text-xl font-semibold text-foreground hover:text-teal-600 dark:hover:text-teal-400 py-6">
                 ▶️ RESEARCH QUESTIONS – CONNECTED TO METHODS

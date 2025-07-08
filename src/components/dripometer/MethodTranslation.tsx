@@ -34,7 +34,7 @@ const MethodTranslation = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible defaultValue="method-translation" className="w-full">
             <AccordionItem value="method-translation" className="border border-emerald-200/50 rounded-2xl px-6 bg-emerald-50/30 dark:bg-emerald-900/10 dark:border-emerald-800/50">
               <AccordionTrigger className="text-xl font-semibold text-foreground hover:text-emerald-600 dark:hover:text-emerald-400 py-6">
                 ▶️ TRANSLATION OF METHOD INTO DESIGN DECISIONS
