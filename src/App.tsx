@@ -15,7 +15,6 @@ const Projects = lazy(() => import('@/pages/Projects'));
 const ProjectDetail = lazy(() => import('@/pages/ProjectDetail'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 const GharanaFoodDelivery = lazy(() => import('@/pages/GharanaFoodDelivery'));
-const LGCyclopsAR = lazy(() => import('@/pages/LGCyclopsAR'));
 const LGCyclopsARProject = lazy(() => import('@/pages/LGCyclopsARProject'));
 const WelbiltKitchenConnect = lazy(() => import('@/pages/WelbiltKitchenConnect'));
 const PGResearchRazor = lazy(() => import('@/pages/PGResearchRazor'));
@@ -36,13 +35,10 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/projects/:id" element={<ProjectDetail />} />
-                  <Route path="/projects/1" element={<GharanaFoodDelivery />} />
                   <Route path="/projects/gharana-food-delivery" element={<GharanaFoodDelivery />} />
-                  <Route path="/projects/2" element={<LGCyclopsAR />} />
-                  <Route path="/projects/3" element={<WelbiltKitchenConnect />} />
-                  <Route path="/projects/9" element={<PGResearchRazor />} />
-                  <Route path="/projects/pg-research-razor" element={<PGResearchRazor />} />
+                  <Route path="/projects/welbilt-kitchen-connect" element={<WelbiltKitchenConnect />} />
                   <Route path="/projects/lg-cyclops-ar" element={<LGCyclopsARProject />} />
+                  <Route path="/projects/pg-research-razor" element={<PGResearchRazor />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

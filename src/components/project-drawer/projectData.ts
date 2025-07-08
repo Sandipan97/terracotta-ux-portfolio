@@ -40,14 +40,15 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Heuristic and Accessibility Revamp Project - P&G Datalogger",
-    category: "UX Design",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Complete revamp of P&G's industrial data logging system with focus on accessibility and improved usability.",
+    slug: "pg-research-razor",
+    title: "P&G Research Razor – UX/UI Redesign",
+    category: "Industrial UX",
+    image: "/lovable-uploads/c2dfb2fc-13e4-4095-a586-8bbe9a0d451f.png",
+    description: "A comprehensive UX redesign of P&G's Datalogger application used in industrial and research environments.",
     client: "Procter & Gamble",
-    duration: "6 Months",
-    role: "Lead UX/UI Designer",
-    tags: ["UX Design", "Accessibility", "Industrial"],
+    duration: "3 Months",
+    role: "Lead UX/UI Designer & Researcher",
+    tags: ["UX Research", "UI Design", "Accessibility", "Industrial Design"],
     featured: true
   },
   {
@@ -78,20 +79,8 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    title: "Oxygen Concentrator O2C Project - Merritt Innovation Solutions & IISc",
-    category: "Product Design",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
-    client: "Merritt Innovation Solutions & IISc",
-    duration: "5 Months",
-    role: "Product Designer",
-    tags: ["Healthcare", "Product Design", "Medical"],
-    featured: true
-  },
-  {
-    id: 6,
-    title: "Dripometer - IV Drip Monitoring System - IISc",
-    category: "Product Design",
+    title: "Dripometer - IV Drip Monitoring System",
+    category: "Product Design", 
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
     client: "IISc",
@@ -101,20 +90,8 @@ export const projects: Project[] = [
     featured: false
   },
   {
-    id: 7,
-    title: "Farm Monitoring Mobile Application - HCLTech",
-    category: "UX Design",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
-    client: "HCLTech",
-    duration: "6 Months",
-    role: "UX Designer",
-    tags: ["UX Design", "Mobile App", "Agriculture"],
-    featured: false
-  },
-  {
-    id: 8,
-    title: "Toy Anatomy - Kids Toy Project - IISc",
+    id: 6,
+    title: "Toy Anatomy - Kids Educational Project",
     category: "Educational Design",
     image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     description: "Created an educational toy system that helps children learn about human anatomy through interactive play.",
@@ -125,17 +102,28 @@ export const projects: Project[] = [
     featured: false
   },
   {
-    id: 9,
-    slug: "pg-research-razor",
-    title: "P&G Research Razor – UX/UI Redesign",
-    category: "Industrial UX",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "A comprehensive UX redesign of P&G's Datalogger application used in industrial and research environments.",
-    client: "Procter & Gamble",
-    duration: "3 Months",
-    role: "Lead UX/UI Designer & Researcher",
-    tags: ["UX Research", "UI Design", "Accessibility", "Industrial Design"],
-    featured: true
+    id: 7,
+    title: "Oxygen Concentrator O2C Project",
+    category: "Product Design",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Developed a user-centered interface for a portable oxygen concentrator device for medical use.",
+    client: "Merritt Innovation Solutions & IISc",
+    duration: "5 Months",
+    role: "Product Designer",
+    tags: ["Healthcare", "Product Design", "Medical"],
+    featured: false
+  },
+  {
+    id: 8,
+    title: "Farm Monitoring Mobile Application",
+    category: "UX Design",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
+    client: "HCLTech",
+    duration: "6 Months",
+    role: "UX Designer",
+    tags: ["UX Design", "Mobile App", "Agriculture"],
+    featured: false
   }
 ];
 
@@ -148,13 +136,13 @@ export const projectFiles: ProjectFileData[] = projects.map(project => ({
   duration: project.duration,
   slug: project.slug,
   results: project.id === 1 ? "200% increase in home chef registrations" :
-           project.id === 2 ? "Reduced error rate by 45%" :
-           project.id === 3 ? "Accelerated development by 35%" :
-           project.id === 4 ? "Reduced support calls by 60%" :
-           project.id === 5 ? "Improved user satisfaction by 85%" :
-           project.id === 6 ? "Increased monitoring accuracy by 95%" :
-           project.id === 7 ? "Improved crop yield by 28%" :
-           project.id === 8 ? "Increased learning outcomes by 40%" :
+           project.id === 2 ? "45% reduction in error rates" :
+           project.id === 3 ? "35% faster development cycles" :
+           project.id === 4 ? "60% reduction in support calls" :
+           project.id === 5 ? "95% increase in monitoring accuracy" :
+           project.id === 6 ? "40% improvement in learning outcomes" :
+           project.id === 7 ? "85% improvement in user satisfaction" :
+           project.id === 8 ? "28% improvement in crop yield tracking" :
            undefined
 }));
 

@@ -20,12 +20,12 @@ const GharanaFoodDelivery = () => {
   const navigate = useNavigate();
 
   const project = {
-    id: 8,
+    id: 1,
     title: "Gharana - Home Food Delivery App",
     category: "Mobile App",
     image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     description: "A mobile platform that bridges the gap between home-based cloud kitchens and customers seeking authentic, homemade meals. Designed to empower home chefs while providing customers with fresh, locally-sourced food options.",
-    duration: "8 months",
+    duration: "8 Months",
     role: "Lead UX/UI Designer",
     client: "Gharana Food Tech",
     projectType: ["Mobile App Design", "UX Research", "UI Design"]

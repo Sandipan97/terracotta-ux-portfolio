@@ -16,12 +16,6 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
     if (project.slug) {
       return `/projects/${project.slug}`;
     }
-    if (project.id === 2) {
-      return '/projects/welbilt-kitchen-connect';
-    }
-    if (project.id === 3) {
-      return '/projects/lg-cyclops-ar';
-    }
     return `/projects/${project.id}`;
   };
 
