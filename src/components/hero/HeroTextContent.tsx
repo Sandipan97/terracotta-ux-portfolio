@@ -52,7 +52,7 @@ const HeroTextContent = () => {
         opacity: 1
       }} transition={{
         delay: 0.5
-      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 mb-[-8px] text-3xl text-amber-600">
+      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 mb-[10px] text-3xl text-amber-600">
           <span className="relative inline-block">
             Hi
             <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-mustard" initial={{
@@ -67,7 +67,7 @@ const HeroTextContent = () => {
           , I am
         </motion.span>
         <br />
-        <span className="relative inline-block text-5xl sm:text-6xl lg:text-7xl py-0 mt-[-8px]">
+        <span className="relative inline-block text-5xl sm:text-6xl lg:text-7xl py-0 mt-[10px]">
           <motion.span initial={{
           opacity: 0
         }} animate={{
