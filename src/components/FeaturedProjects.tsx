@@ -4,7 +4,6 @@ import ScrollToNextSection from './ui/ScrollToNextSection';
 import FeaturedProjectsHeader from './featured-projects/FeaturedProjectsHeader';
 import FilterControls from './featured-projects/FilterControls';
 import ProjectCard from './featured-projects/ProjectCard';
-import AnimatedBackground from './featured-projects/AnimatedBackground';
 import { projects } from './project-drawer/projectData';
 
 type Project = {
@@ -82,7 +81,6 @@ const FeaturedProjects = () => {
 
   return (
     <section id="featured-projects" className="py-20 bg-background relative overflow-hidden" ref={ref}>
-      <AnimatedBackground />
 
       <motion.div 
         className="container mx-auto px-4 md:px-6 z-10 relative" 
