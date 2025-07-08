@@ -92,7 +92,7 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <EditableImage 
-            src="/lovable-uploads/3bdac146-79d0-44ef-94a1-7d74bb713e7c.png" 
+            src="/lovable-uploads/c2dfb2fc-13e4-4095-a586-8bbe9a0d451f.png" 
             alt="P&G Research Razor Datalogger Interface"
             className="w-full h-full object-cover object-center dark-glow-image"
             fallbackSrc="/placeholder.svg"
