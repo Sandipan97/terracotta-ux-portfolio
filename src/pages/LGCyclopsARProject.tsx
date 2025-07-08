@@ -133,7 +133,22 @@ const LGCyclopsARProject = () => {
           </div>
         </section>
 
-        {/* Problem Statement */}
+        {/* Objective & Methodologies */}
+        <ObjectiveMethodologies />
+
+        {/* Enhanced Design Solutions */}
+        <EnhancedDesignSolutions />
+
+        {/* Research Questions */}
+        <ResearchQuestions />
+
+        {/* Key Findings */}
+        <KeyFindings />
+
+        {/* Detailed Solutions */}
+        <DetailedSolutions />
+
+        {/* Final Takeaway */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
