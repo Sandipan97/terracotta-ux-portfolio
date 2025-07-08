@@ -72,14 +72,17 @@ const LGCyclopsARProject = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500 hover:text-white transition-all duration-300 border border-indigo-500/30">
-                  AR Design
+               <Badge className="bg-white text-indigo-900 hover:bg-indigo-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-900" 
+                      tabIndex={0} role="button" aria-label="AR Design tag">
+                  🥽 AR Design
                 </Badge>
-                <Badge className="bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-white transition-all duration-300 border border-purple-500/30">
-                  User Experience
+                <Badge className="bg-white text-purple-900 hover:bg-purple-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-900" 
+                      tabIndex={0} role="button" aria-label="User Experience tag">
+                  👤 User Experience
                 </Badge>
-                <Badge className="bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500 hover:text-white transition-all duration-300 border border-indigo-500/30">
-                  Interactive Design
+                <Badge className="bg-white text-indigo-900 hover:bg-indigo-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-900" 
+                      tabIndex={0} role="button" aria-label="Interactive Design tag">
+                  ⚡ Interactive Design
                 </Badge>
               </div>
 
@@ -87,7 +90,7 @@ const LGCyclopsARProject = () => {
                 AR Interactive User Manual - LG Cyclops
               </h1>
               
-              <p className="text-lg mb-8 text-indigo-200 text-center md:text-left max-w-4xl leading-relaxed">
+              <p className="text-lg mb-8 text-white text-center md:text-left max-w-4xl leading-relaxed">
                 A transformative AR-based digital manual for LG consumer products, replacing traditional printed guides with immersive, interactive experiences that enhance user comprehension and reduce environmental impact.
               </p>
               
@@ -99,7 +102,7 @@ const LGCyclopsARProject = () => {
                   transition={{ duration: 0.5, delay: 0.7 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-indigo-300 text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
                   <p className="font-semibold text-white">LG Electronics</p>
                 </motion.div>
                 
@@ -110,7 +113,7 @@ const LGCyclopsARProject = () => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-indigo-300 text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
                   <p className="font-semibold text-white">6 Months</p>
                 </motion.div>
                 
@@ -121,7 +124,7 @@ const LGCyclopsARProject = () => {
                   transition={{ duration: 0.5, delay: 0.9 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-indigo-300 text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
                   <p className="font-semibold text-white">UX Designer & AR Experience Designer</p>
                 </motion.div>
               </div>
@@ -156,15 +159,16 @@ const LGCyclopsARProject = () => {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
                 Final Takeaway
               </h2>
-              <blockquote className="text-xl text-indigo-100 max-w-4xl mx-auto italic leading-relaxed mb-8">
+              <blockquote className="text-xl text-white max-w-4xl mx-auto italic leading-relaxed mb-8">
                 "It's not enough to build usable products—we must build experiences that bring joy, clarity, and confidence."
               </blockquote>
-              <p className="text-indigo-200 text-lg">
+              <p className="text-white text-lg">
                 — Inspired by Don Norman
               </p>
               <Button 
-                className="mt-8 bg-white text-indigo-600 hover:bg-indigo-100 hover:text-indigo-700 transition-all duration-300"
+                className="mt-8 bg-white text-indigo-600 hover:bg-indigo-100 hover:text-indigo-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
                 onClick={() => navigate('/contact')}
+                aria-label="Contact to discuss AR projects"
               >
                 Discuss AR Projects
               </Button>

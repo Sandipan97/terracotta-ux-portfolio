@@ -63,14 +63,17 @@ const DripometerProject = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-white transition-all duration-300 border border-emerald-500/30">
-                  Healthcare
+                <Badge className="bg-white text-emerald-900 hover:bg-emerald-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-900" 
+                       tabIndex={0} role="button" aria-label="Healthcare tag">
+                  🏥 Healthcare
                 </Badge>
-                <Badge className="bg-teal-500/20 text-teal-300 hover:bg-teal-500 hover:text-white transition-all duration-300 border border-teal-500/30">
-                  Product Design
+                <Badge className="bg-white text-teal-900 hover:bg-teal-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal-900" 
+                       tabIndex={0} role="button" aria-label="Product Design tag">
+                  🎨 Product Design
                 </Badge>
-                <Badge className="bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-white transition-all duration-300 border border-emerald-500/30">
-                  Medical Device
+                <Badge className="bg-white text-emerald-900 hover:bg-emerald-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-900" 
+                       tabIndex={0} role="button" aria-label="Medical Device tag">
+                  🔬 Medical Device
                 </Badge>
               </div>
 
@@ -78,7 +81,7 @@ const DripometerProject = () => {
                 Dripometer - IV Drip Monitoring System
               </h1>
               
-              <p className="text-lg mb-8 text-emerald-200 text-center md:text-left max-w-4xl leading-relaxed">
+              <p className="text-lg mb-8 text-white text-center md:text-left max-w-4xl leading-relaxed">
                 An innovative IoT-enabled monitoring system designed to track intravenous drip flow rates in real-time, improving patient safety and reducing medical errors in healthcare facilities.
               </p>
               
@@ -90,7 +93,7 @@ const DripometerProject = () => {
                   transition={{ duration: 0.5, delay: 0.7 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-emerald-300 text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
                   <p className="font-semibold text-white">IISc Bangalore</p>
                 </motion.div>
                 
@@ -101,7 +104,7 @@ const DripometerProject = () => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-emerald-300 text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
                   <p className="font-semibold text-white">7 Months</p>
                 </motion.div>
                 
@@ -112,7 +115,7 @@ const DripometerProject = () => {
                   transition={{ duration: 0.5, delay: 0.9 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-emerald-300 text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
                   <p className="font-semibold text-white">Lead Product Designer</p>
                 </motion.div>
               </div>
@@ -198,21 +201,21 @@ const DripometerProject = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">95%</div>
-                  <div className="text-emerald-100">Monitoring Accuracy</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">60%</div>
-                  <div className="text-emerald-100">Error Reduction</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">40%</div>
-                  <div className="text-emerald-100">Faster Response</div>
-                </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">95%</div>
+                   <div className="text-white">Monitoring Accuracy</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">60%</div>
+                   <div className="text-white">Error Reduction</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">40%</div>
+                   <div className="text-white">Faster Response</div>
+                 </div>
               </div>
 
-              <blockquote className="text-xl text-emerald-100 max-w-4xl mx-auto italic leading-relaxed mb-8">
+              <blockquote className="text-xl text-white max-w-4xl mx-auto italic leading-relaxed mb-8">
                 "Design in healthcare isn't just about aesthetics—it's about creating solutions that can save lives."
               </blockquote>
               

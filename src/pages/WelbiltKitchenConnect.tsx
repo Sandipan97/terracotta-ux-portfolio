@@ -53,11 +53,12 @@ const WelbiltKitchenConnect = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <Button 
+               <Button 
                 onClick={handleBack}
                 variant="secondary" 
-                className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300 border border-white/20"
+                className="bg-white text-blue-900 hover:bg-blue-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
                 size="icon"
+                aria-label="Go back to projects"
               >
                 <ArrowLeft size={20} />
               </Button>
@@ -90,15 +91,18 @@ const WelbiltKitchenConnect = () => {
               animate="visible"
               className="text-center text-white"
             >
-              <motion.div className="flex flex-wrap gap-2 mb-6 justify-center" variants={itemVariants}>
-                <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 hover:bg-blue-500/30">
-                  Kitchen Management
+               <motion.div className="flex flex-wrap gap-2 mb-6 justify-center" variants={itemVariants}>
+                <Badge className="bg-white text-blue-900 border-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900" 
+                       tabIndex={0} role="button" aria-label="Kitchen Management tag">
+                  🏪 Kitchen Management
                 </Badge>
-                <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500/30">
-                  Design System
+                <Badge className="bg-white text-indigo-900 border-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-900" 
+                       tabIndex={0} role="button" aria-label="Design System tag">
+                  🎨 Design System
                 </Badge>
-                <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30 hover:bg-cyan-500/30">
-                  Enterprise UX
+                <Badge className="bg-white text-cyan-900 border-white hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-900" 
+                       tabIndex={0} role="button" aria-label="Enterprise UX tag">
+                  🏢 Enterprise UX
                 </Badge>
               </motion.div>
 
@@ -110,14 +114,14 @@ const WelbiltKitchenConnect = () => {
               </motion.h1>
               
               <motion.h2 
-                className="text-2xl md:text-4xl font-semibold mb-8 text-blue-300"
+                className="text-2xl md:text-4xl font-semibold mb-8 text-white"
                 variants={itemVariants}
               >
                 Design System & Platform Revamp
               </motion.h2>
               
               <motion.p 
-                className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-gray-200"
+                className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-white"
                 variants={itemVariants}
               >
                 A comprehensive redesign of Welbilt's kitchen management platform, featuring a complete design system 
@@ -151,18 +155,18 @@ const WelbiltKitchenConnect = () => {
               </blockquote>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">35%</div>
-                  <div className="text-blue-100">Development Acceleration</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">85%</div>
-                  <div className="text-blue-100">User Satisfaction</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">50+</div>
-                  <div className="text-blue-100">Design Components</div>
-                </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">35%</div>
+                   <div className="text-white">Development Acceleration</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">85%</div>
+                   <div className="text-white">User Satisfaction</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">50+</div>
+                   <div className="text-white">Design Components</div>
+                 </div>
               </div>
               
               <motion.div className="mt-12">

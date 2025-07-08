@@ -63,14 +63,17 @@ const FarmMonitoringProject = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-green-500/20 text-green-300 hover:bg-green-500 hover:text-white transition-all duration-300 border border-green-500/30">
-                  Agriculture
+                <Badge className="bg-white text-green-900 hover:bg-green-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-900" 
+                       tabIndex={0} role="button" aria-label="Agriculture tag">
+                  🌾 Agriculture
                 </Badge>
-                <Badge className="bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-white transition-all duration-300 border border-emerald-500/30">
-                  Mobile App
+                <Badge className="bg-white text-emerald-900 hover:bg-emerald-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-900" 
+                       tabIndex={0} role="button" aria-label="Mobile App tag">
+                  📱 Mobile App
                 </Badge>
-                <Badge className="bg-green-500/20 text-green-300 hover:bg-green-500 hover:text-white transition-all duration-300 border border-green-500/30">
-                  UX Design
+                <Badge className="bg-white text-green-900 hover:bg-green-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-900" 
+                       tabIndex={0} role="button" aria-label="UX Design tag">
+                  🎨 UX Design
                 </Badge>
               </div>
 
@@ -78,7 +81,7 @@ const FarmMonitoringProject = () => {
                 Farm Monitoring Mobile Application
               </h1>
               
-              <p className="text-lg mb-8 text-green-200 text-center md:text-left max-w-4xl leading-relaxed">
+              <p className="text-lg mb-8 text-white text-center md:text-left max-w-4xl leading-relaxed">
                 A comprehensive mobile application designed to help farmers monitor crop conditions, soil health, and weather patterns in real-time, enabling data-driven agricultural decisions for improved yields.
               </p>
               
@@ -90,7 +93,7 @@ const FarmMonitoringProject = () => {
                   transition={{ duration: 0.5, delay: 0.7 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-green-300 text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
                   <p className="font-semibold text-white">HCLTech</p>
                 </motion.div>
                 
@@ -101,7 +104,7 @@ const FarmMonitoringProject = () => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-green-300 text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
                   <p className="font-semibold text-white">6 Months</p>
                 </motion.div>
                 
@@ -112,7 +115,7 @@ const FarmMonitoringProject = () => {
                   transition={{ duration: 0.5, delay: 0.9 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-green-300 text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
                   <p className="font-semibold text-white">Lead UX Designer</p>
                 </motion.div>
               </div>
@@ -198,21 +201,21 @@ const FarmMonitoringProject = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">28%</div>
-                  <div className="text-green-100">Yield Improvement</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">35%</div>
-                  <div className="text-green-100">Water Conservation</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">50%</div>
-                  <div className="text-green-100">Decision Speed</div>
-                </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">28%</div>
+                   <div className="text-white">Yield Improvement</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">35%</div>
+                   <div className="text-white">Water Conservation</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">50%</div>
+                   <div className="text-white">Decision Speed</div>
+                 </div>
               </div>
 
-              <blockquote className="text-xl text-green-100 max-w-4xl mx-auto italic leading-relaxed mb-8">
+              <blockquote className="text-xl text-white max-w-4xl mx-auto italic leading-relaxed mb-8">
                 "Technology in agriculture isn't about replacing tradition—it's about enhancing farmers' wisdom with data-driven insights."
               </blockquote>
               

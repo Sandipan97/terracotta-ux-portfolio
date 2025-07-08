@@ -63,14 +63,17 @@ const ToyAnatomyProject = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-white transition-all duration-300 border border-orange-500/30">
-                  Educational Design
+                <Badge className="bg-white text-orange-900 hover:bg-orange-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-900" 
+                       tabIndex={0} role="button" aria-label="Educational Design tag">
+                  🎓 Educational Design
                 </Badge>
-                <Badge className="bg-amber-500/20 text-amber-300 hover:bg-amber-500 hover:text-white transition-all duration-300 border border-amber-500/30">
-                  Interactive Learning
+                <Badge className="bg-white text-amber-900 hover:bg-amber-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amber-900" 
+                       tabIndex={0} role="button" aria-label="Interactive Learning tag">
+                  🧠 Interactive Learning
                 </Badge>
-                <Badge className="bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-white transition-all duration-300 border border-orange-500/30">
-                  Product Design
+                <Badge className="bg-white text-orange-900 hover:bg-orange-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-900" 
+                       tabIndex={0} role="button" aria-label="Product Design tag">
+                  🎨 Product Design
                 </Badge>
               </div>
 
@@ -78,7 +81,7 @@ const ToyAnatomyProject = () => {
                 Toy Anatomy - Kids Educational Project
               </h1>
               
-              <p className="text-lg mb-8 text-orange-200 text-center md:text-left max-w-4xl leading-relaxed">
+              <p className="text-lg mb-8 text-white text-center md:text-left max-w-4xl leading-relaxed">
                 An innovative educational toy system designed to teach children about human anatomy through interactive play, making complex biological concepts accessible and engaging for young learners.
               </p>
               
@@ -90,7 +93,7 @@ const ToyAnatomyProject = () => {
                   transition={{ duration: 0.5, delay: 0.7 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-orange-300 text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
                   <p className="font-semibold text-white">IISc Bangalore</p>
                 </motion.div>
                 
@@ -101,7 +104,7 @@ const ToyAnatomyProject = () => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-orange-300 text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
                   <p className="font-semibold text-white">4 Months</p>
                 </motion.div>
                 
@@ -112,7 +115,7 @@ const ToyAnatomyProject = () => {
                   transition={{ duration: 0.5, delay: 0.9 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-orange-300 text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
                   <p className="font-semibold text-white">Lead Educational Designer</p>
                 </motion.div>
               </div>
@@ -198,21 +201,21 @@ const ToyAnatomyProject = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">40%</div>
-                  <div className="text-orange-100">Learning Improvement</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">85%</div>
-                  <div className="text-orange-100">Engagement Rate</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">12+</div>
-                  <div className="text-orange-100">Body Systems Covered</div>
-                </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">40%</div>
+                   <div className="text-white">Learning Improvement</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">85%</div>
+                   <div className="text-white">Engagement Rate</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">12+</div>
+                   <div className="text-white">Body Systems Covered</div>
+                 </div>
               </div>
 
-              <blockquote className="text-xl text-orange-100 max-w-4xl mx-auto italic leading-relaxed mb-8">
+              <blockquote className="text-xl text-white max-w-4xl mx-auto italic leading-relaxed mb-8">
                 "The best educational tools don't feel like learning—they feel like discovery and play."
               </blockquote>
               

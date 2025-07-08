@@ -63,14 +63,17 @@ const O2CProject = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500 hover:text-white transition-all duration-300 border border-cyan-500/30">
-                  Healthcare
+                <Badge className="bg-white text-cyan-900 hover:bg-cyan-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-900" 
+                       tabIndex={0} role="button" aria-label="Healthcare tag">
+                  🏥 Healthcare
                 </Badge>
-                <Badge className="bg-blue-500/20 text-blue-300 hover:bg-blue-500 hover:text-white transition-all duration-300 border border-blue-500/30">
-                  Product Design
+                <Badge className="bg-white text-blue-900 hover:bg-blue-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900" 
+                       tabIndex={0} role="button" aria-label="Product Design tag">
+                  🎨 Product Design
                 </Badge>
-                <Badge className="bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500 hover:text-white transition-all duration-300 border border-cyan-500/30">
-                  Medical Device
+                <Badge className="bg-white text-cyan-900 hover:bg-cyan-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-900" 
+                       tabIndex={0} role="button" aria-label="Medical Device tag">
+                  🔬 Medical Device
                 </Badge>
               </div>
 
@@ -78,7 +81,7 @@ const O2CProject = () => {
                 Oxygen Concentrator O2C Project
               </h1>
               
-              <p className="text-lg mb-8 text-cyan-200 text-center md:text-left max-w-4xl leading-relaxed">
+              <p className="text-lg mb-8 text-white text-center md:text-left max-w-4xl leading-relaxed">
                 A comprehensive UX design project for a portable oxygen concentrator, focusing on creating an intuitive user interface that prioritizes patient safety and ease of use in critical medical situations.
               </p>
               
@@ -90,7 +93,7 @@ const O2CProject = () => {
                   transition={{ duration: 0.5, delay: 0.7 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-cyan-300 text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
                   <p className="font-semibold text-white">Merritt Innovation Solutions & IISc</p>
                 </motion.div>
                 
@@ -101,7 +104,7 @@ const O2CProject = () => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-cyan-300 text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
                   <p className="font-semibold text-white">5 Months</p>
                 </motion.div>
                 
@@ -112,7 +115,7 @@ const O2CProject = () => {
                   transition={{ duration: 0.5, delay: 0.9 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-cyan-300 text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
+                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
                   <p className="font-semibold text-white">Senior Product Designer</p>
                 </motion.div>
               </div>
@@ -198,21 +201,21 @@ const O2CProject = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">85%</div>
-                  <div className="text-cyan-100">User Satisfaction</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">70%</div>
-                  <div className="text-cyan-100">Setup Time Reduction</div>
-                </div>
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-4xl font-bold text-white mb-2">90%</div>
-                  <div className="text-cyan-100">Safety Compliance</div>
-                </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">85%</div>
+                   <div className="text-white">User Satisfaction</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">70%</div>
+                   <div className="text-white">Setup Time Reduction</div>
+                 </div>
+                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+                   <div className="text-4xl font-bold text-white mb-2">90%</div>
+                   <div className="text-white">Safety Compliance</div>
+                 </div>
               </div>
 
-              <blockquote className="text-xl text-cyan-100 max-w-4xl mx-auto italic leading-relaxed mb-8">
+              <blockquote className="text-xl text-white max-w-4xl mx-auto italic leading-relaxed mb-8">
                 "In medical device design, every interface decision can impact patient outcomes—clarity and safety must be paramount."
               </blockquote>
               
