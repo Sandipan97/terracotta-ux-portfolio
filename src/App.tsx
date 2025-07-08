@@ -40,6 +40,7 @@ function App() {
                   <Route path="/projects/2" element={<LGCyclopsAR />} />
                   <Route path="/projects/3" element={<WelbiltKitchenConnect />} />
                   <Route path="/projects/8" element={<PGResearchRazor />} />
+                  <Route path="/projects/pg-research-razor" element={<PGResearchRazor />} />
                   <Route path="/projects/lg-cyclops-ar" element={<LGCyclopsARProject />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
