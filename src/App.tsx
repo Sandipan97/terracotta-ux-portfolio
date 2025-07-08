@@ -18,6 +18,10 @@ const GharanaFoodDelivery = lazy(() => import('@/pages/GharanaFoodDelivery'));
 const LGCyclopsARProject = lazy(() => import('@/pages/LGCyclopsARProject'));
 const WelbiltKitchenConnect = lazy(() => import('@/pages/WelbiltKitchenConnect'));
 const PGResearchRazor = lazy(() => import('@/pages/PGResearchRazor'));
+const DripometerProject = lazy(() => import('@/pages/DripometerProject'));
+const ToyAnatomyProject = lazy(() => import('@/pages/ToyAnatomyProject'));
+const O2CProject = lazy(() => import('@/pages/O2CProject'));
+const FarmMonitoringProject = lazy(() => import('@/pages/FarmMonitoringProject'));
 
 const queryClient = new QueryClient();
 
@@ -39,6 +43,10 @@ function App() {
                   <Route path="/projects/welbilt-kitchen-connect" element={<WelbiltKitchenConnect />} />
                   <Route path="/projects/lg-cyclops-ar" element={<LGCyclopsARProject />} />
                   <Route path="/projects/pg-research-razor" element={<PGResearchRazor />} />
+                  <Route path="/projects/dripometer" element={<DripometerProject />} />
+                  <Route path="/projects/toy-anatomy" element={<ToyAnatomyProject />} />
+                  <Route path="/projects/o2c-project" element={<O2CProject />} />
+                  <Route path="/projects/farm-monitoring" element={<FarmMonitoringProject />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

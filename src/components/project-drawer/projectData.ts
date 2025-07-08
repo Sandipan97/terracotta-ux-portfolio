@@ -79,6 +79,7 @@ export const projects: Project[] = [
   },
   {
     id: 5,
+    slug: "dripometer",
     title: "Dripometer - IV Drip Monitoring System",
     category: "Product Design", 
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -91,6 +92,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
+    slug: "toy-anatomy",
     title: "Toy Anatomy - Kids Educational Project",
     category: "Educational Design",
     image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -103,6 +105,7 @@ export const projects: Project[] = [
   },
   {
     id: 7,
+    slug: "o2c-project",
     title: "Oxygen Concentrator O2C Project",
     category: "Product Design",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -115,6 +118,7 @@ export const projects: Project[] = [
   },
   {
     id: 8,
+    slug: "farm-monitoring",
     title: "Farm Monitoring Mobile Application",
     category: "UX Design",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
