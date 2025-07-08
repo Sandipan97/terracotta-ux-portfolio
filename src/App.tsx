@@ -37,9 +37,10 @@ function App() {
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/projects/:id" element={<ProjectDetail />} />
                   <Route path="/projects/1" element={<GharanaFoodDelivery />} />
+                  <Route path="/projects/gharana-food-delivery" element={<GharanaFoodDelivery />} />
                   <Route path="/projects/2" element={<LGCyclopsAR />} />
                   <Route path="/projects/3" element={<WelbiltKitchenConnect />} />
-                  <Route path="/projects/8" element={<PGResearchRazor />} />
+                  <Route path="/projects/9" element={<PGResearchRazor />} />
                   <Route path="/projects/pg-research-razor" element={<PGResearchRazor />} />
                   <Route path="/projects/lg-cyclops-ar" element={<LGCyclopsARProject />} />
                   <Route path="*" element={<NotFound />} />
