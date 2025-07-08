@@ -57,13 +57,13 @@ const DripometerProject = () => {
               transition={{ duration: 1.5, ease: "easeOut" }}
             >
               <EditableImage 
-                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" 
-                alt="Medical ward with IV stands and monitoring equipment"
+                src="/lovable-uploads/7fd5c57c-a8aa-4fc9-af30-aaa2cce4294b.png" 
+                alt="Dripometer - IV Drip Monitoring Device with LED indicators and digital display"
                 className="w-full h-full object-cover"
                 fallbackSrc="/placeholder.svg"
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/70 to-teal-900/90"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/50 to-teal-900/70"></div>
             
             {/* Animated nurse walking past IV stands */}
             <div className="absolute inset-0 flex items-center justify-center">
