@@ -6,6 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
+import StickyNavigation from '@/components/o2c/StickyNavigation';
+import ObjectiveMethodologies from '@/components/o2c/ObjectiveMethodologies';
+import ResearchQuestions from '@/components/o2c/ResearchQuestions';
+import UserPersonas from '@/components/o2c/UserPersonas';
+import KeyFindings from '@/components/o2c/KeyFindings';
+import DesignSolutions from '@/components/o2c/DesignSolutions';
+import ProjectTakeaways from '@/components/o2c/ProjectTakeaways';
 
 const O2CProject = () => {
   const navigate = useNavigate();
@@ -17,217 +24,167 @@ const O2CProject = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <StickyNavigation />
       
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="w-full relative h-[50vh] overflow-hidden">
-          <motion.div 
-            className="absolute top-4 left-4 z-30"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <Button 
-              onClick={goBack}
-              variant="secondary" 
-              className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-cyan-600 transition-all duration-300 border border-border/50"
-              size="icon"
-            >
-              <ArrowLeft size={20} />
-            </Button>
-          </motion.div>
-
-          <motion.div 
-            className="absolute inset-0 z-10"
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          >
-            <EditableImage 
-              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-              alt="Oxygen Concentrator O2C Project"
-              className="w-full h-full object-cover"
-              fallbackSrc="/placeholder.svg"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/40 to-blue-900/60 z-10"></div>
-          </motion.div>
-        </section>
-
-        {/* Project Information */}
-        <section className="w-full bg-cyan-900/95 backdrop-blur-sm py-12 border-b border-cyan-500/20">
+      <main className="pt-32">
+        {/* Back Button */}
+        <section className="w-full py-8">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-6xl mx-auto"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-white text-cyan-900 hover:bg-cyan-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-900" 
-                       tabIndex={0} role="button" aria-label="Healthcare tag">
-                  🏥 Healthcare
-                </Badge>
-                <Badge className="bg-white text-blue-900 hover:bg-blue-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900" 
-                       tabIndex={0} role="button" aria-label="Product Design tag">
-                  🎨 Product Design
-                </Badge>
-                <Badge className="bg-white text-cyan-900 hover:bg-cyan-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-900" 
-                       tabIndex={0} role="button" aria-label="Medical Device tag">
-                  🔬 Medical Device
-                </Badge>
-              </div>
-
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-white text-center md:text-left">
-                Oxygen Concentrator O2C Project
-              </h1>
-              
-              <p className="text-lg mb-8 text-white text-center md:text-left max-w-4xl leading-relaxed">
-                A comprehensive UX design project for a portable oxygen concentrator, focusing on creating an intuitive user interface that prioritizes patient safety and ease of use in critical medical situations.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                <motion.div 
-                  className="bg-cyan-900/30 backdrop-blur-sm p-5 rounded-2xl border border-cyan-500/30 shadow-lg hover:shadow-xl transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
-                  whileHover={{ y: -2, scale: 1.02 }}
-                >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
-                  <p className="font-semibold text-white">Merritt Innovation Solutions & IISc</p>
-                </motion.div>
-                
-                <motion.div 
-                  className="bg-cyan-900/30 backdrop-blur-sm p-5 rounded-2xl border border-cyan-500/30 shadow-lg hover:shadow-xl transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                  whileHover={{ y: -2, scale: 1.02 }}
-                >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
-                  <p className="font-semibold text-white">5 Months</p>
-                </motion.div>
-                
-                <motion.div 
-                  className="bg-cyan-900/30 backdrop-blur-sm p-5 rounded-2xl border border-cyan-500/30 shadow-lg hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.9 }}
-                  whileHover={{ y: -2, scale: 1.02 }}
-                >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
-                  <p className="font-semibold text-white">Senior Product Designer</p>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Design Solutions */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Design Solutions
-              </h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto">
-                Developing user-centered interfaces for critical medical equipment that prioritize safety, clarity, and accessibility.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <motion.div
-                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 bg-cyan-500 rounded-full"></div>
-                </div>
-                <h3 className="font-semibold text-foreground mb-3">Critical Safety Interface</h3>
-                <p className="text-muted-foreground">Clear visual indicators and fail-safe controls designed for emergency medical situations.</p>
-              </motion.div>
-
-              <motion.div
-                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 bg-blue-500 rounded-full"></div>
-                </div>
-                <h3 className="font-semibold text-foreground mb-3">Portable Design</h3>
-                <p className="text-muted-foreground">Compact, lightweight interface optimized for home and mobile medical use.</p>
-              </motion.div>
-
-              <motion.div
-                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 bg-cyan-500 rounded-full"></div>
-                </div>
-                <h3 className="font-semibold text-foreground mb-3">Patient-Centered UX</h3>
-                <p className="text-muted-foreground">Intuitive controls designed for patients and caregivers with varying technical expertise.</p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Project Impact */}
-        <section className="py-16 bg-gradient-to-br from-cyan-600 to-blue-600">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-8">
-                Design Impact
-              </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
-                   <div className="text-4xl font-bold text-white mb-2">85%</div>
-                   <div className="text-white">User Satisfaction</div>
-                 </div>
-                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
-                   <div className="text-4xl font-bold text-white mb-2">70%</div>
-                   <div className="text-white">Setup Time Reduction</div>
-                 </div>
-                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
-                   <div className="text-4xl font-bold text-white mb-2">90%</div>
-                   <div className="text-white">Safety Compliance</div>
-                 </div>
-              </div>
-
-              <blockquote className="text-xl text-white max-w-4xl mx-auto italic leading-relaxed mb-8">
-                "In medical device design, every interface decision can impact patient outcomes—clarity and safety must be paramount."
-              </blockquote>
-              
               <Button 
-                className="bg-white text-cyan-600 hover:bg-cyan-100 hover:text-cyan-700 transition-all duration-300"
-                onClick={() => navigate('/contact')}
+                onClick={goBack}
+                variant="secondary" 
+                className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-cyan-600 transition-all duration-300 border border-border/50"
+                size="icon"
+                aria-label="Go back to projects"
               >
-                Discuss Medical Device Design
+                <ArrowLeft size={20} />
               </Button>
             </motion.div>
           </div>
         </section>
+
+        {/* Animated Hero Section */}
+        <section className="w-full relative min-h-screen flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0">
+            <motion.div
+              initial={{ scale: 1.1, filter: "blur(4px)" }}
+              animate={{ scale: 1, filter: "blur(0px)" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            >
+              <EditableImage 
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                alt="Oxygen Concentrator O2C Project - WHO-compliant medical device interface"
+                className="w-full h-full object-cover"
+                fallbackSrc="/placeholder.svg"
+              />
+            </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/50 to-blue-900/70"></div>
+          </div>
+
+          <div className="container mx-auto px-4 md:px-6 relative z-20">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-center text-white"
+            >
+              {/* Mission Statement */}
+              <motion.div
+                className="mb-8"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1 }}
+              >
+                <div className="bg-cyan-600/20 backdrop-blur-sm border border-cyan-400/30 rounded-2xl p-6 mb-8 max-w-4xl mx-auto">
+                  <h2 className="text-xl md:text-2xl font-semibold text-cyan-100 mb-4">
+                    🎯 Mission
+                  </h2>
+                  <p className="text-lg md:text-xl leading-relaxed text-white">
+                    Design WHO-compliant oxygen concentrator interfaces for diverse economic user groups across post-COVID India.
+                  </p>
+                </div>
+              </motion.div>
+
+              <div className="flex flex-wrap gap-3 mb-8 justify-center">
+                {[
+                  { label: "WHO Compliance", icon: "🏥", color: "cyan" },
+                  { label: "UX Research", icon: "🎨", color: "blue" },
+                  { label: "Medical Device", icon: "🔬", color: "cyan" },
+                  { label: "Accessibility Design", icon: "♿", color: "blue" }
+                ].map((badge, index) => (
+                  <motion.div
+                    key={badge.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 1.5 + index * 0.1 }}
+                  >
+                    <Badge className="bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 transition-all duration-300 px-3 py-1">
+                      {badge.icon} {badge.label}
+                    </Badge>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.h1 
+                className="font-heading text-5xl md:text-8xl font-bold mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300 bg-clip-text text-transparent">
+                  O2C Project
+                </span>
+              </motion.h1>
+              
+              <motion.p 
+                className="text-xl md:text-2xl max-w-5xl mx-auto leading-relaxed text-cyan-100 mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+              >
+                A comprehensive WHO-compliant UX design case study for oxygen concentrators serving diverse socio-economic segments in post-COVID India.
+              </motion.p>
+
+              {/* Project Details Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto">
+                {[
+                  { label: "Client", value: "Merritt Innovation & IISc", icon: "🏛️" },
+                  { label: "Duration", value: "5 Months", icon: "⏱️" },
+                  { label: "My Role", value: "Senior Product Designer", icon: "👨‍🎨" }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={item.label}
+                    className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 2 + index * 0.2 }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="text-2xl mb-2">{item.icon}</div>
+                    <h3 className="text-cyan-200 text-sm font-medium mb-2 uppercase tracking-wide">
+                      {item.label}
+                    </h3>
+                    <p className="font-semibold text-white text-lg">{item.value}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Scroll Indicator */}
+              <motion.div
+                className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 3 }}
+              >
+                <motion.div
+                  className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <motion.div
+                    className="w-1.5 h-1.5 bg-white rounded-full mt-2"
+                    animate={{ y: [0, 12, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </motion.div>
+                <p className="text-white/70 text-sm mt-2">Scroll to explore</p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Research-Driven Content Sections */}
+        <ObjectiveMethodologies />
+        <ResearchQuestions />
+        <UserPersonas />
+        <KeyFindings />
+        <DesignSolutions />
+        <ProjectTakeaways />
       </main>
       
       <Footer />
