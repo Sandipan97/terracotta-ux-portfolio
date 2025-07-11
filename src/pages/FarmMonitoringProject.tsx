@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
+import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
 
 const FarmMonitoringProject = () => {
   const navigate = useNavigate();
@@ -14,13 +15,20 @@ const FarmMonitoringProject = () => {
     navigate(-1);
   };
 
+  const navigationSections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'features', label: 'Features' },
+    { id: 'impact', label: 'Impact' }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <UniversalStickyNavigation sections={navigationSections} />
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="w-full relative h-[50vh] overflow-hidden">
+        <section id="overview" className="w-full relative h-[50vh] overflow-hidden">
           <motion.div 
             className="absolute top-4 left-4 z-30"
             initial={{ opacity: 0, x: -20 }}
@@ -124,7 +132,7 @@ const FarmMonitoringProject = () => {
         </section>
 
         {/* App Features */}
-        <section className="py-16 bg-background">
+        <section id="features" className="py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -188,7 +196,7 @@ const FarmMonitoringProject = () => {
         </section>
 
         {/* Agricultural Impact */}
-        <section className="py-16 bg-gradient-to-br from-green-600 to-emerald-600">
+        <section id="impact" className="py-16 bg-gradient-to-br from-green-600 to-emerald-600">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { EditableImage } from '@/components/ui/editable-image';
 import { useNavigate } from 'react-router-dom';
-import { StickyNavigation } from '@/components/pg-research/StickyNavigation';
+import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
 import { ObjectiveMethodologies } from '@/components/pg-research/ObjectiveMethodologies';
 import { KeyFindings } from '@/components/pg-research/KeyFindings';
 import { DesignSolutions } from '@/components/pg-research/DesignSolutions';
@@ -19,6 +19,17 @@ const PGResearchRazor = () => {
     navigate('/projects');
   };
 
+  const navigationSections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'goals', label: 'Goals' },
+    { id: 'audit', label: 'Audit' },
+    { id: 'problems', label: 'Problems' },
+    { id: 'solutions', label: 'Solutions' },
+    { id: 'impact', label: 'Impact' },
+    { id: 'future', label: 'Future' },
+    { id: 'showcase', label: 'Showcase' }
+  ];
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -28,7 +39,7 @@ const PGResearchRazor = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <StickyNavigation />
+      <UniversalStickyNavigation sections={navigationSections} />
       
       {/* Hero Section - "From Legacy to Modern" */}
       <section id="overview" className="w-full relative h-[60vh] overflow-hidden">
@@ -217,22 +228,34 @@ const PGResearchRazor = () => {
       </section>
 
       {/* UX Goals & Strategy */}
-      <ObjectiveMethodologies />
+      <div id="goals">
+        <ObjectiveMethodologies />
+      </div>
 
       {/* UX Audit & Key Problems */}
-      <KeyFindings />
+      <div id="audit">
+        <KeyFindings />
+      </div>
 
       {/* UX Solutions & Redesign */}
-      <DesignSolutions />
+      <div id="solutions">
+        <DesignSolutions />
+      </div>
 
       {/* Measurable Impact */}
-      <MeasurableImpact />
+      <div id="impact">
+        <MeasurableImpact />
+      </div>
 
       {/* Future Enhancements */}
-      <FutureEnhancements />
+      <div id="future">
+        <FutureEnhancements />
+      </div>
 
       {/* Final UI Showcase */}
-      <FinalShowcase />
+      <div id="showcase">
+        <FinalShowcase />
+      </div>
     </div>
   );
 };

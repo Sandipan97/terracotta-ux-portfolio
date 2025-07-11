@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
-import StickyNavigation from '@/components/toy-anatomy/StickyNavigation';
+import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
 import ObjectiveMethodologies from '@/components/toy-anatomy/ObjectiveMethodologies';
 import ResearchQuestions from '@/components/toy-anatomy/ResearchQuestions';
 import UserPersonas from '@/components/toy-anatomy/UserPersonas';
@@ -25,13 +25,28 @@ const ToyAnatomyProject = () => {
     navigate(-1);
   };
 
+  const navigationSections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'objective', label: 'Objective' },
+    { id: 'research', label: 'Research' },
+    { id: 'personas', label: 'Personas' },
+    { id: 'platform', label: 'Platform' },
+    { id: 'features', label: 'Features' },
+    { id: 'market', label: 'Market' },
+    { id: 'strategy', label: 'Strategy' },
+    { id: 'journeys', label: 'Journeys' },
+    { id: 'prototype', label: 'Prototype' },
+    { id: 'future', label: 'Future' }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <UniversalStickyNavigation sections={navigationSections} />
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="w-full relative h-[50vh] overflow-hidden">
+        <section id="overview" className="w-full relative h-[50vh] overflow-hidden">
           <motion.div 
             className="absolute top-4 left-4 z-30"
             initial={{ opacity: 0, x: -20 }}
@@ -134,19 +149,37 @@ const ToyAnatomyProject = () => {
           </div>
         </section>
 
-        <StickyNavigation />
-        
         {/* Main Content Sections */}
-        <ObjectiveMethodologies />
-        <ResearchQuestions />
-        <UserPersonas />
-        <PlatformOverview />
-        <KeyFeatures />
-        <MarketInsights />
-        <StrategicVision />
-        <UserJourneys />
-        <PrototypeValidation />
-        <FutureVision />
+        <div id="objective">
+          <ObjectiveMethodologies />
+        </div>
+        <div id="research">
+          <ResearchQuestions />
+        </div>
+        <div id="personas">
+          <UserPersonas />
+        </div>
+        <div id="platform">
+          <PlatformOverview />
+        </div>
+        <div id="features">
+          <KeyFeatures />
+        </div>
+        <div id="market">
+          <MarketInsights />
+        </div>
+        <div id="strategy">
+          <StrategicVision />
+        </div>
+        <div id="journeys">
+          <UserJourneys />
+        </div>
+        <div id="prototype">
+          <PrototypeValidation />
+        </div>
+        <div id="future">
+          <FutureVision />
+        </div>
       </main>
       
       <Footer />

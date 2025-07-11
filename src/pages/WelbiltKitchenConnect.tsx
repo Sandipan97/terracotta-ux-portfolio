@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
-import { StickyNavigation } from '@/components/welbilt/StickyNavigation';
+import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
 import { ObjectiveMethodologies } from '@/components/welbilt/ObjectiveMethodologies';
 import { EnhancedDesignSolutions } from '@/components/welbilt/EnhancedDesignSolutions';
 import { ResearchQuestions } from '@/components/welbilt/ResearchQuestions';
@@ -19,6 +19,15 @@ const WelbiltKitchenConnect = () => {
   const handleBack = () => {
     navigate('/projects');
   };
+
+  const navigationSections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'objective', label: 'Objective' },
+    { id: 'solutions', label: 'Solutions' },
+    { id: 'research', label: 'Research' },
+    { id: 'findings', label: 'Findings' },
+    { id: 'impact', label: 'Impact' }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,7 +51,7 @@ const WelbiltKitchenConnect = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
       <Navbar />
-      <StickyNavigation />
+      <UniversalStickyNavigation sections={navigationSections} />
       
       <main className="pt-20">
         {/* Back Button */}
@@ -132,11 +141,21 @@ const WelbiltKitchenConnect = () => {
         </section>
 
         {/* New Structured Content */}
-        <ObjectiveMethodologies />
-        <EnhancedDesignSolutions />
-        <ResearchQuestions />
-        <KeyFindings />
-        <DetailedSolutions />
+        <div id="objective">
+          <ObjectiveMethodologies />
+        </div>
+        <div id="solutions">
+          <EnhancedDesignSolutions />
+        </div>
+        <div id="research">
+          <ResearchQuestions />
+        </div>
+        <div id="findings">
+          <KeyFindings />
+        </div>
+        <div id="detailed-solutions">
+          <DetailedSolutions />
+        </div>
 
         {/* Final Impact Section */}
         <section id="impact" className="py-20 bg-gradient-to-br from-blue-600 to-cyan-600">

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
-import StickyNavigation from '@/components/o2c/StickyNavigation';
+import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
 import ObjectiveMethodologies from '@/components/o2c/ObjectiveMethodologies';
 import ResearchQuestions from '@/components/o2c/ResearchQuestions';
 import UserPersonas from '@/components/o2c/UserPersonas';
@@ -21,10 +21,20 @@ const O2CProject = () => {
     navigate(-1);
   };
 
+  const navigationSections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'objective', label: 'Objective' },
+    { id: 'research', label: 'Research' },
+    { id: 'personas', label: 'Personas' },
+    { id: 'findings', label: 'Findings' },
+    { id: 'solutions', label: 'Solutions' },
+    { id: 'takeaways', label: 'Takeaways' }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <StickyNavigation />
+      <UniversalStickyNavigation sections={navigationSections} />
       
       <main className="pt-32">
         {/* Back Button */}
@@ -179,12 +189,24 @@ const O2CProject = () => {
         </section>
 
         {/* Research-Driven Content Sections */}
-        <ObjectiveMethodologies />
-        <ResearchQuestions />
-        <UserPersonas />
-        <KeyFindings />
-        <DesignSolutions />
-        <ProjectTakeaways />
+        <div id="objective">
+          <ObjectiveMethodologies />
+        </div>
+        <div id="research">
+          <ResearchQuestions />
+        </div>
+        <div id="personas">
+          <UserPersonas />
+        </div>
+        <div id="findings">
+          <KeyFindings />
+        </div>
+        <div id="solutions">
+          <DesignSolutions />
+        </div>
+        <div id="takeaways">
+          <ProjectTakeaways />
+        </div>
       </main>
       
       <Footer />
