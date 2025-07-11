@@ -116,14 +116,14 @@ const WelbiltKitchenConnect = () => {
               </motion.div>
 
               <motion.h1 
-                className="font-heading text-4xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
+                className="font-heading text-4xl md:text-7xl font-bold mb-6 text-header"
                 variants={itemVariants}
               >
                 Welbilt Kitchen Connect
               </motion.h1>
               
               <motion.h2 
-                className="text-2xl md:text-4xl font-semibold mb-8 text-white"
+                className="text-2xl md:text-4xl font-semibold mb-8 text-header"
                 variants={itemVariants}
               >
                 Design System & Platform Revamp
@@ -166,9 +166,9 @@ const WelbiltKitchenConnect = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-8">
-                Transformative Impact
-              </h2>
+               <h2 className="font-heading text-3xl md:text-5xl font-bold text-header mb-8">
+                 Transformative Impact
+               </h2>
               <blockquote className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto italic leading-relaxed mb-8">
                 "A well-crafted design system is not just about consistency—it's about empowering teams to build better experiences faster."
               </blockquote>

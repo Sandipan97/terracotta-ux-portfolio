@@ -103,7 +103,7 @@ const ToyAnatomyProject = () => {
                 </Badge>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-white text-center md:text-left">
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-header text-center md:text-left">
                 Toy Anatomy - Mechatronic Learning Platform
               </h1>
               

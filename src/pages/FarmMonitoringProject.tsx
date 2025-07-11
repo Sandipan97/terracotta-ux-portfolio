@@ -85,7 +85,7 @@ const FarmMonitoringProject = () => {
                 </Badge>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-white text-center md:text-left">
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-header text-center md:text-left">
                 Farm Monitoring Mobile Application
               </h1>
               
@@ -141,7 +141,7 @@ const FarmMonitoringProject = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-header mb-6">
                 Key Features & Solutions
               </h2>
               <p className="text-muted-foreground max-w-3xl mx-auto">
@@ -204,7 +204,7 @@ const FarmMonitoringProject = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-8">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-header mb-8">
                 Agricultural Impact
               </h2>
               

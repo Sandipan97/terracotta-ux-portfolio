@@ -86,7 +86,7 @@ const LGCyclopsARProject = () => {
                 </Badge>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-white text-center md:text-left">
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-header text-center md:text-left">
                 AR Interactive User Manual - LG Cyclops
               </h1>
               
@@ -156,7 +156,7 @@ const LGCyclopsARProject = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-header mb-6">
                 Final Takeaway
               </h2>
               <blockquote className="text-xl text-white max-w-4xl mx-auto italic leading-relaxed mb-8">

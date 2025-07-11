@@ -11,15 +11,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-bengali-terracotta text-white hover:bg-bengali-terracotta/90 shadow-lg hover:shadow-xl dark:bg-bengali-red dark:hover:bg-bengali-red/90",
+        default: "bg-red-pantone text-white hover:bg-red-pantone/90 shadow-lg hover:shadow-xl dark:bg-red-pantone dark:hover:bg-red-pantone/90 transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg hover:shadow-xl",
         outline:
-          "border-2 border-bengali-terracotta text-bengali-terracotta bg-background hover:bg-bengali-terracotta hover:text-white shadow-md hover:shadow-lg dark:border-bengali-mustard dark:text-bengali-mustard dark:hover:bg-bengali-mustard dark:hover:text-bengali-dark",
+          "border-2 border-red-pantone text-red-pantone bg-background hover:bg-red-pantone hover:text-white shadow-md hover:shadow-lg dark:border-red-pantone dark:text-red-pantone dark:hover:bg-red-pantone dark:hover:text-white transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
         secondary:
-          "bg-bengali-mustard text-bengali-dark hover:bg-bengali-mustard/80 shadow-md hover:shadow-lg dark:bg-bengali-mustard/90 dark:text-bengali-dark dark:hover:bg-bengali-mustard",
+          "bg-cerulean text-white hover:bg-cerulean/90 shadow-md hover:shadow-lg dark:bg-cerulean dark:text-white dark:hover:bg-cerulean/90 transition-all duration-300 focus:ring-2 focus:ring-cerulean/20 focus:ring-offset-2",
         ghost: "hover:bg-accent hover:text-accent-foreground hover:shadow-sm",
-        link: "text-bengali-terracotta underline-offset-4 hover:underline dark:text-bengali-mustard",
+        link: "text-red-pantone underline-offset-4 hover:underline dark:text-red-pantone transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
       },
       size: {
         default: "h-11 px-6 py-3",

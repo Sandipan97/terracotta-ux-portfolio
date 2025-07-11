@@ -166,14 +166,12 @@ const DripometerProject = () => {
               </div>
 
               <motion.h1 
-                className="font-heading text-5xl md:text-8xl font-bold mb-8"
+                className="font-heading text-5xl md:text-8xl font-bold mb-8 text-header"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
-                  Dripometer
-                </span>
+                Dripometer
               </motion.h1>
               
               <motion.p 

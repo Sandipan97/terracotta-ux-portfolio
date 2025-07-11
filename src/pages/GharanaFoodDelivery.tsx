@@ -184,7 +184,7 @@ const GharanaFoodDelivery = () => {
                 </Badge>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground text-center md:text-left" data-lovable-editable="gharana-main-title">
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-header text-center md:text-left" data-lovable-editable="gharana-main-title">
                 {project.title}
               </h1>
               

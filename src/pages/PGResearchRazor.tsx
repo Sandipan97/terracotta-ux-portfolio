@@ -128,10 +128,10 @@ const PGResearchRazor = () => {
               className="text-center text-white max-w-4xl px-4"
             >
               <div className="text-sm font-medium text-blue-200 mb-2">FROM LEGACY TO MODERN</div>
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-4">
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-4 text-header">
                 Reimagining Industrial UX
               </h1>
-              <h2 className="text-xl md:text-2xl mb-6 text-gray-200">
+              <h2 className="text-xl md:text-2xl mb-6 text-header">
                 for P&G Datalogger
               </h2>
               <p className="text-lg mb-8 text-gray-300 max-w-2xl mx-auto">
@@ -168,7 +168,7 @@ const PGResearchRazor = () => {
                 <Badge className="bg-blue-500/10 text-blue-600 border border-blue-500/20">Heuristic Evaluation</Badge>
               </div>
 
-              <h2 className="font-heading text-3xl font-bold text-foreground mb-4">
+              <h2 className="font-heading text-3xl font-bold text-header mb-4">
                 P&G Datalogger - UX Revamp
               </h2>
               
@@ -187,7 +187,7 @@ const PGResearchRazor = () => {
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
             >
               <div>
-                <h3 className="font-heading text-2xl font-bold mb-6 text-foreground">
+                <h3 className="font-heading text-2xl font-bold mb-6 text-header">
                   Critical Industrial Tool
                 </h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">

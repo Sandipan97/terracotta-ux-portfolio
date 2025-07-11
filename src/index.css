@@ -61,6 +61,14 @@
     --berkeley-blue: 215 50% 23%; /* #1d3557 */
     --berkeley-blue-light: 215 50% 33%; /* #315a93 */
     --berkeley-blue-dark: 215 50% 16%; /* #162841 */
+
+    /* Headers */
+    --h1: 182 43% 76%;
+    --h2: 182 43% 76%;
+    --h3: 182 43% 76%;
+    --h4: 182 43% 76%;
+    --h5: 182 43% 76%;
+    --h6: 182 43% 76%;
   }
 
   .dark {
@@ -117,6 +125,14 @@
     --berkeley-blue: 215 50% 33%; /* Lighter for dark mode */
     --berkeley-blue-light: 215 50% 43%; /* Even lighter */
     --berkeley-blue-dark: 215 50% 23%; /* Standard dark blue */
+
+    /* Headers for dark mode */
+    --h1: 182 43% 82%;
+    --h2: 182 43% 82%;
+    --h3: 182 43% 82%;
+    --h4: 182 43% 82%;
+    --h5: 182 43% 82%;
+    --h6: 182 43% 82%;
   }
 }
 
@@ -128,6 +144,21 @@
   body {
     @apply bg-background text-foreground font-sans transition-colors duration-500;
     background-image: var(--bg-pattern);
+  }
+
+  /* Header color classes */
+  h1, h2, h3, h4, h5, h6,
+  .text-header {
+    color: hsl(var(--h1)) !important;
+  }
+
+  /* Ensure text contrast meets WCAG 2.2 standards */
+  .text-contrast-high {
+    color: hsl(var(--berkeley-blue));
+  }
+
+  .text-contrast-medium {
+    color: hsl(var(--cerulean));
   }
 
   body:not(.dark) {

@@ -35,7 +35,7 @@ const SkillBadge = ({ skill, color }: SkillBadgeProps) => {
       whileTap={{ scale: 0.98 }}
     >
       <Badge 
-        className={`${color} px-2.5 py-1.5 text-xs sm:text-sm font-medium cursor-pointer transition-all duration-300 hover:shadow-sm border-0 focus:outline-none focus:ring-2 focus:ring-bengali-mustard focus:ring-offset-2 leading-tight`}
+        className={`${color} px-2.5 py-1.5 text-xs sm:text-sm font-medium cursor-pointer transition-all duration-300 hover:shadow-md border-0 focus:outline-none focus:ring-2 focus:ring-non-photo-blue focus:ring-offset-2 leading-tight shadow-sm`}
         variant="secondary"
         role="button"
         tabIndex={0}
