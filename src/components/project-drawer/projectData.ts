@@ -53,15 +53,15 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    slug: "lg-cyclops-ar",
-    title: "AR Interactive User Manual - LG Cyclops",
+    slug: "cyclops-ar-manual",
+    title: "Cyclops AR Interactive User Manual",
     category: "AR Projects",
     image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Designed an augmented reality solution that transforms the traditional product manual into an interactive experience.",
-    client: "LG Electronics",
-    duration: "4 Months",
-    role: "AR/VR Designer",
-    tags: ["AR/VR", "Industrial", "Training"],
+    description: "Revolutionizing product manuals with augmented reality - an immersive experience that simplifies setup, enhances understanding, and delights users.",
+    client: "HCL Technologies",
+    duration: "6 Months",
+    role: "Lead AR/UX Designer",
+    tags: ["AR/VR", "Interactive Design", "User Experience", "Product Innovation"],
     featured: true
   },
   {
@@ -142,7 +142,7 @@ export const projectFiles: ProjectFileData[] = projects.map(project => ({
   results: project.id === 1 ? "200% increase in home chef registrations" :
            
            project.id === 3 ? "35% faster development cycles" :
-           project.id === 4 ? "60% reduction in support calls" :
+           project.id === 4 ? "75% reduction in manual printing costs" :
            project.id === 5 ? "95% increase in monitoring accuracy" :
            project.id === 6 ? "40% improvement in learning outcomes" :
            project.id === 7 ? "85% improvement in user satisfaction" :
