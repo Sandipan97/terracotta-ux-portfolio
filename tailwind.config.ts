@@ -63,33 +63,21 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Enhanced Bengali color palette with much better dark mode support
-				bengali: {
-					terracotta: {
-						DEFAULT: '#D73027', // Brighter, more vibrant red-orange
-						light: '#F46D43',   // Lighter version for dark mode
-						dark: '#A50026'     // Darker version
-					},
-					mustard: {
-						DEFAULT: '#FFD700', // Bright sunflower yellow (Gold)
-						light: '#FFED4E',   // Even brighter for dark mode visibility
-						dark: '#FFA500'     // Orange-yellow for light mode accents
-					},
-					red: {
-						DEFAULT: '#E31A1C', // Vibrant red with good contrast
-						light: '#FB6A4A',   // Lighter red for dark mode
-						dark: '#B10000'     // Deep red
-					},
-					dark: {
-						DEFAULT: 'hsl(var(--foreground))',
-						light: 'hsl(var(--muted-foreground))',
-						darker: 'hsl(var(--primary))'
-					},
-					background: {
-						DEFAULT: 'hsl(var(--background))',
-						light: 'hsl(var(--muted))',
-						dark: 'hsl(var(--card))'
-					}
+				// Bengali color palette using CSS variables for proper theme support
+				'bengali-terracotta': {
+					DEFAULT: 'hsl(var(--bengali-terracotta))',
+					light: 'hsl(var(--bengali-terracotta-light))',
+					dark: 'hsl(var(--bengali-terracotta-dark))'
+				},
+				'bengali-mustard': {
+					DEFAULT: 'hsl(var(--bengali-mustard))',
+					light: 'hsl(var(--bengali-mustard-light))',
+					dark: 'hsl(var(--bengali-mustard-dark))'
+				},
+				'bengali-red': {
+					DEFAULT: 'hsl(var(--bengali-red))',
+					light: 'hsl(var(--bengali-red-light))',
+					dark: 'hsl(var(--bengali-red-dark))'
 				}
 			},
 			borderRadius: {
