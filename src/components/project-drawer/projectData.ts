@@ -39,19 +39,6 @@ export const projects: Project[] = [
     featured: true
   },
   {
-    id: 2,
-    slug: "pg-research-razor",
-    title: "P&G Research Razor – UX/UI Redesign",
-    category: "Industrial UX",
-    image: "/lovable-uploads/c2dfb2fc-13e4-4095-a586-8bbe9a0d451f.png",
-    description: "A comprehensive UX redesign of P&G's Datalogger application used in industrial and research environments.",
-    client: "Procter & Gamble",
-    duration: "3 Months",
-    role: "Lead UX/UI Designer & Researcher",
-    tags: ["UX Research", "UI Design", "Accessibility", "Industrial Design"],
-    featured: true
-  },
-  {
     id: 3,
     slug: "welbilt-kitchen-connect",
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
@@ -153,7 +140,7 @@ export const projectFiles: ProjectFileData[] = projects.map(project => ({
   duration: project.duration,
   slug: project.slug,
   results: project.id === 1 ? "200% increase in home chef registrations" :
-           project.id === 2 ? "45% reduction in error rates" :
+           
            project.id === 3 ? "35% faster development cycles" :
            project.id === 4 ? "60% reduction in support calls" :
            project.id === 5 ? "95% increase in monitoring accuracy" :
