@@ -76,7 +76,7 @@ const Testimonials = () => {
               key={index}
               onClick={() => setActiveIndex(index)}
               className={`w-3 h-3 rounded-full mx-1 transition-colors ${
-                index === activeIndex ? 'bg-bengali-terracotta' : 'bg-muted-foreground/50'
+                index === activeIndex ? 'bg-red-pantone' : 'bg-muted-foreground/50'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />

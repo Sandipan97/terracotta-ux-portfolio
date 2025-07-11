@@ -21,7 +21,7 @@ const HeroScrollButton = () => {
     >
       <motion.button 
         onClick={scrollToSkills}
-        className="text-white bg-bengali-dark/20 backdrop-blur-sm p-3 rounded-full hover:bg-bengali-dark/30 transition-colors" 
+        className="text-white bg-red-pantone/20 backdrop-blur-sm p-3 rounded-full hover:bg-red-pantone/30 transition-colors" 
         aria-label="Scroll to skills and expertise"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}

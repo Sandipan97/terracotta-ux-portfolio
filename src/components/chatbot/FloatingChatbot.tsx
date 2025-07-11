@@ -26,7 +26,7 @@ const FloatingChatbot = () => {
           {!isOpen && (
             <motion.button
               onClick={toggleChat}
-              className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 relative"
+              className="bg-red-pantone hover:bg-red-pantone/90 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 relative"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               exit={{ scale: 0, opacity: 0 }}

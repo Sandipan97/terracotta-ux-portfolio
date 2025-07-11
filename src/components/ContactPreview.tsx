@@ -38,7 +38,7 @@ const ContactPreview = () => {
               </div>
             </div>
             
-            <Button asChild className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white">
+            <Button asChild>
               <Link to="/contact">Get In Touch</Link>
             </Button>
           </div>

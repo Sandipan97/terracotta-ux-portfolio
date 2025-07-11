@@ -61,7 +61,7 @@ const ChatWindow = ({ isOpen, onClose, messages, onSendMessage, isTyping }: Chat
       style={{ position: 'absolute', bottom: '70px', right: '0' }}
     >
       {/* Header */}
-      <div className="bg-bengali-terracotta text-white p-4 flex items-center justify-between">
+      <div className="bg-red-pantone text-white p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="bg-white/20 rounded-full p-2">
             <Bot size={20} />
@@ -90,7 +90,7 @@ const ChatWindow = ({ isOpen, onClose, messages, onSendMessage, isTyping }: Chat
             className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div className={`flex items-start gap-2 max-w-[80%] ${message.type === 'user' ? 'flex-row-reverse' : ''}`}>
-              <div className={`rounded-full p-2 ${message.type === 'user' ? 'bg-bengali-terracotta' : 'bg-gray-500'}`}>
+              <div className={`rounded-full p-2 ${message.type === 'user' ? 'bg-red-pantone' : 'bg-gray-500'}`}>
                 {message.type === 'user' ? (
                   <User size={16} className="text-white" />
                 ) : (
@@ -100,7 +100,7 @@ const ChatWindow = ({ isOpen, onClose, messages, onSendMessage, isTyping }: Chat
               <div
                 className={`rounded-lg p-3 ${
                   message.type === 'user'
-                    ? 'bg-bengali-terracotta text-white'
+                    ? 'bg-red-pantone text-white'
                     : 'bg-background border border-border'
                 }`}
               >
@@ -148,13 +148,13 @@ const ChatWindow = ({ isOpen, onClose, messages, onSendMessage, isTyping }: Chat
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask me about my UX work..."
-            className="flex-1 border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-bengali-terracotta bg-background"
+            className="flex-1 border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-pantone bg-background"
             disabled={isTyping}
           />
           <button
             onClick={handleSend}
             disabled={!inputValue.trim() || isTyping}
-            className="bg-bengali-terracotta text-white p-2 rounded-lg hover:bg-bengali-terracotta/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="bg-red-pantone text-white p-2 rounded-lg hover:bg-red-pantone/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <Send size={16} />
           </button>

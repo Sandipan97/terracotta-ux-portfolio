@@ -124,7 +124,7 @@ My approach is rooted in Empathy, Clarity and alignment with Business Goals - de
       }} whileTap={{
         scale: 0.95
       }}>
-          <Button onClick={scrollToProjects} className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white font-semibold px-6 py-3 h-12 rounded-lg border-2 border-white shadow-md hover:shadow-lg transform transition-all duration-300 dark:bg-bengali-terracotta dark:hover:bg-bengali-terracotta/90 dark:border-white" data-lovable-editable="hero-cta-button">
+          <Button onClick={scrollToProjects} size="lg" data-lovable-editable="hero-cta-button">
             View My Work
           </Button>
         </motion.div>
