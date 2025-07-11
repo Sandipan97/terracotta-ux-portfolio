@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { CheckCircle, AlertTriangle, Zap, Target, Eye, Keyboard } from 'lucide-react';
+import { EditableImage } from '@/components/ui/editable-image';
 
 // Import all project components
 import ProjectHero from '@/components/project/ProjectHero';
@@ -840,10 +841,11 @@ const ProjectDetail = () => {
                   viewport={{ once: true }}
                 >
                   <div className="bg-card rounded-lg overflow-hidden shadow-lg border">
-                    <img 
+                    <EditableImage 
                       src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                       alt="Before: Fragmented interface with accessibility violations"
                       className="w-full h-64 object-cover"
+                      fallbackSrc="/placeholder.svg"
                     />
                     <div className="absolute inset-0 bg-destructive/10">
                       <div 
@@ -942,10 +944,11 @@ const ProjectDetail = () => {
                       </div>
                     </div>
                     <div className="bg-card rounded-lg p-6 border">
-                      <img 
+                      <EditableImage 
                         src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                         alt="Heatmap overlay showing UI violations"
                         className="w-full h-48 object-cover rounded"
+                        fallbackSrc="/placeholder.svg"
                       />
                       <p 
                         className="text-sm text-muted-foreground mt-2"
@@ -987,10 +990,11 @@ const ProjectDetail = () => {
                       </div>
                     </div>
                     <div className="bg-card rounded-lg p-6 border">
-                      <img 
+                      <EditableImage 
                         src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                         alt="User flow diagram comparison"
                         className="w-full h-48 object-cover rounded"
+                        fallbackSrc="/placeholder.svg"
                       />
                       <p 
                         className="text-sm text-muted-foreground mt-2"
@@ -1032,10 +1036,11 @@ const ProjectDetail = () => {
                       </div>
                     </div>
                     <div className="bg-card rounded-lg p-6 border">
-                      <img 
+                      <EditableImage 
                         src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                         alt="Focus indicator demonstration"
                         className="w-full h-48 object-cover rounded"
+                        fallbackSrc="/placeholder.svg"
                       />
                       <p 
                         className="text-sm text-muted-foreground mt-2"
@@ -1100,10 +1105,11 @@ const ProjectDetail = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="relative overflow-hidden">
-                      <img 
+                      <EditableImage 
                         src={item.image}
                         alt={item.title}
                         className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                        fallbackSrc="/placeholder.svg"
                       />
                       <div className="absolute inset-0 bg-bengali-terracotta/0 group-hover:bg-bengali-terracotta/10 transition-all duration-300" />
                     </div>

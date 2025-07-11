@@ -1,7 +1,8 @@
 
 import { motion } from 'framer-motion';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Quote } from 'lucide-react';
+import { EditableImage } from '@/components/ui/editable-image';
 
 type Testimonial = {
   quote: string;
@@ -54,9 +55,11 @@ const ProjectTestimonial = ({ testimonial }: ProjectTestimonialProps) => {
             
             <div className="flex items-center justify-center">
               <Avatar className="w-12 h-12 xs:w-16 xs:h-16 border-2 border-bengali-terracotta/20 shadow-lg dark-glow-image">
-                <AvatarImage 
+                <EditableImage 
                   src={testimonial.image || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"} 
-                  alt={testimonial.author} 
+                  alt={testimonial.author}
+                  className="w-full h-full object-cover"
+                  fallbackSrc="/placeholder.svg"
                 />
                 <AvatarFallback className="bg-bengali-terracotta/20 text-bengali-terracotta font-bold text-lg">
                   {testimonial.author.charAt(0)}

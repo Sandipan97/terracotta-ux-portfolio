@@ -1,7 +1,8 @@
 
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '../ui/card';
-import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
+import { Avatar, AvatarFallback } from '../ui/avatar';
+import { EditableImage } from '../ui/editable-image';
 
 interface Testimonial {
   id: number;
@@ -24,7 +25,12 @@ const TestimonialCard = ({ testimonial, isActive }: TestimonialCardProps) => {
         <CardContent className="p-8">
           <div className="flex flex-col items-center text-center">
             <Avatar className="w-20 h-20 border-4 border-background shadow-lg mb-6">
-              <AvatarImage src={testimonial.image} alt={testimonial.author} />
+              <EditableImage 
+                src={testimonial.image} 
+                alt={testimonial.author} 
+                className="w-full h-full object-cover"
+                fallbackSrc="/placeholder.svg"
+              />
               <AvatarFallback>{testimonial.author[0]}</AvatarFallback>
             </Avatar>
             

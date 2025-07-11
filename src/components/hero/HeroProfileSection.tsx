@@ -62,7 +62,12 @@ const HeroProfileSection = () => {
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)"
           }}>
-              <img src="/lovable-uploads/5df3f20d-3a84-4f8a-a055-7374725f634c.png" alt="Minimalist illustration" className="w-full h-full object-cover" />
+              <EditableImage 
+                src="/lovable-uploads/5df3f20d-3a84-4f8a-a055-7374725f634c.png" 
+                alt="Minimalist illustration" 
+                className="w-full h-full object-cover" 
+                fallbackSrc="/placeholder.svg"
+              />
             </div>
           </motion.div>
         </motion.div>

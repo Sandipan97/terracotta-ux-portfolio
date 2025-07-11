@@ -1,7 +1,8 @@
 
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
-import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
+import { Avatar, AvatarFallback } from './ui/avatar';
+import { EditableImage } from './ui/editable-image';
 
 const AboutPreview = () => {
   return (
@@ -11,7 +12,12 @@ const AboutPreview = () => {
           <div className="relative">
             <div className="relative z-10">
               <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-lg shadow-xl border border-border">
-                <AvatarImage alt="Designer portrait" src="/lovable-uploads/c6d0389c-5302-42f4-bcd2-ed57dd41c370.jpg" className="object-cover" />
+                <EditableImage 
+                  alt="Designer portrait" 
+                  src="/lovable-uploads/c6d0389c-5302-42f4-bcd2-ed57dd41c370.jpg" 
+                  className="w-full h-full object-cover rounded-lg" 
+                  fallbackSrc="/placeholder.svg"
+                />
                 <AvatarFallback className="bg-muted text-foreground text-4xl font-bold">UX</AvatarFallback>
               </Avatar>
             </div>

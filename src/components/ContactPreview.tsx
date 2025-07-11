@@ -2,6 +2,7 @@
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { EditableImage } from './ui/editable-image';
 
 const ContactPreview = () => {
   return (
@@ -45,10 +46,11 @@ const ContactPreview = () => {
           
           <div className="relative">
             <div className="aspect-square bg-white p-6 rounded-lg shadow-xl">
-              <img 
+              <EditableImage 
                 src="https://images.unsplash.com/photo-1587560699334-bea93391dcef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                 alt="Designer workspace with design tools"
                 className="w-full h-full object-cover rounded-lg"
+                fallbackSrc="/placeholder.svg"
               />
             </div>
             <div className="absolute -top-6 -left-6 w-full h-full border-4 border-bengali-mustard rounded-lg z-0"></div>
