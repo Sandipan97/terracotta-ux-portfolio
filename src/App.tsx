@@ -22,6 +22,7 @@ const DripometerProject = lazy(() => import('@/pages/DripometerProject'));
 const ToyAnatomyProject = lazy(() => import('@/pages/ToyAnatomyProject'));
 const O2CProject = lazy(() => import('@/pages/O2CProject'));
 const FarmMonitoringProject = lazy(() => import('@/pages/FarmMonitoringProject'));
+const PGDataloggerProject = lazy(() => import('@/pages/PGDataloggerProject'));
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ function App() {
                   <Route path="/projects/toy-anatomy" element={<ToyAnatomyProject />} />
                   <Route path="/projects/o2c-project" element={<O2CProject />} />
                   <Route path="/projects/farm-monitoring" element={<FarmMonitoringProject />} />
+                  <Route path="/projects/pg-datalogger" element={<PGDataloggerProject />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

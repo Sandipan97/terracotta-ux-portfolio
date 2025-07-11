@@ -128,6 +128,19 @@ export const projects: Project[] = [
     role: "UX Designer",
     tags: ["UX Design", "Mobile App", "Agriculture"],
     featured: false
+  },
+  {
+    id: 9,
+    slug: "pg-datalogger",
+    title: "P&G Datalogger UX Revamp",
+    category: "Industrial UX",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    description: "A complete redesign of the Datalogger application to enhance usability, performance, and reliability with modern UX standards.",
+    client: "Procter & Gamble",
+    duration: "6 Months",
+    role: "Lead UX/UI Designer",
+    tags: ["UX Research", "UI Design", "Industrial UX", "Design Systems"],
+    featured: true
   }
 ];
 
@@ -147,6 +160,7 @@ export const projectFiles: ProjectFileData[] = projects.map(project => ({
            project.id === 6 ? "40% improvement in learning outcomes" :
            project.id === 7 ? "85% improvement in user satisfaction" :
            project.id === 8 ? "28% improvement in crop yield tracking" :
+           project.id === 9 ? "Reduced user errors by 60% and improved task completion" :
            undefined
 }));
 
