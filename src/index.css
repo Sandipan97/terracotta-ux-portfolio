@@ -45,16 +45,22 @@
     --sidebar-border: 214.3 31.8% 88%;
     --sidebar-ring: 222 84% 4.9%;
 
-    /* Bengali Color Variables */
-    --bengali-terracotta: 7 79% 51%; /* #D73027 */
-    --bengali-terracotta-light: 11 88% 62%; /* #F46D43 */
-    --bengali-terracotta-dark: 348 98% 39%; /* #A50026 */
-    --bengali-mustard: 51 100% 50%; /* #FFD700 */
-    --bengali-mustard-light: 53 100% 64%; /* #FFED4E */
-    --bengali-mustard-dark: 39 100% 50%; /* #FFA500 */
-    --bengali-red: 359 83% 49%; /* #E31A1C */
-    --bengali-red-light: 11 95% 63%; /* #FB6A4A */
-    --bengali-red-dark: 0 100% 35%; /* #B10000 */
+    /* New Color Palette Variables */
+    --red-pantone: 355 78% 56%; /* #e63946 */
+    --red-pantone-light: 355 78% 66%; /* #eb5f6b */
+    --red-pantone-dark: 355 78% 46%; /* #cb1928 */
+    --honeydew: 105 55% 96%; /* #f1faee */
+    --honeydew-light: 105 55% 98%; /* #f5fbf2 */
+    --honeydew-dark: 105 55% 92%; /* #e8f5e0 */
+    --non-photo-blue: 182 43% 76%; /* #a8dadc */
+    --non-photo-blue-light: 182 43% 82%; /* #b9e2e3 */
+    --non-photo-blue-dark: 182 43% 68%; /* #8ad0d3 */
+    --cerulean: 203 39% 44%; /* #457b9d */
+    --cerulean-light: 203 39% 54%; /* #6097b9 */
+    --cerulean-dark: 203 39% 34%; /* #355f7a */
+    --berkeley-blue: 215 50% 23%; /* #1d3557 */
+    --berkeley-blue-light: 215 50% 33%; /* #315a93 */
+    --berkeley-blue-dark: 215 50% 16%; /* #162841 */
   }
 
   .dark {
@@ -95,16 +101,22 @@
     --sidebar-border: 217.2 32.6% 18%;
     --sidebar-ring: 212.7 26.8% 83.9%;
 
-    /* Bengali Colors for Dark Mode - Enhanced visibility */
-    --bengali-terracotta: 11 88% 62%; /* Lighter for dark mode */
-    --bengali-terracotta-light: 11 95% 70%; /* Even lighter */
-    --bengali-terracotta-dark: 7 79% 51%; /* Standard terracotta */
-    --bengali-mustard: 53 100% 64%; /* Brighter yellow for dark mode */
-    --bengali-mustard-light: 53 100% 75%; /* Very bright */
-    --bengali-mustard-dark: 51 100% 50%; /* Standard gold */
-    --bengali-red: 11 95% 63%; /* Lighter red for dark mode */
-    --bengali-red-light: 11 95% 75%; /* Even lighter */
-    --bengali-red-dark: 359 83% 49%; /* Standard red */
+    /* New Color Palette for Dark Mode - Enhanced visibility */
+    --red-pantone: 355 78% 66%; /* Lighter for dark mode */
+    --red-pantone-light: 355 78% 75%; /* Even lighter */
+    --red-pantone-dark: 355 78% 56%; /* Standard red */
+    --honeydew: 105 55% 94%; /* Slightly darker for dark mode */
+    --honeydew-light: 105 55% 96%; /* Standard light */
+    --honeydew-dark: 105 55% 88%; /* Darker variant */
+    --non-photo-blue: 182 43% 82%; /* Lighter for dark mode */
+    --non-photo-blue-light: 182 43% 88%; /* Even lighter */
+    --non-photo-blue-dark: 182 43% 76%; /* Standard blue */
+    --cerulean: 203 39% 54%; /* Lighter for dark mode */
+    --cerulean-light: 203 39% 64%; /* Even lighter */
+    --cerulean-dark: 203 39% 44%; /* Standard cerulean */
+    --berkeley-blue: 215 50% 33%; /* Lighter for dark mode */
+    --berkeley-blue-light: 215 50% 43%; /* Even lighter */
+    --berkeley-blue-dark: 215 50% 23%; /* Standard dark blue */
   }
 }
 
@@ -201,8 +213,8 @@
   .project-card {
     --primary: var(--foreground);
     --secondary: var(--muted-foreground);
-    --accent: var(--bengali-terracotta);
-    --accent-light: var(--bengali-terracotta-light);
+    --accent: var(--red-pantone);
+    --accent-light: var(--red-pantone-light);
     
     /* Performance optimizations */
     will-change: transform, opacity;

@@ -50,7 +50,7 @@ const About = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light py-20">
+        <section className="bg-gradient-to-br from-red-pantone to-red-pantone-dark dark:from-red-pantone-light dark:to-red-pantone py-20">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
@@ -149,11 +149,11 @@ const About = () => {
             <div className="max-w-3xl mx-auto">
               <div className="space-y-12">
                 {experienceItems.map((item, index) => (
-                  <div key={index} className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-bengali-terracotta dark:before:bg-bengali-mustard-light before:rounded-full before:z-10 before:mt-0.5">
-                    <div className="absolute left-1 top-3 h-full w-0.5 bg-bengali-terracotta/30 dark:bg-bengali-mustard-light/30" style={{ display: index === experienceItems.length - 1 ? 'none' : 'block' }}></div>
+                  <div key={index} className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-red-pantone dark:before:bg-non-photo-blue-light before:rounded-full before:z-10 before:mt-0.5">
+                    <div className="absolute left-1 top-3 h-full w-0.5 bg-red-pantone/30 dark:bg-non-photo-blue-light/30" style={{ display: index === experienceItems.length - 1 ? 'none' : 'block' }}></div>
                     <div className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-6 rounded-lg border border-border">
                       <div 
-                        className="text-bengali-mustard dark:text-bengali-mustard-light font-medium"
+                        className="text-cerulean dark:text-cerulean-light font-medium"
                         data-lovable-editable={`about-experience-${index}-period`}
                       >
                         {item.period}
@@ -165,7 +165,7 @@ const About = () => {
                         {item.title}
                       </h3>
                       <div 
-                        className="text-bengali-terracotta dark:text-bengali-terracotta-light mb-4"
+                        className="text-red-pantone dark:text-red-pantone-light mb-4"
                         data-lovable-editable={`about-experience-${index}-company`}
                       >
                         {item.company}
@@ -196,11 +196,11 @@ const About = () => {
             <div className="max-w-3xl mx-auto">
               <div className="space-y-12">
                 {educationItems.map((item, index) => (
-                  <div key={index} className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-bengali-red dark:before:bg-bengali-red-light before:rounded-full before:z-10 before:mt-0.5">
-                    <div className="absolute left-1 top-3 h-full w-0.5 bg-bengali-red/30 dark:bg-bengali-red-light/30" style={{ display: index === educationItems.length - 1 ? 'none' : 'block' }}></div>
+                  <div key={index} className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-berkeley-blue dark:before:bg-berkeley-blue-light before:rounded-full before:z-10 before:mt-0.5">
+                    <div className="absolute left-1 top-3 h-full w-0.5 bg-berkeley-blue/30 dark:bg-berkeley-blue-light/30" style={{ display: index === educationItems.length - 1 ? 'none' : 'block' }}></div>
                     <div className="bg-card/50 dark:bg-card/80 backdrop-blur-sm p-6 rounded-lg border border-border">
                       <div 
-                        className="text-bengali-mustard dark:text-bengali-mustard-light font-medium"
+                        className="text-cerulean dark:text-cerulean-light font-medium"
                         data-lovable-editable={`about-education-${index}-period`}
                       >
                         {item.period}
@@ -212,7 +212,7 @@ const About = () => {
                         {item.degree}
                       </h3>
                       <div 
-                        className="text-bengali-red dark:text-bengali-red-light mb-4"
+                        className="text-berkeley-blue dark:text-berkeley-blue-light mb-4"
                         data-lovable-editable={`about-education-${index}-school`}
                       >
                         {item.school}
@@ -232,23 +232,23 @@ const About = () => {
         </section>
         
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-br from-bengali-mustard to-bengali-mustard-dark dark:from-bengali-mustard-light dark:to-bengali-mustard">
+        <section className="py-16 bg-gradient-to-br from-non-photo-blue to-non-photo-blue-dark dark:from-non-photo-blue-light dark:to-non-photo-blue">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 
-              className="font-display text-3xl md:text-4xl font-bold text-bengali-dark dark:text-background mb-6"
+              className="font-display text-3xl md:text-4xl font-bold text-berkeley-blue dark:text-background mb-6"
               data-lovable-editable="about-cta-title"
             >
               Ready to Work Together?
             </h2>
             <p 
-              className="text-bengali-dark/80 dark:text-background/80 max-w-2xl mx-auto mb-8"
+              className="text-berkeley-blue/80 dark:text-background/80 max-w-2xl mx-auto mb-8"
               data-lovable-editable="about-cta-description"
             >
               I'm currently available for freelance projects, full-time opportunities, and consulting engagements.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button 
-                className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white dark:bg-bengali-terracotta-light dark:hover:bg-bengali-terracotta shadow-lg hover:shadow-xl transition-all duration-300" 
+                className="bg-red-pantone hover:bg-red-pantone/90 text-white dark:bg-red-pantone-light dark:hover:bg-red-pantone shadow-lg hover:shadow-xl transition-all duration-300" 
                 asChild
               >
                 <a 

@@ -33,7 +33,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-bengali-terracotta to-bengali-red text-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-red-pantone to-red-pantone-dark text-white relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div 
         className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-white/5 filter blur-xl"
@@ -76,13 +76,13 @@ const ContactForm = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-bengali-mustard text-bengali-dark hover:bg-bengali-mustard/90 px-8 py-3 text-lg font-medium shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="bg-honeydew text-berkeley-blue hover:bg-honeydew/90 px-8 py-3 text-lg font-medium shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 {isSubmitting ? (
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-5 h-5 border-2 border-bengali-dark border-t-transparent rounded-full"
+                    className="w-5 h-5 border-2 border-berkeley-blue border-t-transparent rounded-full"
                   />
                 ) : (
                   <>

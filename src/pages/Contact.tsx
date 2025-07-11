@@ -49,7 +49,7 @@ const Contact = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light py-20">
+        <section className="bg-gradient-to-br from-red-pantone to-red-pantone-dark dark:from-red-pantone-light dark:to-red-pantone py-20">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h1 
               className="font-display text-4xl md:text-5xl font-bold text-white mb-4"
@@ -95,7 +95,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="John Doe"
                       required
-                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-bengali-terracotta dark:focus-visible:ring-bengali-mustard-light"
+                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-red-pantone dark:focus-visible:ring-non-photo-blue-light"
                     />
                   </div>
                   
@@ -115,7 +115,7 @@ const Contact = () => {
                       type="email"
                       placeholder="john@example.com"
                       required
-                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-bengali-terracotta dark:focus-visible:ring-bengali-mustard-light"
+                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-red-pantone dark:focus-visible:ring-non-photo-blue-light"
                     />
                   </div>
                   
@@ -135,14 +135,14 @@ const Contact = () => {
                       placeholder="I'd like to discuss a project..."
                       rows={5}
                       required
-                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-bengali-terracotta dark:focus-visible:ring-bengali-mustard-light"
+                      className="border-border bg-background text-foreground placeholder:text-muted-foreground focus-visible:ring-red-pantone dark:focus-visible:ring-non-photo-blue-light"
                     />
                   </div>
                   
                   <Button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-bengali-red hover:bg-bengali-terracotta text-white dark:bg-bengali-red-light dark:hover:bg-bengali-terracotta-light shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full bg-red-pantone hover:bg-red-pantone-dark text-white dark:bg-red-pantone-light dark:hover:bg-red-pantone shadow-lg hover:shadow-xl transition-all duration-300"
                     data-lovable-editable="contact-form-submit-button"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -161,7 +161,7 @@ const Contact = () => {
                 
                 <div className="space-y-8">
                   <div className="flex items-start">
-                    <Mail className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
+                    <Mail className="h-6 w-6 text-red-pantone dark:text-non-photo-blue-light mr-4 mt-1" />
                     <div>
                       <h4 
                         className="font-medium text-foreground"
@@ -171,7 +171,7 @@ const Contact = () => {
                       </h4>
                       <a 
                         href="mailto:contact@example.com" 
-                        className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors"
+                        className="text-muted-foreground hover:text-red-pantone dark:hover:text-non-photo-blue-light transition-colors"
                         data-lovable-editable="contact-email"
                       >
                         contact@example.com
@@ -180,7 +180,7 @@ const Contact = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <Phone className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
+                    <Phone className="h-6 w-6 text-red-pantone dark:text-non-photo-blue-light mr-4 mt-1" />
                     <div>
                       <h4 
                         className="font-medium text-foreground"
@@ -190,7 +190,7 @@ const Contact = () => {
                       </h4>
                       <a 
                         href="tel:+919876543210" 
-                        className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors"
+                        className="text-muted-foreground hover:text-red-pantone dark:hover:text-non-photo-blue-light transition-colors"
                         data-lovable-editable="contact-phone"
                       >
                         +91 98765 43210
@@ -199,7 +199,7 @@ const Contact = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <Linkedin className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
+                    <Linkedin className="h-6 w-6 text-red-pantone dark:text-non-photo-blue-light mr-4 mt-1" />
                     <div>
                       <h4 
                         className="font-medium text-foreground"
@@ -209,7 +209,7 @@ const Contact = () => {
                       </h4>
                       <a 
                         href="#" 
-                        className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors flex items-center"
+                        className="text-muted-foreground hover:text-red-pantone dark:hover:text-non-photo-blue-light transition-colors flex items-center"
                         data-lovable-editable="contact-linkedin-url"
                       >
                         linkedin.com/in/yourprofile
@@ -219,7 +219,7 @@ const Contact = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <Github className="h-6 w-6 text-bengali-terracotta dark:text-bengali-mustard-light mr-4 mt-1" />
+                    <Github className="h-6 w-6 text-red-pantone dark:text-non-photo-blue-light mr-4 mt-1" />
                     <div>
                       <h4 
                         className="font-medium text-foreground"
@@ -229,7 +229,7 @@ const Contact = () => {
                       </h4>
                       <a 
                         href="#" 
-                        className="text-muted-foreground hover:text-bengali-terracotta dark:hover:text-bengali-mustard-light transition-colors flex items-center"
+                        className="text-muted-foreground hover:text-red-pantone dark:hover:text-non-photo-blue-light transition-colors flex items-center"
                         data-lovable-editable="contact-behance-url"
                       >
                         behance.net/yourprofile
@@ -247,7 +247,7 @@ const Contact = () => {
                     Download My Resume
                   </h3>
                   <Button 
-                    className="w-full bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white dark:bg-bengali-terracotta-light dark:hover:bg-bengali-terracotta shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full bg-red-pantone hover:bg-red-pantone/90 text-white dark:bg-red-pantone-light dark:hover:bg-red-pantone shadow-lg hover:shadow-xl transition-all duration-300"
                     data-lovable-editable="contact-resume-button"
                   >
                     <Download className="mr-2 h-4 w-4" /> 
@@ -292,23 +292,23 @@ const Contact = () => {
         </section>
         
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-br from-bengali-mustard to-bengali-mustard-dark dark:from-bengali-mustard-light dark:to-bengali-mustard">
+        <section className="py-16 bg-gradient-to-br from-non-photo-blue to-non-photo-blue-dark dark:from-non-photo-blue-light dark:to-non-photo-blue">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 
-              className="font-display text-3xl md:text-4xl font-bold text-bengali-dark dark:text-background mb-6"
+              className="font-display text-3xl md:text-4xl font-bold text-berkeley-blue dark:text-background mb-6"
               data-lovable-editable="contact-cta-title"
             >
               Let's Create Something Amazing Together
             </h2>
             <p 
-              className="text-bengali-dark/80 dark:text-background/80 max-w-2xl mx-auto mb-8"
+              className="text-berkeley-blue/80 dark:text-background/80 max-w-2xl mx-auto mb-8"
               data-lovable-editable="contact-cta-description"
             >
               Whether you're looking for a UX designer for your next project, a speaker for your event, or just want to connect, I'd love to hear from you.
             </p>
             <Button 
               size="lg" 
-              className="bg-bengali-red hover:bg-bengali-terracotta text-white dark:bg-bengali-red-light dark:hover:bg-bengali-terracotta-light shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-red-pantone hover:bg-red-pantone-dark text-white dark:bg-red-pantone-light dark:hover:bg-red-pantone shadow-lg hover:shadow-xl transition-all duration-300"
               data-lovable-editable="contact-cta-button"
             >
               Schedule a Call

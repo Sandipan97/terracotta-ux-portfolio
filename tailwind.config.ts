@@ -63,21 +63,31 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Bengali color palette using CSS variables for proper theme support
-				'bengali-terracotta': {
-					DEFAULT: 'hsl(var(--bengali-terracotta))',
-					light: 'hsl(var(--bengali-terracotta-light))',
-					dark: 'hsl(var(--bengali-terracotta-dark))'
+				// New color palette using CSS variables for proper theme support
+				'red-pantone': {
+					DEFAULT: 'hsl(var(--red-pantone))',
+					light: 'hsl(var(--red-pantone-light))',
+					dark: 'hsl(var(--red-pantone-dark))'
 				},
-				'bengali-mustard': {
-					DEFAULT: 'hsl(var(--bengali-mustard))',
-					light: 'hsl(var(--bengali-mustard-light))',
-					dark: 'hsl(var(--bengali-mustard-dark))'
+				'honeydew': {
+					DEFAULT: 'hsl(var(--honeydew))',
+					light: 'hsl(var(--honeydew-light))',
+					dark: 'hsl(var(--honeydew-dark))'
 				},
-				'bengali-red': {
-					DEFAULT: 'hsl(var(--bengali-red))',
-					light: 'hsl(var(--bengali-red-light))',
-					dark: 'hsl(var(--bengali-red-dark))'
+				'non-photo-blue': {
+					DEFAULT: 'hsl(var(--non-photo-blue))',
+					light: 'hsl(var(--non-photo-blue-light))',
+					dark: 'hsl(var(--non-photo-blue-dark))'
+				},
+				'cerulean': {
+					DEFAULT: 'hsl(var(--cerulean))',
+					light: 'hsl(var(--cerulean-light))',
+					dark: 'hsl(var(--cerulean-dark))'
+				},
+				'berkeley-blue': {
+					DEFAULT: 'hsl(var(--berkeley-blue))',
+					light: 'hsl(var(--berkeley-blue-light))',
+					dark: 'hsl(var(--berkeley-blue-dark))'
 				}
 			},
 			borderRadius: {

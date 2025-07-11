@@ -16,10 +16,10 @@ const AboutPreview = () => {
               </Avatar>
             </div>
             <div className="absolute top-12 -right-4 md:-right-12 z-0">
-              <div className="w-24 h-24 md:w-40 md:h-40 bg-bengali-mustard dark:bg-bengali-mustard-light rounded-lg opacity-60"></div>
+              <div className="w-24 h-24 md:w-40 md:h-40 bg-non-photo-blue dark:bg-non-photo-blue-light rounded-lg opacity-60"></div>
             </div>
             <div className="absolute -bottom-4 -left-4 md:-left-12 z-0">
-              <div className="w-24 h-24 md:w-40 md:h-40 bg-bengali-terracotta dark:bg-bengali-terracotta-light rounded-lg opacity-60"></div>
+              <div className="w-24 h-24 md:w-40 md:h-40 bg-red-pantone dark:bg-red-pantone-light rounded-lg opacity-60"></div>
             </div>
           </div>
           
@@ -41,7 +41,7 @@ const AboutPreview = () => {
             
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div>
-                <div className="text-3xl font-bold text-bengali-terracotta dark:text-bengali-terracotta-light">
+                <div className="text-3xl font-bold text-red-pantone dark:text-red-pantone-light">
                   5+
                 </div>
                 <div className="text-muted-foreground">
@@ -49,7 +49,7 @@ const AboutPreview = () => {
                 </div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-bengali-terracotta dark:text-bengali-terracotta-light">
+                <div className="text-3xl font-bold text-red-pantone dark:text-red-pantone-light">
                   24+
                 </div>
                 <div className="text-muted-foreground">
@@ -58,7 +58,7 @@ const AboutPreview = () => {
               </div>
             </div>
             
-            <Button asChild className="bg-bengali-terracotta hover:bg-bengali-terracotta/90 text-white dark:bg-bengali-terracotta-light dark:hover:bg-bengali-terracotta shadow-lg hover:shadow-xl transition-all duration-300">
+            <Button asChild className="bg-red-pantone hover:bg-red-pantone/90 text-white dark:bg-red-pantone-light dark:hover:bg-red-pantone shadow-lg hover:shadow-xl transition-all duration-300">
               <Link to="/about">Learn More About Me</Link>
             </Button>
           </div>

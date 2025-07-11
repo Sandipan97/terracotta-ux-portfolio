@@ -58,7 +58,7 @@ const UniversalStickyNavigation = ({ sections, className = "" }: UniversalSticky
             onClick={() => scrollToSection(section.id)}
             className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
               activeSection === section.id
-                ? 'bg-bengali-terracotta text-white shadow-sm'
+                ? 'bg-red-pantone text-white shadow-sm'
                 : 'text-muted-foreground hover:text-foreground hover:bg-muted'
             }`}
             aria-label={`Navigate to ${section.label} section`}
