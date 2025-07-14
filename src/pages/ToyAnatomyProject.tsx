@@ -89,60 +89,60 @@ const ToyAnatomyProject = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-orange-100 dark:bg-orange-900/20 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800/30 hover:bg-orange-200 dark:hover:bg-orange-900/30 transition-all duration-300" 
+                <Badge className="bg-toy-anatomy-vibrant-orange/10 text-toy-anatomy-text-dark border border-toy-anatomy-vibrant-orange/30 hover:bg-toy-anatomy-vibrant-orange/20 transition-all duration-300" 
                        tabIndex={0} role="button" aria-label="Mechatronic Design tag">
                   🔌 Mechatronic Design
                 </Badge>
-                <Badge className="bg-amber-100 dark:bg-amber-900/20 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-800/30 hover:bg-amber-200 dark:hover:bg-amber-900/30 transition-all duration-300" 
+                <Badge className="bg-toy-anatomy-teal/10 text-toy-anatomy-text-dark border border-toy-anatomy-teal/30 hover:bg-toy-anatomy-teal/20 transition-all duration-300" 
                        tabIndex={0} role="button" aria-label="STEM Education tag">
                   🧬 STEM Education
                 </Badge>
-                <Badge className="bg-orange-100 dark:bg-orange-900/20 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800/30 hover:bg-orange-200 dark:hover:bg-orange-900/30 transition-all duration-300" 
+                <Badge className="bg-toy-anatomy-peachy-orange/20 text-toy-anatomy-text-dark border border-toy-anatomy-peachy-orange/30 hover:bg-toy-anatomy-peachy-orange/30 transition-all duration-300" 
                        tabIndex={0} role="button" aria-label="Product Development tag">
                   🚀 Product Development
                 </Badge>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground text-center md:text-left">
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-toy-anatomy-text-dark text-center md:text-left">
                 Toy Anatomy - Kids Educational Project
               </h1>
               
-              <p className="text-lg mb-8 text-muted-foreground text-center md:text-left max-w-4xl leading-relaxed">
+              <p className="text-lg mb-8 text-toy-anatomy-text-dark/80 text-center md:text-left max-w-4xl leading-relaxed">
                 A comprehensive mechatronic learning platform that makes STEM education accessible and engaging for children through hands-on interactive experiences and structured learning pathways.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
                 <motion.div 
-                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300"
+                  className="bg-background border border-toy-anatomy-light-cyan p-5 rounded-xl hover:bg-toy-anatomy-light-cyan/20 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
-                  <p className="font-semibold text-foreground">IISc Bangalore</p>
+                  <h3 className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
+                  <p className="font-semibold text-toy-anatomy-text-dark">IISc Bangalore</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300"
+                  className="bg-background border border-toy-anatomy-light-cyan p-5 rounded-xl hover:bg-toy-anatomy-light-cyan/20 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
-                  <p className="font-semibold text-foreground">8 Months</p>
+                  <h3 className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
+                  <p className="font-semibold text-toy-anatomy-text-dark">8 Months</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300 sm:col-span-2 lg:col-span-1"
+                  className="bg-background border border-toy-anatomy-light-cyan p-5 rounded-xl hover:bg-toy-anatomy-light-cyan/20 transition-all duration-300 sm:col-span-2 lg:col-span-1"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
-                  <p className="font-semibold text-foreground">Product Designer & Researcher</p>
+                  <h3 className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
+                  <p className="font-semibold text-toy-anatomy-text-dark">Product Designer & Researcher</p>
                 </motion.div>
               </div>
             </motion.div>

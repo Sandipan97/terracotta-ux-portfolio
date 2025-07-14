@@ -88,6 +88,14 @@ export default {
 					DEFAULT: 'hsl(var(--berkeley-blue))',
 					light: 'hsl(var(--berkeley-blue-light))',
 					dark: 'hsl(var(--berkeley-blue-dark))'
+				},
+				// Toy Anatomy Color System
+				'toy-anatomy': {
+					'peachy-orange': 'hsl(var(--toy-anatomy-peachy-orange))',
+					'light-cyan': 'hsl(var(--toy-anatomy-light-cyan))',
+					'teal': 'hsl(var(--toy-anatomy-teal))',
+					'vibrant-orange': 'hsl(var(--toy-anatomy-vibrant-orange))',
+					'text-dark': 'hsl(var(--toy-anatomy-text-dark))'
 				}
 			},
 			borderRadius: {

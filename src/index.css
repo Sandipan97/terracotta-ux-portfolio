@@ -69,6 +69,13 @@
     --h4: 215 50% 23%;
     --h5: 215 50% 23%;
     --h6: 215 50% 23%;
+
+    /* Toy Anatomy Color System (60:20:10:10 Ratio) */
+    --toy-anatomy-peachy-orange: 35 100% 70%; /* #ffbf69 - 60% section backgrounds */
+    --toy-anatomy-light-cyan: 172 35% 88%; /* #cbf3f0 - 20% headers & navigation */
+    --toy-anatomy-teal: 174 56% 47%; /* #2ec4b6 - 10% interactive elements */
+    --toy-anatomy-vibrant-orange: 36 100% 55%; /* #ff9f1c - 10% accents */
+    --toy-anatomy-text-dark: 0 0% 20%; /* #333333 - high contrast text */
   }
 
   .dark {
@@ -133,6 +140,13 @@
     --h4: 215 50% 43%;
     --h5: 215 50% 43%;
     --h6: 215 50% 43%;
+
+    /* Toy Anatomy Color System for Dark Mode */
+    --toy-anatomy-peachy-orange: 35 80% 60%; /* Adjusted for dark mode visibility */
+    --toy-anatomy-light-cyan: 172 25% 75%; /* Lighter for dark mode */
+    --toy-anatomy-teal: 174 56% 57%; /* Lighter for dark mode */
+    --toy-anatomy-vibrant-orange: 36 90% 65%; /* Lighter for dark mode */
+    --toy-anatomy-text-dark: 0 0% 90%; /* Light text for dark mode */
   }
 }
 

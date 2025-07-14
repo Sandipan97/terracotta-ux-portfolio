@@ -49,7 +49,7 @@ const StickyNavigation = () => {
 
   return (
     <motion.nav 
-      className="fixed top-20 right-4 z-40 bg-background/90 backdrop-blur-sm border border-border rounded-xl p-2 shadow-lg hidden lg:block"
+      className="fixed top-20 right-4 z-40 bg-toy-anatomy-light-cyan/90 backdrop-blur-sm border border-toy-anatomy-light-cyan rounded-xl p-2 shadow-lg hidden lg:block"
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 1 }}
@@ -61,8 +61,8 @@ const StickyNavigation = () => {
             onClick={() => scrollToSection(section.id)}
             className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
               activeSection === section.id
-                ? 'bg-orange-600 text-white shadow-sm'
-                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                ? 'bg-toy-anatomy-teal text-white shadow-sm'
+                : 'text-toy-anatomy-text-dark/70 hover:text-toy-anatomy-text-dark hover:bg-toy-anatomy-light-cyan/50'
             }`}
           >
             {section.label}
