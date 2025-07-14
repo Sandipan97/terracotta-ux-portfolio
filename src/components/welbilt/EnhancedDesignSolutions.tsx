@@ -56,7 +56,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
   };
 
   return (
-    <section id="solutions" className="py-20 bg-gradient-to-br from-blue-600/20 to-cyan-600/20">
+    <section id="solutions" className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
         >
           <div className="text-center mb-12">
             <motion.h2 
-              className="font-heading text-3xl md:text-5xl font-bold text-white mb-4"
+              className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -74,7 +74,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
               Design Solutions
             </motion.h2>
             <motion.p 
-              className="text-xl text-blue-300 max-w-3xl mx-auto"
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -95,32 +95,32 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="group"
               >
-                <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-blue-500/30 backdrop-blur-sm h-full hover:border-cyan-500/50 transition-all duration-300">
+                <Card className="bg-card border-border h-full hover:border-primary/50 transition-all duration-300 shadow-sm">
                   <CardHeader className="pb-4">
                     <div className="flex items-start justify-between mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4">
-                        <solution.icon className="w-8 h-8 text-white" />
+                      <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-4">
+                        <solution.icon className="w-8 h-8 text-primary-foreground" />
                       </div>
-                      <div className="w-12 h-12 bg-slate-700/50 rounded-lg flex items-center justify-center border border-slate-600/50">
-                        <FileImage className="w-6 h-6 text-gray-400" />
+                      <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center border border-border">
+                        <FileImage className="w-6 h-6 text-muted-foreground" />
                       </div>
                     </div>
-                    <CardTitle className="text-white text-xl mb-2">{solution.title}</CardTitle>
+                    <CardTitle className="text-foreground text-xl mb-2">{solution.title}</CardTitle>
                     <div className="flex flex-wrap gap-2">
                       {solution.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-500/30">
+                        <Badge key={tagIndex} variant="secondary">
                           {tag}
                         </Badge>
                       ))}
                     </div>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-gray-300 leading-relaxed mb-4">{solution.description}</p>
+                    <p className="text-muted-foreground leading-relaxed mb-4">{solution.description}</p>
                     
                     <div className="flex items-center justify-between">
                       <div className="text-sm">
-                        <span className="text-cyan-400 font-semibold">{solution.impact}</span>
-                        <span className="text-gray-400 ml-2">improvement</span>
+                        <span className="text-primary font-semibold">{solution.impact}</span>
+                        <span className="text-muted-foreground ml-2">improvement</span>
                       </div>
                       
                       {!showDetailed && (
@@ -128,7 +128,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
                           onClick={() => scrollToDetailed(solution.anchor)}
                           variant="outline"
                           size="sm"
-                          className="border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/20 hover:border-cyan-500 group-hover:translate-x-1 transition-all duration-300"
+                          className="group-hover:translate-x-1 transition-all duration-300"
                         >
                           View Full Solution
                           <ArrowRight className="w-4 h-4 ml-2" />
@@ -149,7 +149,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
             >
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 Scroll down for detailed solution breakdowns and implementation insights
               </p>
             </motion.div>

@@ -56,41 +56,41 @@ export const KeyFindings = () => {
     switch (color) {
       case 'red':
         return {
-          bg: 'from-red-500/10 to-orange-500/10',
-          border: 'border-red-500/30',
-          icon: 'from-red-500 to-orange-500',
-          text: 'text-red-300',
-          badge: 'bg-red-500/20 text-red-300 border-red-500/30'
+          bg: 'bg-card',
+          border: 'border-destructive/30',
+          icon: 'bg-destructive',
+          text: 'text-destructive',
+          badge: 'bg-destructive/10 text-destructive border-destructive/30'
         };
       case 'blue':
         return {
-          bg: 'from-blue-500/10 to-cyan-500/10',
-          border: 'border-blue-500/30',
-          icon: 'from-blue-500 to-cyan-500',
-          text: 'text-blue-300',
-          badge: 'bg-blue-500/20 text-blue-300 border-blue-500/30'
+          bg: 'bg-card',
+          border: 'border-primary/30',
+          icon: 'bg-primary',
+          text: 'text-primary',
+          badge: 'bg-primary/10 text-primary border-primary/30'
         };
       case 'green':
         return {
-          bg: 'from-green-500/10 to-emerald-500/10',
+          bg: 'bg-card',
           border: 'border-green-500/30',
-          icon: 'from-green-500 to-emerald-500',
-          text: 'text-green-300',
-          badge: 'bg-green-500/20 text-green-300 border-green-500/30'
+          icon: 'bg-green-500',
+          text: 'text-green-600 dark:text-green-400',
+          badge: 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/30'
         };
       default:
         return {
-          bg: 'from-slate-500/10 to-gray-500/10',
-          border: 'border-slate-500/30',
-          icon: 'from-slate-500 to-gray-500',
-          text: 'text-slate-300',
-          badge: 'bg-slate-500/20 text-slate-300 border-slate-500/30'
+          bg: 'bg-card',
+          border: 'border-border',
+          icon: 'bg-muted',
+          text: 'text-muted-foreground',
+          badge: 'bg-muted text-muted-foreground border-border'
         };
     }
   };
 
   return (
-    <section id="findings" className="py-20 bg-slate-900/50 backdrop-blur-sm">
+    <section id="findings" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export const KeyFindings = () => {
         >
           <div className="text-center mb-12">
             <motion.h2 
-              className="font-heading text-3xl md:text-5xl font-bold text-white mb-4"
+              className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -108,7 +108,7 @@ export const KeyFindings = () => {
               Key Findings
             </motion.h2>
             <motion.p 
-              className="text-xl text-blue-300 max-w-3xl mx-auto"
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -133,19 +133,19 @@ export const KeyFindings = () => {
                 >
                   <AccordionItem 
                     value={finding.id} 
-                    className={`border rounded-2xl bg-gradient-to-br ${colorScheme.bg} backdrop-blur-sm ${colorScheme.border}`}
+                    className={`border rounded-2xl ${colorScheme.bg} ${colorScheme.border} shadow-sm`}
                   >
                     <AccordionTrigger className="px-8 py-6 hover:no-underline group">
                       <div className="flex items-center gap-6 w-full">
                         {/* Finding Icon */}
-                        <div className={`w-14 h-14 bg-gradient-to-br ${colorScheme.icon} rounded-2xl flex items-center justify-center flex-shrink-0`}>
+                        <div className={`w-14 h-14 ${colorScheme.icon} rounded-2xl flex items-center justify-center flex-shrink-0`}>
                           <Icon className="w-7 h-7 text-white" />
                         </div>
 
                         {/* Finding Content */}
                         <div className="flex-1 text-left">
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="font-semibold text-white text-xl">{finding.title}</h3>
+                            <h3 className="font-semibold text-foreground text-xl">{finding.title}</h3>
                             <Badge className={colorScheme.badge}>
                               {finding.type}
                             </Badge>
@@ -155,10 +155,10 @@ export const KeyFindings = () => {
 
                         {/* Visual Indicator */}
                         <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-slate-700/50 rounded-lg flex items-center justify-center border border-slate-600/50">
-                            <FileImage className="w-6 h-6 text-gray-400" />
+                          <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center border border-border">
+                            <FileImage className="w-6 h-6 text-muted-foreground" />
                           </div>
-                          <ChevronDown className="w-5 h-5 text-gray-400 group-data-[state=open]:rotate-180 transition-transform duration-200" />
+                          <ChevronDown className="w-5 h-5 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform duration-200" />
                         </div>
                       </div>
                     </AccordionTrigger>
@@ -167,9 +167,9 @@ export const KeyFindings = () => {
                       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Detailed Analysis */}
                         <div className="lg:col-span-2">
-                          <div className="bg-white/5 rounded-xl p-6 border border-white/10">
-                            <h4 className="text-white font-semibold mb-3">Detailed Analysis</h4>
-                            <p className="text-gray-300 leading-relaxed mb-4">{finding.details}</p>
+                          <div className="bg-muted rounded-xl p-6 border border-border">
+                            <h4 className="text-foreground font-semibold mb-3">Detailed Analysis</h4>
+                            <p className="text-muted-foreground leading-relaxed mb-4">{finding.details}</p>
                             
                             <div className="flex items-center gap-3 text-sm">
                               <div className="flex items-center gap-2">
@@ -183,20 +183,20 @@ export const KeyFindings = () => {
                         {/* Visual Support & Action */}
                         <div className="space-y-4">
                           {/* Visual Note */}
-                          <Card className="bg-white/5 border-white/10">
+                          <Card className="bg-muted border-border">
                             <CardContent className="p-4">
                               <div className="flex items-center gap-3 mb-3">
-                                <FileImage className="w-5 h-5 text-gray-400" />
-                                <span className="text-white text-sm font-medium">Visual Support</span>
+                                <FileImage className="w-5 h-5 text-muted-foreground" />
+                                <span className="text-foreground text-sm font-medium">Visual Support</span>
                               </div>
-                              <p className="text-gray-300 text-sm">{finding.visualNote}</p>
+                              <p className="text-muted-foreground text-sm">{finding.visualNote}</p>
                             </CardContent>
                           </Card>
 
                           {/* Solution Link */}
                           <Button
                             onClick={() => scrollToSolution(finding.solutionAnchor)}
-                            className={`w-full bg-gradient-to-r ${colorScheme.icon} hover:opacity-90 text-white border-0`}
+                            className={`w-full ${colorScheme.icon} hover:opacity-90 text-white border-0`}
                           >
                             View Solution
                             <ArrowRight className="w-4 h-4 ml-2" />
@@ -218,27 +218,27 @@ export const KeyFindings = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
           >
-            <Card className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/30 text-center">
+            <Card className="bg-card border-primary/30 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-white mb-2">3</div>
-                <div className="text-blue-300 text-sm">Critical Findings</div>
-                <div className="text-gray-400 text-xs mt-1">Driving Design Decisions</div>
+                <div className="text-3xl font-bold text-foreground mb-2">3</div>
+                <div className="text-primary text-sm">Critical Findings</div>
+                <div className="text-muted-foreground text-xs mt-1">Driving Design Decisions</div>
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/30 text-center">
+            <Card className="bg-card border-green-500/30 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-white mb-2">65%</div>
-                <div className="text-green-300 text-sm">Performance Gap</div>
-                <div className="text-gray-400 text-xs mt-1">Identified & Addressed</div>
+                <div className="text-3xl font-bold text-foreground mb-2">65%</div>
+                <div className="text-green-600 dark:text-green-400 text-sm">Performance Gap</div>
+                <div className="text-muted-foreground text-xs mt-1">Identified & Addressed</div>
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/30 text-center">
+            <Card className="bg-card border-purple-500/30 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-white mb-2">4</div>
-                <div className="text-purple-300 text-sm">Solution Areas</div>
-                <div className="text-gray-400 text-xs mt-1">Directly Targeted</div>
+                <div className="text-3xl font-bold text-foreground mb-2">4</div>
+                <div className="text-purple-600 dark:text-purple-400 text-sm">Solution Areas</div>
+                <div className="text-muted-foreground text-xs mt-1">Directly Targeted</div>
               </CardContent>
             </Card>
           </motion.div>
