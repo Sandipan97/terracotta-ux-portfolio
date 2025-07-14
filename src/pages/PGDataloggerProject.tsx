@@ -110,19 +110,28 @@ const PGDataloggerProject = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid" />
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <Link 
-            to="/projects" 
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Projects
-          </Link>
+      {/* Hero Image Section - Fixed Height */}
+      <section className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
+        <Link 
+          to="/projects" 
+          className="absolute top-4 left-4 z-30 inline-flex items-center gap-2 bg-background/80 backdrop-blur-sm text-foreground hover:bg-background transition-colors px-3 py-2 rounded-lg border border-border/50"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Projects
+        </Link>
 
+        <EditableImage
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+          alt="P&G Datalogger interface comparison - old vs new design"
+          className="w-full h-full object-cover"
+          fallbackSrc="/placeholder.svg"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+      </section>
+
+      {/* Content Tile Section - Clean Background */}
+      <section className="w-full bg-background border-b">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <motion.div 
             className="max-w-6xl mx-auto text-center"
             initial="initial"
@@ -162,22 +171,6 @@ const PGDataloggerProject = () => {
                 <ChevronRight className="w-4 h-4 ml-2" />
               </Button>
             </motion.div>
-          </motion.div>
-
-          {/* Hero Visual */}
-          <motion.div 
-            className="mt-16 max-w-5xl mx-auto"
-            variants={fadeInUp}
-          >
-            <div className="relative">
-              <EditableImage
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                alt="P&G Datalogger interface comparison - old vs new design"
-                className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-2xl"
-                fallbackSrc="/placeholder.svg"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent rounded-2xl" />
-            </div>
           </motion.div>
         </div>
       </section>

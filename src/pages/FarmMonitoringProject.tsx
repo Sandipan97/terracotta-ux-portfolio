@@ -27,8 +27,8 @@ const FarmMonitoringProject = () => {
       <UniversalStickyNavigation sections={navigationSections} />
       
       <main className="pt-20">
-        {/* Hero Section */}
-        <section id="overview" className="w-full relative h-[50vh] overflow-hidden">
+        {/* Hero Image Section - Fixed Height */}
+        <section id="overview" className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
           <motion.div 
             className="absolute top-4 left-4 z-30"
             initial={{ opacity: 0, x: -20 }}
@@ -46,7 +46,7 @@ const FarmMonitoringProject = () => {
           </motion.div>
 
           <motion.div 
-            className="absolute inset-0 z-10"
+            className="absolute inset-0"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
@@ -57,13 +57,13 @@ const FarmMonitoringProject = () => {
               className="w-full h-full object-cover"
               fallbackSrc="/placeholder.svg"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-green-900/40 to-emerald-900/60 z-10"></div>
           </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
         </section>
 
-        {/* Project Information */}
-        <section className="w-full bg-green-900/95 backdrop-blur-sm py-12 border-b border-green-500/20">
-          <div className="container mx-auto px-4 md:px-6">
+        {/* Content Tile Section - Clean Background */}
+        <section className="w-full bg-background border-b">
+          <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -71,60 +71,60 @@ const FarmMonitoringProject = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-white text-green-900 hover:bg-green-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-900" 
+                <Badge className="bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800/30 hover:bg-green-200 dark:hover:bg-green-900/30 transition-all duration-300" 
                        tabIndex={0} role="button" aria-label="Agriculture tag">
                   🌾 Agriculture
                 </Badge>
-                <Badge className="bg-white text-emerald-900 hover:bg-emerald-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-900" 
+                <Badge className="bg-emerald-100 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800/30 hover:bg-emerald-200 dark:hover:bg-emerald-900/30 transition-all duration-300" 
                        tabIndex={0} role="button" aria-label="Mobile App tag">
                   📱 Mobile App
                 </Badge>
-                <Badge className="bg-white text-green-900 hover:bg-green-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-900" 
+                <Badge className="bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800/30 hover:bg-green-200 dark:hover:bg-green-900/30 transition-all duration-300" 
                        tabIndex={0} role="button" aria-label="UX Design tag">
                   🎨 UX Design
                 </Badge>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-header text-center md:text-left">
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground text-center md:text-left">
                 Farm Monitoring Mobile Application
               </h1>
               
-              <p className="text-lg mb-8 text-white text-center md:text-left max-w-4xl leading-relaxed">
+              <p className="text-lg mb-8 text-muted-foreground text-center md:text-left max-w-4xl leading-relaxed">
                 A comprehensive mobile application designed to help farmers monitor crop conditions, soil health, and weather patterns in real-time, enabling data-driven agricultural decisions for improved yields.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
                 <motion.div 
-                  className="bg-green-900/30 backdrop-blur-sm p-5 rounded-2xl border border-green-500/30 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
-                  <p className="font-semibold text-white">HCLTech</p>
+                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
+                  <p className="font-semibold text-foreground">HCLTech</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-green-900/30 backdrop-blur-sm p-5 rounded-2xl border border-green-500/30 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
-                  <p className="font-semibold text-white">6 Months</p>
+                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
+                  <p className="font-semibold text-foreground">6 Months</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-green-900/30 backdrop-blur-sm p-5 rounded-2xl border border-green-500/30 shadow-lg hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1"
+                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300 sm:col-span-2 lg:col-span-1"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.9 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
-                  <p className="font-semibold text-white">Lead UX Designer</p>
+                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
+                  <p className="font-semibold text-foreground">Lead UX Designer</p>
                 </motion.div>
               </div>
             </motion.div>

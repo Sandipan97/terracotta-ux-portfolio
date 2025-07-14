@@ -28,8 +28,8 @@ const LGCyclopsARProject = () => {
         {/* Sticky Navigation */}
         <StickyNavigation />
 
-        {/* Hero Section */}
-        <section className="w-full relative h-[50vh] overflow-hidden">
+        {/* Hero Image Section - Fixed Height */}
+        <section className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
           <motion.div 
             className="absolute top-4 left-4 z-30"
             initial={{ opacity: 0, x: -20 }}
@@ -47,7 +47,7 @@ const LGCyclopsARProject = () => {
           </motion.div>
 
           <motion.div 
-            className="absolute inset-0 z-10"
+            className="absolute inset-0"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
@@ -58,13 +58,13 @@ const LGCyclopsARProject = () => {
               className="w-full h-full object-cover"
               fallbackSrc="/placeholder.svg"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/40 to-purple-900/60 z-10"></div>
           </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
         </section>
 
-        {/* Project Information */}
-        <section className="w-full bg-slate-900/95 backdrop-blur-sm py-12 border-b border-indigo-500/20 relative overflow-hidden">
-          <div className="container mx-auto px-4 md:px-6 relative z-10">
+        {/* Content Tile Section - Clean Background */}
+        <section className="w-full bg-background border-b">
+          <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -72,60 +72,60 @@ const LGCyclopsARProject = () => {
               className="max-w-6xl mx-auto"
             >
               <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-               <Badge className="bg-white text-indigo-900 hover:bg-indigo-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-900" 
+               <Badge className="bg-indigo-100 dark:bg-indigo-900/20 text-indigo-800 dark:text-indigo-200 border border-indigo-200 dark:border-indigo-800/30 hover:bg-indigo-200 dark:hover:bg-indigo-900/30 transition-all duration-300" 
                       tabIndex={0} role="button" aria-label="AR Design tag">
                   🥽 AR Design
                 </Badge>
-                <Badge className="bg-white text-purple-900 hover:bg-purple-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-900" 
+                <Badge className="bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-200 border border-purple-200 dark:border-purple-800/30 hover:bg-purple-200 dark:hover:bg-purple-900/30 transition-all duration-300" 
                       tabIndex={0} role="button" aria-label="User Experience tag">
                   👤 User Experience
                 </Badge>
-                <Badge className="bg-white text-indigo-900 hover:bg-indigo-50 transition-all duration-300 border border-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-900" 
+                <Badge className="bg-indigo-100 dark:bg-indigo-900/20 text-indigo-800 dark:text-indigo-200 border border-indigo-200 dark:border-indigo-800/30 hover:bg-indigo-200 dark:hover:bg-indigo-900/30 transition-all duration-300" 
                       tabIndex={0} role="button" aria-label="Interactive Design tag">
                   ⚡ Interactive Design
                 </Badge>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-header text-center md:text-left">
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground text-center md:text-left">
                 AR Interactive User Manual - LG Cyclops
               </h1>
               
-              <p className="text-lg mb-8 text-white text-center md:text-left max-w-4xl leading-relaxed">
+              <p className="text-lg mb-8 text-muted-foreground text-center md:text-left max-w-4xl leading-relaxed">
                 A transformative AR-based digital manual for LG consumer products, replacing traditional printed guides with immersive, interactive experiences that enhance user comprehension and reduce environmental impact.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
                 <motion.div 
-                  className="bg-indigo-900/30 backdrop-blur-sm p-5 rounded-2xl border border-indigo-500/30 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
-                  <p className="font-semibold text-white">LG Electronics</p>
+                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
+                  <p className="font-semibold text-foreground">LG Electronics</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-indigo-900/30 backdrop-blur-sm p-5 rounded-2xl border border-indigo-500/30 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
-                  <p className="font-semibold text-white">6 Months</p>
+                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
+                  <p className="font-semibold text-foreground">6 Months</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-indigo-900/30 backdrop-blur-sm p-5 rounded-2xl border border-indigo-500/30 shadow-lg hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1"
+                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300 sm:col-span-2 lg:col-span-1"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.9 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-white text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
-                  <p className="font-semibold text-white">UX Designer & AR Experience Designer</p>
+                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
+                  <p className="font-semibold text-foreground">AR/UX Designer</p>
                 </motion.div>
               </div>
             </motion.div>
