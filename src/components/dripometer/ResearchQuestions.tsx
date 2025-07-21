@@ -94,7 +94,7 @@ const ResearchQuestions = () => {
                     </h4>
                     <div className="w-full">
                       <EditableImage
-                        src="/lovable-uploads/832e28f3-39ef-49db-b539-e2c839f7682b.png"
+                        src="/lovable-uploads/865a85d4-746b-4cbf-a739-52820a467786.png"
                         alt="Technical dependency matrix linking customer requirements to engineering specifications"
                         className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
                         fallbackSrc="/placeholder.svg"
