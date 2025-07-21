@@ -20,45 +20,58 @@ const ObjectiveMethodologies = () => {
                 ▶️ OBJECTIVE and METHODOLOGIES
               </AccordionTrigger>
               <AccordionContent className="pb-6">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400 mb-3 flex items-center">
-                      🎯 <span className="ml-2">Objective</span>
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">Redesign and Revamp an IV-drip monitor system developed by CPDMed (IISc) with new fuctionalities, robust tamperproof embodiment, affordability in mind tailored for resource-constrained medical environments such as NICUs, burns wards, and rural health centers.</p>
-                  </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400 mb-3 flex items-center">
+                        🎯 <span className="ml-2">Objective</span>
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">Redesign and Revamp an IV-drip monitor system developed by CPDMed (IISc) with new fuctionalities, robust tamperproof embodiment, affordability in mind tailored for resource-constrained medical environments such as NICUs, burns wards, and rural health centers.</p>
+                    </div>
 
-                  <div>
-                    <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400 mb-4 flex items-center">
-                      🛠 <span className="ml-2">Methodologies Employed:</span>
-                    </h3>
-                    <div className="grid gap-4">
-                      {[{
-                      title: "Contextual Inquiry:",
-                      description: "Stakeholder interviews across public/private healthcare facilities"
-                    }, {
-                      title: "Functional Decomposition & Morphological Analysis:",
-                      description: "Created over 10 design variants"
-                    }, {
-                      title: "Quality Function Deployment (QFD):",
-                      description: "Mapped stakeholder voice to engineering specs"
-                    }, {
-                      title: "Failure Mode and Effects Analysis (FMEA):",
-                      description: "Risk evaluation with high-RPN mitigation"
-                    }, {
-                      title: "Power Budgeting:",
-                      description: "Ensured 20-hour operation with a 3.7V 10,000mAh battery"
-                    }].map((method, index) => <div key={index} className="bg-background/60 rounded-lg p-4 border border-emerald-200/30 dark:border-emerald-800/30">
-                          <strong className="text-foreground">{method.title}</strong>
-                          <span className="text-muted-foreground ml-1">{method.description}</span>
-                        </div>)}
+                    <div>
+                      <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400 mb-4 flex items-center">
+                        🛠 <span className="ml-2">Methodologies Employed:</span>
+                      </h3>
+                      <div className="grid gap-4">
+                        {[{
+                        title: "Contextual Inquiry:",
+                        description: "Stakeholder interviews across public/private healthcare facilities"
+                      }, {
+                        title: "Functional Decomposition & Morphological Analysis:",
+                        description: "Created over 10 design variants"
+                      }, {
+                        title: "Quality Function Deployment (QFD):",
+                        description: "Mapped stakeholder voice to engineering specs"
+                      }, {
+                        title: "Failure Mode and Effects Analysis (FMEA):",
+                        description: "Risk evaluation with high-RPN mitigation"
+                      }, {
+                        title: "Power Budgeting:",
+                        description: "Ensured 20-hour operation with a 3.7V 10,000mAh battery"
+                      }].map((method, index) => <div key={index} className="bg-background/60 rounded-lg p-4 border border-emerald-200/30 dark:border-emerald-800/30">
+                            <strong className="text-foreground">{method.title}</strong>
+                            <span className="text-muted-foreground ml-1">{method.description}</span>
+                          </div>)}
+                      </div>
+                    </div>
+
+                    <div className="bg-emerald-100/50 dark:bg-emerald-900/20 rounded-lg p-4 border-l-4 border-emerald-500">
+                      <p className="text-sm text-muted-foreground">
+                        <strong className="text-foreground">📌 Result:</strong> A clear, insight-driven pathway from user needs to validated, deployable design.
+                      </p>
                     </div>
                   </div>
 
-                  <div className="bg-emerald-100/50 dark:bg-emerald-900/20 rounded-lg p-4 border-l-4 border-emerald-500">
-                    <p className="text-sm text-muted-foreground">
-                      <strong className="text-foreground">📌 Result:</strong> A clear, insight-driven pathway from user needs to validated, deployable design.
-                    </p>
+                  <div className="space-y-4">
+                    <div className="bg-background/60 rounded-lg p-4 border border-emerald-200/30 dark:border-emerald-800/30">
+                      <h4 className="text-sm font-medium text-emerald-700 dark:text-emerald-400 mb-3">Old device</h4>
+                      <img 
+                        src="/lovable-uploads/d7004b56-b3d9-4f38-b006-2c629ba78879.png" 
+                        alt="Old IV drip monitoring device setup showing monitoring device and sensor-mount attached to drip set"
+                        className="w-full h-auto rounded-lg border border-emerald-200/50 dark:border-emerald-800/50"
+                      />
+                    </div>
                   </div>
                 </div>
               </AccordionContent>
