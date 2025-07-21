@@ -1,5 +1,7 @@
+
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { EditableImage } from '@/components/ui/editable-image';
 
 const DesignSolutions = () => {
   const solutions = [
@@ -83,6 +85,84 @@ const DesignSolutions = () => {
                       </ul>
                     </motion.div>
                   ))}
+
+                  {/* Concept Comparison - Full Width Landscape */}
+                  <motion.div
+                    className="space-y-6 mt-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-teal-600 dark:text-teal-400 mr-2">📋</span>
+                      Concept Comparison Analysis
+                    </h4>
+                    <div className="w-full">
+                      <EditableImage
+                        src="/lovable-uploads/fd3631c9-8b41-4027-ad53-e455e03a29b2.png"
+                        alt="Concept comparison table evaluating different design approaches and their trade-offs"
+                        className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* User Requirements vs Specifications - Full Width Landscape */}
+                  <motion.div
+                    className="space-y-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-teal-600 dark:text-teal-400 mr-2">⚙️</span>
+                      User Requirements vs Technical Specifications
+                    </h4>
+                    <div className="w-full">
+                      <EditableImage
+                        src="/lovable-uploads/019edcc6-d00e-43e5-a1f7-a78d44a12c6c.png"
+                        alt="Mapping of user requirements to technical specifications and implementation details"
+                        className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Device Display Photos - Two Portrait Images Side by Side */}
+                  <motion.div
+                    className="space-y-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-teal-600 dark:text-teal-400 mr-2">📱</span>
+                      Device Interface & Display
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <EditableImage
+                          src="/lovable-uploads/90a39f2c-4d76-4b6d-a58c-3cd2f3122da5.png"
+                          alt="Device display interface showing monitoring status and controls"
+                          className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
+                          fallbackSrc="/placeholder.svg"
+                        />
+                        <p className="text-xs text-muted-foreground text-center">Primary Display Interface</p>
+                      </div>
+                      <div className="space-y-2">
+                        <EditableImage
+                          src="/lovable-uploads/d14bd1b7-aac5-4669-991a-f2dcbcf81b7f.png"
+                          alt="Alternative device display view showing different monitoring modes"
+                          className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
+                          fallbackSrc="/placeholder.svg"
+                        />
+                        <p className="text-xs text-muted-foreground text-center">Alternative Display Mode</p>
+                      </div>
+                    </div>
+                  </motion.div>
                   
                   <div className="bg-teal-100/50 dark:bg-teal-900/20 rounded-lg p-4 border-l-4 border-teal-500">
                     <p className="text-sm text-muted-foreground">

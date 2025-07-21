@@ -1,5 +1,7 @@
+
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { EditableImage } from '@/components/ui/editable-image';
 
 const MethodTranslation = () => {
   const translations = [
@@ -26,7 +28,7 @@ const MethodTranslation = () => {
   ];
 
   return (
-    <section id="translation" className="py-16 bg-background">
+    <section id="methods" className="py-16 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,38 +42,106 @@ const MethodTranslation = () => {
                 ▶️ TRANSLATION OF METHOD INTO DESIGN DECISIONS
               </AccordionTrigger>
               <AccordionContent className="pb-6">
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse">
-                    <thead>
-                      <tr className="border-b border-emerald-200/50">
-                        <th className="text-left py-3 px-4 font-semibold text-foreground bg-emerald-100/50 dark:bg-emerald-900/20 rounded-tl-lg">
-                          Methodology
-                        </th>
-                        <th className="text-left py-3 px-4 font-semibold text-foreground bg-emerald-100/50 dark:bg-emerald-900/20 rounded-tr-lg">
-                          Resulting Design Decision
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {translations.map((row, index) => (
-                        <motion.tr
-                          key={index}
-                          className="border-b border-emerald-200/30 hover:bg-emerald-50/30 dark:hover:bg-emerald-900/10 transition-colors"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                        >
-                          <td className="py-3 px-4 font-medium text-emerald-700 dark:text-emerald-400">
-                            {row.methodology}
-                          </td>
-                          <td className="py-3 px-4 text-muted-foreground">
-                            {row.decision}
-                          </td>
-                        </motion.tr>
-                      ))}
-                    </tbody>
-                  </table>
+                <div className="space-y-8">
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b border-emerald-200/50">
+                          <th className="text-left py-3 px-4 font-semibold text-foreground bg-emerald-100/50 dark:bg-emerald-900/20 rounded-tl-lg">
+                            Methodology
+                          </th>
+                          <th className="text-left py-3 px-4 font-semibold text-foreground bg-emerald-100/50 dark:bg-emerald-900/20 rounded-tr-lg">
+                            Resulting Design Decision
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {translations.map((row, index) => (
+                          <motion.tr
+                            key={index}
+                            className="border-b border-emerald-200/30 hover:bg-emerald-50/30 dark:hover:bg-emerald-900/10 transition-colors"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            <td className="py-3 px-4 font-medium text-emerald-700 dark:text-emerald-400">
+                              {row.methodology}
+                            </td>
+                            <td className="py-3 px-4 text-muted-foreground">
+                              {row.decision}
+                            </td>
+                          </motion.tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* FMEA Analysis - Full Width Landscape */}
+                  <motion.div
+                    className="space-y-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-emerald-600 dark:text-emerald-400 mr-2">⚠️</span>
+                      FMEA Risk Analysis & Mitigation
+                    </h4>
+                    <div className="w-full">
+                      <EditableImage
+                        src="/lovable-uploads/d84ebf1f-c456-4eb0-b565-5782d7530460.png"
+                        alt="FMEA analysis table showing failure modes, effects, and risk mitigation strategies"
+                        className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Function Structure - Full Width Landscape */}
+                  <motion.div
+                    className="space-y-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-emerald-600 dark:text-emerald-400 mr-2">🔄</span>
+                      Function Structure & Workflow
+                    </h4>
+                    <div className="w-full">
+                      <EditableImage
+                        src="/lovable-uploads/101d0927-013a-4a16-acbd-d26c3dbee7cf.png"
+                        alt="Function structure diagram showing system workflow and component interactions"
+                        className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Circuit Diagram and UI Flow - Full Width Landscape */}
+                  <motion.div
+                    className="space-y-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-emerald-600 dark:text-emerald-400 mr-2">⚡</span>
+                      Circuit Design & User Interface Flow
+                    </h4>
+                    <div className="w-full">
+                      <EditableImage
+                        src="/lovable-uploads/9f108c16-bfa9-45eb-8cc6-36766ba0fd84.png"
+                        alt="Circuit diagram and user interface flow showing technical implementation details"
+                        className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                  </motion.div>
                 </div>
               </AccordionContent>
             </AccordionItem>

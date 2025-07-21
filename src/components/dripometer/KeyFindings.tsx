@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { EditableImage } from '@/components/ui/editable-image';
@@ -13,8 +14,8 @@ const KeyFindings = () => {
     {
       title: "Shared IV poles = No Room for Bulky Devices",
       implication: "Must avoid extra hangers or add-ons",
-      imageSrc: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      imageAlt: "Crowded hospital ward with shared IV poles"
+      imageSrc: "/lovable-uploads/06a229e5-5add-4db4-a609-e756c69a98cf.png",
+      imageAlt: "Physical device setup showing compact pole-mounted dripometer unit"
     },
     {
       title: "Alarms at bedside ≠ Effective",

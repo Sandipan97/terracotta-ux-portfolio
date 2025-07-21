@@ -1,5 +1,7 @@
+
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { EditableImage } from '@/components/ui/editable-image';
 
 const ResearchQuestions = () => {
   const questions = [
@@ -36,7 +38,7 @@ const ResearchQuestions = () => {
                 ▶️ RESEARCH QUESTIONS – CONNECTED TO METHODS
               </AccordionTrigger>
               <AccordionContent className="pb-6">
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {questions.map((item, index) => (
                     <motion.div
                       key={index}
@@ -56,6 +58,49 @@ const ResearchQuestions = () => {
                       </p>
                     </motion.div>
                   ))}
+
+                  {/* Customer Requirements Analysis - Full Width Landscape */}
+                  <motion.div
+                    className="space-y-6 mt-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-teal-600 dark:text-teal-400 mr-2">📊</span>
+                      Customer Requirements Rating Matrix
+                    </h4>
+                    <div className="w-full">
+                      <EditableImage
+                        src="/lovable-uploads/296514d4-d0b0-4b33-9ab0-2dc751510e05.png"
+                        alt="Customer Requirements Rating Matrix showing prioritized user needs and importance scores"
+                        className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    className="space-y-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-teal-600 dark:text-teal-400 mr-2">🔗</span>
+                      Customer Requirements vs Technical Dependencies
+                    </h4>
+                    <div className="w-full">
+                      <EditableImage
+                        src="/lovable-uploads/832e28f3-39ef-49db-b539-e2c839f7682b.png"
+                        alt="Technical dependency matrix linking customer requirements to engineering specifications"
+                        className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                  </motion.div>
                 </div>
               </AccordionContent>
             </AccordionItem>
