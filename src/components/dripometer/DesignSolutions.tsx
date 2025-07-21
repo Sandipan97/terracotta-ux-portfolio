@@ -119,16 +119,16 @@ const DesignSolutions = () => {
                   once: true
                 }}>
                     <h4 className="font-semibold text-foreground text-lg flex items-center">
-                      <span className="text-teal-600 dark:text-teal-400 mr-2">📱</span>
-                      Device Interface & Display
+                      <span className="text-teal-600 dark:text-teal-400 mr-2">🔧</span>
+                      The New Embodiment
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <EditableImage src="/lovable-uploads/90a39f2c-4d76-4b6d-a58c-3cd2f3122da5.png" alt="Device display interface showing monitoring status and controls" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
+                        <EditableImage src="/lovable-uploads/7d63b5b2-54c2-4921-8b8e-9f45e54d8b27.png" alt="Dripometer device mounted on pole showing the complete monitoring setup" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
                         <p className="text-xs text-muted-foreground text-center">Front Display Interface</p>
                       </div>
                       <div className="space-y-2">
-                        <EditableImage src="/lovable-uploads/d14bd1b7-aac5-4669-991a-f2dcbcf81b7f.png" alt="Alternative device display view showing different monitoring modes" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
+                        <EditableImage src="/lovable-uploads/3b7054fd-1060-42b5-afa3-890c44d9991f.png" alt="Detailed view of the device assembly showing modular construction and connection points" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
                         <p className="text-xs text-muted-foreground text-center">Back Embodiment</p>
                       </div>
                     </div>
