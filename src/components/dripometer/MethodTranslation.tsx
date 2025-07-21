@@ -73,7 +73,7 @@ const MethodTranslation = () => {
                       FMEA Risk Analysis & Mitigation
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/d84ebf1f-c456-4eb0-b565-5782d7530460.png" alt="FMEA analysis table showing failure modes, effects, and risk mitigation strategies" className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/9bda1bc6-6d7d-4fe3-abb6-b1ce6f1516d4.png" alt="FMEA analysis table showing failure modes, effects, and risk mitigation strategies" className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
 
@@ -95,7 +95,7 @@ const MethodTranslation = () => {
                       Function Structure & Workflow
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/101d0927-013a-4a16-acbd-d26c3dbee7cf.png" alt="Function structure diagram showing system workflow and component interactions" className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/98b03f40-5c59-4e85-a4d7-13c27d611bac.png" alt="Function structure diagram showing system workflow and component interactions" className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
 
@@ -117,7 +117,7 @@ const MethodTranslation = () => {
                       Circuit Design & User Interface Flow
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/9f108c16-bfa9-45eb-8cc6-36766ba0fd84.png" alt="Circuit diagram and user interface flow showing technical implementation details" className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/dbd16053-1353-4d40-bd87-5c80add05d77.png" alt="Circuit diagram and user interface flow showing technical implementation details" className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
                 </div>
