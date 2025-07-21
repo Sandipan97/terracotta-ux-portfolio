@@ -73,7 +73,7 @@ const ResearchQuestions = () => {
                     </h4>
                     <div className="w-full">
                       <EditableImage
-                        src="/lovable-uploads/296514d4-d0b0-4b33-9ab0-2dc751510e05.png"
+                        src="/lovable-uploads/e1affce8-133c-4851-af10-6bc8eab24477.png"
                         alt="Customer Requirements Rating Matrix showing prioritized user needs and importance scores"
                         className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
                         fallbackSrc="/placeholder.svg"
