@@ -100,7 +100,7 @@ const DesignSolutions = () => {
                     </h4>
                     <div className="w-full">
                       <EditableImage
-                        src="/lovable-uploads/fd3631c9-8b41-4027-ad53-e455e03a29b2.png"
+                        src="/lovable-uploads/7ec12b6e-4bb0-4156-9c80-af6841ee6304.png"
                         alt="Concept comparison table evaluating different design approaches and their trade-offs"
                         className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
                         fallbackSrc="/placeholder.svg"
