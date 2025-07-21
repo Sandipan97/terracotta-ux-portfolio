@@ -79,7 +79,7 @@ const DesignSolutions = () => {
                       Concept Generation
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/a1e84a40-6817-4ce4-abc1-4787e93897cf.png" alt="Failure Mode and Effects Analysis (FMEA) table showing subsystem failures and risk assessment" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/0a2bbc05-480f-4072-9af3-2a444df422b3.png" alt="Concept comparison table showing four design alternatives with parameters for attachment, lock type, alerts, chargeability, sensor placement, and communication" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
 
