@@ -33,28 +33,11 @@ const MethodTranslation = () => {
       }}>
           <Accordion type="single" collapsible defaultValue="method-translation" className="w-full">
             <AccordionItem value="method-translation" className="border border-emerald-200/50 rounded-2xl px-6 bg-emerald-50/30 dark:bg-emerald-900/10 dark:border-emerald-800/50">
-              
+              <AccordionTrigger className="text-xl font-semibold text-foreground hover:text-emerald-600 dark:hover:text-emerald-400 py-6">
+                ▶️ 🔄 METHOD TRANSLATION (Research to Design)
+              </AccordionTrigger>
               <AccordionContent className="pb-6">
                 <div className="space-y-8">
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse">
-                      <thead>
-                        <tr className="border-b border-emerald-200/50">
-                          <th className="text-left py-3 px-4 font-semibold text-foreground">Methodology</th>
-                          <th className="text-left py-3 px-4 font-semibold text-foreground">Design Decision</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {translations.map((row, index) => (
-                          <tr key={index} className="border-b border-emerald-100/50 last:border-0">
-                            <td className="py-3 px-4 text-foreground font-medium">{row.methodology}</td>
-                            <td className="py-3 px-4 text-muted-foreground">{row.decision}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-
                   {/* FMEA Analysis - Full Width Landscape */}
                   <motion.div className="space-y-6" initial={{
                   opacity: 0,
@@ -118,6 +101,43 @@ const MethodTranslation = () => {
                     </h4>
                     <div className="w-full">
                       <EditableImage src="/lovable-uploads/dbd16053-1353-4d40-bd87-5c80add05d77.png" alt="Circuit diagram and user interface flow showing technical implementation details" className="w-full h-auto rounded-lg border border-emerald-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
+                    </div>
+                  </motion.div>
+
+                  {/* Methodology Table - Moved to end */}
+                  <motion.div className="space-y-6" initial={{
+                  opacity: 0,
+                  y: 20
+                }} whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} transition={{
+                  duration: 0.6,
+                  delay: 1.2
+                }} viewport={{
+                  once: true
+                }}>
+                    <h4 className="font-semibold text-foreground text-lg flex items-center">
+                      <span className="text-emerald-600 dark:text-emerald-400 mr-2">📋</span>
+                      Methodology Summary
+                    </h4>
+                    <div className="overflow-x-auto">
+                      <table className="w-full border-collapse bg-background/60 rounded-lg border border-emerald-200/30 dark:border-emerald-800/30">
+                        <thead>
+                          <tr className="border-b border-emerald-200/50">
+                            <th className="text-left py-3 px-4 font-semibold text-foreground">Methodology</th>
+                            <th className="text-left py-3 px-4 font-semibold text-foreground">Design Decision</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {translations.map((row, index) => (
+                            <tr key={index} className="border-b border-emerald-100/50 last:border-0">
+                              <td className="py-3 px-4 text-foreground font-medium">{row.methodology}</td>
+                              <td className="py-3 px-4 text-muted-foreground">{row.decision}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
                   </motion.div>
                 </div>
