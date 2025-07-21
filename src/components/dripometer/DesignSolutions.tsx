@@ -124,7 +124,7 @@ const DesignSolutions = () => {
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <EditableImage src="/lovable-uploads/dae41123-d04f-42cb-88b1-ea0426569c84.png" alt="Technical diagram showing hardware components and user interface flow" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
+                        <EditableImage src="/lovable-uploads/f4433b81-09ec-4d52-a0ec-dc9ac7ee5cd4.png" alt="Front display interface of the dripometer device showing the digital screen and control elements" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white object-cover object-right" fallbackSrc="/placeholder.svg" />
                         <p className="text-xs text-muted-foreground text-center">Front Display Interface</p>
                       </div>
                       <div className="space-y-2">
