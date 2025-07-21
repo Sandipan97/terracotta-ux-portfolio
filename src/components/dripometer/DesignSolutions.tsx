@@ -101,7 +101,7 @@ const DesignSolutions = () => {
                       Quality Function Deployment (QFD)
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/f628cb87-2104-4eb3-882f-325953ed5dd3.png" alt="Function structure analysis showing installation, prescription and system response workflows" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/eedc0627-f4b4-4046-be1c-9710e8c88510.png" alt="Quality Function Deployment (QFD) matrix mapping customer requirements to technical specifications with competitor analysis" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
 
