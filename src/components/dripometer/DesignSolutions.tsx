@@ -76,10 +76,10 @@ const DesignSolutions = () => {
                 }}>
                     <h4 className="font-semibold text-foreground text-lg flex items-center">
                       <span className="text-teal-600 dark:text-teal-400 mr-2">📋</span>
-                      Concept Comparison Analysis
+                      Concept Generation
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/fd3631c9-8b41-4027-ad53-e455e03a29b2.png" alt="Concept comparison table evaluating different design approaches and their trade-offs" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/22388cee-cdb0-44ca-8862-878f24beb27e.png" alt="Concept generation table showing different design concepts and their parameters" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
 
@@ -98,10 +98,10 @@ const DesignSolutions = () => {
                 }}>
                     <h4 className="font-semibold text-foreground text-lg flex items-center">
                       <span className="text-teal-600 dark:text-teal-400 mr-2">⚙️</span>
-                      User Requirements vs Technical Specifications
+                      Quality Function Deployment (QFD)
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/019edcc6-d00e-43e5-a1f7-a78d44a12c6c.png" alt="Mapping of user requirements to technical specifications and implementation details" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/505f2f45-6f54-4a4d-8c73-1250a62a132c.png" alt="Quality Function Deployment matrix showing customer requirements mapped to technical specifications" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
 
