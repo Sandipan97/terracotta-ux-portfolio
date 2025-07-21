@@ -40,12 +40,17 @@ const MethodTranslation = () => {
                     <table className="w-full border-collapse">
                       <thead>
                         <tr className="border-b border-emerald-200/50">
-                          
-                          
+                          <th className="text-left py-3 px-4 font-semibold text-foreground">Methodology</th>
+                          <th className="text-left py-3 px-4 font-semibold text-foreground">Design Decision</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {translations.map((row, index) => {})}
+                        {translations.map((row, index) => (
+                          <tr key={index} className="border-b border-emerald-100/50 last:border-0">
+                            <td className="py-3 px-4 text-foreground font-medium">{row.methodology}</td>
+                            <td className="py-3 px-4 text-muted-foreground">{row.decision}</td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
