@@ -79,7 +79,7 @@ const DesignSolutions = () => {
                       Concept Generation
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/22388cee-cdb0-44ca-8862-878f24beb27e.png" alt="Concept generation table showing different design concepts and their parameters" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/a1e84a40-6817-4ce4-abc1-4787e93897cf.png" alt="Failure Mode and Effects Analysis (FMEA) table showing subsystem failures and risk assessment" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
 
@@ -101,7 +101,7 @@ const DesignSolutions = () => {
                       Quality Function Deployment (QFD)
                     </h4>
                     <div className="w-full">
-                      <EditableImage src="/lovable-uploads/505f2f45-6f54-4a4d-8c73-1250a62a132c.png" alt="Quality Function Deployment matrix showing customer requirements mapped to technical specifications" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
+                      <EditableImage src="/lovable-uploads/f628cb87-2104-4eb3-882f-325953ed5dd3.png" alt="Function structure analysis showing installation, prescription and system response workflows" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                     </div>
                   </motion.div>
 
@@ -124,7 +124,7 @@ const DesignSolutions = () => {
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <EditableImage src="/lovable-uploads/7d63b5b2-54c2-4921-8b8e-9f45e54d8b27.png" alt="Dripometer device mounted on pole showing the complete monitoring setup" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md" fallbackSrc="/placeholder.svg" />
+                        <EditableImage src="/lovable-uploads/dae41123-d04f-42cb-88b1-ea0426569c84.png" alt="Technical diagram showing hardware components and user interface flow" className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white" fallbackSrc="/placeholder.svg" />
                         <p className="text-xs text-muted-foreground text-center">Front Display Interface</p>
                       </div>
                       <div className="space-y-2">
