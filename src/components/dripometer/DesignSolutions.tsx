@@ -118,13 +118,13 @@ const DesignSolutions = () => {
                   >
                     <h4 className="font-semibold text-foreground text-lg flex items-center">
                       <span className="text-teal-600 dark:text-teal-400 mr-2">⚙️</span>
-                      User Requirements vs Technical Specifications
+                      Failure Mode and Effects Analysis (FMEA)
                     </h4>
                     <div className="w-full">
                       <EditableImage
-                        src="/lovable-uploads/019edcc6-d00e-43e5-a1f7-a78d44a12c6c.png"
-                        alt="Mapping of user requirements to technical specifications and implementation details"
-                        className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
+                        src="/lovable-uploads/faef07c9-7f2d-4518-ab38-262c70cf4199.png"
+                        alt="Failure Mode and Effects Analysis table showing potential failure modes, severity, and recommended actions"
+                        className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md bg-white"
                         fallbackSrc="/placeholder.svg"
                       />
                     </div>
