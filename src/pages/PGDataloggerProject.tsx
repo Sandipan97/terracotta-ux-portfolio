@@ -214,8 +214,8 @@ const PGDataloggerProject = () => {
               viewport={{ once: true }}
             >
               <EditableImage
-                src="/lovable-uploads/b17877ad-562a-48e5-b91a-91d1b75d1bec6cfb.png"
-                alt="Legacy P&G Datalogger interface on old computer system"
+                src="/lovable-uploads/87dd02b2-69e7-47bd-a68d-7039d244594e.png"
+                alt="Modern P&G Research Razor 2.0 Configuration Menu interface"
                 className="w-full h-[400px] object-cover rounded-xl shadow-lg"
                 fallbackSrc="/placeholder.svg"
               />
