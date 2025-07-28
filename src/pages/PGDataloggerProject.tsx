@@ -593,7 +593,7 @@ const PGDataloggerProject = () => {
             </motion.h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
             {[
               { metric: "60%", label: "Reduction in User Errors", icon: <CheckCircle className="w-6 h-6" /> },
               { metric: "85%", label: "Improved User Satisfaction", icon: <Eye className="w-6 h-6" /> },
@@ -610,13 +610,13 @@ const PGDataloggerProject = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full p-6 text-center hover:shadow-lg transition-shadow">
-                  <CardContent className="pt-6">
-                    <div className="text-primary mb-4 flex justify-center">
+                <Card className="h-full p-4 text-center hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-4">
+                    <div className="text-primary mb-2 flex justify-center">
                       {impact.icon}
                     </div>
-                    <div className="text-3xl font-bold text-primary mb-2">{impact.metric}</div>
-                    <p className="text-muted-foreground font-medium">{impact.label}</p>
+                    <div className="text-2xl font-bold text-primary mb-1">{impact.metric}</div>
+                    <p className="text-muted-foreground font-medium text-sm">{impact.label}</p>
                   </CardContent>
                 </Card>
               </motion.div>
