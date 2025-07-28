@@ -214,8 +214,8 @@ const PGDataloggerProject = () => {
               viewport={{ once: true }}
             >
               <EditableImage
-                src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Modern redesigned P&G Datalogger dashboard"
+                src="/lovable-uploads/b17877ad-562a-48e5-b91a-91d1b75d1bec6cfb.png"
+                alt="Legacy P&G Datalogger interface on old computer system"
                 className="w-full h-[400px] object-cover rounded-xl shadow-lg"
                 fallbackSrc="/placeholder.svg"
               />
@@ -228,8 +228,8 @@ const PGDataloggerProject = () => {
               viewport={{ once: true }}
             >
               <EditableImage
-                src="https://images.unsplash.com/photo-1487252665478-49b61b47f302?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Legacy P&G Datalogger interface showing cluttered layout"
+                src="/lovable-uploads/dd07be3f-2cc0-4b77-88d1-b75d1bec6cfb.png"
+                alt="Modern redesigned P&G Research Razor 2.0 interface"
                 className="w-full h-[400px] object-cover rounded-xl shadow-lg"
                 fallbackSrc="/placeholder.svg"
               />
