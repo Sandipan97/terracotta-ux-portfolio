@@ -632,8 +632,8 @@ const PGDataloggerProject = () => {
                 </CardHeader>
                 <CardContent>
                   <EditableImage
-                    src="https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="Final P&G Datalogger interface in light mode"
+                    src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png"
+                    alt="Final P&G Research Razor 2.0 interface in light mode"
                     className="w-full h-[400px] object-cover rounded-lg"
                     fallbackSrc="/placeholder.svg"
                   />
