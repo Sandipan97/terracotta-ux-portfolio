@@ -7,7 +7,7 @@ const KeyFindings = () => {
   const findings = [
     {
       title: "Manual Monitoring = Errors + No Audit Trail",
-      implication: "Need for automation, real-time logs",
+      implication: "Need for a central console to monitor",
       imageSrc: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       imageAlt: "Nurse manually logging IV data in medical ward"
     },
@@ -19,19 +19,19 @@ const KeyFindings = () => {
     },
     {
       title: "Alarms at bedside cause Panic in Patients",
-      implication: "Need central system with precise mapping",
+      implication: "Need central system to show alarms",
       imageSrc: "/lovable-uploads/Ward panic.png",
       imageAlt: "Central console screen with bed layout and alerts"
     },
     {
       title: "High Device Theft Risk",
-      implication: "Must be non-functional outside secure Wi-Fi",
+      implication: "Must be locked to pole somehow",
       imageSrc: "/lovable-uploads/Drip-steal.png",
       imageAlt: "Lockable clamp and hospital-only pairing logic"
     },
     {
       title: "Nurses prefer \"plug-n-play\" interfaces",
-      implication: "Snap-fit sensor design and color-coded feedback",
+      implication: "Device must be easy to use",
       imageSrc:"/lovable-uploads/nurses.png",
       imageAlt: "Snap-fit sensor mechanism and LED indicators"
     }
