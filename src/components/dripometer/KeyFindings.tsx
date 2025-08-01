@@ -75,10 +75,11 @@ const KeyFindings = () => {
                         </div>
                         <div className="md:col-span-1">
                           <EditableImage
-                            src= findings.imgSrc
-                            alt="Technical dependency matrix linking customer requirements to engineering specifications" 
+                            src={finding.imageSrc}
+                            alt={finding.imageAlt}
                             className="w-full h-32 object-cover rounded-lg border border-emerald-200/50"
                             fallbackSrc="/placeholder.svg"
+                            editableKey={`dripometer-finding-${index}`}
                           />
                         </div>
                       </div>
