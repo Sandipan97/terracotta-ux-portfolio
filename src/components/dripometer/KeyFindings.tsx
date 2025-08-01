@@ -75,7 +75,7 @@ const KeyFindings = () => {
                         </div>
                         <div className="md:col-span-1">
                           <EditableImage
-                            src="/lovable-uploads/O2C competitors.png"
+                            src= findings.imgSrc
                             alt="Technical dependency matrix linking customer requirements to engineering specifications" 
                             className="w-full h-32 object-cover rounded-lg border border-emerald-200/50"
                             fallbackSrc="/placeholder.svg"
