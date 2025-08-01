@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
-import StickyNavigation from '@/components/pg-datalogger/StickyNavigation';
+import StickyNavigation from '@/components/dripometer/StickyNavigation';
 import ObjectiveMethodologies from '@/components/dripometer/ObjectiveMethodologies';
 import ResearchQuestions from '@/components/dripometer/ResearchQuestions';
 import KeyFindings from '@/components/dripometer/KeyFindings';

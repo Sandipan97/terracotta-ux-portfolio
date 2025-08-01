@@ -1,39 +1,71 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
-const StickyNavigation = () => {
+interface NavigationSection {
+  id: string;
+  label: string;
+}
+
+interface StickyNavigationProps {
+  sections: NavigationSection[];
+  className?: string;
+}
+
+const StickyNavigation = ({ sections, className = "" }: StickyNavigationProps) => {
+  const [activeSection, setActiveSection] = useState(sections[0]?.id || '');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionElements = sections.map(section => 
+        document.getElementById(section.id)
+      ).filter(Boolean);
+
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const element = sectionElements[i];
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i].id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sections]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   return (
     <motion.nav 
-      className="fixed top-20 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border"
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      className={`fixed top-20 right-4 z-40 bg-background/90 backdrop-blur-sm border border-border rounded-xl p-2 shadow-lg hidden lg:block ${className}`}
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: 1 }}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-wrap gap-2 py-3 justify-center md:justify-start overflow-x-auto">
-          {[
-            { id: 'objective', label: 'Objective' },
-            { id: 'research', label: 'Research' },
-            { id: 'findings', label: 'Findings' },
-            { id: 'solutions', label: 'Solutions' },
-            { id: 'translation', label: 'Methods' },
-            { id: 'status', label: 'Status' }
-          ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="px-3 py-1.5 text-sm rounded-full border border-border hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-700 transition-all duration-300 whitespace-nowrap dark:hover:bg-emerald-900/20 dark:hover:text-emerald-400"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
+      <div className="flex flex-col space-y-1">
+        {sections.map((section) => (
+          <button
+            key={section.id}
+            onClick={() => scrollToSection(section.id)}
+            className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+              activeSection === section.id
+                ? 'bg-emerald-600 text-white shadow-sm'
+                : 'text-muted-foreground hover:text-foreground hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
+            }`}
+            aria-label={`Navigate to ${section.label} section`}
+          >
+            {section.label}
+          </button>
+        ))}
       </div>
     </motion.nav>
   );
