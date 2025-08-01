@@ -42,11 +42,12 @@ const ProjectDrawer = () => {
         <CategoryChips
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
+          isVisible={isInView}
         />
 
         <ProjectGrid
-          projects={filteredFiles}
-          isInView={isInView}
+          files={filteredFiles}
+          isVisible={isInView}
         />
       </div>
       
