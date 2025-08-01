@@ -56,7 +56,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
   };
 
   return (
-    <section id="solutions" className="py-20 bg-background">
+    <section id="solutions" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
         >
           <div className="text-center mb-12">
             <motion.h2 
-              className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4"
+              className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -74,7 +74,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
               Design Solutions
             </motion.h2>
             <motion.p 
-              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -95,17 +95,17 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="group"
               >
-                <Card className="bg-card border-border h-full hover:border-primary/50 transition-all duration-300 shadow-sm">
+                <Card className="bg-white border-gray-200 h-full hover:border-blue-300 transition-all duration-300 shadow-lg">
                   <CardHeader className="pb-4">
                     <div className="flex items-start justify-between mb-4">
-                      <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-4">
-                        <solution.icon className="w-8 h-8 text-primary-foreground" />
+                      <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4">
+                        <solution.icon className="w-8 h-8 text-white" />
                       </div>
-                      <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center border border-border">
-                        <FileImage className="w-6 h-6 text-muted-foreground" />
+                      <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200">
+                        <FileImage className="w-6 h-6 text-gray-500" />
                       </div>
                     </div>
-                    <CardTitle className="text-foreground text-xl mb-2">{solution.title}</CardTitle>
+                    <CardTitle className="text-gray-900 text-xl mb-2">{solution.title}</CardTitle>
                     <div className="flex flex-wrap gap-2">
                       {solution.tags.map((tag, tagIndex) => (
                         <Badge key={tagIndex} variant="secondary">
@@ -115,12 +115,12 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
                     </div>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-muted-foreground leading-relaxed mb-4">{solution.description}</p>
+                    <p className="text-gray-600 leading-relaxed mb-4">{solution.description}</p>
                     
                     <div className="flex items-center justify-between">
                       <div className="text-sm">
-                        <span className="text-primary font-semibold">{solution.impact}</span>
-                        <span className="text-muted-foreground ml-2">improvement</span>
+                        <span className="text-blue-700 font-semibold">{solution.impact}</span>
+                        <span className="text-gray-600 ml-2">improvement</span>
                       </div>
                       
                       {!showDetailed && (
@@ -149,7 +149,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
             >
-              <p className="text-muted-foreground text-sm">
+              <p className="text-gray-600 text-sm">
                 Scroll down for detailed solution breakdowns and implementation insights
               </p>
             </motion.div>

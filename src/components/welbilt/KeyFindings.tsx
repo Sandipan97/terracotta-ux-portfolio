@@ -56,41 +56,41 @@ export const KeyFindings = () => {
     switch (color) {
       case 'red':
         return {
-          bg: 'bg-card',
-          border: 'border-destructive/30',
-          icon: 'bg-destructive',
-          text: 'text-destructive',
-          badge: 'bg-destructive/10 text-destructive border-destructive/30'
+          bg: 'bg-white',
+          border: 'border-red-200',
+          icon: 'bg-red-600',
+          text: 'text-red-700',
+          badge: 'bg-red-50 text-red-700 border-red-200'
         };
       case 'blue':
         return {
-          bg: 'bg-card',
-          border: 'border-primary/30',
-          icon: 'bg-primary',
-          text: 'text-primary',
-          badge: 'bg-primary/10 text-primary border-primary/30'
+          bg: 'bg-white',
+          border: 'border-blue-200',
+          icon: 'bg-blue-600',
+          text: 'text-blue-700',
+          badge: 'bg-blue-50 text-blue-700 border-blue-200'
         };
       case 'green':
         return {
-          bg: 'bg-card',
-          border: 'border-green-500/30',
-          icon: 'bg-green-500',
-          text: 'text-green-600 dark:text-green-400',
-          badge: 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/30'
+          bg: 'bg-white',
+          border: 'border-green-200',
+          icon: 'bg-green-600',
+          text: 'text-green-700',
+          badge: 'bg-green-50 text-green-700 border-green-200'
         };
       default:
         return {
-          bg: 'bg-card',
-          border: 'border-border',
-          icon: 'bg-muted',
-          text: 'text-muted-foreground',
-          badge: 'bg-muted text-muted-foreground border-border'
+          bg: 'bg-white',
+          border: 'border-gray-200',
+          icon: 'bg-gray-500',
+          text: 'text-gray-600',
+          badge: 'bg-gray-50 text-gray-600 border-gray-200'
         };
     }
   };
 
   return (
-    <section id="findings" className="py-20 bg-muted/30">
+    <section id="findings" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export const KeyFindings = () => {
         >
           <div className="text-center mb-12">
             <motion.h2 
-              className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4"
+              className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -108,7 +108,7 @@ export const KeyFindings = () => {
               Key Findings
             </motion.h2>
             <motion.p 
-              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -145,7 +145,7 @@ export const KeyFindings = () => {
                         {/* Finding Content */}
                         <div className="flex-1 text-left">
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="font-semibold text-foreground text-xl">{finding.title}</h3>
+                            <h3 className="font-semibold text-gray-900 text-xl">{finding.title}</h3>
                             <Badge className={colorScheme.badge}>
                               {finding.type}
                             </Badge>
@@ -155,10 +155,10 @@ export const KeyFindings = () => {
 
                         {/* Visual Indicator */}
                         <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center border border-border">
-                            <FileImage className="w-6 h-6 text-muted-foreground" />
+                          <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200">
+                            <FileImage className="w-6 h-6 text-gray-500" />
                           </div>
-                          <ChevronDown className="w-5 h-5 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform duration-200" />
+                          <ChevronDown className="w-5 h-5 text-gray-500 group-data-[state=open]:rotate-180 transition-transform duration-200" />
                         </div>
                       </div>
                     </AccordionTrigger>
@@ -167,9 +167,9 @@ export const KeyFindings = () => {
                       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Detailed Analysis */}
                         <div className="lg:col-span-2">
-                          <div className="bg-muted rounded-xl p-6 border border-border">
-                            <h4 className="text-foreground font-semibold mb-3">Detailed Analysis</h4>
-                            <p className="text-muted-foreground leading-relaxed mb-4">{finding.details}</p>
+                          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                            <h4 className="text-gray-900 font-semibold mb-3">Detailed Analysis</h4>
+                            <p className="text-gray-700 leading-relaxed mb-4">{finding.details}</p>
                             
                             <div className="flex items-center gap-3 text-sm">
                               <div className="flex items-center gap-2">
@@ -183,13 +183,13 @@ export const KeyFindings = () => {
                         {/* Visual Support & Action */}
                         <div className="space-y-4">
                           {/* Visual Note */}
-                          <Card className="bg-muted border-border">
+                          <Card className="bg-gray-50 border-gray-200">
                             <CardContent className="p-4">
                               <div className="flex items-center gap-3 mb-3">
-                                <FileImage className="w-5 h-5 text-muted-foreground" />
-                                <span className="text-foreground text-sm font-medium">Visual Support</span>
+                                <FileImage className="w-5 h-5 text-gray-500" />
+                                <span className="text-gray-900 text-sm font-medium">Visual Support</span>
                               </div>
-                              <p className="text-muted-foreground text-sm">{finding.visualNote}</p>
+                              <p className="text-gray-600 text-sm">{finding.visualNote}</p>
                             </CardContent>
                           </Card>
 
@@ -218,27 +218,27 @@ export const KeyFindings = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
           >
-            <Card className="bg-card border-primary/30 text-center shadow-sm">
+            <Card className="bg-white border-blue-200 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-foreground mb-2">3</div>
-                <div className="text-primary text-sm">Critical Findings</div>
-                <div className="text-muted-foreground text-xs mt-1">Driving Design Decisions</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">3</div>
+                <div className="text-blue-700 text-sm">Critical Findings</div>
+                <div className="text-gray-600 text-xs mt-1">Driving Design Decisions</div>
               </CardContent>
             </Card>
             
-            <Card className="bg-card border-green-500/30 text-center shadow-sm">
+            <Card className="bg-white border-green-200 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-foreground mb-2">65%</div>
-                <div className="text-green-600 dark:text-green-400 text-sm">Performance Gap</div>
-                <div className="text-muted-foreground text-xs mt-1">Identified & Addressed</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">65%</div>
+                <div className="text-green-700 text-sm">Performance Gap</div>
+                <div className="text-gray-600 text-xs mt-1">Identified & Addressed</div>
               </CardContent>
             </Card>
             
-            <Card className="bg-card border-purple-500/30 text-center shadow-sm">
+            <Card className="bg-white border-purple-200 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-foreground mb-2">4</div>
-                <div className="text-purple-600 dark:text-purple-400 text-sm">Solution Areas</div>
-                <div className="text-muted-foreground text-xs mt-1">Directly Targeted</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">4</div>
+                <div className="text-purple-700 text-sm">Solution Areas</div>
+                <div className="text-gray-600 text-xs mt-1">Directly Targeted</div>
               </CardContent>
             </Card>
           </motion.div>

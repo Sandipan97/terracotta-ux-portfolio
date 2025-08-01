@@ -51,7 +51,7 @@ export const ResearchQuestions = () => {
   };
 
   return (
-    <section id="research" className="py-20 bg-slate-800/30 backdrop-blur-sm">
+    <section id="research" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ export const ResearchQuestions = () => {
         >
           <div className="text-center mb-12">
             <motion.h2 
-              className="font-heading text-3xl md:text-5xl font-bold text-white mb-4"
+              className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -69,7 +69,7 @@ export const ResearchQuestions = () => {
               Research Questions
             </motion.h2>
             <motion.p 
-              className="text-xl text-blue-300 max-w-3xl mx-auto"
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -88,7 +88,7 @@ export const ResearchQuestions = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-gradient-to-r from-slate-800/50 to-slate-900/50 border-blue-500/30 backdrop-blur-sm hover:border-cyan-500/50 transition-all duration-300 group">
+                <Card className="bg-white border-gray-200 shadow-lg hover:border-blue-300 transition-all duration-300 group">
                   <CardContent className="p-8">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                       {/* Question Number */}
@@ -100,26 +100,26 @@ export const ResearchQuestions = () => {
 
                       {/* Question Content */}
                       <div className="lg:col-span-7">
-                        <h3 className="text-white text-xl font-semibold mb-3">{item.question}</h3>
+                        <h3 className="text-gray-900 text-xl font-semibold mb-3">{item.question}</h3>
                         
                         {/* Methodology Connection */}
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="flex items-center gap-2 px-3 py-1 bg-blue-500/20 rounded-full border border-blue-500/30">
-                            <item.methodIcon className="w-4 h-4 text-blue-300" />
-                            <span className="text-blue-300 text-sm">{item.methodology}</span>
+                          <div className="flex items-center gap-2 px-3 py-1 bg-blue-50 rounded-full border border-blue-200">
+                            <item.methodIcon className="w-4 h-4 text-blue-600" />
+                            <span className="text-blue-700 text-sm">{item.methodology}</span>
                           </div>
-                          <div className="w-8 h-px bg-gradient-to-r from-blue-500 to-transparent"></div>
+                          <div className="w-8 h-px bg-gradient-to-r from-blue-400 to-transparent"></div>
                         </div>
 
                         {/* Key Insight */}
-                        <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4">
+                        <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-4">
                           <div className="flex items-start gap-3">
-                            <div className="w-6 h-6 bg-cyan-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                            <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <div className="w-2 h-2 bg-cyan-600 rounded-full"></div>
                             </div>
                             <div>
-                              <span className="text-cyan-300 text-sm font-medium">Key Insight</span>
-                              <p className="text-gray-300 text-sm mt-1">{item.insight}</p>
+                              <span className="text-cyan-700 text-sm font-medium">Key Insight</span>
+                              <p className="text-gray-700 text-sm mt-1">{item.insight}</p>
                             </div>
                           </div>
                         </div>
@@ -130,7 +130,7 @@ export const ResearchQuestions = () => {
                         <Button
                           onClick={() => scrollToSolution(item.solutionAnchor)}
                           variant="outline"
-                          className="border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/20 hover:border-cyan-500 group-hover:translate-x-2 transition-all duration-300"
+                          className="border-cyan-300 text-cyan-700 hover:bg-cyan-50 hover:border-cyan-400 group-hover:translate-x-2 transition-all duration-300"
                         >
                           See Solution
                           <ArrowRight className="w-4 h-4 ml-2" />
@@ -141,7 +141,7 @@ export const ResearchQuestions = () => {
                     {/* Connection Line for Visual Flow */}
                     {index < researchQuestions.length - 1 && (
                       <div className="flex justify-center mt-6">
-                        <div className="w-px h-8 bg-gradient-to-b from-blue-500/50 to-transparent"></div>
+                        <div className="w-px h-8 bg-gradient-to-b from-blue-300 to-transparent"></div>
                       </div>
                     )}
                   </CardContent>
@@ -158,13 +158,13 @@ export const ResearchQuestions = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.8 }}
           >
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-slate-800/50 rounded-full border border-blue-500/30">
-              <Search className="w-5 h-5 text-blue-400" />
-              <span className="text-gray-300 text-sm">Research Questions</span>
-              <ArrowRight className="w-4 h-4 text-blue-400" />
-              <span className="text-gray-300 text-sm">Design Solutions</span>
-              <ArrowRight className="w-4 h-4 text-blue-400" />
-              <span className="text-gray-300 text-sm">Measurable Impact</span>
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gray-100 rounded-full border border-gray-200">
+              <Search className="w-5 h-5 text-blue-600" />
+              <span className="text-gray-700 text-sm">Research Questions</span>
+              <ArrowRight className="w-4 h-4 text-blue-600" />
+              <span className="text-gray-700 text-sm">Design Solutions</span>
+              <ArrowRight className="w-4 h-4 text-blue-600" />
+              <span className="text-gray-700 text-sm">Measurable Impact</span>
             </div>
           </motion.div>
         </motion.div>

@@ -49,7 +49,7 @@ const WelbiltKitchenConnect = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Navbar />
       <UniversalStickyNavigation sections={navigationSections} />
       
@@ -75,7 +75,7 @@ const WelbiltKitchenConnect = () => {
         </section>
 
         {/* Hero Section */}
-        <section className="w-full relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-muted/20">
+        <section className="w-full relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-white">
           <div className="absolute inset-0">
             <motion.div
               initial={{ scale: 1.1, filter: "blur(4px)" }}
@@ -85,7 +85,7 @@ const WelbiltKitchenConnect = () => {
               <EditableImage 
                 src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                 alt="Welbilt Kitchen Connect Hero"
-                className="w-full h-full object-cover opacity-20 dark:opacity-10"
+                className="w-full h-full object-cover opacity-10"
                 fallbackSrc="/placeholder.svg"
               />
             </motion.div>
@@ -114,21 +114,21 @@ const WelbiltKitchenConnect = () => {
               </motion.div>
 
               <motion.h1 
-                className="font-heading text-4xl md:text-7xl font-bold mb-6 text-foreground"
+                className="font-heading text-4xl md:text-7xl font-bold mb-6 text-gray-900"
                 variants={itemVariants}
               >
                 Welbilt Kitchen Connect
               </motion.h1>
               
               <motion.h2 
-                className="text-2xl md:text-4xl font-semibold mb-8 text-muted-foreground"
+                className="text-2xl md:text-4xl font-semibold mb-8 text-gray-700"
                 variants={itemVariants}
               >
                 Design System & Platform Revamp
               </motion.h2>
               
               <motion.p 
-                className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-foreground/80"
+                className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-gray-600"
                 variants={itemVariants}
               >
                 A comprehensive redesign of Welbilt's kitchen management platform, featuring a complete design system 
@@ -156,7 +156,7 @@ const WelbiltKitchenConnect = () => {
         </div>
 
         {/* Final Impact Section */}
-        <section id="impact" className="py-20 bg-muted/50">
+        <section id="impact" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -164,25 +164,25 @@ const WelbiltKitchenConnect = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-               <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-8">
+               <h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-8">
                  Transformative Impact
                </h2>
-              <blockquote className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto italic leading-relaxed mb-8">
+              <blockquote className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto italic leading-relaxed mb-8">
                 "A well-crafted design system is not just about consistency—it's about empowering teams to build better experiences faster."
               </blockquote>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                 <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
-                   <div className="text-4xl font-bold text-foreground mb-2">35%</div>
-                   <div className="text-muted-foreground">Development Acceleration</div>
+                 <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+                   <div className="text-4xl font-bold text-gray-900 mb-2">35%</div>
+                   <div className="text-gray-600">Development Acceleration</div>
                  </div>
-                 <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
-                   <div className="text-4xl font-bold text-foreground mb-2">85%</div>
-                   <div className="text-muted-foreground">User Satisfaction</div>
+                 <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+                   <div className="text-4xl font-bold text-gray-900 mb-2">85%</div>
+                   <div className="text-gray-600">User Satisfaction</div>
                  </div>
-                 <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
-                   <div className="text-4xl font-bold text-foreground mb-2">50+</div>
-                   <div className="text-muted-foreground">Design Components</div>
+                 <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+                   <div className="text-4xl font-bold text-gray-900 mb-2">50+</div>
+                   <div className="text-gray-600">Design Components</div>
                  </div>
               </div>
               
