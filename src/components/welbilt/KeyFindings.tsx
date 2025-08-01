@@ -147,12 +147,12 @@ export const KeyFindings = () => {
                         {/* Finding Content */}
                         <div className="flex-1 text-left">
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="font-semibold text-gray-900 text-xl">{finding.title}</h3>
+                            <h3 className="font-semibold text-gray-900 text-xl" data-lovable-editable={`welbilt-finding-${index}-title`}>{finding.title}</h3>
                             <Badge className={colorScheme.badge}>
-                              {finding.type}
+                              <span data-lovable-editable={`welbilt-finding-${index}-type`}>{finding.type}</span>
                             </Badge>
                           </div>
-                          <p className={`${colorScheme.text} text-lg`}>{finding.summary}</p>
+                          <p className={`${colorScheme.text} text-lg`} data-lovable-editable={`welbilt-finding-${index}-summary`}>{finding.summary}</p>
                         </div>
 
                         {/* Visual Indicator */}
@@ -170,13 +170,16 @@ export const KeyFindings = () => {
                         {/* Detailed Analysis */}
                         <div className="lg:col-span-2">
                           <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                            <h4 className="text-gray-900 font-semibold mb-3">Detailed Analysis</h4>
-                            <p className="text-gray-700 leading-relaxed mb-4">{finding.details}</p>
+                            <h4 className="text-gray-900 font-semibold mb-3" data-lovable-editable="welbilt-finding-analysis-label">Detailed Analysis</h4>
+                            <p className="text-gray-700 leading-relaxed mb-4" data-lovable-editable={`welbilt-finding-${index}-details`}>{finding.details}</p>
                             
                             <div className="flex items-center gap-3 text-sm">
                               <div className="flex items-center gap-2">
                                 <TrendingUp className={`w-4 h-4 ${colorScheme.text}`} />
-                                <span className={colorScheme.text}>Impact: {finding.impact}</span>
+                                <span className={colorScheme.text}>
+                                  <span data-lovable-editable="welbilt-finding-impact-label">Impact: </span>
+                                  <span data-lovable-editable={`welbilt-finding-${index}-impact`}>{finding.impact}</span>
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -189,9 +192,9 @@ export const KeyFindings = () => {
                             <CardContent className="p-4">
                               <div className="flex items-center gap-3 mb-3">
                                 <FileImage className="w-5 h-5 text-gray-500" />
-                                <span className="text-gray-900 text-sm font-medium">Visual Support</span>
+                                <span className="text-gray-900 text-sm font-medium" data-lovable-editable="welbilt-finding-visual-label">Visual Support</span>
                               </div>
-                              <p className="text-gray-600 text-sm">{finding.visualNote}</p>
+                              <p className="text-gray-600 text-sm" data-lovable-editable={`welbilt-finding-${index}-visual`}>{finding.visualNote}</p>
                             </CardContent>
                           </Card>
 
@@ -200,7 +203,7 @@ export const KeyFindings = () => {
                             onClick={() => scrollToSolution(finding.solutionAnchor)}
                             className={`w-full ${colorScheme.icon} hover:opacity-90 text-white border-0`}
                           >
-                            View Solution
+                            <span data-lovable-editable={`welbilt-finding-${index}-btn`}>View Solution</span>
                             <ArrowRight className="w-4 h-4 ml-2" />
                           </Button>
                         </div>
@@ -222,25 +225,25 @@ export const KeyFindings = () => {
           >
             <Card className="bg-white border-blue-200 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-gray-900 mb-2">3</div>
-                <div className="text-blue-700 text-sm">Critical Findings</div>
-                <div className="text-gray-600 text-xs mt-1">Driving Design Decisions</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2" data-lovable-editable="welbilt-finding-stat-1-value">3</div>
+                <div className="text-blue-700 text-sm" data-lovable-editable="welbilt-finding-stat-1-label">Critical Findings</div>
+                <div className="text-gray-600 text-xs mt-1" data-lovable-editable="welbilt-finding-stat-1-desc">Driving Design Decisions</div>
               </CardContent>
             </Card>
             
             <Card className="bg-white border-green-200 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-gray-900 mb-2">65%</div>
-                <div className="text-green-700 text-sm">Performance Gap</div>
-                <div className="text-gray-600 text-xs mt-1">Identified & Addressed</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2" data-lovable-editable="welbilt-finding-stat-2-value">65%</div>
+                <div className="text-green-700 text-sm" data-lovable-editable="welbilt-finding-stat-2-label">Performance Gap</div>
+                <div className="text-gray-600 text-xs mt-1" data-lovable-editable="welbilt-finding-stat-2-desc">Identified & Addressed</div>
               </CardContent>
             </Card>
             
             <Card className="bg-white border-purple-200 text-center shadow-sm">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold text-gray-900 mb-2">4</div>
-                <div className="text-purple-700 text-sm">Solution Areas</div>
-                <div className="text-gray-600 text-xs mt-1">Directly Targeted</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2" data-lovable-editable="welbilt-finding-stat-3-value">4</div>
+                <div className="text-purple-700 text-sm" data-lovable-editable="welbilt-finding-stat-3-label">Solution Areas</div>
+                <div className="text-gray-600 text-xs mt-1" data-lovable-editable="welbilt-finding-stat-3-desc">Directly Targeted</div>
               </CardContent>
             </Card>
           </motion.div>

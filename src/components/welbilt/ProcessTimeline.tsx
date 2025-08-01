@@ -111,9 +111,9 @@ const ProcessTimeline = () => {
                           <Icon size={20} />
                         </div>
                         <div>
-                          <h3 className="text-xl font-semibold text-gray-900" data-lovable-editable={`welbilt-phase-${index}-title`}>{phase.phase}</h3>
-                          
-                        </div>
+                           <h3 className="text-xl font-semibold text-gray-900" data-lovable-editable={`welbilt-phase-${index}-title`}>{phase.phase}</h3>
+                           <span className="text-sm text-gray-500" data-lovable-editable={`welbilt-phase-${index}-duration`}>{phase.duration}</span>
+                         </div>
                       </div>
                       
                       <ul className="space-y-2">

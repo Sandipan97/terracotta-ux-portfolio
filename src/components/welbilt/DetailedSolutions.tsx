@@ -139,8 +139,8 @@ export const DetailedSolutions = () => {
                           <Icon className="w-10 h-10 text-white" />
                         </div>
                         <div className="flex-1">
-                          <CardTitle className="text-gray-900 text-2xl md:text-3xl mb-2">{solution.title}</CardTitle>
-                          <p className="text-gray-600 text-lg">{solution.subtitle}</p>
+                          <CardTitle className="text-gray-900 text-2xl md:text-3xl mb-2" data-lovable-editable={`welbilt-detailed-${index}-title`}>{solution.title}</CardTitle>
+                          <p className="text-gray-600 text-lg" data-lovable-editable={`welbilt-detailed-${index}-subtitle`}>{solution.subtitle}</p>
                         </div>
                         <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200">
                           <FileImage className="w-8 h-8 text-gray-500" />
@@ -154,17 +154,17 @@ export const DetailedSolutions = () => {
                         <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                           <h4 className="text-red-700 font-semibold mb-3 flex items-center gap-2">
                             <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                            Challenge
+                            <span data-lovable-editable="welbilt-detailed-challenge-label">Challenge</span>
                           </h4>
-                          <p className="text-gray-700 leading-relaxed">{solution.challenge}</p>
+                          <p className="text-gray-700 leading-relaxed" data-lovable-editable={`welbilt-detailed-${index}-challenge`}>{solution.challenge}</p>
                         </div>
                         
                         <div className="bg-green-50 border border-green-200 rounded-xl p-6">
                           <h4 className="text-green-700 font-semibold mb-3 flex items-center gap-2">
                             <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                            Our Approach
+                            <span data-lovable-editable="welbilt-detailed-approach-label">Our Approach</span>
                           </h4>
-                          <p className="text-gray-700 leading-relaxed">{solution.approach}</p>
+                          <p className="text-gray-700 leading-relaxed" data-lovable-editable={`welbilt-detailed-${index}-approach`}>{solution.approach}</p>
                         </div>
                       </div>
 
@@ -173,13 +173,13 @@ export const DetailedSolutions = () => {
                         <div>
                           <h4 className="text-gray-900 font-semibold mb-4 flex items-center gap-2">
                             <Code className="w-5 h-5 text-blue-600" />
-                            Key Components
+                            <span data-lovable-editable="welbilt-detailed-components-label">Key Components</span>
                           </h4>
                           <ul className="space-y-3">
                             {solution.components.map((component, idx) => (
                               <li key={idx} className="flex items-start gap-3">
                                 <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                                <span className="text-gray-700">{component}</span>
+                                <span className="text-gray-700" data-lovable-editable={`welbilt-detailed-${index}-component-${idx}`}>{component}</span>
                               </li>
                             ))}
                           </ul>
@@ -188,13 +188,13 @@ export const DetailedSolutions = () => {
                         <div>
                           <h4 className="text-gray-900 font-semibold mb-4 flex items-center gap-2">
                             <CheckCircle className="w-5 h-5 text-green-600" />
-                            Measured Outcomes
+                            <span data-lovable-editable="welbilt-detailed-outcomes-label">Measured Outcomes</span>
                           </h4>
                           <ul className="space-y-3">
                             {solution.outcomes.map((outcome, idx) => (
                               <li key={idx} className="flex items-start gap-3">
                                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                <span className="text-gray-700">{outcome}</span>
+                                <span className="text-gray-700" data-lovable-editable={`welbilt-detailed-${index}-outcome-${idx}`}>{outcome}</span>
                               </li>
                             ))}
                           </ul>
@@ -203,11 +203,11 @@ export const DetailedSolutions = () => {
 
                       {/* Technologies */}
                       <div>
-                        <h4 className="text-gray-900 font-semibold mb-4">Technologies & Methods</h4>
+                        <h4 className="text-gray-900 font-semibold mb-4" data-lovable-editable="welbilt-detailed-technologies-label">Technologies & Methods</h4>
                         <div className="flex flex-wrap gap-2">
                           {solution.technologies.map((tech, idx) => (
                             <Badge key={idx} variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
-                              {tech}
+                              <span data-lovable-editable={`welbilt-detailed-${index}-tech-${idx}`}>{tech}</span>
                             </Badge>
                           ))}
                         </div>
@@ -228,7 +228,7 @@ export const DetailedSolutions = () => {
             transition={{ delay: 0.8 }}
           >
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-gray-100 rounded-full border border-gray-200">
-              <span className="text-gray-700 text-sm">Ready to see the impact?</span>
+              <span className="text-gray-700 text-sm" data-lovable-editable="welbilt-detailed-impact-text">Ready to see the impact?</span>
               <ArrowRight className="w-4 h-4 text-blue-600" />
             </div>
           </motion.div>
