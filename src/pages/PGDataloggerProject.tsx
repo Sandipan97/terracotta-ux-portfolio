@@ -1,14 +1,32 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, ChevronRight, CheckCircle, AlertTriangle, Lightbulb, BarChart3, Clock, Shield, Eye, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { EditableImage } from '@/components/ui/editable-image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import StickyNavigation from '@/components/pg-datalogger/StickyNavigation';
 import ProcessTimeline from '@/components/pg-datalogger/ProcessTimeline';
 import BeforeAfterShowcase from '@/components/pg-datalogger/BeforeAfterShowcase';
 const PGDataloggerProject = () => {
+  const navigate = useNavigate();
+
+  const navigationSections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'goals', label: 'Goals' },
+    { id: 'audit', label: 'Audit' },
+    { id: 'problems', label: 'Problems' },
+    { id: 'solutions', label: 'Solutions' },
+    { id: 'design-system', label: 'Design System' },
+    { id: 'process', label: 'Process' },
+    { id: 'showcase', label: 'Showcase' },
+    { id: 'impact', label: 'Impact' },
+    { id: 'future', label: 'Future' }
+  ];
+
   const fadeInUp = {
     initial: {
       opacity: 0,
@@ -87,13 +105,25 @@ const PGDataloggerProject = () => {
   }];
   const components = ["Login Modal", "Time/Date Picker", "Alarm Settings", "Data Capture Rate", "Buffer Size Controls", "Device Sensitivity", "Port Configuration", "Developer Options", "Format Modal", "Device Status", "Auto-reconnect Toggle"];
   const futureEnhancements = ["Role-based Access Control", "Full User Management System", "Performance Profiling", "Feature Usage Analytics", "Advanced Usability Testing"];
-  return <div className="min-h-screen bg-background">
+  
+  const handleBack = () => {
+    navigate('/projects');
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <StickyNavigation sections={navigationSections} />
+      
       {/* Hero Image Section - Fixed Height */}
-      <section className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
-        <Link to="/projects" className="absolute top-4 left-4 z-30 inline-flex items-center gap-2 bg-background/80 backdrop-blur-sm text-foreground hover:bg-background transition-colors px-3 py-2 rounded-lg border border-border/50">
+      <section id="overview" className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
+        <button 
+          onClick={handleBack}
+          className="absolute top-4 left-4 z-30 inline-flex items-center gap-2 bg-background/80 backdrop-blur-sm text-foreground hover:bg-background transition-colors px-3 py-2 rounded-lg border border-border/50"
+        >
           <ArrowLeft className="w-4 h-4" />
           Back to Projects
-        </Link>
+        </button>
 
         <EditableImage src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="P&G Datalogger interface comparison - old vs new design" className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
@@ -169,7 +199,7 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* UX Goals & Strategy */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section id="goals" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
@@ -224,7 +254,7 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* UX Audit & Methodology */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="audit" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
@@ -261,7 +291,7 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* Key Problems */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section id="problems" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
@@ -297,7 +327,7 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* Solutions & Redesign */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="solutions" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
@@ -328,7 +358,7 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* Design System & Components */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section id="design-system" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
@@ -365,13 +395,17 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* Process Timeline */}
-      <ProcessTimeline />
+      <div id="process">
+        <ProcessTimeline />
+      </div>
 
       {/* Before & After Showcase */}
-      <BeforeAfterShowcase />
+      <div id="showcase">
+        <BeforeAfterShowcase />
+      </div>
 
       {/* Measurable Impact */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="impact" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
@@ -426,7 +460,7 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* Future Enhancements */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section id="future" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
@@ -519,6 +553,10 @@ const PGDataloggerProject = () => {
           </motion.div>
         </div>
       </section>
-    </div>;
+      
+      <Footer />
+    </div>
+  );
 };
+
 export default PGDataloggerProject;
