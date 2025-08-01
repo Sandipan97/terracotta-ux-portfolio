@@ -14,7 +14,7 @@ const KeyFindings = () => {
     {
       title: "Shared IV poles = No Room for Bulky Devices",
       implication: "Must avoid extra hangers or add-ons",
-      imageSrc: "/lovable-uploads/06a229e5-5add-4db4-a609-e756c69a98cf.png",
+      imageSrc: "/lovable-uploads/O2C competitors.png",
       imageAlt: "Physical device setup showing compact pole-mounted dripometer unit"
     },
     {
