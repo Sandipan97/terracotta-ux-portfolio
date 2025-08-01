@@ -2,59 +2,50 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Search, Lightbulb, Palette, Code, TestTube, Rocket } from 'lucide-react';
-
 const ProcessTimeline = () => {
-  const phases = [
-    {
-      phase: "Discovery",
-      icon: Search,
-      duration: "2 weeks",
-      deliverables: ["Stakeholder interviews", "Competitive analysis", "Current state audit"],
-      color: "blue",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      phase: "Research",
-      icon: Lightbulb,
-      duration: "3 weeks",
-      deliverables: ["User interviews", "Kitchen observations", "Pain point mapping"],
-      color: "green",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      phase: "Design",
-      icon: Palette,
-      duration: "4 weeks",
-      deliverables: ["Design system", "Wireframes", "High-fidelity prototypes"],
-      color: "purple",
-      image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      phase: "Development",
-      icon: Code,
-      duration: "6 weeks",
-      deliverables: ["Component library", "Frontend implementation", "API integration"],
-      color: "orange",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      phase: "Testing",
-      icon: TestTube,
-      duration: "2 weeks",
-      deliverables: ["Usability testing", "Kitchen staff feedback", "Performance optimization"],
-      color: "red",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      phase: "Launch",
-      icon: Rocket,
-      duration: "1 week",
-      deliverables: ["Deployment", "Staff training", "Success metrics tracking"],
-      color: "emerald",
-      image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    }
-  ];
-
+  const phases = [{
+    phase: "Discovery",
+    icon: Search,
+    duration: "2 weeks",
+    deliverables: ["Stakeholder interviews", "Competitive analysis", "Current state audit"],
+    color: "blue",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  }, {
+    phase: "Research",
+    icon: Lightbulb,
+    duration: "3 weeks",
+    deliverables: ["User interviews", "Kitchen observations", "Pain point mapping"],
+    color: "green",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  }, {
+    phase: "Design",
+    icon: Palette,
+    duration: "4 weeks",
+    deliverables: ["Design system", "Wireframes", "High-fidelity prototypes"],
+    color: "purple",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  }, {
+    phase: "Development",
+    icon: Code,
+    duration: "6 weeks",
+    deliverables: ["Component library", "Frontend implementation", "API integration"],
+    color: "orange",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  }, {
+    phase: "Testing",
+    icon: TestTube,
+    duration: "2 weeks",
+    deliverables: ["Usability testing", "Kitchen staff feedback", "Performance optimization"],
+    color: "red",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  }, {
+    phase: "Launch",
+    icon: Rocket,
+    duration: "1 week",
+    deliverables: ["Deployment", "Staff training", "Success metrics tracking"],
+    color: "emerald",
+    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  }];
   const getColorClasses = (color: string) => {
     const colorMap = {
       blue: "bg-blue-50 text-blue-700 border-blue-200",
@@ -66,17 +57,19 @@ const ProcessTimeline = () => {
     };
     return colorMap[color as keyof typeof colorMap] || "bg-gray-50 text-gray-700 border-gray-200";
   };
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+  return <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.8
+      }} viewport={{
+        once: true
+      }} className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">
             🔄 Design Process
           </Badge>
@@ -95,20 +88,20 @@ const ProcessTimeline = () => {
 
           <div className="space-y-12">
             {phases.map((phase, index) => {
-              const Icon = phase.icon;
-              const isEven = index % 2 === 0;
-              
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className={`flex flex-col lg:flex-row items-center gap-8 ${
-                    isEven ? 'lg:flex-row-reverse' : ''
-                  }`}
-                >
+            const Icon = phase.icon;
+            const isEven = index % 2 === 0;
+            return <motion.div key={index} initial={{
+              opacity: 0,
+              x: isEven ? -50 : 50
+            }} whileInView={{
+              opacity: 1,
+              x: 0
+            }} transition={{
+              duration: 0.6,
+              delay: index * 0.1
+            }} viewport={{
+              once: true
+            }} className={`flex flex-col lg:flex-row items-center gap-8 ${isEven ? 'lg:flex-row-reverse' : ''}`}>
                   {/* Content Card */}
                   <div className="flex-1 max-w-lg">
                     <Card className="p-6 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
@@ -118,19 +111,15 @@ const ProcessTimeline = () => {
                         </div>
                         <div>
                           <h3 className="text-xl font-semibold text-gray-900">{phase.phase}</h3>
-                          <Badge variant="outline" className="text-xs">
-                            {phase.duration}
-                          </Badge>
+                          
                         </div>
                       </div>
                       
                       <ul className="space-y-2">
-                        {phase.deliverables.map((deliverable, deliverableIndex) => (
-                          <li key={deliverableIndex} className="text-gray-600 text-sm flex items-center gap-2">
+                        {phase.deliverables.map((deliverable, deliverableIndex) => <li key={deliverableIndex} className="text-gray-600 text-sm flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
                             {deliverable}
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                     </Card>
                   </div>
@@ -143,27 +132,27 @@ const ProcessTimeline = () => {
                   {/* Image */}
                   <div className="flex-1 max-w-lg">
                     <div className="aspect-video rounded-lg overflow-hidden shadow-sm">
-                      <img 
-                        src={phase.image}
-                        alt={`${phase.phase} phase`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
+                      <img src={phase.image} alt={`${phase.phase} phase`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                     </div>
                   </div>
-                </motion.div>
-              );
-            })}
+                </motion.div>;
+          })}
           </div>
         </div>
 
         {/* Summary Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-white rounded-2xl p-8 border border-gray-200"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.8,
+        delay: 0.3
+      }} viewport={{
+        once: true
+      }} className="mt-16 bg-white rounded-2xl p-8 border border-gray-200">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
             <div>
               <div className="text-3xl font-bold text-primary mb-2">18</div>
@@ -184,8 +173,6 @@ const ProcessTimeline = () => {
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ProcessTimeline;
