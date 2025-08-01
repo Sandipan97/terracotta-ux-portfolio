@@ -23,7 +23,7 @@ const testimonials: Testimonial[] = [
   {
     id: 2,
     quote: "The design system and component library delivered has transformed our development velocity. We've reduced design-to-development time by 60% while maintaining exceptional quality.",
-    author: "Michael Torres",
+    author: "Michael Torres", 
     title: "VP of Engineering",
     company: "PG Electronics",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
@@ -32,7 +32,7 @@ const testimonials: Testimonial[] = [
     id: 3,
     quote: "The AR manual interface designed for our appliances exceeded all expectations. Support call volume decreased by 60% while customer satisfaction scores reached an all-time high.",
     author: "David Kim",
-    title: "Head of Customer Experience",
+    title: "Head of Customer Experience", 
     company: "LG Electronics",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   }
@@ -52,10 +52,16 @@ const Testimonials = () => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 
+            className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4"
+            data-lovable-editable="testimonials-title"
+          >
             Client Impact & Recognition
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p 
+            className="text-muted-foreground max-w-2xl mx-auto"
+            data-lovable-editable="testimonials-description"
+          >
             Quantified results and testimonials from senior stakeholders across Fortune 500 companies
           </p>
         </div>

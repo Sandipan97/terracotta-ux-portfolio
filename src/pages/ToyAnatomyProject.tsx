@@ -103,11 +103,17 @@ const ToyAnatomyProject = () => {
                 </Badge>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-toy-anatomy-text-dark text-center md:text-left">
+              <h1 
+                className="font-heading text-4xl md:text-6xl font-bold mb-6 text-toy-anatomy-text-dark text-center md:text-left"
+                data-lovable-editable="toy-anatomy-main-title"
+              >
                 Toy Anatomy - Kids Educational Project
               </h1>
               
-              <p className="text-lg mb-8 text-toy-anatomy-text-dark/80 text-center md:text-left max-w-4xl leading-relaxed">
+              <p 
+                className="text-lg mb-8 text-toy-anatomy-text-dark/80 text-center md:text-left max-w-4xl leading-relaxed"
+                data-lovable-editable="toy-anatomy-main-description"
+              >
                 A comprehensive mechatronic learning platform that makes STEM education accessible and engaging for children through hands-on interactive experiences and structured learning pathways.
               </p>
               
@@ -119,8 +125,18 @@ const ToyAnatomyProject = () => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
-                  <p className="font-semibold text-toy-anatomy-text-dark">IISc Bangalore</p>
+                  <h3 
+                    className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide"
+                    data-lovable-editable="toy-anatomy-client-label"
+                  >
+                    Client
+                  </h3>
+                  <p 
+                    className="font-semibold text-toy-anatomy-text-dark"
+                    data-lovable-editable="toy-anatomy-client-name"
+                  >
+                    IISc Bangalore
+                  </p>
                 </motion.div>
                 
                 <motion.div 
@@ -130,8 +146,18 @@ const ToyAnatomyProject = () => {
                   transition={{ duration: 0.5, delay: 0.5 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
-                  <p className="font-semibold text-toy-anatomy-text-dark">8 Months</p>
+                  <h3 
+                    className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide"
+                    data-lovable-editable="toy-anatomy-duration-label"
+                  >
+                    Duration
+                  </h3>
+                  <p 
+                    className="font-semibold text-toy-anatomy-text-dark"
+                    data-lovable-editable="toy-anatomy-duration-value"
+                  >
+                    8 Months
+                  </p>
                 </motion.div>
                 
                 <motion.div 
@@ -141,8 +167,18 @@ const ToyAnatomyProject = () => {
                   transition={{ duration: 0.5, delay: 0.6 }}
                   whileHover={{ y: -2, scale: 1.02 }}
                 >
-                  <h3 className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
-                  <p className="font-semibold text-toy-anatomy-text-dark">Product Designer & Researcher</p>
+                  <h3 
+                    className="text-toy-anatomy-text-dark/60 text-sm font-medium mb-2 uppercase tracking-wide"
+                    data-lovable-editable="toy-anatomy-role-label"
+                  >
+                    My Role
+                  </h3>
+                  <p 
+                    className="font-semibold text-toy-anatomy-text-dark"
+                    data-lovable-editable="toy-anatomy-role-value"
+                  >
+                    Product Designer & Researcher
+                  </p>
                 </motion.div>
               </div>
             </motion.div>

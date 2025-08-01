@@ -86,7 +86,7 @@ const ContactForm = () => {
                   />
                 ) : (
                   <>
-                    Send Message
+                    <span data-lovable-editable="contact-form-submit-button">Send Message</span>
                     <motion.div
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}

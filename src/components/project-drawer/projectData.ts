@@ -28,13 +28,13 @@ export const projects: Project[] = [
   {
     id: 1,
     slug: "gharana-food-delivery",
-    title: "Gharana - Home Food Delivery App",
-    category: "Mobile App",
+    title: "Gharana - Home Food Delivery App", // data-lovable-editable="project-1-title"
+    category: "Mobile App", // data-lovable-editable="project-1-category"
     image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-    description: "A mobile platform that bridges the gap between home-based cloud kitchens and customers seeking authentic, homemade meals.",
-    client: "Gharana Food Tech",
-    duration: "8 Months",
-    role: "Lead UX/UI Designer",
+    description: "A mobile platform that bridges the gap between home-based cloud kitchens and customers seeking authentic, homemade meals.", // data-lovable-editable="project-1-description"
+    client: "Gharana Food Tech", // data-lovable-editable="project-1-client"
+    duration: "8 Months", // data-lovable-editable="project-1-duration"
+    role: "Lead UX/UI Designer", // data-lovable-editable="project-1-role"
     tags: ["Mobile App Design", "UX Research", "UI Design"],
     featured: true
   },

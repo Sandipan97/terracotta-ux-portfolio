@@ -139,15 +139,27 @@ const PGDataloggerProject = () => {
               </Badge>
             </motion.div>
 
-            <motion.h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent" variants={fadeInUp}>
+            <motion.h1 
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent" 
+              variants={fadeInUp}
+              data-lovable-editable="pg-datalogger-main-title"
+            >
               From Legacy to Modern
             </motion.h1>
 
-            <motion.h2 className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto" variants={fadeInUp}>
+            <motion.h2 
+              className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto" 
+              variants={fadeInUp}
+              data-lovable-editable="pg-datalogger-subtitle"
+            >
               Reimagining Industrial UX for P&G Datalogger
             </motion.h2>
 
-            <motion.p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto" variants={fadeInUp}>
+            <motion.p 
+              className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto" 
+              variants={fadeInUp}
+              data-lovable-editable="pg-datalogger-description"
+            >
               A complete redesign of the Datalogger application to enhance usability, performance, and reliability.
             </motion.p>
 
@@ -167,15 +179,19 @@ const PGDataloggerProject = () => {
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
         }}>
-            <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6" 
+              variants={fadeInUp}
+              data-lovable-editable="pg-datalogger-overview-title"
+            >
               Project Overview
             </motion.h2>
             <motion.div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground" variants={fadeInUp}>
-              <p>
+              <p data-lovable-editable="pg-datalogger-overview-description-1">
                 The Datalogger application is a critical tool used by P&G for device data logging and configuration.
                 The legacy system had significant usability issues, lacked modern design standards, and was prone to user errors.
               </p>
-              <p>
+              <p data-lovable-editable="pg-datalogger-overview-description-2">
                 This project aimed to modernize the interface, improve accessibility, and enhance system feedback to create 
                 a more reliable and user-friendly experience for industrial operators.
               </p>
@@ -204,7 +220,11 @@ const PGDataloggerProject = () => {
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
         }}>
-            <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6" 
+              variants={fadeInUp}
+              data-lovable-editable="pg-datalogger-goals-title"
+            >
               UX Goals & Strategy
             </motion.h2>
           </motion.div>
@@ -259,7 +279,11 @@ const PGDataloggerProject = () => {
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
         }}>
-            <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6" 
+              variants={fadeInUp}
+              data-lovable-editable="pg-datalogger-audit-title"
+            >
               UX Audit & Methodology
             </motion.h2>
           </motion.div>

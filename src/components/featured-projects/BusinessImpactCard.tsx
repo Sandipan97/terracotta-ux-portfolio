@@ -31,15 +31,25 @@ const BusinessImpactCard = ({ title, description, metrics, projectType, industry
         <CardHeader>
           <div className="flex justify-between items-start">
             <div>
-              <CardTitle className="text-warm-clay text-xl">{title}</CardTitle>
-              <p className="text-warm-clay/70 mt-2">{description}</p>
+              <CardTitle 
+                className="text-warm-clay text-xl"
+                data-lovable-editable="business-impact-title"
+              >
+                {title}
+              </CardTitle>
+              <p 
+                className="text-warm-clay/70 mt-2"
+                data-lovable-editable="business-impact-description"
+              >
+                {description}
+              </p>
             </div>
             <div className="flex gap-2">
               <Badge variant="secondary" className="bg-warm-terracotta/10 text-warm-terracotta border-warm-terracotta/20">
-                {projectType}
+                <span data-lovable-editable="business-impact-project-type">{projectType}</span>
               </Badge>
               <Badge variant="secondary" className="bg-warm-rust/10 text-warm-rust border-warm-rust/20">
-                {industry}
+                <span data-lovable-editable="business-impact-industry">{industry}</span>
               </Badge>
             </div>
           </div>

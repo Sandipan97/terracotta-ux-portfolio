@@ -14,8 +14,16 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="font-display text-xl font-bold mb-4 text-white dark:text-foreground">Portfolio</h3>
-            <p className="text-white/70 dark:text-muted-foreground mb-4 max-w-xs">
+            <h3 
+              className="font-display text-xl font-bold mb-4 text-white dark:text-foreground"
+              data-lovable-editable="footer-portfolio-title"
+            >
+              Portfolio
+            </h3>
+            <p 
+              className="text-white/70 dark:text-muted-foreground mb-4 max-w-xs"
+              data-lovable-editable="footer-portfolio-description"
+            >
               Senior UX Designer and Researcher with expertise in creating impactful user experiences through research and innovation.
             </p>
             <div className="flex space-x-4">
@@ -61,7 +69,12 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="font-display text-xl font-bold mb-4 text-white dark:text-foreground">Get in Touch</h3>
+            <h3 
+              className="font-display text-xl font-bold mb-4 text-white dark:text-foreground"
+              data-lovable-editable="footer-contact-title"
+            >
+              Get in Touch
+            </h3>
             <ul className="space-y-3">
               <li className="text-white/70 dark:text-muted-foreground">
                 <span className="block font-medium">Email:</span>

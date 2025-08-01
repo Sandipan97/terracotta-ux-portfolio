@@ -22,16 +22,25 @@ const AboutPreview = () => {
           </div>
           
           <div>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+            <h2 
+              className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6"
+              data-lovable-editable="about-preview-title"
+            >
               About Me
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p 
+              className="text-muted-foreground mb-6"
+              data-lovable-editable="about-preview-description-1"
+            >
               I'm a UX Designer and Researcher with over 5 years of experience creating user-centered 
               digital products that solve real problems. My background combines formal education in design 
               from the Indian Institute of Science with practical experience working with clients across 
               multiple industries.
             </p>
-            <p className="text-muted-foreground mb-8">
+            <p 
+              className="text-muted-foreground mb-8"
+              data-lovable-editable="about-preview-description-2"
+            >
               I specialize in research-driven design, creating accessible interfaces, and building 
               comprehensive design systems that scale. My approach involves deep user empathy, 
               rigorous testing, and collaborative problem-solving.
@@ -39,25 +48,37 @@ const AboutPreview = () => {
             
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div>
-                <div className="text-3xl font-bold text-warm-terracotta dark:text-warm-terracotta-light">
+                <div 
+                  className="text-3xl font-bold text-warm-terracotta dark:text-warm-terracotta-light"
+                  data-lovable-editable="about-years-experience-number"
+                >
                   5+
                 </div>
-                <div className="text-muted-foreground">
+                <div 
+                  className="text-muted-foreground"
+                  data-lovable-editable="about-years-experience-label"
+                >
                   Years Experience
                 </div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-warm-terracotta dark:text-warm-terracotta-light">
+                <div 
+                  className="text-3xl font-bold text-warm-terracotta dark:text-warm-terracotta-light"
+                  data-lovable-editable="about-projects-completed-number"
+                >
                   24+
                 </div>
-                <div className="text-muted-foreground">
+                <div 
+                  className="text-muted-foreground"
+                  data-lovable-editable="about-projects-completed-label"
+                >
                   Projects Completed
                 </div>
               </div>
             </div>
             
             <Button asChild className="shadow-lg hover:shadow-xl transition-all duration-300">
-              <Link to="/about">Learn More About Me</Link>
+              <Link to="/about" data-lovable-editable="about-preview-cta-button">Learn More About Me</Link>
             </Button>
           </div>
         </div>

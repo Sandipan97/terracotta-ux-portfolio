@@ -123,6 +123,7 @@ const O2CProject = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
+                data-lovable-editable="o2c-main-title"
               >
                 O2C Project
               </motion.h1>
@@ -132,6 +133,7 @@ const O2CProject = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
+                data-lovable-editable="o2c-main-description"
               >
                 A comprehensive WHO-compliant UX design case study for oxygen concentrators serving diverse socio-economic segments in post-COVID India.
               </motion.p>
