@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { EditableImage } from '@/components/ui/editable-image';
 
 interface ToolLogoProps {
   name: string;
@@ -40,11 +41,13 @@ const ToolLogo = ({ name, logoUrl, color }: ToolLogoProps) => {
         whileHover={{ rotate: [0, -5, 5, 0] }}
         transition={{ duration: 0.5 }}
       >
-        <img 
+        <EditableImage 
           src={logoUrl} 
           alt={`${name} logo`}
-          className="w-full h-full object-contain"
-          data-lovable-editable={`tool-logo-${name.toLowerCase().replace(/\s+/g, '-')}`}
+          className="w-full h-full"
+          objectFit="contain"
+          editableKey={`tool-logo-${name.toLowerCase().replace(/\s+/g, '-')}`}
+          fallbackSrc="/placeholder.svg"
         />
       </motion.div>
       <span 

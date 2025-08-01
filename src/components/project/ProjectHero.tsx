@@ -94,7 +94,9 @@ const ProjectHero = ({ project, onBack, onScrollToContent }: ProjectHeroProps) =
           <EditableImage 
             src="/lovable-uploads/c2dfb2fc-13e4-4095-a586-8bbe9a0d451f.png" 
             alt="P&G Research Razor Datalogger Interface"
-            className="w-full h-full object-cover object-center dark-glow-image"
+            className="w-full h-full object-center dark-glow-image"
+            objectFit="cover"
+            editableKey="project-hero-main-image"
             fallbackSrc="/placeholder.svg"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 z-10"></div>

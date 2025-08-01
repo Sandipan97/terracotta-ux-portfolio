@@ -4,10 +4,28 @@ import { cn } from '@/lib/utils';
 
 interface EditableImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrc?: string;
+  objectFit?: 'cover' | 'contain' | 'fill' | 'scale-down' | 'none';
+  objectPosition?: string;
+  aspectRatio?: string;
+  maxWidth?: string;
+  maxHeight?: string;
+  editableKey?: string;
 }
 
 const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
-  ({ src, alt, className, fallbackSrc = "/placeholder.svg", ...props }, ref) => {
+  ({ 
+    src, 
+    alt, 
+    className, 
+    fallbackSrc = "/placeholder.svg", 
+    objectFit = 'cover',
+    objectPosition = 'center',
+    aspectRatio,
+    maxWidth,
+    maxHeight,
+    editableKey,
+    ...props 
+  }, ref) => {
     const [imgSrc, setImgSrc] = React.useState<string | undefined>(src);
     const [error, setError] = React.useState(false);
 
@@ -23,6 +41,14 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
       setError(false);
     }, [src]);
 
+    const imageStyle = {
+      objectFit,
+      objectPosition,
+      aspectRatio,
+      maxWidth,
+      maxHeight,
+    };
+
     return (
       <img
         ref={ref}
@@ -30,6 +56,8 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         alt={alt || "Image"}
         onError={handleError}
         className={cn("object-cover", className)}
+        style={imageStyle}
+        data-lovable-editable={editableKey}
         {...props}
       />
     );

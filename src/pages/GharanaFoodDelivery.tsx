@@ -156,7 +156,9 @@ const GharanaFoodDelivery = () => {
             <EditableImage 
               src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
               alt="Gharana - Home Food Delivery App"
-              className="w-full h-full object-cover"
+              className="w-full h-full"
+              objectFit="cover"
+              editableKey="gharana-hero-image"
               fallbackSrc="/placeholder.svg"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 z-10"></div>
@@ -343,10 +345,13 @@ const GharanaFoodDelivery = () => {
                   whileHover={{ y: -8, scale: 1.02 }}
                 >
                   <div className="mb-4 h-32 xs:h-48 overflow-hidden rounded-xl border border-border/30 dark-glow-image">
-                    <img 
+                    <EditableImage 
                       src={persona.image} 
                       alt={persona.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full group-hover:scale-110 transition-transform duration-500"
+                      objectFit="cover"
+                      editableKey={`gharana-persona-image-${index}`}
+                      fallbackSrc="/placeholder.svg"
                     />
                   </div>
                   

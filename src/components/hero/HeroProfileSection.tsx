@@ -54,7 +54,14 @@ const HeroProfileSection = () => {
             <div className="absolute inset-0 w-full h-full" style={{
             backfaceVisibility: "hidden"
           }}>
-              <EditableImage alt="Senior UX Designer and Researcher" src="/lovable-uploads/d6f8c20d-1961-4552-a823-c9c0b12a8f05.jpg" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+              <EditableImage 
+                alt="Senior UX Designer and Researcher" 
+                src="/lovable-uploads/d6f8c20d-1961-4552-a823-c9c0b12a8f05.jpg" 
+                className="w-full h-full transition-transform duration-500 hover:scale-110" 
+                objectFit="cover"
+                editableKey="hero-profile-front-image"
+                fallbackSrc="/placeholder.svg"
+              />
             </div>
             
             {/* Back side - New Illustration */}
@@ -65,7 +72,9 @@ const HeroProfileSection = () => {
               <EditableImage 
                 src="/lovable-uploads/5df3f20d-3a84-4f8a-a055-7374725f634c.png" 
                 alt="Minimalist illustration" 
-                className="w-full h-full object-cover" 
+                className="w-full h-full" 
+                objectFit="cover"
+                editableKey="hero-profile-back-image"
                 fallbackSrc="/placeholder.svg"
               />
             </div>

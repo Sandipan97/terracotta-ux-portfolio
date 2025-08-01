@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Calendar, Award, ExternalLink } from 'lucide-react';
 import { ProjectFileData } from './projectData';
+import { EditableImage } from '@/components/ui/editable-image';
 
 interface ProjectFileProps {
   file: ProjectFileData;
@@ -152,10 +153,13 @@ const ProjectFile = ({ file, index, isHovered }: ProjectFileProps) => {
         >
           {/* Project Thumbnail */}
           <div className="h-20 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-            <img
+            <EditableImage
               src={file.image}
               alt={file.title}
-              className="w-full h-full object-cover transition-transform duration-500"
+              className="w-full h-full transition-transform duration-500"
+              objectFit="cover"
+              editableKey={`project-thumbnail-${file.id}`}
+              fallbackSrc="/placeholder.svg"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />

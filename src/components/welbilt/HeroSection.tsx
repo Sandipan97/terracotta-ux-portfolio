@@ -34,7 +34,10 @@ const HeroSection = () => {
               <EditableImage 
                 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Legacy kitchen management interface"
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                objectFit="cover"
+                editableKey="welbilt-hero-before-image"
+                fallbackSrc="/placeholder.svg"
               />
               <div className="absolute inset-0 bg-red-500/20"></div>
               <div className="absolute bottom-4 left-4">
@@ -56,7 +59,10 @@ const HeroSection = () => {
               <EditableImage 
                 src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Modern kitchen management interface"
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                objectFit="cover"
+                editableKey="welbilt-hero-after-image"
+                fallbackSrc="/placeholder.svg"
               />
               <div className="absolute inset-0 bg-green-500/20"></div>
               <div className="absolute bottom-4 left-4">

@@ -28,7 +28,9 @@ const TestimonialCard = ({ testimonial, isActive }: TestimonialCardProps) => {
               <EditableImage 
                 src={testimonial.image} 
                 alt={testimonial.author} 
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                objectFit="cover"
+                editableKey={`testimonial-image-${testimonial.id}`}
                 fallbackSrc="/placeholder.svg"
               />
               <AvatarFallback>{testimonial.author[0]}</AvatarFallback>

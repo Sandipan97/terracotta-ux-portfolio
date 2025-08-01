@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { EditableImage } from '@/components/ui/editable-image';
 const ObjectiveMethodologies = () => {
   return <section id="objective" className="py-16 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -66,10 +67,13 @@ const ObjectiveMethodologies = () => {
                   <div className="space-y-4">
                     <div className="bg-background/60 rounded-lg p-4 border border-emerald-200/30 dark:border-emerald-800/30">
                       <h4 className="text-sm font-medium text-emerald-700 dark:text-emerald-400 mb-3">Old device</h4>
-                      <img 
+                      <EditableImage 
                         src="/lovable-uploads/d7004b56-b3d9-4f38-b006-2c629ba78879.png" 
                         alt="Old IV drip monitoring device setup showing monitoring device and sensor-mount attached to drip set"
                         className="w-full h-auto rounded-lg border border-emerald-200/50 dark:border-emerald-800/50"
+                        editableKey="dripometer-old-device-image"
+                        objectFit="contain"
+                        fallbackSrc="/placeholder.svg"
                       />
                     </div>
                   </div>
