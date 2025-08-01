@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
-import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
+import StickyNavigation from '@/components/pg-datalogger/StickyNavigation';
 import ObjectiveMethodologies from '@/components/dripometer/ObjectiveMethodologies';
 import ResearchQuestions from '@/components/dripometer/ResearchQuestions';
 import KeyFindings from '@/components/dripometer/KeyFindings';
@@ -30,13 +30,15 @@ const DripometerProject = () => {
     { id: 'findings', label: 'Findings' },
     { id: 'solutions', label: 'Solutions' },
     { id: 'methods', label: 'Methods' },
-    { id: 'status', label: 'Status' }
+    { id: 'status', label: 'Status' },
+    { id: 'timeline', label: 'Timeline' },
+    { id: 'architecture', label: 'Architecture' }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <UniversalStickyNavigation sections={navigationSections} />
+      <StickyNavigation sections={navigationSections} />
       
       <main className="pt-32">
         {/* Hero Image Section - Fixed Height */}
@@ -75,7 +77,7 @@ const DripometerProject = () => {
         </section>
 
         {/* Content Tile Section - Clean Background */}
-        <section className="w-full bg-background border-b">
+        <section id="overview" className="w-full bg-background border-b">
           <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -186,10 +188,14 @@ const DripometerProject = () => {
         </div>
         
         {/* Process Timeline */}
-        <ProcessTimeline />
+        <div id="timeline">
+          <ProcessTimeline />
+        </div>
         
         {/* Technical Architecture */}
-        <TechnicalArchitecture />
+        <div id="architecture">
+          <TechnicalArchitecture />
+        </div>
       </main>
       
       <Footer />

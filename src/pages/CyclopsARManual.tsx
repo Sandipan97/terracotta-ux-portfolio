@@ -8,6 +8,9 @@ import { Separator } from "@/components/ui/separator";
 import { EditableImage } from "@/components/ui/editable-image";
 import ProcessTimeline from "@/components/cyclops-ar/ProcessTimeline";
 import ARTechnologyShowcase from "@/components/cyclops-ar/ARTechnologyShowcase";
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import StickyNavigation from '@/components/cyclops-ar/StickyNavigation';
 
 export default function CyclopsARManual() {
   const navigate = useNavigate();
@@ -15,6 +18,19 @@ export default function CyclopsARManual() {
   const handleBack = () => {
     navigate("/projects");
   };
+
+  const navigationSections = [
+    { id: 'demo', label: 'Demo' },
+    { id: 'problem', label: 'Problem' },
+    { id: 'persona', label: 'User Persona' },
+    { id: 'workflow', label: 'AR Workflow' },
+    { id: 'features', label: 'Features' },
+    { id: 'safety', label: 'Safety' },
+    { id: 'controls', label: 'Controls' },
+    { id: 'maintenance', label: 'Maintenance' },
+    { id: 'impact', label: 'Impact' },
+    { id: 'process', label: 'Process' }
+  ];
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -32,8 +48,11 @@ export default function CyclopsARManual() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-muted/30">
+      <Navbar />
+      <StickyNavigation sections={navigationSections} />
+      
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 px-4">
+      <section className="relative overflow-hidden pt-32 py-20 px-4">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 animate-pulse" />
         
         <div className="relative max-w-7xl mx-auto">
@@ -97,7 +116,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* Demo & Proof of Concept */}
-      <section className="py-20 px-4">
+      <section id="demo" className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Demo & Proof of Concept</h2>
@@ -137,7 +156,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* The Problem We Solved */}
-      <section className="py-20 px-4 bg-muted/30">
+      <section id="problem" className="py-20 px-4 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <Lightbulb className="w-12 h-12 text-primary mx-auto mb-4" />
@@ -200,7 +219,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* User Persona */}
-      <section className="py-20 px-4">
+      <section id="persona" className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Meet Julie: Our Primary User</h2>
@@ -264,7 +283,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* AR Workflow */}
-      <section className="py-20 px-4 bg-muted/20">
+      <section id="workflow" className="py-20 px-4 bg-muted/20">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">How the AR Manual Works</h2>
@@ -300,7 +319,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* Interactive Features */}
-      <section className="py-20 px-4">
+      <section id="features" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Interactive Features & Animations</h2>
@@ -361,7 +380,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* Safety & Setup */}
-      <section className="py-20 px-4 bg-muted/30">
+      <section id="safety" className="py-20 px-4 bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
@@ -432,7 +451,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* Control Panel & Cooking */}
-      <section className="py-20 px-4">
+      <section id="controls" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <ChefHat className="w-12 h-12 text-primary mx-auto mb-4" />
@@ -502,7 +521,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* Maintenance & Cleaning */}
-      <section className="py-20 px-4 bg-muted/20">
+      <section id="maintenance" className="py-20 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <Sparkles className="w-12 h-12 text-primary mx-auto mb-4" />
@@ -559,7 +578,7 @@ export default function CyclopsARManual() {
       </section>
 
       {/* Business Impact */}
-      <section className="py-20 px-4">
+      <section id="impact" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <BarChart3 className="w-12 h-12 text-primary mx-auto mb-4" />
@@ -591,7 +610,9 @@ export default function CyclopsARManual() {
       </section>
 
       {/* Process Timeline */}
-      <ProcessTimeline />
+      <div id="process">
+        <ProcessTimeline />
+      </div>
 
       {/* AR Technology Showcase */}
       <ARTechnologyShowcase />
@@ -719,6 +740,8 @@ export default function CyclopsARManual() {
           </motion.div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 }
