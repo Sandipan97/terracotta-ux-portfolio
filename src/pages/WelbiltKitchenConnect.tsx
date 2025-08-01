@@ -2,11 +2,13 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { EditableImage } from '@/components/ui/editable-image';
 import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
+import HeroSection from '@/components/welbilt/HeroSection';
+import BeforeAfterShowcase from '@/components/welbilt/BeforeAfterShowcase';
+import DesignSystemGallery from '@/components/welbilt/DesignSystemGallery';
+import ProcessTimeline from '@/components/welbilt/ProcessTimeline';
 import { ObjectiveMethodologies } from '@/components/welbilt/ObjectiveMethodologies';
 import { EnhancedDesignSolutions } from '@/components/welbilt/EnhancedDesignSolutions';
 import { ResearchQuestions } from '@/components/welbilt/ResearchQuestions';
@@ -22,6 +24,9 @@ const WelbiltKitchenConnect = () => {
 
   const navigationSections = [
     { id: 'overview', label: 'Overview' },
+    { id: 'transformation', label: 'Transformation' },
+    { id: 'design-system', label: 'Design System' },
+    { id: 'process', label: 'Process' },
     { id: 'objective', label: 'Objective' },
     { id: 'solutions', label: 'Solutions' },
     { id: 'research', label: 'Research' },
@@ -53,9 +58,9 @@ const WelbiltKitchenConnect = () => {
       <Navbar />
       <UniversalStickyNavigation sections={navigationSections} />
       
-      <main className="pt-20">
+      <main>
         {/* Back Button */}
-        <section className="w-full py-8">
+        <section className="w-full py-8 pt-24 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -74,69 +79,25 @@ const WelbiltKitchenConnect = () => {
           </div>
         </section>
 
-        {/* Hero Section */}
-        <section className="w-full relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-white">
-          <div className="absolute inset-0">
-            <motion.div
-              initial={{ scale: 1.1, filter: "blur(4px)" }}
-              animate={{ scale: 1, filter: "blur(0px)" }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-            >
-              <EditableImage 
-                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-                alt="Welbilt Kitchen Connect Hero"
-                className="w-full h-full object-cover opacity-10"
-                fallbackSrc="/placeholder.svg"
-              />
-            </motion.div>
-          </div>
+        {/* Enhanced Hero Section */}
+        <div id="overview">
+          <HeroSection />
+        </div>
 
-          <div className="container mx-auto px-4 md:px-6 relative z-10">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="text-center"
-            >
-               <motion.div className="flex flex-wrap gap-2 mb-6 justify-center" variants={itemVariants}>
-                <Badge variant="secondary" 
-                       tabIndex={0} role="button" aria-label="Kitchen Management tag">
-                  🏪 Kitchen Management
-                </Badge>
-                <Badge variant="secondary" 
-                       tabIndex={0} role="button" aria-label="Design System tag">
-                  🎨 Design System
-                </Badge>
-                <Badge variant="secondary" 
-                       tabIndex={0} role="button" aria-label="Enterprise UX tag">
-                  🏢 Enterprise UX
-                </Badge>
-              </motion.div>
+        {/* Before & After Transformation */}
+        <div id="transformation">
+          <BeforeAfterShowcase />
+        </div>
 
-              <motion.h1 
-                className="font-heading text-4xl md:text-7xl font-bold mb-6 text-gray-900"
-                variants={itemVariants}
-              >
-                Welbilt Kitchen Connect
-              </motion.h1>
-              
-              <motion.h2 
-                className="text-2xl md:text-4xl font-semibold mb-8 text-gray-700"
-                variants={itemVariants}
-              >
-                Design System & Platform Revamp
-              </motion.h2>
-              
-              <motion.p 
-                className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-gray-600"
-                variants={itemVariants}
-              >
-                A comprehensive redesign of Welbilt's kitchen management platform, featuring a complete design system 
-                that improved development efficiency by 35% and enhanced user experience across all touchpoints.
-              </motion.p>
-            </motion.div>
-          </div>
-        </section>
+        {/* Design System Gallery */}
+        <div id="design-system">
+          <DesignSystemGallery />
+        </div>
+
+        {/* Process Timeline */}
+        <div id="process">
+          <ProcessTimeline />
+        </div>
 
         {/* New Structured Content */}
         <div id="objective">
