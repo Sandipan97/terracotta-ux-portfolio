@@ -12,19 +12,19 @@ const KeyFindings = () => {
       imageAlt: "Nurse manually logging IV data in medical ward"
     },
     {
-      title: "Shared IV poles = No Room for Bulky Devices",
-      implication: "Must avoid extra hangers or add-ons",
-      imageSrc: "/lovable-uploads/O2C competitors.png",
+      title: "Occupying Both Hangers of the Pole is Bad",
+      implication: "Must only occupy one hanger or none",
+      imageSrc: "/lovable-uploads/Occupy hangers.png",
       imageAlt: "Physical device setup showing compact pole-mounted dripometer unit"
     },
     {
-      title: "Alarms at bedside cause panic in patients",
+      title: "Alarms at bedside cause Panic in Patients",
       implication: "Need central system with precise mapping",
       imageSrc: "/lovable-uploads/Ward panic.png",
       imageAlt: "Central console screen with bed layout and alerts"
     },
     {
-      title: "High Risk of Device Theft",
+      title: "High Device Theft Risk",
       implication: "Must be non-functional outside secure Wi-Fi",
       imageSrc: "/lovable-uploads/Drip-steal.png",
       imageAlt: "Lockable clamp and hospital-only pairing logic"
@@ -32,7 +32,7 @@ const KeyFindings = () => {
     {
       title: "Nurses prefer \"plug-n-play\" interfaces",
       implication: "Snap-fit sensor design and color-coded feedback",
-      imageSrc: "/lovable-uploads/nurses.png",
+      imageSrc:"/lovable-uploads/nurses.png",
       imageAlt: "Snap-fit sensor mechanism and LED indicators"
     }
   ];
