@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { EditableImage } from "@/components/ui/editable-image";
+import ProcessTimeline from "@/components/cyclops-ar/ProcessTimeline";
+import ARTechnologyShowcase from "@/components/cyclops-ar/ARTechnologyShowcase";
 
 export default function CyclopsARManual() {
   const navigate = useNavigate();
@@ -587,6 +589,12 @@ export default function CyclopsARManual() {
           </motion.div>
         </div>
       </section>
+
+      {/* Process Timeline */}
+      <ProcessTimeline />
+
+      {/* AR Technology Showcase */}
+      <ARTechnologyShowcase />
 
       {/* Design Process */}
       <section className="py-20 px-4 bg-muted/30">

@@ -13,6 +13,8 @@ import KeyFindings from '@/components/dripometer/KeyFindings';
 import DesignSolutions from '@/components/dripometer/DesignSolutions';
 import MethodTranslation from '@/components/dripometer/MethodTranslation';
 import ProjectStatus from '@/components/dripometer/ProjectStatus';
+import ProcessTimeline from '@/components/dripometer/ProcessTimeline';
+import TechnicalArchitecture from '@/components/dripometer/TechnicalArchitecture';
 
 const DripometerProject = () => {
   const navigate = useNavigate();
@@ -182,6 +184,12 @@ const DripometerProject = () => {
         <div id="status">
           <ProjectStatus />
         </div>
+        
+        {/* Process Timeline */}
+        <ProcessTimeline />
+        
+        {/* Technical Architecture */}
+        <TechnicalArchitecture />
       </main>
       
       <Footer />

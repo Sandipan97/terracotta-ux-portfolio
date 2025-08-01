@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import ProcessTimeline from '@/components/pg-datalogger/ProcessTimeline';
+import BeforeAfterShowcase from '@/components/pg-datalogger/BeforeAfterShowcase';
 const PGDataloggerProject = () => {
   const fadeInUp = {
     initial: {
@@ -361,6 +363,12 @@ const PGDataloggerProject = () => {
           </div>
         </div>
       </section>
+
+      {/* Process Timeline */}
+      <ProcessTimeline />
+
+      {/* Before & After Showcase */}
+      <BeforeAfterShowcase />
 
       {/* Measurable Impact */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
