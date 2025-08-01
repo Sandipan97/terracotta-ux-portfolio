@@ -18,21 +18,21 @@ const KeyFindings = () => {
       imageAlt: "Physical device setup showing compact pole-mounted dripometer unit"
     },
     {
-      title: "Alarms at bedside ≠ Effective",
+      title: "Alarms at bedside cause panic in patients",
       implication: "Need central system with precise mapping",
-      imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      imageSrc: "/lovable-uploads/Ward panic.png",
       imageAlt: "Central console screen with bed layout and alerts"
     },
     {
-      title: "High Device Theft Risk",
+      title: "High Risk of Device Theft",
       implication: "Must be non-functional outside secure Wi-Fi",
-      imageSrc: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      imageSrc: "/lovable-uploads/Drip-steal.png",
       imageAlt: "Lockable clamp and hospital-only pairing logic"
     },
     {
       title: "Nurses prefer \"plug-n-play\" interfaces",
       implication: "Snap-fit sensor design and color-coded feedback",
-      imageSrc: "https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      imageSrc: "/lovable-uploads/nurses.png",
       imageAlt: "Snap-fit sensor mechanism and LED indicators"
     }
   ];
