@@ -90,11 +90,11 @@ const ResearchQuestions = () => {
                   >
                     <h4 className="font-semibold text-foreground text-lg flex items-center">
                       <span className="text-teal-600 dark:text-teal-400 mr-2">🔗</span>
-                      Customer Requirements vs Technical Dependencies
+                      Our Competitors
                     </h4>
                     <div className="w-full">
                       <EditableImage
-                        src="/lovable-uploads/865a85d4-746b-4cbf-a739-52820a467786.png"
+                        src="/lovable-uploads/O2C competitors.png"
                         alt="Technical dependency matrix linking customer requirements to engineering specifications"
                         className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
                         fallbackSrc="/placeholder.svg"
