@@ -49,30 +49,30 @@ export const ObjectiveMethodologies = () => {
                     <Target className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-left">
-                    <h2 className="font-heading text-2xl md:text-3xl font-bold text-gray-900">Project Objective</h2>
-                    <p className="text-gray-600 mt-1">Transform kitchen management through systematic design</p>
+                    <h2 className="font-heading text-2xl md:text-3xl font-bold text-gray-900" data-lovable-editable="welbilt-objective-title">Project Objective</h2>
+                    <p className="text-gray-600 mt-1" data-lovable-editable="welbilt-objective-subtitle">Transform kitchen management through systematic design</p>
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="px-8 pb-8">
                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                  <p className="text-gray-800 leading-relaxed text-lg">
+                  <p className="text-gray-800 leading-relaxed text-lg" data-lovable-editable="welbilt-objective-description">
                     Create a comprehensive design system and platform redesign for Welbilt's kitchen management solution 
                     that addresses inconsistent user experiences, accelerates development cycles, and improves operational 
                     efficiency for commercial kitchen staff while maintaining scalability for future product evolution.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                     <div className="text-center p-4 bg-white rounded-lg border border-gray-200">
-                      <div className="text-2xl font-bold text-blue-600">35%</div>
-                      <div className="text-sm text-gray-600">Development Speed</div>
+                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-1-value">35%</div>
+                      <div className="text-sm text-gray-600" data-lovable-editable="welbilt-objective-metric-1-label">Development Speed</div>
                     </div>
                     <div className="text-center p-4 bg-white rounded-lg border border-gray-200">
-                      <div className="text-2xl font-bold text-blue-600">50+</div>
-                      <div className="text-sm text-gray-600">Design Components</div>
+                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-2-value">50+</div>
+                      <div className="text-sm text-gray-600" data-lovable-editable="welbilt-objective-metric-2-label">Design Components</div>
                     </div>
                     <div className="text-center p-4 bg-white rounded-lg border border-gray-200">
-                      <div className="text-2xl font-bold text-blue-600">85%</div>
-                      <div className="text-sm text-gray-600">User Satisfaction</div>
+                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-3-value">85%</div>
+                      <div className="text-sm text-gray-600" data-lovable-editable="welbilt-objective-metric-3-label">User Satisfaction</div>
                     </div>
                   </div>
                 </div>
@@ -87,8 +87,8 @@ export const ObjectiveMethodologies = () => {
                     <BarChart className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-left">
-                    <h2 className="font-heading text-2xl md:text-3xl font-bold text-gray-900">Research Methodologies</h2>
-                    <p className="text-gray-600 mt-1">Systematic approach to understanding user needs</p>
+                    <h2 className="font-heading text-2xl md:text-3xl font-bold text-gray-900" data-lovable-editable="welbilt-methodology-title">Research Methodologies</h2>
+                    <p className="text-gray-600 mt-1" data-lovable-editable="welbilt-methodology-subtitle">Systematic approach to understanding user needs</p>
                   </div>
                 </div>
               </AccordionTrigger>
@@ -109,12 +109,12 @@ export const ObjectiveMethodologies = () => {
                                <method.icon className="w-5 h-5 text-white" />
                              </div>
                              <div>
-                               <h3 className="font-semibold text-gray-900 text-lg mb-2">{method.title}</h3>
-                               <p className="text-gray-600 text-sm leading-relaxed">{method.description}</p>
-                               <div className="mt-3 flex items-center gap-2">
-                                 <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                 <span className="text-xs text-gray-500">Connects to Research Question {index + 1}</span>
-                               </div>
+                                <h3 className="font-semibold text-gray-900 text-lg mb-2" data-lovable-editable={`welbilt-method-${index}-title`}>{method.title}</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed" data-lovable-editable={`welbilt-method-${index}-description`}>{method.description}</p>
+                                <div className="mt-3 flex items-center gap-2">
+                                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                  <span className="text-xs text-gray-500" data-lovable-editable={`welbilt-method-${index}-connection`}>Connects to Research Question {index + 1}</span>
+                                </div>
                              </div>
                            </div>
                          </CardContent>

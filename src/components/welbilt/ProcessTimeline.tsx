@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Search, Lightbulb, Palette, Code, TestTube, Rocket } from 'lucide-react';
+import { EditableImage } from '@/components/ui/editable-image';
 const ProcessTimeline = () => {
   const phases = [{
     phase: "Discovery",
@@ -71,12 +72,12 @@ const ProcessTimeline = () => {
         once: true
       }} className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">
-            🔄 Design Process
+            <span data-lovable-editable="welbilt-process-badge">🔄 Design Process</span>
           </Badge>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-6" data-lovable-editable="welbilt-process-title">
             From Research to Launch
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto" data-lovable-editable="welbilt-process-description">
             A systematic approach that transformed complex kitchen operations into an intuitive digital experience
           </p>
         </motion.div>
@@ -110,7 +111,7 @@ const ProcessTimeline = () => {
                           <Icon size={20} />
                         </div>
                         <div>
-                          <h3 className="text-xl font-semibold text-gray-900">{phase.phase}</h3>
+                          <h3 className="text-xl font-semibold text-gray-900" data-lovable-editable={`welbilt-phase-${index}-title`}>{phase.phase}</h3>
                           
                         </div>
                       </div>
@@ -118,7 +119,7 @@ const ProcessTimeline = () => {
                       <ul className="space-y-2">
                         {phase.deliverables.map((deliverable, deliverableIndex) => <li key={deliverableIndex} className="text-gray-600 text-sm flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
-                            {deliverable}
+                            <span data-lovable-editable={`welbilt-phase-${index}-deliverable-${deliverableIndex}`}>{deliverable}</span>
                           </li>)}
                       </ul>
                     </Card>
@@ -132,7 +133,7 @@ const ProcessTimeline = () => {
                   {/* Image */}
                   <div className="flex-1 max-w-lg">
                     <div className="aspect-video rounded-lg overflow-hidden shadow-sm">
-                      <img src={phase.image} alt={`${phase.phase} phase`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                      <EditableImage src={phase.image} alt={`${phase.phase} phase`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                     </div>
                   </div>
                 </motion.div>;
@@ -155,20 +156,20 @@ const ProcessTimeline = () => {
       }} className="mt-16 bg-white rounded-2xl p-8 border border-gray-200">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">18</div>
-              <div className="text-gray-600">Total Weeks</div>
+              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-1-value">18</div>
+              <div className="text-gray-600" data-lovable-editable="welbilt-stat-1-label">Total Weeks</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">25+</div>
-              <div className="text-gray-600">Stakeholders</div>
+              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-2-value">25+</div>
+              <div className="text-gray-600" data-lovable-editable="welbilt-stat-2-label">Stakeholders</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">150+</div>
-              <div className="text-gray-600">User Insights</div>
+              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-3-value">150+</div>
+              <div className="text-gray-600" data-lovable-editable="welbilt-stat-3-label">User Insights</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">50+</div>
-              <div className="text-gray-600">Components Built</div>
+              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-4-value">50+</div>
+              <div className="text-gray-600" data-lovable-editable="welbilt-stat-4-label">Components Built</div>
             </div>
           </div>
         </motion.div>

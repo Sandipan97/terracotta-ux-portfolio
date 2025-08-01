@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Palette, Type, Layout, Component, Code, Zap } from 'lucide-react';
+import { EditableImage } from '@/components/ui/editable-image';
 
 const DesignSystemGallery = () => {
   const systemComponents = [
@@ -68,12 +69,12 @@ const DesignSystemGallery = () => {
           className="text-center mb-16"
         >
           <Badge variant="secondary" className="mb-4">
-            🎨 Design System
+            <span data-lovable-editable="welbilt-design-system-badge">🎨 Design System</span>
           </Badge>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-6" data-lovable-editable="welbilt-design-system-title">
             A Comprehensive Design System
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8" data-lovable-editable="welbilt-design-system-description">
             Built from the ground up to ensure consistency, scalability, and developer efficiency across all Welbilt products
           </p>
 
@@ -88,9 +89,9 @@ const DesignSystemGallery = () => {
                 viewport={{ once: true }}
                 className="bg-gray-50 rounded-lg p-4"
               >
-                <div className="text-2xl font-bold text-primary mb-1">{metric.value}</div>
-                <div className="text-sm font-medium text-gray-900">{metric.label}</div>
-                <div className="text-xs text-gray-600">{metric.description}</div>
+                <div className="text-2xl font-bold text-primary mb-1" data-lovable-editable={`welbilt-metric-${index}-value`}>{metric.value}</div>
+                <div className="text-sm font-medium text-gray-900" data-lovable-editable={`welbilt-metric-${index}-label`}>{metric.label}</div>
+                <div className="text-xs text-gray-600" data-lovable-editable={`welbilt-metric-${index}-desc`}>{metric.description}</div>
               </motion.div>
             ))}
           </div>
@@ -110,7 +111,7 @@ const DesignSystemGallery = () => {
               >
                 <Card className="group hover:shadow-lg transition-all duration-300 border border-gray-200 bg-white h-full">
                   <div className="aspect-video relative overflow-hidden rounded-t-lg">
-                    <img 
+                    <EditableImage 
                       src={component.image}
                       alt={`${component.category} design system`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -124,23 +125,23 @@ const DesignSystemGallery = () => {
                   </div>
                   
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2" data-lovable-editable={`welbilt-component-${index}-title`}>
                       {component.category}
                     </h3>
-                    <p className="text-gray-600 mb-4 text-sm">
+                    <p className="text-gray-600 mb-4 text-sm" data-lovable-editable={`welbilt-component-${index}-desc`}>
                       {component.description}
                     </p>
                     
                     <div className="flex flex-wrap gap-1 mb-4">
                       {component.items.map((item, itemIndex) => (
                         <Badge key={itemIndex} variant="outline" className="text-xs">
-                          {item}
+                          <span data-lovable-editable={`welbilt-component-${index}-item-${itemIndex}`}>{item}</span>
                         </Badge>
                       ))}
                     </div>
                     
                     <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                      View Components
+                      <span data-lovable-editable={`welbilt-component-${index}-btn`}>View Components</span>
                     </Button>
                   </div>
                 </Card>
@@ -157,19 +158,19 @@ const DesignSystemGallery = () => {
           viewport={{ once: true }}
           className="bg-gray-50 rounded-2xl p-8 text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4" data-lovable-editable="welbilt-design-cta-title">
             See the Design System in Action
           </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto" data-lovable-editable="welbilt-design-cta-description">
             Our design system reduced development time by 35% while maintaining perfect brand consistency across all touchpoints.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="default" className="px-8">
-              View Documentation
+              <span data-lovable-editable="welbilt-design-cta-btn-1">View Documentation</span>
             </Button>
             <Button variant="outline" className="px-8">
-              Download Assets
+              <span data-lovable-editable="welbilt-design-cta-btn-2">Download Assets</span>
             </Button>
           </div>
         </motion.div>

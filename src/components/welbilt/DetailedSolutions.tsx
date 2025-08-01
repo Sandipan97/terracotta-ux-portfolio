@@ -102,6 +102,7 @@ export const DetailedSolutions = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              data-lovable-editable="welbilt-detailed-title"
             >
               Detailed Solutions
             </motion.h2>
@@ -111,6 +112,7 @@ export const DetailedSolutions = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
+              data-lovable-editable="welbilt-detailed-description"
             >
               In-depth look at how research insights transformed into actionable design solutions
             </motion.p>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Users, Clock, BarChart3 } from 'lucide-react';
+import { EditableImage } from '@/components/ui/editable-image';
 const BeforeAfterShowcase = () => {
   const improvements = [{
     metric: "Task Completion Time",
@@ -36,12 +37,12 @@ const BeforeAfterShowcase = () => {
         once: true
       }} className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">
-            🔄 Transformation Story
+            <span data-lovable-editable="welbilt-transformation-badge">🔄 Transformation Story</span>
           </Badge>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-6" data-lovable-editable="welbilt-transformation-title">
             Before & After: A Complete Transformation
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto" data-lovable-editable="welbilt-transformation-description">
             See how our comprehensive redesign transformed Welbilt's kitchen management experience
           </p>
         </motion.div>
@@ -64,19 +65,19 @@ const BeforeAfterShowcase = () => {
             <Card className="p-6 bg-white border border-gray-200">
               <div className="mb-4">
                 <Badge variant="outline" className="text-red-600 border-red-200 bg-red-50">
-                  Before
+                  <span data-lovable-editable="welbilt-before-badge">Before</span>
                 </Badge>
               </div>
               <div className="aspect-video bg-gray-100 rounded-lg mb-4 relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Legacy kitchen management interface" className="w-full h-full object-cover opacity-80" />
+                <EditableImage src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Legacy kitchen management interface" className="w-full h-full object-cover opacity-80" />
                 <div className="absolute inset-0 bg-red-900/10"></div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Legacy Interface</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2" data-lovable-editable="welbilt-before-title">Legacy Interface</h3>
               <ul className="text-gray-600 space-y-1">
-                <li>• Cluttered navigation</li>
-                <li>• Inconsistent UI elements</li>
-                <li>• Poor mobile experience</li>
-                <li>• Limited accessibility</li>
+                <li data-lovable-editable="welbilt-before-item-1">• Cluttered navigation</li>
+                <li data-lovable-editable="welbilt-before-item-2">• Inconsistent UI elements</li>
+                <li data-lovable-editable="welbilt-before-item-3">• Poor mobile experience</li>
+                <li data-lovable-editable="welbilt-before-item-4">• Limited accessibility</li>
               </ul>
             </Card>
 
@@ -84,19 +85,19 @@ const BeforeAfterShowcase = () => {
             <Card className="p-6 bg-white border border-gray-200">
               <div className="mb-4">
                 <Badge variant="outline" className="text-green-600 border-green-200 bg-green-50">
-                  After
+                  <span data-lovable-editable="welbilt-after-badge">After</span>
                 </Badge>
               </div>
               <div className="aspect-video bg-gray-100 rounded-lg mb-4 relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern kitchen management interface" className="w-full h-full object-cover" />
+                <EditableImage src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern kitchen management interface" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-green-900/10"></div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Redesigned Experience</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2" data-lovable-editable="welbilt-after-title">Redesigned Experience</h3>
               <ul className="text-gray-600 space-y-1">
-                <li>• Clean, intuitive interface</li>
-                <li>• Unified design system</li>
-                <li>• Mobile-first approach</li>
-                <li>• WCAG AA compliant</li>
+                <li data-lovable-editable="welbilt-after-item-1">• Clean, intuitive interface</li>
+                <li data-lovable-editable="welbilt-after-item-2">• Unified design system</li>
+                <li data-lovable-editable="welbilt-after-item-3">• Mobile-first approach</li>
+                <li data-lovable-editable="welbilt-after-item-4">• WCAG AA compliant</li>
               </ul>
             </Card>
           </div>
@@ -109,7 +110,7 @@ const BeforeAfterShowcase = () => {
             duration: 2,
             repeat: Infinity
           }} className="flex items-center gap-4 bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200">
-              <span className="text-gray-600 font-medium">Transformation</span>
+              <span className="text-gray-600 font-medium" data-lovable-editable="welbilt-transformation-arrow">Transformation</span>
               <ArrowRight className="text-primary" size={20} />
             </motion.div>
           </div>
@@ -134,16 +135,16 @@ const BeforeAfterShowcase = () => {
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
                   <Icon className="text-primary" size={24} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-3">{item.metric}</h3>
+                <h3 className="font-semibold text-gray-900 mb-3" data-lovable-editable={`welbilt-metric-${index}-title`}>{item.metric}</h3>
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-red-600">Before: {item.before}</span>
+                    <span className="text-red-600" data-lovable-editable={`welbilt-metric-${index}-before`}>Before: {item.before}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-green-600">After: {item.after}</span>
+                    <span className="text-green-600" data-lovable-editable={`welbilt-metric-${index}-after`}>After: {item.after}</span>
                   </div>
                   <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-                    {item.improvement}
+                    <span data-lovable-editable={`welbilt-metric-${index}-improvement`}>{item.improvement}</span>
                   </Badge>
                 </div>
               </Card>;

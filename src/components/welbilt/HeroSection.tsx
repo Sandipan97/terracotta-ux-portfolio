@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Play } from 'lucide-react';
+import { EditableImage } from '@/components/ui/editable-image';
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -30,7 +31,7 @@ const HeroSection = () => {
             className="relative group"
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
-              <img 
+              <EditableImage 
                 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Legacy kitchen management interface"
                 className="w-full h-full object-cover"
@@ -38,7 +39,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-red-500/20"></div>
               <div className="absolute bottom-4 left-4">
                 <Badge variant="outline" className="bg-white/90 text-red-700 border-red-200">
-                  Before: Legacy System
+                  <span data-lovable-editable="welbilt-hero-before-badge">Before: Legacy System</span>
                 </Badge>
               </div>
             </div>
@@ -52,7 +53,7 @@ const HeroSection = () => {
             className="relative group"
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
-              <img 
+              <EditableImage 
                 src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Modern kitchen management interface"
                 className="w-full h-full object-cover"
@@ -60,7 +61,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-green-500/20"></div>
               <div className="absolute bottom-4 left-4">
                 <Badge variant="outline" className="bg-white/90 text-green-700 border-green-200">
-                  After: Modern Design System
+                  <span data-lovable-editable="welbilt-hero-after-badge">After: Modern Design System</span>
                 </Badge>
               </div>
             </div>
@@ -83,13 +84,13 @@ const HeroSection = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
-              🏪 Kitchen Management
+              <span data-lovable-editable="welbilt-hero-badge-1">🏪 Kitchen Management</span>
             </Badge>
             <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-200">
-              🎨 Design System
+              <span data-lovable-editable="welbilt-hero-badge-2">🎨 Design System</span>
             </Badge>
             <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-              🏢 Enterprise UX
+              <span data-lovable-editable="welbilt-hero-badge-3">🏢 Enterprise UX</span>
             </Badge>
           </motion.div>
 
@@ -98,6 +99,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
+            data-lovable-editable="welbilt-hero-title"
           >
             Welbilt Kitchen Connect
           </motion.h1>
@@ -107,6 +109,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
+            data-lovable-editable="welbilt-hero-subtitle"
           >
             Design System & Platform Revamp
           </motion.h2>
@@ -116,6 +119,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
+            data-lovable-editable="welbilt-hero-description"
           >
             A comprehensive redesign of Welbilt's kitchen management platform, featuring a complete design system 
             that improved development efficiency by 35% and enhanced user experience across all touchpoints.
@@ -129,10 +133,10 @@ const HeroSection = () => {
           >
             <Button variant="default" size="lg" className="px-8 py-3 text-lg">
               <Play className="mr-2" size={20} />
-              View Case Study
+              <span data-lovable-editable="welbilt-hero-btn-1">View Case Study</span>
             </Button>
             <Button variant="outline" size="lg" className="px-8 py-3 text-lg">
-              View Design System
+              <span data-lovable-editable="welbilt-hero-btn-2">View Design System</span>
             </Button>
           </motion.div>
 
@@ -144,16 +148,16 @@ const HeroSection = () => {
             className="grid grid-cols-3 gap-4 text-center"
           >
             <div>
-              <div className="text-2xl font-bold text-primary">35%</div>
-              <div className="text-sm text-gray-600">Faster Development</div>
+              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-1-value">35%</div>
+              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-1-label">Faster Development</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary">50+</div>
-              <div className="text-sm text-gray-600">Components</div>
+              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-2-value">50+</div>
+              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-2-label">Components</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary">85%</div>
-              <div className="text-sm text-gray-600">User Satisfaction</div>
+              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-3-value">85%</div>
+              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-3-label">User Satisfaction</div>
             </div>
           </motion.div>
         </motion.div>

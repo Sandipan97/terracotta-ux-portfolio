@@ -70,6 +70,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              data-lovable-editable="welbilt-solutions-title"
             >
               Design Solutions
             </motion.h2>
@@ -79,6 +80,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
+              data-lovable-editable="welbilt-solutions-description"
             >
               Transforming research insights into actionable design solutions that drive measurable business outcomes
             </motion.p>
@@ -105,22 +107,22 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
                         <FileImage className="w-6 h-6 text-gray-500" />
                       </div>
                     </div>
-                    <CardTitle className="text-gray-900 text-xl mb-2">{solution.title}</CardTitle>
+                    <CardTitle className="text-gray-900 text-xl mb-2" data-lovable-editable={`welbilt-solution-${index}-title`}>{solution.title}</CardTitle>
                     <div className="flex flex-wrap gap-2">
                       {solution.tags.map((tag, tagIndex) => (
                         <Badge key={tagIndex} variant="secondary">
-                          {tag}
+                          <span data-lovable-editable={`welbilt-solution-${index}-tag-${tagIndex}`}>{tag}</span>
                         </Badge>
                       ))}
                     </div>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-gray-600 leading-relaxed mb-4">{solution.description}</p>
+                    <p className="text-gray-600 leading-relaxed mb-4" data-lovable-editable={`welbilt-solution-${index}-description`}>{solution.description}</p>
                     
                     <div className="flex items-center justify-between">
                       <div className="text-sm">
-                        <span className="text-blue-700 font-semibold">{solution.impact}</span>
-                        <span className="text-gray-600 ml-2">improvement</span>
+                        <span className="text-blue-700 font-semibold" data-lovable-editable={`welbilt-solution-${index}-impact`}>{solution.impact}</span>
+                        <span className="text-gray-600 ml-2" data-lovable-editable="welbilt-solution-improvement-label">improvement</span>
                       </div>
                       
                       {!showDetailed && (
@@ -130,7 +132,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
                           size="sm"
                           className="group-hover:translate-x-1 transition-all duration-300"
                         >
-                          View Full Solution
+                          <span data-lovable-editable={`welbilt-solution-${index}-btn`}>View Full Solution</span>
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
                       )}
@@ -149,7 +151,7 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
             >
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm" data-lovable-editable="welbilt-solutions-scroll-note">
                 Scroll down for detailed solution breakdowns and implementation insights
               </p>
             </motion.div>

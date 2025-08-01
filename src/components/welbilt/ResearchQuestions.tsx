@@ -65,6 +65,7 @@ export const ResearchQuestions = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              data-lovable-editable="welbilt-research-title"
             >
               Research Questions
             </motion.h2>
@@ -74,6 +75,7 @@ export const ResearchQuestions = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
+              data-lovable-editable="welbilt-research-description"
             >
               Key questions that guided our research methodology and shaped our design solutions
             </motion.p>
@@ -100,13 +102,13 @@ export const ResearchQuestions = () => {
 
                       {/* Question Content */}
                       <div className="lg:col-span-7">
-                        <h3 className="text-gray-900 text-xl font-semibold mb-3">{item.question}</h3>
+                        <h3 className="text-gray-900 text-xl font-semibold mb-3" data-lovable-editable={`welbilt-question-${index}-text`}>{item.question}</h3>
                         
                         {/* Methodology Connection */}
                         <div className="flex items-center gap-3 mb-4">
                           <div className="flex items-center gap-2 px-3 py-1 bg-blue-50 rounded-full border border-blue-200">
                             <item.methodIcon className="w-4 h-4 text-blue-600" />
-                            <span className="text-blue-700 text-sm">{item.methodology}</span>
+                            <span className="text-blue-700 text-sm" data-lovable-editable={`welbilt-question-${index}-methodology`}>{item.methodology}</span>
                           </div>
                           <div className="w-8 h-px bg-gradient-to-r from-blue-400 to-transparent"></div>
                         </div>
@@ -119,7 +121,7 @@ export const ResearchQuestions = () => {
                             </div>
                             <div>
                               <span className="text-cyan-700 text-sm font-medium">Key Insight</span>
-                              <p className="text-gray-700 text-sm mt-1">{item.insight}</p>
+                              <p className="text-gray-700 text-sm mt-1" data-lovable-editable={`welbilt-question-${index}-insight`}>{item.insight}</p>
                             </div>
                           </div>
                         </div>
