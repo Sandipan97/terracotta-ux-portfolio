@@ -202,13 +202,13 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Modern redesigned P&G Datalogger dashboard" className="w-full h-[400px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
+              <EditableImage src="/lovable-uploads/PG before.png" alt="Modern redesigned P&G Datalogger dashboard" className="w-full h-[400px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
             </motion.div>
 
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="https://images.unsplash.com/photo-1487252665478-49b61b47f302?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Legacy P&G Datalogger interface showing cluttered layout" className="w-full h-[400px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
+              <EditableImage src="/lovable-uploads/PG after.png" alt="Legacy P&G Datalogger interface showing cluttered layout" className="w-full h-[400px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
             </motion.div>
           </div>
         </div>
