@@ -308,7 +308,7 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="UX methodology flowchart and process documentation" className="w-full h-[500px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
+              <EditableImage src="/lovable-uploads/UX audit.png" alt="UX methodology flowchart and process documentation" className="w-full h-[500px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
             </motion.div>
           </div>
         </div>
