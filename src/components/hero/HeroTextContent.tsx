@@ -45,17 +45,17 @@ const HeroTextContent = () => {
     }} transition={{
       delay: 0.2,
       duration: 0.6
-    }} className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-bengali-dark mb-4 md:mb-6 px-0 py-0 my-0">
+    }} className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-warm-clay mb-4 md:mb-6 px-0 py-0 my-0">
         <motion.span initial={{
         opacity: 0
       }} animate={{
         opacity: 1
       }} transition={{
         delay: 0.5
-      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 mb-[10px] text-3xl text-amber-600">
+      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 mb-[10px] text-3xl text-warm-rust">
           <span className="relative inline-block">
             Hi
-            <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-mustard" initial={{
+            <motion.span className="absolute -bottom-1 left-0 h-1 bg-warm-golden" initial={{
             width: 0
           }} animate={{
             width: "100%"
@@ -74,16 +74,16 @@ const HeroTextContent = () => {
           opacity: 1
         }} transition={{
           delay: 1.0
-        }} className="text-bengali-terracotta-dark dark:text-red-500" data-lovable-editable="hero-name">
+        }} className="text-warm-terracotta dark:text-warm-terracotta" data-lovable-editable="hero-name">
             {displayText}
-            <motion.span className="inline-block w-1 h-16 sm:h-20 bg-bengali-terracotta-dark dark:bg-red-500 ml-1" animate={{
+            <motion.span className="inline-block w-1 h-16 sm:h-20 bg-warm-terracotta dark:bg-warm-terracotta ml-1" animate={{
             opacity: [1, 0, 1]
           }} transition={{
             duration: 1,
             repeat: Infinity
           }} />
           </motion.span>
-          <motion.span className="absolute -bottom-1 left-0 h-1 bg-bengali-terracotta-dark dark:bg-red-500" initial={{
+          <motion.span className="absolute -bottom-1 left-0 h-1 bg-warm-terracotta dark:bg-warm-terracotta" initial={{
           width: 0
         }} animate={{
           width: currentIndex === fullText.length ? "100%" : "0%"
@@ -124,7 +124,7 @@ My approach is rooted in Empathy, Clarity and alignment with Business Goals - de
       }} whileTap={{
         scale: 0.95
       }}>
-          <Button onClick={scrollToProjects} size="lg" data-lovable-editable="hero-cta-button">
+          <Button onClick={scrollToProjects} size="lg" className="bg-warm-terracotta hover:bg-warm-terracotta-dark text-white shadow-lg hover:shadow-xl transition-all duration-300" data-lovable-editable="hero-cta-button">
             View My Work
           </Button>
         </motion.div>
@@ -135,7 +135,7 @@ My approach is rooted in Empathy, Clarity and alignment with Business Goals - de
       }} whileTap={{
         scale: 0.95
       }}>
-          <Button variant="outline" size="icon" className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-white shadow-md hover:shadow-lg transition-all duration-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:border-white h-12 w-12" asChild>
+          <Button variant="outline" size="icon" className="bg-warm-rust hover:bg-warm-rust-dark text-white border-2 border-white shadow-md hover:shadow-lg transition-all duration-300 dark:bg-warm-rust dark:hover:bg-warm-rust-dark dark:border-white h-12 w-12" asChild>
             <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
               <Linkedin size={20} />
             </a>

@@ -63,31 +63,31 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// New color palette using CSS variables for proper theme support
-				'red-pantone': {
-					DEFAULT: 'hsl(var(--red-pantone))',
-					light: 'hsl(var(--red-pantone-light))',
-					dark: 'hsl(var(--red-pantone-dark))'
+				// Warm Professional Color Palette for UX Design Portfolio
+				'warm-terracotta': {
+					DEFAULT: 'hsl(var(--warm-terracotta))',
+					light: 'hsl(var(--warm-terracotta-light))',
+					dark: 'hsl(var(--warm-terracotta-dark))'
 				},
-				'honeydew': {
-					DEFAULT: 'hsl(var(--honeydew))',
-					light: 'hsl(var(--honeydew-light))',
-					dark: 'hsl(var(--honeydew-dark))'
+				'warm-rust': {
+					DEFAULT: 'hsl(var(--warm-rust))',
+					light: 'hsl(var(--warm-rust-light))',
+					dark: 'hsl(var(--warm-rust-dark))'
 				},
-				'non-photo-blue': {
-					DEFAULT: 'hsl(var(--non-photo-blue))',
-					light: 'hsl(var(--non-photo-blue-light))',
-					dark: 'hsl(var(--non-photo-blue-dark))'
+				'warm-golden': {
+					DEFAULT: 'hsl(var(--warm-golden))',
+					light: 'hsl(var(--warm-golden-light))',
+					dark: 'hsl(var(--warm-golden-dark))'
 				},
-				'cerulean': {
-					DEFAULT: 'hsl(var(--cerulean))',
-					light: 'hsl(var(--cerulean-light))',
-					dark: 'hsl(var(--cerulean-dark))'
+				'warm-sage': {
+					DEFAULT: 'hsl(var(--warm-sage))',
+					light: 'hsl(var(--warm-sage-light))',
+					dark: 'hsl(var(--warm-sage-dark))'
 				},
-				'berkeley-blue': {
-					DEFAULT: 'hsl(var(--berkeley-blue))',
-					light: 'hsl(var(--berkeley-blue-light))',
-					dark: 'hsl(var(--berkeley-blue-dark))'
+				'warm-clay': {
+					DEFAULT: 'hsl(var(--warm-clay))',
+					light: 'hsl(var(--warm-clay-light))',
+					dark: 'hsl(var(--warm-clay-dark))'
 				},
 				// Toy Anatomy Color System
 				'toy-anatomy': {

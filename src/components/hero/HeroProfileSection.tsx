@@ -36,8 +36,8 @@ const HeroProfileSection = () => {
       <div className="relative">
         <motion.div className="w-80 h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer relative" onClick={handleProfileClick} whileHover={{
         scale: 1.05,
-        borderColor: "#802f1f",
-        boxShadow: "0 20px 40px -10px rgba(128, 47, 31, 0.3)"
+        borderColor: "hsl(var(--warm-terracotta))",
+        boxShadow: "0 20px 40px -10px hsla(var(--warm-terracotta), 0.3)"
       }} transition={{
         duration: 0.3
       }} style={{
@@ -72,7 +72,7 @@ const HeroProfileSection = () => {
           </motion.div>
         </motion.div>
         
-        <motion.div className="absolute -bottom-4 -right-4 text-bengali-terracotta-dark dark:text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium bg-white dark:bg-bengali-terracotta-dark backdrop-blur-md border border-white/20 dark:border-bengali-terracotta-dark/20 shadow-lg text-sm md:text-base" initial={{
+        <motion.div className="absolute -bottom-4 -right-4 text-warm-terracotta dark:text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-medium bg-white dark:bg-warm-terracotta backdrop-blur-md border border-white/20 dark:border-warm-terracotta/20 shadow-lg text-sm md:text-base" initial={{
         opacity: 0,
         y: 20
       }} animate={{

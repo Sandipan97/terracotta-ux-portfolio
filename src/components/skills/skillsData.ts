@@ -3,7 +3,7 @@ export const skillCategories = [
   {
     title: "Research & Strategy",
     icon: "🔍",
-    color: "bg-red-pantone dark:bg-red-pantone text-white hover:text-white hover:bg-red-pantone/90 dark:hover:text-white dark:hover:bg-red-pantone/90",
+    color: "bg-warm-terracotta dark:bg-warm-terracotta text-white hover:text-white hover:bg-warm-terracotta/90 dark:hover:text-white dark:hover:bg-warm-terracotta/90",
     skills: [
       "Strategic UX Research",
       "Usability & Accessibility Testing", 
@@ -15,7 +15,7 @@ export const skillCategories = [
   {
     title: "Design Execution",
     icon: "🎨",
-    color: "bg-non-photo-blue dark:bg-non-photo-blue text-berkeley-blue hover:text-berkeley-blue hover:bg-non-photo-blue/90 dark:text-berkeley-blue dark:hover:text-berkeley-blue dark:hover:bg-non-photo-blue/90",
+    color: "bg-warm-golden dark:bg-warm-golden text-warm-clay hover:text-warm-clay hover:bg-warm-golden/90 dark:text-warm-clay dark:hover:text-warm-clay dark:hover:bg-warm-golden/90",
     skills: [
       "UI/UX & Product Design",
       "3D Design",
@@ -27,7 +27,7 @@ export const skillCategories = [
   {
     title: "Technical Design Leadership",
     icon: "⚡",
-    color: "bg-cerulean dark:bg-cerulean text-white hover:text-white hover:bg-cerulean/90 dark:hover:text-white dark:hover:bg-cerulean/90",
+    color: "bg-warm-rust dark:bg-warm-rust text-white hover:text-white hover:bg-warm-rust/90 dark:hover:text-white dark:hover:bg-warm-rust/90",
     skills: [
       "Design Systems Expert",
       "Vibe Coding"
@@ -36,7 +36,7 @@ export const skillCategories = [
   {
     title: "Design Process & Innovation",
     icon: "🚀",
-    color: "bg-gradient-to-r from-berkeley-blue to-cerulean dark:from-berkeley-blue dark:to-cerulean text-white hover:text-white dark:hover:text-white",
+    color: "bg-gradient-to-r from-warm-clay to-warm-rust dark:from-warm-clay dark:to-warm-rust text-white hover:text-white dark:hover:text-white",
     skills: [
       "Product Strategy & Ownership",
       "Design Thinking Master",

@@ -45,22 +45,26 @@
     --sidebar-border: 214.3 31.8% 88%;
     --sidebar-ring: 222 84% 4.9%;
 
-    /* New Color Palette Variables */
-    --red-pantone: 355 78% 56%; /* #e63946 */
-    --red-pantone-light: 355 78% 66%; /* #eb5f6b */
-    --red-pantone-dark: 355 78% 46%; /* #cb1928 */
-    --honeydew: 105 55% 96%; /* #f1faee */
-    --honeydew-light: 105 55% 98%; /* #f5fbf2 */
-    --honeydew-dark: 105 55% 92%; /* #e8f5e0 */
-    --non-photo-blue: 182 43% 76%; /* #a8dadc */
-    --non-photo-blue-light: 182 43% 82%; /* #b9e2e3 */
-    --non-photo-blue-dark: 182 43% 68%; /* #8ad0d3 */
-    --cerulean: 203 39% 44%; /* #457b9d */
-    --cerulean-light: 203 39% 54%; /* #6097b9 */
-    --cerulean-dark: 203 39% 34%; /* #355f7a */
-    --berkeley-blue: 215 50% 23%; /* #1d3557 */
-    --berkeley-blue-light: 215 50% 33%; /* #315a93 */
-    --berkeley-blue-dark: 215 50% 16%; /* #162841 */
+    /* Warm Professional Color Palette for Light Mode */
+    --warm-terracotta: 14 85% 60%;
+    --warm-terracotta-light: 14 85% 75%;
+    --warm-terracotta-dark: 14 85% 45%;
+
+    --warm-rust: 19 75% 50%;
+    --warm-rust-light: 19 75% 65%;
+    --warm-rust-dark: 19 75% 35%;
+
+    --warm-golden: 45 90% 70%;
+    --warm-golden-light: 45 90% 85%;
+    --warm-golden-dark: 45 90% 55%;
+
+    --warm-sage: 75 35% 65%;
+    --warm-sage-light: 75 35% 80%;
+    --warm-sage-dark: 75 35% 50%;
+
+    --warm-clay: 25 45% 35%;
+    --warm-clay-light: 25 45% 50%;
+    --warm-clay-dark: 25 45% 25%;
 
     /* Headers */
     --h1: 215 50% 23%;
@@ -116,22 +120,22 @@
     --sidebar-border: 217.2 32.6% 18%;
     --sidebar-ring: 212.7 26.8% 83.9%;
 
-    /* New Color Palette for Dark Mode - Enhanced visibility */
-    --red-pantone: 355 78% 66%; /* Lighter for dark mode */
-    --red-pantone-light: 355 78% 75%; /* Even lighter */
-    --red-pantone-dark: 355 78% 56%; /* Standard red */
-    --honeydew: 105 55% 94%; /* Slightly darker for dark mode */
-    --honeydew-light: 105 55% 96%; /* Standard light */
-    --honeydew-dark: 105 55% 88%; /* Darker variant */
-    --non-photo-blue: 182 43% 82%; /* Lighter for dark mode */
-    --non-photo-blue-light: 182 43% 88%; /* Even lighter */
-    --non-photo-blue-dark: 182 43% 76%; /* Standard blue */
-    --cerulean: 203 39% 54%; /* Lighter for dark mode */
-    --cerulean-light: 203 39% 64%; /* Even lighter */
-    --cerulean-dark: 203 39% 44%; /* Standard cerulean */
-    --berkeley-blue: 215 50% 33%; /* Lighter for dark mode */
-    --berkeley-blue-light: 215 50% 43%; /* Even lighter */
-    --berkeley-blue-dark: 215 50% 23%; /* Standard dark blue */
+    /* Warm Professional Color Palette for Dark Mode */
+    --warm-terracotta: 14 85% 70%; /* Lighter for dark mode */
+    --warm-terracotta-light: 14 85% 80%; /* Even lighter */
+    --warm-terracotta-dark: 14 85% 60%; /* Standard terracotta */
+    --warm-rust: 19 75% 60%; /* Lighter for dark mode */
+    --warm-rust-light: 19 75% 70%; /* Even lighter */
+    --warm-rust-dark: 19 75% 50%; /* Standard rust */
+    --warm-golden: 45 90% 75%; /* Lighter for dark mode */
+    --warm-golden-light: 45 90% 85%; /* Even lighter */
+    --warm-golden-dark: 45 90% 65%; /* Standard golden */
+    --warm-sage: 75 35% 70%; /* Lighter for dark mode */
+    --warm-sage-light: 75 35% 80%; /* Even lighter */
+    --warm-sage-dark: 75 35% 60%; /* Standard sage */
+    --warm-clay: 25 45% 45%; /* Lighter for dark mode */
+    --warm-clay-light: 25 45% 55%; /* Even lighter */
+    --warm-clay-dark: 25 45% 35%; /* Standard clay */
 
     /* Headers for dark mode */
     --h1: 215 50% 43%;
