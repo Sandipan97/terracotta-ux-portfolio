@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 import { Linkedin } from 'lucide-react';
+import ExecutiveSummaryCard from './ExecutiveSummaryCard';
 const HeroTextContent = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -102,9 +103,16 @@ const HeroTextContent = () => {
       delay: 0.6,
       duration: 0.6
     }}>
-        <div className="bg-white/80 backdrop-blur-md border border-white/30 rounded-xl p-4 shadow-lg">
-          <p className="text-base md:text-lg max-w-md text-black" data-lovable-editable="hero-description">Sr. UX Designer &amp; Researcher with 5 years of designing intuitive digital and tangible solutions and a Masters in Design from Indian Institute of Science (IISc). 
-My approach is rooted in Empathy, Clarity and alignment with Business Goals - delivering scalable Future-ready solutions.</p>
+        <div className="bg-white/95 backdrop-blur-md border border-warm-terracotta/20 rounded-xl p-6 shadow-xl">
+          <p className="text-base md:text-lg max-w-md text-warm-clay font-medium leading-relaxed" data-lovable-editable="hero-description">
+            Sr. UX Designer &amp; Product Manager with 5+ years of designing intuitive digital and tangible solutions. 
+            Masters in Design from Indian Institute of Science (IISc).
+          </p>
+          <p className="text-sm text-warm-clay/70 mt-3 max-w-md">
+            My approach is rooted in <span className="font-semibold text-warm-terracotta">Empathy</span>, 
+            <span className="font-semibold text-warm-rust"> Clarity</span> and 
+            <span className="font-semibold text-warm-golden"> Business Alignment</span> - delivering scalable, future-ready solutions.
+          </p>
         </div>
       </motion.div>
       
@@ -124,8 +132,8 @@ My approach is rooted in Empathy, Clarity and alignment with Business Goals - de
       }} whileTap={{
         scale: 0.95
       }}>
-          <Button onClick={scrollToProjects} size="lg" className="bg-warm-terracotta hover:bg-warm-terracotta-dark text-white shadow-lg hover:shadow-xl transition-all duration-300" data-lovable-editable="hero-cta-button">
-            View My Work
+          <Button onClick={scrollToProjects} size="lg" className="shadow-lg hover:shadow-xl transition-all duration-300" data-lovable-editable="hero-cta-button">
+            View Portfolio
           </Button>
         </motion.div>
 
@@ -135,7 +143,18 @@ My approach is rooted in Empathy, Clarity and alignment with Business Goals - de
       }} whileTap={{
         scale: 0.95
       }}>
-          <Button variant="outline" size="icon" className="bg-warm-rust hover:bg-warm-rust-dark text-white border-2 border-white shadow-md hover:shadow-lg transition-all duration-300 dark:bg-warm-rust dark:hover:bg-warm-rust-dark dark:border-white h-12 w-12" asChild>
+          <Button variant="secondary" size="lg" className="shadow-md hover:shadow-lg transition-all duration-300">
+            Schedule Consultation
+          </Button>
+        </motion.div>
+
+        <motion.div whileHover={{
+        scale: 1.05,
+        y: -2
+      }} whileTap={{
+        scale: 0.95
+      }}>
+          <Button variant="outline" size="icon" className="shadow-md hover:shadow-lg transition-all duration-300 h-12 w-12" asChild>
             <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
               <Linkedin size={20} />
             </a>

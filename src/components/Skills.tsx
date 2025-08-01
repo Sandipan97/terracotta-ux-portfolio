@@ -5,6 +5,7 @@ import ScrollToNextSection from '@/components/ui/ScrollToNextSection';
 import SkillsHeader from './skills/SkillsHeader';
 import SkillCategory from './skills/SkillCategory';
 import SkillsHighlights from './skills/SkillsHighlights';
+import CompetencyMatrix from './skills/CompetencyMatrix';
 import { skillCategories } from './skills/skillsData';
 
 const Skills = () => {
@@ -31,6 +32,8 @@ const Skills = () => {
       
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
         <SkillsHeader />
+
+        <CompetencyMatrix />
 
         <motion.div 
           className="max-w-7xl mx-auto"

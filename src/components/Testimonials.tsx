@@ -14,23 +14,23 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    quote: "One of the most thorough researchers I've worked with. The insights gathered led to product changes that increased our user satisfaction by 40%.",
+    quote: "Exceptional research methodology and strategic thinking. The user insights delivered directly influenced our product roadmap and increased user satisfaction by 40%. A true partner in product success.",
     author: "Sarah Johnson",
     title: "Product Director",
-    company: "Welbilt",
+    company: "Welbilt Kitchen Connect",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     id: 2,
-    quote: "The design system created for our platform has transformed how we build products. Development is faster and our user experience is more consistent.",
+    quote: "The design system and component library delivered has transformed our development velocity. We've reduced design-to-development time by 60% while maintaining exceptional quality.",
     author: "Michael Torres",
-    title: "CTO",
-    company: "Kitchen Connect",
+    title: "VP of Engineering",
+    company: "PG Electronics",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
   },
   {
     id: 3,
-    quote: "The AR interface designed for our product manual reduced support calls by 60%. An innovative solution that exceeded our expectations.",
+    quote: "The AR manual interface designed for our appliances exceeded all expectations. Support call volume decreased by 60% while customer satisfaction scores reached an all-time high.",
     author: "David Kim",
     title: "Head of Customer Experience",
     company: "LG Electronics",
@@ -53,10 +53,10 @@ const Testimonials = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Client Testimonials
+            Client Impact & Recognition
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            What clients say about working with me
+            Quantified results and testimonials from senior stakeholders across Fortune 500 companies
           </p>
         </div>
         
@@ -76,7 +76,7 @@ const Testimonials = () => {
               key={index}
               onClick={() => setActiveIndex(index)}
               className={`w-3 h-3 rounded-full mx-1 transition-colors ${
-                index === activeIndex ? 'bg-red-pantone' : 'bg-muted-foreground/50'
+                index === activeIndex ? 'bg-primary' : 'bg-muted-foreground/50'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />

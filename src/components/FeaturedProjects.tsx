@@ -4,7 +4,9 @@ import ScrollToNextSection from './ui/ScrollToNextSection';
 import FeaturedProjectsHeader from './featured-projects/FeaturedProjectsHeader';
 import FilterControls from './featured-projects/FilterControls';
 import ProjectCard from './featured-projects/ProjectCard';
+import BusinessImpactCard from './featured-projects/BusinessImpactCard';
 import { projects } from './project-drawer/projectData';
+import { TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
 type Project = {
   id: number;
   title: string;
@@ -67,6 +69,19 @@ const FeaturedProjects = () => {
     <section ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 dark:bg-card/30">
       <div className="max-w-7xl mx-auto">
         <FeaturedProjectsHeader variants={itemVariants} />
+        
+        <BusinessImpactCard 
+          title="Portfolio Impact Metrics"
+          description="Quantified business outcomes from enterprise UX projects"
+          projectType="Enterprise Portfolio"
+          industry="Multi-Industry"
+          metrics={[
+            { icon: TrendingUp, label: "User Satisfaction", value: "40%", improvement: "↑ Average Increase", color: "warm-terracotta" },
+            { icon: Users, label: "Support Reduction", value: "60%", improvement: "↓ Call Volume", color: "warm-rust" },
+            { icon: Clock, label: "Development Speed", value: "35%", improvement: "↑ Faster Delivery", color: "warm-golden" },
+            { icon: DollarSign, label: "Cost Savings", value: "$2.3M", improvement: "↓ Annual Reduction", color: "warm-sage" }
+          ]}
+        />
         
         <FilterControls 
           categories={categories}

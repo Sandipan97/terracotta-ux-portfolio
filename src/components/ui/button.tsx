@@ -11,15 +11,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-red-pantone text-white hover:bg-red-pantone/90 shadow-lg hover:shadow-xl dark:bg-red-pantone dark:hover:bg-red-pantone/90 transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl dark:bg-primary dark:hover:bg-primary/90 transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2",
         destructive:
-          "bg-red-pantone text-white hover:bg-red-pantone/90 shadow-lg hover:shadow-xl dark:bg-red-pantone dark:hover:bg-red-pantone/90 transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg hover:shadow-xl dark:bg-destructive dark:hover:bg-destructive/90 transition-all duration-300 focus:ring-2 focus:ring-destructive/20 focus:ring-offset-2",
         outline:
-          "border-2 border-red-pantone text-red-pantone bg-background hover:bg-red-pantone hover:text-white shadow-md hover:shadow-lg dark:border-red-pantone dark:text-red-pantone dark:hover:bg-red-pantone dark:hover:text-white transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
+          "border-2 border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-md hover:shadow-lg dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2",
         secondary:
-          "bg-red-pantone text-white hover:bg-red-pantone/90 shadow-md hover:shadow-lg dark:bg-red-pantone dark:text-white dark:hover:bg-red-pantone/90 transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
-        ghost: "text-red-pantone hover:bg-red-pantone hover:text-white hover:shadow-sm transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
-        link: "text-red-pantone underline-offset-4 hover:underline dark:text-red-pantone transition-all duration-300 focus:ring-2 focus:ring-red-pantone/20 focus:ring-offset-2",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md hover:shadow-lg dark:bg-secondary dark:text-secondary-foreground dark:hover:bg-secondary/80 transition-all duration-300 focus:ring-2 focus:ring-secondary/20 focus:ring-offset-2",
+        ghost: "text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2",
+        link: "text-primary underline-offset-4 hover:underline dark:text-primary transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2",
       },
       size: {
         default: "h-11 px-6 py-3",

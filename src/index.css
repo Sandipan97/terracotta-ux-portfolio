@@ -6,33 +6,34 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* Pure white for light mode */
-    --foreground: 222 84% 4.9%; /* Much darker text for better contrast */
+    /* Professional warm cream background #fffee0 */
+    --background: 51 60% 95%; /* #fffee0 - warm cream background */
+    --foreground: 25 45% 15%; /* Dark warm text for WCAG compliance */
 
-    --card: 0 0% 98%;
-    --card-foreground: 222 84% 4.9%;
+    --card: 0 0% 99%; /* Warm white for cards */
+    --card-foreground: 25 45% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 84% 4.9%;
+    --popover: 51 60% 98%;
+    --popover-foreground: 25 45% 15%;
 
-    --primary: 222 84% 4.9%;
+    --primary: 14 67% 45%; /* Warm terracotta - WCAG compliant */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 84% 4.9%;
+    --secondary: 42 25% 88%; /* Warm neutral for sections */
+    --secondary-foreground: 25 45% 15%;
 
-    --muted: 210 40% 94%;
-    --muted-foreground: 215.4 16.3% 35%; /* Darker for better contrast */
+    --muted: 45 35% 92%; /* Subtle warm tint for alternating sections */
+    --muted-foreground: 25 30% 30%; /* Darker for better readability */
 
-    --accent: 210 40% 92%;
-    --accent-foreground: 222 84% 4.9%;
+    --accent: 35 65% 65%; /* Warm golden accent */
+    --accent-foreground: 25 45% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 88%;
-    --input: 214.3 31.8% 88%;
-    --ring: 222 84% 4.9%;
+    --border: 42 25% 85%; /* Warm neutral borders */
+    --input: 42 25% 88%; /* Warm input backgrounds */
+    --ring: 14 67% 45%; /* Warm terracotta focus ring */
 
     --radius: 0.5rem;
 
@@ -83,11 +84,11 @@
   }
 
   .dark {
-    --background: 222 84% 4.9%; /* Deep dark background */
-    --foreground: 210 40% 98%; /* Very light text for excellent contrast */
+    --background: 25 15% 8%; /* Warm dark background */
+    --foreground: 42 25% 95%; /* Warm light text */
 
-    --card: 222 84% 7%; /* Slightly lighter than background */
-    --card-foreground: 210 40% 95%;
+    --card: 25 15% 10%; /* Slightly lighter warm dark */
+    --card-foreground: 42 25% 95%;
 
     --popover: 222 84% 6%;
     --popover-foreground: 210 40% 95%;
