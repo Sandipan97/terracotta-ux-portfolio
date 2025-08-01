@@ -1,24 +1,16 @@
-
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { EditableImage } from './ui/editable-image';
-
 const AboutPreview = () => {
-  return (
-    <section className="py-20 bg-background dark:bg-background">
+  return <section className="py-20 bg-background dark:bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="relative z-10">
               <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-lg shadow-xl border border-border">
-                <EditableImage 
-                  alt="Designer portrait" 
-                  src="/lovable-uploads/c6d0389c-5302-42f4-bcd2-ed57dd41c370.jpg" 
-                  className="w-full h-full object-cover rounded-lg" 
-                  fallbackSrc="/placeholder.svg"
-                />
-                <AvatarFallback className="bg-muted text-foreground text-4xl font-bold">UX</AvatarFallback>
+                <EditableImage alt="Designer portrait" src="/lovable-uploads/c6d0389c-5302-42f4-bcd2-ed57dd41c370.jpg" className="w-full h-full object-cover rounded-lg" fallbackSrc="/placeholder.svg" />
+                
               </Avatar>
             </div>
             <div className="absolute top-12 -right-4 md:-right-12 z-0">
@@ -70,8 +62,6 @@ const AboutPreview = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutPreview;
