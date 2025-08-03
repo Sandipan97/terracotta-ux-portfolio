@@ -125,7 +125,7 @@ const PGDataloggerProject = () => {
           Back to Projects
         </button>
 
-        <EditableImage src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="P&G Datalogger interface comparison - old vs new design" className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
+        <EditableImage src="/lovable-uploads/PG header.png" alt="P&G Datalogger interface comparison - old vs new design" className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
       </section>
 
