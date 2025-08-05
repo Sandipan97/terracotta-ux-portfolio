@@ -127,12 +127,12 @@ const PGDataloggerProject = () => {
         </button>
 
         <EditableImage 
-          src="/lovable-uploads/PG hero.png" 
+          src="/lovable-uploads/PG hero.svg" 
           alt="P&G Datalogger interface comparison - old vs new design" 
           className="w-full h-full object-cover object-center" 
           objectFit="cover"
           objectPosition="center"
-          fallbackSrc="/lovable-uploads/PG hero.png"
+          fallbackSrc="/lovable-uploads/PG hero.svg"
           //editableKey="pg-datalogger-hero-image"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
