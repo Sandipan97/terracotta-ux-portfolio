@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import StickyNavigation from '@/components/pg-datalogger/StickyNavigation';
 import ProcessTimeline from '@/components/pg-datalogger/ProcessTimeline';
 import BeforeAfterShowcase from '@/components/pg-datalogger/BeforeAfterShowcase';
+
 const PGDataloggerProject = () => {
   const navigate = useNavigate();
 
@@ -115,8 +116,8 @@ const PGDataloggerProject = () => {
       <Navbar />
       <StickyNavigation sections={navigationSections} />
       
-      {/* Hero Image Section - Fixed Height */}
-      <section id="overview" className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
+      {/* Hero Image Section - Fixed Height with Responsive Adjustments */}
+      <section id="overview" className="w-full relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
         <button 
           onClick={handleBack}
           className="absolute top-4 left-4 z-30 inline-flex items-center gap-2 bg-background/80 backdrop-blur-sm text-foreground hover:bg-background transition-colors px-3 py-2 rounded-lg border border-border/50"
@@ -125,7 +126,15 @@ const PGDataloggerProject = () => {
           Back to Projects
         </button>
 
-        <EditableImage src="/lovable-uploads/PG hero.png" alt="P&G Datalogger interface comparison - old vs new design" className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
+        <EditableImage 
+          src="/lovable-uploads/PG hero.png" 
+          alt="P&G Datalogger interface comparison - old vs new design" 
+          className="w-full h-full object-cover object-center" 
+          objectFit="cover"
+          objectPosition="center"
+          fallbackSrc="/placeholder.svg"
+          editableKey="pg-datalogger-hero-image"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
       </section>
 
@@ -174,19 +183,19 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* Project Overview */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
+          <motion.div className="text-center mb-12 sm:mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
         }}>
             <motion.h2 
-              className="text-3xl md:text-4xl font-bold mb-6" 
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6" 
               variants={fadeInUp}
               data-lovable-editable="pg-datalogger-overview-title"
             >
               Project Overview
             </motion.h2>
-            <motion.div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground" variants={fadeInUp}>
+            <motion.div className="max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-muted-foreground" variants={fadeInUp}>
               <p data-lovable-editable="pg-datalogger-overview-description-1">
                 The Datalogger application is a critical tool used by P&G for device data logging and configuration.
                 The legacy system had significant usability issues, lacked modern design standards, and was prone to user errors.
@@ -198,17 +207,33 @@ const PGDataloggerProject = () => {
             </motion.div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="/lovable-uploads/PG before.png" alt="Modern redesigned P&G Datalogger dashboard" className="w-full h-[400px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
+              <EditableImage 
+                src="/lovable-uploads/PG before.png" 
+                alt="Legacy P&G Datalogger interface showing cluttered layout" 
+                className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" 
+                objectFit="cover"
+                objectPosition="center"
+                fallbackSrc="/placeholder.svg"
+                editableKey="pg-datalogger-before-image"
+              />
             </motion.div>
 
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="/lovable-uploads/PG after.png" alt="Legacy P&G Datalogger interface showing cluttered layout" className="w-full h-[400px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
+              <EditableImage 
+                src="/lovable-uploads/PG after.png" 
+                alt="Modern redesigned P&G Datalogger dashboard" 
+                className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" 
+                objectFit="cover"
+                objectPosition="center"
+                fallbackSrc="/placeholder.svg"
+                editableKey="pg-datalogger-after-image"
+              />
             </motion.div>
           </div>
         </div>
@@ -308,7 +333,15 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="/lovable-uploads/UX audit.png" alt="UX methodology flowchart and process documentation" className="w-full h-[500px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
+              <EditableImage 
+                src="/lovable-uploads/UX audit.png" 
+                alt="UX methodology flowchart and process documentation" 
+                className="w-full h-[400px] object-cover rounded-xl shadow-lg" 
+                objectFit="cover"
+                objectPosition="center"
+                fallbackSrc="/placeholder.svg"
+                editableKey="pg-datalogger-audit-image"
+              />
             </motion.div>
           </div>
         </div>
@@ -399,7 +432,15 @@ const PGDataloggerProject = () => {
           <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
           once: true
         }} className="mb-12">
-            <EditableImage src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Complete design system components in light and dark modes" className="w-full h-[400px] object-cover rounded-xl shadow-lg" fallbackSrc="/placeholder.svg" />
+            <EditableImage 
+              src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+              alt="Complete design system components in light and dark modes" 
+              className="w-full h-[400px] object-cover rounded-xl shadow-lg" 
+              objectFit="cover"
+              objectPosition="center"
+              fallbackSrc="/placeholder.svg"
+              editableKey="pg-datalogger-design-system-image"
+            />
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -535,7 +576,15 @@ const PGDataloggerProject = () => {
                   <CardTitle className="text-center">Light Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <EditableImage src="https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Final P&G Datalogger interface in light mode" className="w-full h-[400px] object-cover rounded-lg" fallbackSrc="/placeholder.svg" />
+                  <EditableImage 
+                    src="https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                    alt="Final P&G Datalogger interface in light mode" 
+                    className="w-full h-[400px] object-cover rounded-lg" 
+                    objectFit="cover"
+                    objectPosition="center"
+                    fallbackSrc="/placeholder.svg"
+                    editableKey="pg-datalogger-final-light-mode"
+                  />
                 </CardContent>
               </Card>
             </motion.div>
@@ -548,7 +597,15 @@ const PGDataloggerProject = () => {
                   <CardTitle className="text-center">Dark Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <EditableImage src="https://images.unsplash.com/photo-1439337153520-7082a56a81f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Final P&G Datalogger interface in dark mode" className="w-full h-[400px] object-cover rounded-lg" fallbackSrc="/placeholder.svg" />
+                  <EditableImage 
+                    src="https://images.unsplash.com/photo-1439337153520-7082a56a81f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                    alt="Final P&G Datalogger interface in dark mode" 
+                    className="w-full h-[400px] object-cover rounded-lg" 
+                    objectFit="cover"
+                    objectPosition="center"
+                    fallbackSrc="/placeholder.svg"
+                    editableKey="pg-datalogger-final-dark-mode"
+                  />
                 </CardContent>
               </Card>
             </motion.div>
