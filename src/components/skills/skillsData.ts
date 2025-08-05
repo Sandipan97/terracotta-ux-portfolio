@@ -3,7 +3,7 @@ export const skillCategories = [
   {
     title: "Research & Strategy",
     icon: "🔍",
-    color: "bg-warm-terracotta dark:bg-warm-terracotta text-white hover:text-white hover:bg-warm-terracotta/90 dark:hover:text-white dark:hover:bg-warm-terracotta/90",
+    color: "bg-warm-terracotta text-white hover:bg-warm-terracotta-hover",
     skills: [
       "Strategic UX Research",
       "Usability & Accessibility Testing", 
@@ -15,7 +15,7 @@ export const skillCategories = [
   {
     title: "Design Execution",
     icon: "🎨",
-    color: "bg-warm-golden dark:bg-warm-golden text-warm-clay hover:text-warm-clay hover:bg-warm-golden/90 dark:text-warm-clay dark:hover:text-warm-clay dark:hover:bg-warm-golden/90",
+    color: "bg-warm-golden-light text-text-primary hover:bg-warm-golden hover:text-white",
     skills: [
       "UI/UX & Product Design",
       "3D Design",
@@ -27,7 +27,7 @@ export const skillCategories = [
   {
     title: "Technical Design Leadership",
     icon: "⚡",
-    color: "bg-warm-rust dark:bg-warm-rust text-white hover:text-white hover:bg-warm-rust/90 dark:hover:text-white dark:hover:bg-warm-rust/90",
+    color: "bg-warm-rust-light text-text-primary hover:bg-warm-rust hover:text-white",
     skills: [
       "Design Systems Expert",
       "Vibe Coding"
@@ -36,7 +36,7 @@ export const skillCategories = [
   {
     title: "Design Process & Innovation",
     icon: "🚀",
-    color: "bg-gradient-to-r from-warm-clay to-warm-rust dark:from-warm-clay dark:to-warm-rust text-white hover:text-white dark:hover:text-white",
+    color: "bg-gradient-to-r from-warm-sage to-warm-rust text-white hover:from-warm-sage-light hover:to-warm-rust-light",
     skills: [
       "Product Strategy & Ownership",
       "Design Thinking Master",

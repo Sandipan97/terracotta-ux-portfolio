@@ -11,14 +11,14 @@ interface AccessibleBadgeProps extends BadgeProps {
 const AccessibleBadge = React.forwardRef<HTMLDivElement, AccessibleBadgeProps>(
   ({ className, ariaLabel, icon, colorScheme = 'blue', children, ...props }) => {
     const colorSchemes = {
-      blue: 'bg-white text-blue-900 hover:bg-blue-50 focus:ring-blue-500 focus:ring-offset-blue-900',
-      indigo: 'bg-white text-indigo-900 hover:bg-indigo-50 focus:ring-indigo-500 focus:ring-offset-indigo-900',
-      cyan: 'bg-white text-cyan-900 hover:bg-cyan-50 focus:ring-cyan-500 focus:ring-offset-cyan-900',
-      emerald: 'bg-white text-emerald-900 hover:bg-emerald-50 focus:ring-emerald-500 focus:ring-offset-emerald-900',
-      purple: 'bg-white text-purple-900 hover:bg-purple-50 focus:ring-purple-500 focus:ring-offset-purple-900',
-      green: 'bg-white text-green-900 hover:bg-green-50 focus:ring-green-500 focus:ring-offset-green-900',
-      amber: 'bg-white text-amber-900 hover:bg-amber-50 focus:ring-amber-500 focus:ring-offset-amber-900',
-      teal: 'bg-white text-teal-900 hover:bg-teal-50 focus:ring-teal-500 focus:ring-offset-teal-900',
+      blue: 'bg-warm-terracotta-light text-text-primary hover:bg-warm-terracotta hover:text-white focus:ring-warm-terracotta',
+      indigo: 'bg-warm-golden-light text-text-primary hover:bg-warm-golden hover:text-white focus:ring-warm-golden',
+      cyan: 'bg-warm-sage-light text-text-primary hover:bg-warm-sage hover:text-white focus:ring-warm-sage',
+      emerald: 'bg-warm-rust-light text-text-primary hover:bg-warm-rust hover:text-white focus:ring-warm-rust',
+      purple: 'bg-warm-terracotta-light text-text-primary hover:bg-warm-terracotta hover:text-white focus:ring-warm-terracotta',
+      green: 'bg-warm-sage-light text-text-primary hover:bg-warm-sage hover:text-white focus:ring-warm-sage',
+      amber: 'bg-warm-golden-light text-text-primary hover:bg-warm-golden hover:text-white focus:ring-warm-golden',
+      teal: 'bg-warm-rust-light text-text-primary hover:bg-warm-rust hover:text-white focus:ring-warm-rust',
     };
 
     return (

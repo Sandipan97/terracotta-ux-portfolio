@@ -11,15 +11,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl dark:bg-primary dark:hover:bg-primary/90 transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2",
+        default: "bg-warm-terracotta text-white hover:bg-warm-terracotta-hover shadow-lg hover:shadow-xl transition-all duration-300 focus:ring-2 focus:ring-warm-terracotta/20 focus:ring-offset-2",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg hover:shadow-xl dark:bg-destructive dark:hover:bg-destructive/90 transition-all duration-300 focus:ring-2 focus:ring-destructive/20 focus:ring-offset-2",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg hover:shadow-xl transition-all duration-300 focus:ring-2 focus:ring-destructive/20 focus:ring-offset-2",
         outline:
-          "border-2 border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-md hover:shadow-lg dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2",
+          "border-2 border-warm-terracotta text-warm-terracotta bg-background hover:bg-warm-terracotta hover:text-white shadow-md hover:shadow-lg transition-all duration-300 focus:ring-2 focus:ring-warm-terracotta/20 focus:ring-offset-2",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md hover:shadow-lg dark:bg-secondary dark:text-secondary-foreground dark:hover:bg-secondary/80 transition-all duration-300 focus:ring-2 focus:ring-secondary/20 focus:ring-offset-2",
-        ghost: "text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2",
-        link: "text-primary underline-offset-4 hover:underline dark:text-primary transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2",
+          "bg-warm-golden-light text-text-primary hover:bg-warm-golden hover:text-white shadow-md hover:shadow-lg transition-all duration-300 focus:ring-2 focus:ring-warm-golden/20 focus:ring-offset-2",
+        ghost: "text-warm-terracotta hover:bg-warm-terracotta-light hover:text-text-primary transition-all duration-300 focus:ring-2 focus:ring-warm-terracotta/20 focus:ring-offset-2",
+        link: "text-warm-terracotta underline-offset-4 hover:underline hover:text-warm-terracotta-hover transition-all duration-300 focus:ring-2 focus:ring-warm-terracotta/20 focus:ring-offset-2",
       },
       size: {
         default: "h-11 px-6 py-3",

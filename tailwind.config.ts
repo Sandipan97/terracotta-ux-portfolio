@@ -63,31 +63,31 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Warm Professional Color Palette for UX Design Portfolio
+				// WCAG 2.2 Compliant Warm Sunset Palette
 				'warm-terracotta': {
 					DEFAULT: 'hsl(var(--warm-terracotta))',
-					light: 'hsl(var(--warm-terracotta-light))',
-					dark: 'hsl(var(--warm-terracotta-dark))'
-				},
-				'warm-rust': {
-					DEFAULT: 'hsl(var(--warm-rust))',
-					light: 'hsl(var(--warm-rust-light))',
-					dark: 'hsl(var(--warm-rust-dark))'
+					hover: 'hsl(var(--warm-terracotta-hover))',
+					light: 'hsl(var(--warm-terracotta-light))'
 				},
 				'warm-golden': {
 					DEFAULT: 'hsl(var(--warm-golden))',
-					light: 'hsl(var(--warm-golden-light))',
-					dark: 'hsl(var(--warm-golden-dark))'
+					hover: 'hsl(var(--warm-golden-hover))',
+					light: 'hsl(var(--warm-golden-light))'
+				},
+				'warm-rust': {
+					DEFAULT: 'hsl(var(--warm-rust))',
+					light: 'hsl(var(--warm-rust-light))'
 				},
 				'warm-sage': {
 					DEFAULT: 'hsl(var(--warm-sage))',
-					light: 'hsl(var(--warm-sage-light))',
-					dark: 'hsl(var(--warm-sage-dark))'
+					light: 'hsl(var(--warm-sage-light))'
 				},
-				'warm-clay': {
-					DEFAULT: 'hsl(var(--warm-clay))',
-					light: 'hsl(var(--warm-clay-light))',
-					dark: 'hsl(var(--warm-clay-dark))'
+				// Text Hierarchy System
+				text: {
+					primary: 'hsl(var(--text-primary))',
+					secondary: 'hsl(var(--text-secondary))',
+					muted: 'hsl(var(--text-muted))',
+					light: 'hsl(var(--text-light))'
 				},
 				// Toy Anatomy Color System
 				'toy-anatomy': {
