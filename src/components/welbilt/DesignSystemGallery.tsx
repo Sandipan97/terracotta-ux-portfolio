@@ -152,33 +152,7 @@ const DesignSystemGallery = () => {
         </div>
 
         {/* Interactive Demo */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.8
-      }} viewport={{
-        once: true
-      }} className="bg-gray-50 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4" data-lovable-editable="welbilt-design-cta-title">
-            See the Design System in Action
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto" data-lovable-editable="welbilt-design-cta-description">
-            Our design system reduced development time by 35% while maintaining perfect brand consistency across all touchpoints.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" className="px-8">
-              <span data-lovable-editable="welbilt-design-cta-btn-1">View Documentation</span>
-            </Button>
-            <Button variant="outline" className="px-8">
-              <span data-lovable-editable="welbilt-design-cta-btn-2">Download Assets</span>
-            </Button>
-          </div>
-        </motion.div>
+        
       </div>
     </section>;
 };
