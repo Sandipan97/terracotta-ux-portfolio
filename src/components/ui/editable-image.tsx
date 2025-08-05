@@ -86,6 +86,14 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         try {
           setLoading(true);
           
+          // For lovable-uploads, load directly to avoid CORS issues
+          if (src.includes('lovable-uploads')) {
+            setImgSrc(src);
+            setLoading(false);
+            setError(false);
+            return;
+          }
+
           // Check if image is already preloaded
           if (imagePreloader.isLoaded(src)) {
             setImgSrc(src);
@@ -98,7 +106,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
           await imagePreloader.preload(src, { 
             priority,
             eager: eager || priority === 'high',
-            crossOrigin: src.includes('lovable-uploads') ? 'anonymous' : ''
+            crossOrigin: ''
           });
           
           setImgSrc(src);
@@ -106,13 +114,19 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         } catch (err) {
           console.warn(`Failed to load image: ${src}`, err);
           
-          // Enhanced fallback strategy
+          // Enhanced fallback strategy - try direct loading for lovable-uploads
           if (!error && src !== fallbackSrc) {
             try {
-              // Try to load fallback
-              await imagePreloader.preload(fallbackSrc, { priority: 'high' });
-              setImgSrc(fallbackSrc);
-              setError(true);
+              // For lovable-uploads, try direct browser loading without preloader
+              if (src.includes('lovable-uploads')) {
+                setImgSrc(src);
+                setError(false);
+              } else {
+                // Try to load fallback
+                await imagePreloader.preload(fallbackSrc, { priority: 'high' });
+                setImgSrc(fallbackSrc);
+                setError(true);
+              }
             } catch {
               // Ultimate fallback - let browser handle it
               setImgSrc(fallbackSrc);
@@ -191,7 +205,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         loading={eager || priority === 'high' ? 'eager' : 'lazy'}
         decoding="async"
         sizes={responsive ? sizes : undefined}
-        crossOrigin={src?.includes('lovable-uploads') ? 'anonymous' : undefined}
+        crossOrigin={undefined}
         {...props}
       />
     );

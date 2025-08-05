@@ -7,7 +7,9 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* Light Cream Background System */
+    --background-cream: 46 42% 95%;
+    --background: var(--background-cream);
     --foreground: 222.2 47.4% 11.2%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 47.4% 11.2%;
@@ -30,10 +32,20 @@
 
     /* Custom Colors - HSL format for Tailwind compatibility */
     --warm-terracotta: 13 70% 62%;
+    --warm-terracotta-light: 13 70% 75%;
+    --warm-terracotta-dark: 13 70% 45%;
     --warm-golden: 45 78% 75%;
+    --warm-golden-light: 45 78% 85%;
+    --warm-golden-dark: 45 78% 65%;
     --warm-rust: 162 31% 61%;
+    --warm-rust-light: 162 31% 75%;
+    --warm-rust-dark: 162 31% 45%;
     --warm-sage: 229 25% 30%;
+    --warm-sage-light: 229 25% 45%;
+    --warm-sage-dark: 229 25% 20%;
     --warm-clay: 215 14% 45%;
+    --warm-clay-light: 215 14% 60%;
+    --warm-clay-dark: 215 14% 30%;
 
     /* Project-Specific Colors */
     --bengali-terracotta: 20 100% 42%;

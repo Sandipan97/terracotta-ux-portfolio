@@ -54,13 +54,13 @@ const WelbiltKitchenConnect = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <UniversalStickyNavigation sections={navigationSections} />
       
       <main>
         {/* Back Button */}
-        <section className="w-full py-8 pt-24 bg-white">
+        <section className="w-full py-8 pt-24 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -117,7 +117,7 @@ const WelbiltKitchenConnect = () => {
         </div>
 
         {/* Final Impact Section */}
-        <section id="impact" className="py-20 bg-gray-50">
+        <section id="impact" className="py-20 bg-muted/20">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -133,18 +133,18 @@ const WelbiltKitchenConnect = () => {
               </blockquote>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                 <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-                   <div className="text-4xl font-bold text-gray-900 mb-2">35%</div>
-                   <div className="text-gray-600">Development Acceleration</div>
-                 </div>
-                 <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-                   <div className="text-4xl font-bold text-gray-900 mb-2">85%</div>
-                   <div className="text-gray-600">User Satisfaction</div>
-                 </div>
-                 <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-                   <div className="text-4xl font-bold text-gray-900 mb-2">50+</div>
-                   <div className="text-gray-600">Design Components</div>
-                 </div>
+                  <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
+                    <div className="text-4xl font-bold text-foreground mb-2">35%</div>
+                    <div className="text-muted-foreground">Development Acceleration</div>
+                  </div>
+                  <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
+                    <div className="text-4xl font-bold text-foreground mb-2">85%</div>
+                    <div className="text-muted-foreground">User Satisfaction</div>
+                  </div>
+                  <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
+                    <div className="text-4xl font-bold text-foreground mb-2">50+</div>
+                    <div className="text-muted-foreground">Design Components</div>
+                  </div>
               </div>
               
               <motion.div className="mt-12">
