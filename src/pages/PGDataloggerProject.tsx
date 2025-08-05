@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowLeft, ChevronRight, CheckCircle, AlertTriangle, Lightbulb, BarChart3, Clock, Shield, Eye, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -333,15 +334,17 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage 
-                src="/lovable-uploads/UX audit.png" 
-                alt="UX methodology flowchart and process documentation" 
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg" 
-                objectFit="cover"
-                objectPosition="center"
-                fallbackSrc="/placeholder.svg"
-                editableKey="pg-datalogger-audit-image"
-              />
+              <div className="w-full max-w-full overflow-hidden">
+                <EditableImage 
+                  src="/lovable-uploads/pg heuristic 1.png" 
+                  alt="UX heuristic evaluation and methodology documentation" 
+                  className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-lg" 
+                  objectFit="contain"
+                  objectPosition="center"
+                  fallbackSrc="/placeholder.svg"
+                  editableKey="pg-datalogger-heuristic-image"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
