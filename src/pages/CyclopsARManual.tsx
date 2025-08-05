@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Play, Download, Smartphone, Users, Lightbulb, Shield, ChefHat, Sparkles, BarChart3, Cog, Globe, Heart } from "lucide-react";
@@ -101,12 +102,16 @@ export default function CyclopsARManual() {
               className="relative"
             >
               <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl p-8 border border-border/50">
-                <EditableImage
-                  src="https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="AR microwave placement demonstration"
-                  className="w-full h-full object-cover rounded-xl"
-                  fallbackSrc="https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                />
+                <div style={{padding:"56.25% 0 0 0", position:"relative"}} className="rounded-xl overflow-hidden">
+                  <iframe 
+                    src="https://player.vimeo.com/video/1107501121?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&dnt=1" 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    style={{position:"absolute", top:0, left:0, width:"100%", height:"100%"}} 
+                    title="AR video"
+                  />
+                </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full animate-pulse" />
               <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/20 rounded-full animate-bounce" />
