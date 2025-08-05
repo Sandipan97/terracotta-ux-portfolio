@@ -1,3 +1,4 @@
+
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import ScrollToNextSection from './ui/ScrollToNextSection';
@@ -30,6 +31,7 @@ const allProjects: Project[] = projects.map(project => ({
   results: project.id === 1 ? "Reduced error rate by 45%" : project.id === 2 ? "Accelerated development by 35%" : project.id === 3 ? "Reduced support calls by 60%" : project.id === 4 ? "Improved user satisfaction by 85%" : project.id === 5 ? "Increased monitoring accuracy by 95%" : project.id === 6 ? "Improved crop yield by 28%" : project.id === 7 ? "Increased learning outcomes by 40%" : undefined,
   date: project.id === 1 ? "2024-02" : project.id === 2 ? "2023-11" : project.id === 3 ? "2023-08" : project.id === 4 ? "2023-05" : project.id === 5 ? "2023-03" : project.id === 6 ? "2022-11" : project.id === 7 ? "2022-08" : "2024-01"
 }));
+
 const categories = ["All", ...Array.from(new Set(allProjects.map(project => project.category)))];
 
 const FeaturedProjects = () => {
@@ -50,7 +52,7 @@ const FeaturedProjects = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 dark:bg-card/30">
+    <section ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 dark:bg-card/30" id="featured-projects">
       <div className="max-w-7xl mx-auto">
         <FeaturedProjectsHeader variants={itemVariants} />
         
