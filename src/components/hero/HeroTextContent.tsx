@@ -96,26 +96,7 @@ const HeroTextContent = () => {
         </span>
       </motion.h1>
       
-      <motion.div className="mb-4 md:mb-6 w-full flex justify-center md:justify-start" initial={{
-      opacity: 0
-    }} animate={{
-      opacity: 1
-    }} transition={{
-      delay: 0.6,
-      duration: 0.6
-    }}>
-        <div className="bg-white/95 backdrop-blur-md border border-warm-terracotta/20 rounded-xl p-4 md:p-6 shadow-xl w-full max-w-sm md:max-w-md lg:max-w-lg">
-          <p className="text-sm md:text-base text-warm-clay font-medium leading-relaxed" data-lovable-editable="hero-description">
-            Sr. UX Designer & Product Manager with 5+ years of designing intuitive digital and tangible solutions. 
-            Masters in Design from Indian Institute of Science (IISc).
-          </p>
-          <p className="text-xs md:text-sm text-warm-clay/70 mt-2 md:mt-3">
-            My approach is rooted in <span className="font-semibold text-warm-terracotta">Empathy</span>, 
-            <span className="font-semibold text-warm-rust"> Clarity</span> and 
-            <span className="font-semibold text-warm-golden"> Business Alignment</span> - delivering scalable, future-ready solutions.
-          </p>
-        </div>
-      </motion.div>
+      <ExecutiveSummaryCard />
       
       <motion.div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start w-full" initial={{
       opacity: 0,
