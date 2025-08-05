@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Play, Download, Smartphone, Users, Lightbulb, Shield, ChefHat, Sparkles, BarChart3, Cog, Globe, Heart } from "lucide-react";
@@ -12,33 +11,55 @@ import ARTechnologyShowcase from "@/components/cyclops-ar/ARTechnologyShowcase";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StickyNavigation from '@/components/cyclops-ar/StickyNavigation';
-
 export default function CyclopsARManual() {
   const navigate = useNavigate();
-
   const handleBack = () => {
     navigate("/projects");
   };
-
-  const navigationSections = [
-    { id: 'demo', label: 'Demo' },
-    { id: 'problem', label: 'Problem' },
-    { id: 'persona', label: 'User Persona' },
-    { id: 'workflow', label: 'AR Workflow' },
-    { id: 'features', label: 'Features' },
-    { id: 'safety', label: 'Safety' },
-    { id: 'controls', label: 'Controls' },
-    { id: 'maintenance', label: 'Maintenance' },
-    { id: 'impact', label: 'Impact' },
-    { id: 'process', label: 'Process' }
-  ];
-
+  const navigationSections = [{
+    id: 'demo',
+    label: 'Demo'
+  }, {
+    id: 'problem',
+    label: 'Problem'
+  }, {
+    id: 'persona',
+    label: 'User Persona'
+  }, {
+    id: 'workflow',
+    label: 'AR Workflow'
+  }, {
+    id: 'features',
+    label: 'Features'
+  }, {
+    id: 'safety',
+    label: 'Safety'
+  }, {
+    id: 'controls',
+    label: 'Controls'
+  }, {
+    id: 'maintenance',
+    label: 'Maintenance'
+  }, {
+    id: 'impact',
+    label: 'Impact'
+  }, {
+    id: 'process',
+    label: 'Process'
+  }];
   const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    initial: {
+      opacity: 0,
+      y: 60
+    },
+    animate: {
+      opacity: 1,
+      y: 0
+    },
+    transition: {
+      duration: 0.6
+    }
   };
-
   const stagger = {
     animate: {
       transition: {
@@ -46,9 +67,7 @@ export default function CyclopsARManual() {
       }
     }
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-muted/30">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-muted/30">
       <Navbar />
       <StickyNavigation sections={navigationSections} />
       
@@ -57,16 +76,16 @@ export default function CyclopsARManual() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 animate-pulse" />
         
         <div className="relative max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Button 
-              variant="ghost" 
-              onClick={handleBack}
-              className="mb-8 hover:bg-background/50"
-            >
+          <motion.div initial={{
+          opacity: 0,
+          x: -20
+        }} animate={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.5
+        }}>
+            <Button variant="ghost" onClick={handleBack} className="mb-8 hover:bg-background/50">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Projects
             </Button>
@@ -88,29 +107,32 @@ export default function CyclopsARManual() {
                   <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                   View Demo
                 </Button>
-                <Button variant="outline" size="lg">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download App
-                </Button>
+                
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            scale: 0.8
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.8,
+            delay: 0.2
+          }} className="relative">
               <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl p-8 border border-border/50">
-                <div style={{padding:"56.25% 0 0 0", position:"relative"}} className="rounded-xl overflow-hidden">
-                  <iframe 
-                    src="https://player.vimeo.com/video/1107501121?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&dnt=1" 
-                    frameBorder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                    referrerPolicy="strict-origin-when-cross-origin" 
-                    style={{position:"absolute", top:0, left:0, width:"100%", height:"100%"}} 
-                    title="AR video"
-                  />
+                <div style={{
+                padding: "56.25% 0 0 0",
+                position: "relative"
+              }} className="rounded-xl overflow-hidden">
+                  <iframe src="https://player.vimeo.com/video/1107501121?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&dnt=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%"
+                }} title="AR video" />
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full animate-pulse" />
@@ -132,12 +154,7 @@ export default function CyclopsARManual() {
             <Card className="overflow-hidden">
               <CardContent className="p-0">
                 <div className="aspect-video bg-muted/50 relative group cursor-pointer">
-                  <EditableImage
-                    src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                    alt="AR manual demo video thumbnail"
-                    className="w-full h-full object-cover"
-                    fallbackSrc="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                  />
+                  <EditableImage src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="AR manual demo video thumbnail" className="w-full h-full object-cover" fallbackSrc="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <Button size="lg" className="rounded-full w-16 h-16 group-hover:scale-110 transition-transform">
                       <Play className="w-6 h-6" />
@@ -236,12 +253,7 @@ export default function CyclopsARManual() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="p-8">
                   <div className="flex items-center mb-6">
-                    <EditableImage
-                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-                      alt="Julie - Homemaker persona"
-                      className="w-16 h-16 rounded-full object-cover mr-4"
-                      fallbackSrc="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-                    />
+                    <EditableImage src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Julie - Homemaker persona" className="w-16 h-16 rounded-full object-cover mr-4" fallbackSrc="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" />
                     <div>
                       <h3 className="text-xl font-semibold">Julie the Homemaker</h3>
                       <p className="text-muted-foreground">35 years old, Japan</p>
@@ -296,13 +308,23 @@ export default function CyclopsARManual() {
           </motion.div>
 
           <motion.div variants={stagger} initial="initial" whileInView="animate" className="grid md:grid-cols-4 gap-6">
-            {[
-              { icon: Smartphone, title: "Select Product", desc: "Choose your appliance from the catalog" },
-              { icon: Sparkles, title: "Scan Surface", desc: "Point camera at placement area" },
-              { icon: Cog, title: "Place Virtually", desc: "Position 3D model in your space" },
-              { icon: Heart, title: "Interact", desc: "Explore features with voice guidance" }
-            ].map((step, index) => (
-              <motion.div key={index} variants={fadeInUp}>
+            {[{
+            icon: Smartphone,
+            title: "Select Product",
+            desc: "Choose your appliance from the catalog"
+          }, {
+            icon: Sparkles,
+            title: "Scan Surface",
+            desc: "Point camera at placement area"
+          }, {
+            icon: Cog,
+            title: "Place Virtually",
+            desc: "Position 3D model in your space"
+          }, {
+            icon: Heart,
+            title: "Interact",
+            desc: "Explore features with voice guidance"
+          }].map((step, index) => <motion.div key={index} variants={fadeInUp}>
                 <Card className="text-center p-6 h-full hover:shadow-lg transition-all">
                   <CardHeader>
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -317,8 +339,7 @@ export default function CyclopsARManual() {
                     <p className="text-sm text-muted-foreground">{step.desc}</p>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </motion.div>
         </div>
       </section>
@@ -368,12 +389,7 @@ export default function CyclopsARManual() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <EditableImage
-                    src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                    alt="AR interaction demonstration"
-                    className="w-full h-48 object-cover rounded-lg"
-                    fallbackSrc="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  />
+                  <EditableImage src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AR interaction demonstration" className="w-full h-48 object-cover rounded-lg" fallbackSrc="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" />
                   <p className="text-sm text-muted-foreground">
                     Smooth animations and visual cues guide users through each interaction
                   </p>
@@ -471,12 +487,7 @@ export default function CyclopsARManual() {
                   <CardTitle>Recipe Selection</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <EditableImage
-                    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                    alt="Microwave control panel interface"
-                    className="w-full h-48 object-cover rounded-lg"
-                    fallbackSrc="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  />
+                  <EditableImage src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Microwave control panel interface" className="w-full h-48 object-cover rounded-lg" fallbackSrc="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" />
                   <div className="space-y-4">
                     <div className="bg-primary/10 p-4 rounded-lg">
                       <p className="font-medium text-primary">401 Pre-calibrated Recipes</p>
@@ -592,13 +603,27 @@ export default function CyclopsARManual() {
           </motion.div>
 
           <motion.div variants={stagger} initial="initial" whileInView="animate" className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Cost Savings", value: "75%", desc: "Reduction in printing & shipping", color: "text-green-600" },
-              { title: "Device Access", value: "100%", desc: "Cross-platform availability", color: "text-blue-600" },
-              { title: "Update Speed", value: "90%", desc: "Faster content publishing", color: "text-purple-600" },
-              { title: "User Satisfaction", value: "85%", desc: "Improved user experience", color: "text-orange-600" }
-            ].map((metric, index) => (
-              <motion.div key={index} variants={fadeInUp}>
+            {[{
+            title: "Cost Savings",
+            value: "75%",
+            desc: "Reduction in printing & shipping",
+            color: "text-green-600"
+          }, {
+            title: "Device Access",
+            value: "100%",
+            desc: "Cross-platform availability",
+            color: "text-blue-600"
+          }, {
+            title: "Update Speed",
+            value: "90%",
+            desc: "Faster content publishing",
+            color: "text-purple-600"
+          }, {
+            title: "User Satisfaction",
+            value: "85%",
+            desc: "Improved user experience",
+            color: "text-orange-600"
+          }].map((metric, index) => <motion.div key={index} variants={fadeInUp}>
                 <Card className="text-center p-6 hover:shadow-lg transition-all">
                   <CardContent className="space-y-4">
                     <div className={`text-3xl font-bold ${metric.color}`}>
@@ -608,8 +633,7 @@ export default function CyclopsARManual() {
                     <p className="text-sm text-muted-foreground">{metric.desc}</p>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </motion.div>
         </div>
       </section>
@@ -632,14 +656,27 @@ export default function CyclopsARManual() {
 
           <motion.div variants={stagger} initial="initial" whileInView="animate" className="space-y-8">
             <div className="grid md:grid-cols-5 gap-4">
-              {[
-                { phase: "Empathize", icon: Heart, desc: "User research & persona development" },
-                { phase: "Define", icon: Lightbulb, desc: "Problem statement & requirements" },
-                { phase: "Ideate", icon: Sparkles, desc: "AR solution brainstorming" },
-                { phase: "Prototype", icon: Cog, desc: "AR experience development" },
-                { phase: "Validate", icon: Shield, desc: "User testing & refinement" }
-              ].map((step, index) => (
-                <motion.div key={index} variants={fadeInUp}>
+              {[{
+              phase: "Empathize",
+              icon: Heart,
+              desc: "User research & persona development"
+            }, {
+              phase: "Define",
+              icon: Lightbulb,
+              desc: "Problem statement & requirements"
+            }, {
+              phase: "Ideate",
+              icon: Sparkles,
+              desc: "AR solution brainstorming"
+            }, {
+              phase: "Prototype",
+              icon: Cog,
+              desc: "AR experience development"
+            }, {
+              phase: "Validate",
+              icon: Shield,
+              desc: "User testing & refinement"
+            }].map((step, index) => <motion.div key={index} variants={fadeInUp}>
                   <Card className="text-center p-4 hover:shadow-lg transition-all">
                     <CardContent className="space-y-3">
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
@@ -649,8 +686,7 @@ export default function CyclopsARManual() {
                       <p className="text-xs text-muted-foreground">{step.desc}</p>
                     </CardContent>
                   </Card>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
 
             <motion.div variants={fadeInUp}>
@@ -691,13 +727,23 @@ export default function CyclopsARManual() {
           </motion.div>
 
           <motion.div variants={stagger} initial="initial" whileInView="animate" className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Multilingual Support", icon: Globe, desc: "Global accessibility in multiple languages" },
-              { title: "Virtual Try-Before-Buy", icon: Sparkles, desc: "Experience products before purchase" },
-              { title: "Remote Assistance", icon: Users, desc: "Expert help through AR guidance" },
-              { title: "Configuration Guide", icon: Cog, desc: "Step-by-step setup assistance" }
-            ].map((feature, index) => (
-              <motion.div key={index} variants={fadeInUp}>
+            {[{
+            title: "Multilingual Support",
+            icon: Globe,
+            desc: "Global accessibility in multiple languages"
+          }, {
+            title: "Virtual Try-Before-Buy",
+            icon: Sparkles,
+            desc: "Experience products before purchase"
+          }, {
+            title: "Remote Assistance",
+            icon: Users,
+            desc: "Expert help through AR guidance"
+          }, {
+            title: "Configuration Guide",
+            icon: Cog,
+            desc: "Step-by-step setup assistance"
+          }].map((feature, index) => <motion.div key={index} variants={fadeInUp}>
                 <Card className="text-center p-6 h-full hover:shadow-lg transition-all">
                   <CardHeader>
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -709,8 +755,7 @@ export default function CyclopsARManual() {
                     <p className="text-sm text-muted-foreground">{feature.desc}</p>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </motion.div>
         </div>
       </section>
@@ -747,6 +792,5 @@ export default function CyclopsARManual() {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 }
