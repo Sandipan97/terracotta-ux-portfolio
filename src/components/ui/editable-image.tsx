@@ -86,7 +86,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         try {
           setLoading(true);
           
-          // For lovable-uploads, load directly to avoid CORS issues
+          // For lovable-uploads, bypass preloader entirely and load directly
           if (src.includes('lovable-uploads')) {
             setImgSrc(src);
             setLoading(false);
@@ -102,11 +102,10 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
             return;
           }
 
-          // Preload image with enhanced options
+          // Preload image without CORS for external images
           await imagePreloader.preload(src, { 
             priority,
-            eager: eager || priority === 'high',
-            crossOrigin: ''
+            eager: eager || priority === 'high'
           });
           
           setImgSrc(src);
@@ -205,7 +204,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         loading={eager || priority === 'high' ? 'eager' : 'lazy'}
         decoding="async"
         sizes={responsive ? sizes : undefined}
-        crossOrigin={undefined}
+        
         {...props}
       />
     );

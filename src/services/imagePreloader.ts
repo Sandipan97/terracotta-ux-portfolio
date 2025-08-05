@@ -32,6 +32,11 @@ class ImagePreloader {
   }
 
   preload(src: string, options: PreloadOptions = {}): Promise<void> {
+    // Skip preloading for lovable-uploads to avoid CORS issues
+    if (src.includes('lovable-uploads')) {
+      return Promise.resolve();
+    }
+
     const fullUrl = this.getFullImageUrl(src);
     
     if (this.cache[fullUrl]) {
@@ -47,11 +52,9 @@ class ImagePreloader {
         img.loading = 'eager';
       }
 
-      // Enhanced CORS handling
+      // Set CORS only when explicitly provided
       if (options.crossOrigin !== undefined) {
         img.crossOrigin = options.crossOrigin;
-      } else if (src.includes('lovable-uploads')) {
-        img.crossOrigin = 'anonymous';
       }
 
       const timeoutId = setTimeout(() => {
