@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
@@ -34,6 +35,17 @@ body {
 /* Image loading optimization */
 img {
   content-visibility: auto;
+  loading: lazy;
+}
+
+/* Preload critical fonts */
+link[rel="preload"][as="font"] {
+  font-display: swap;
+}
+
+/* DNS prefetch for external domains */
+link[rel="dns-prefetch"] {
+  /* Applied via HTML meta tags */
 }
 
 /* Will-change for animated elements */
@@ -154,7 +166,7 @@ img {
 
 @layer components {
   .dark-glow-subtle {
-    @apply before:absolute before:inset-0 before:z-[-1] before:border-bengali-terracotta/10 before:border-4 before:rounded-full before:blur-3xl;
+    @apply before:absolute before:inset-0 before:z-[-1] before:border-warm-terracotta/10 before:border-4 before:rounded-full before:blur-3xl;
   }
 }
 
