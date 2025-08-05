@@ -319,10 +319,15 @@ const PGDataloggerProject = () => {
           }}>
               <Card className="p-8">
                 <CardHeader>
-                  <CardTitle className="text-2xl mb-4">Our Approach</CardTitle>
+                  <div className="flex items-center justify-between mb-4">
+                    <CardTitle className="text-2xl">Our Approach</CardTitle>
+                    <Badge variant="secondary" className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                      Heuristic Evaluation
+                    </Badge>
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  {["Requirement analysis and problem identification", "Heuristic evaluation using Nielsen's principles", "UI audit for layout, interaction, and visual hierarchy", "UX audit for design standards compliance", "Design validation with stakeholders"].map((item, index) => <div key={index} className="flex items-start gap-3">
+                  {["Requirement analysis and problem identification", "Heuristic evaluation using Nielsen's principles", "UI audit for layout, interaction, and visual hierarchy", "UX audit for design standards compliance", "User journey mapping to identify friction points", "Design validation with stakeholders"].map((item, index) => <div key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <p className="text-muted-foreground">{item}</p>
                     </div>)}
@@ -333,15 +338,24 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage 
-                src="/lovable-uploads/UX audit.png" 
-                alt="UX methodology flowchart and process documentation" 
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg" 
-                objectFit="cover"
-                objectPosition="center"
-                fallbackSrc="/placeholder.svg"
-                editableKey="pg-datalogger-audit-image"
-              />
+              <Card className="p-6">
+                <CardHeader>
+                  <CardTitle className="text-xl mb-4 text-center">Heuristic Analysis Framework</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="w-full max-w-full overflow-hidden">
+                    <EditableImage 
+                      src="/lovable-uploads/pg heuristic 1.png" 
+                      alt="UX heuristic evaluation and methodology documentation" 
+                      className="w-full h-auto max-h-[400px] object-contain rounded-lg" 
+                      objectFit="contain"
+                      objectPosition="center"
+                      fallbackSrc="/placeholder.svg"
+                      editableKey="pg-datalogger-heuristic-image"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
