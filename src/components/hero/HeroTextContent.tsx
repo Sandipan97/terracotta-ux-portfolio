@@ -3,10 +3,12 @@ import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 import { Linkedin } from 'lucide-react';
 import ExecutiveSummaryCard from './ExecutiveSummaryCard';
+
 const HeroTextContent = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const fullText = 'Sandipan';
+
   useEffect(() => {
     if (currentIndex < fullText.length) {
       const timeout = setTimeout(() => {
@@ -16,6 +18,7 @@ const HeroTextContent = () => {
       return () => clearTimeout(timeout);
     }
   }, [currentIndex, fullText]);
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('featured-projects');
     if (projectsSection) {
@@ -27,6 +30,7 @@ const HeroTextContent = () => {
 
   // LinkedIn profile URL - easily editable
   const linkedInUrl = "https://www.linkedin.com/in/your-profile";
+
   return <motion.div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left" initial={{
     opacity: 0,
     x: -50
@@ -53,8 +57,8 @@ const HeroTextContent = () => {
         opacity: 1
       }} transition={{
         delay: 0.5
-      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 mb-[10px] text-3xl text-warm-rust">
-          <span className="relative inline-block">
+      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 mb-3 text-3xl text-warm-rust leading-tight">
+          <span className="relative inline-block mb-1">
             Hi,
             <motion.span className="absolute -bottom-1 left-0 h-1 bg-warm-golden" initial={{
             width: 0
@@ -66,10 +70,10 @@ const HeroTextContent = () => {
           }} />
           </span>
           <br />
-           I am  
+          <span className="mt-1">I am</span>
         </motion.span>
         
-        <span className="relative inline-block text-5xl sm:text-6xl lg:text-7xl py-0 mt-[10px]">
+        <span className="relative inline-block text-5xl sm:text-6xl lg:text-7xl py-0 mt-2">
           <motion.span initial={{
           opacity: 0
         }} animate={{
@@ -164,4 +168,5 @@ const HeroTextContent = () => {
       </motion.div>
     </motion.div>;
 };
+
 export default HeroTextContent;
