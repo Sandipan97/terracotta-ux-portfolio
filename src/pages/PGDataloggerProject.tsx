@@ -132,7 +132,7 @@ const PGDataloggerProject = () => {
           className="w-full h-full object-cover object-center" 
           objectFit="cover"
           objectPosition="center"
-          fallbackSrc="/placeholder.svg"
+          fallbackSrc="/lovable-uploads/PG hero.png"
           editableKey="pg-datalogger-hero-image"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
