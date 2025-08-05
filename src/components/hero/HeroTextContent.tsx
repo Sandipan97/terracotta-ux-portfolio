@@ -55,7 +55,7 @@ const HeroTextContent = () => {
         delay: 0.5
       }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 mb-[10px] text-3xl text-warm-rust">
           <span className="relative inline-block">
-            Hi
+            Hi,
             <motion.span className="absolute -bottom-1 left-0 h-1 bg-warm-golden" initial={{
             width: 0
           }} animate={{
@@ -65,9 +65,9 @@ const HeroTextContent = () => {
             duration: 0.8
           }} />
           </span>
-          , I am
+           I am
         </motion.span>
-        <br />
+        
         <span className="relative inline-block text-5xl sm:text-6xl lg:text-7xl py-0 mt-[10px]">
           <motion.span initial={{
           opacity: 0
