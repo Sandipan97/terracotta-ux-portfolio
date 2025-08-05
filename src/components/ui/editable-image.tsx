@@ -10,6 +10,7 @@ interface EditableImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   maxWidth?: string;
   maxHeight?: string;
   editableKey?: string;
+  responsive?: boolean;
 }
 
 const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
@@ -24,21 +25,29 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     maxWidth,
     maxHeight,
     editableKey,
+    responsive = true,
     ...props 
   }, ref) => {
     const [imgSrc, setImgSrc] = React.useState<string | undefined>(src);
     const [error, setError] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
 
     const handleError = () => {
       if (!error) {
         setImgSrc(fallbackSrc);
         setError(true);
       }
+      setLoading(false);
+    };
+
+    const handleLoad = () => {
+      setLoading(false);
     };
 
     React.useEffect(() => {
       setImgSrc(src);
       setError(false);
+      setLoading(true);
     }, [src]);
 
     const imageStyle = {
@@ -49,17 +58,29 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
       maxHeight,
     };
 
+    const baseClasses = responsive 
+      ? "w-full h-full object-cover transition-all duration-300" 
+      : "object-cover";
+
     return (
-      <img
-        ref={ref}
-        src={imgSrc}
-        alt={alt || "Image"}
-        onError={handleError}
-        className={cn("object-cover", className)}
-        style={imageStyle}
-        data-lovable-editable={editableKey}
-        {...props}
-      />
+      <>
+        {loading && (
+          <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-muted-foreground/20 border-t-foreground/40 rounded-full animate-spin" />
+          </div>
+        )}
+        <img
+          ref={ref}
+          src={imgSrc}
+          alt={alt || "Image"}
+          onError={handleError}
+          onLoad={handleLoad}
+          className={cn(baseClasses, className)}
+          style={imageStyle}
+          data-lovable-editable={editableKey}
+          {...props}
+        />
+      </>
     );
   }
 );

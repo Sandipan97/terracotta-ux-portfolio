@@ -7,6 +7,7 @@ import ProjectCard from './featured-projects/ProjectCard';
 import BusinessImpactCard from './featured-projects/BusinessImpactCard';
 import { projects } from './project-drawer/projectData';
 import { TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
+
 type Project = {
   id: number;
   title: string;
@@ -30,41 +31,24 @@ const allProjects: Project[] = projects.map(project => ({
   date: project.id === 1 ? "2024-02" : project.id === 2 ? "2023-11" : project.id === 3 ? "2023-08" : project.id === 4 ? "2023-05" : project.id === 5 ? "2023-03" : project.id === 6 ? "2022-11" : project.id === 7 ? "2022-08" : "2024-01"
 }));
 const categories = ["All", ...Array.from(new Set(allProjects.map(project => project.category)))];
+
 const FeaturedProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    amount: 0.1
-  });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
   const filteredProjects = selectedCategory === "All" ? allProjects : allProjects.filter(project => project.category === selectedCategory);
+
   const containerVariants = {
-    hidden: {
-      opacity: 0
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
   };
+
   const itemVariants = {
-    hidden: {
-      y: 30,
-      opacity: 0
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        damping: 20,
-        stiffness: 100
-      }
-    }
+    hidden: { y: 30, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { type: "spring", damping: 20, stiffness: 100 } }
   };
+
   return (
     <section ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 dark:bg-card/30">
       <div className="max-w-7xl mx-auto">
@@ -108,4 +92,5 @@ const FeaturedProjects = () => {
     </section>
   );
 };
+
 export default FeaturedProjects;

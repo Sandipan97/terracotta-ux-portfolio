@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft, Filter } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { EditableImage } from '@/components/ui/editable-image';
 import { projects } from '@/components/project-drawer/projectData';
+
 type Project = {
   id: number;
   title: string;
@@ -30,36 +31,41 @@ const allProjects: Project[] = projects.map(project => ({
   featured: project.featured
 }));
 const categories = ["All", ...Array.from(new Set(allProjects.map(project => project.category)))];
+
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const navigate = useNavigate();
-  const {
-    scrollYProgress
-  } = useScroll();
+  const { scrollYProgress } = useScroll();
   const headerOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.8]);
   const headerY = useTransform(scrollYProgress, [0, 0.1], [0, -20]);
+
   const filteredProjects = selectedCategory === "All" ? allProjects : allProjects.filter(project => project.category === selectedCategory);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const goBack = () => {
     navigate(-1);
   };
+
   const getProjectLink = (project: any) => {
     if (project.slug) {
       return `/projects/${project.slug}`;
     }
     return `/projects/${project.id}`;
   };
-  return <div className="min-h-screen bg-background overflow-hidden">
+
+  return (
+    <div className="min-h-screen bg-background overflow-hidden">
       <Navbar />
       
       <main className="pt-20">
         {/* Hero Section with Parallax */}
-        <motion.section style={{
-        opacity: headerOpacity,
-        y: headerY
-      }} className="bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light py-20 relative overflow-hidden">
+        <motion.section
+          style={{ opacity: headerOpacity, y: headerY }}
+          className="bg-gradient-to-br from-bengali-terracotta to-bengali-red dark:from-bengali-terracotta-light dark:to-bengali-red-light py-20 relative overflow-hidden"
+        >
           {/* Animated background elements */}
           <div className="absolute inset-0 z-0">
             <motion.div className="absolute top-[20%] left-[10%] w-32 h-32 rounded-full bg-white/10 filter blur-xl" animate={{
@@ -82,42 +88,38 @@ const Projects = () => {
           </div>
 
           <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-            <motion.div className="absolute -top-2 left-4 z-20" initial={{
-            opacity: 0,
-            x: -20
-          }} animate={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            delay: 0.3,
-            duration: 0.5
-          }}>
-              <Button onClick={goBack} variant="ghost" className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-300" size="icon">
+            <motion.div
+              className="absolute -top-2 left-4 z-20"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              <Button
+                onClick={goBack}
+                variant="ghost"
+                className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-300"
+                size="icon"
+              >
                 <ArrowLeft size={20} />
               </Button>
             </motion.div>
 
-            <motion.h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4" initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5
-          }} data-lovable-editable="projects-page-title">
+            <motion.h1
+              className="font-heading text-4xl md:text-5xl font-bold text-white mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              data-lovable-editable="projects-page-title"
+            >
               My Projects
             </motion.h1>
-            <motion.p initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: 0.2
-          }} data-lovable-editable="projects-page-description" className="text-lg mb-8 max-w-2xl mx-auto text-slate-950">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              data-lovable-editable="projects-page-description"
+              className="text-lg mb-8 max-w-2xl mx-auto text-slate-950"
+            >
               A showcase of my UX design and research work across various industries and technologies
             </motion.p>
           </div>
@@ -163,69 +165,91 @@ const Projects = () => {
               </div>
             </motion.div>
             
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" variants={{
-            hidden: {
-              opacity: 0
-            },
-            show: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1
-              }
-            }
-          }} initial="hidden" animate="show">
-              {filteredProjects.map((project, index) => <motion.div key={project.id} className="group bg-card/50 dark:bg-card/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-border" variants={{
-              hidden: {
-                y: 20,
-                opacity: 0
-              },
-              show: {
-                y: 0,
-                opacity: 1,
-                transition: {
-                  type: "spring",
-                  damping: 15
-                }
-              }
-            }} whileHover={{
-              y: -5,
-              transition: {
-                duration: 0.2
-              }
-            }}>
-                  <div className="relative h-56 overflow-hidden">
-                    <EditableImage src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" fallbackSrc="/placeholder.svg" />
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              initial="hidden"
+              animate="show"
+            >
+              {filteredProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className="group bg-card/50 dark:bg-card/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-border"
+                  variants={{
+                    hidden: { y: 20, opacity: 0 },
+                    show: { y: 0, opacity: 1, transition: { type: "spring", damping: 15 } }
+                  }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
+                  <div className="relative h-48 sm:h-52 md:h-56 lg:h-60 xl:h-64 overflow-hidden">
+                    <EditableImage
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fallbackSrc="/placeholder.svg"
+                      objectFit="cover"
+                      objectPosition="center"
+                      editableKey={`project-card-image-${project.id}`}
+                    />
                     <div className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/80 to-bengali-red/80 dark:from-bengali-terracotta-light/80 dark:to-bengali-red-light/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
                       <Link to={getProjectLink(project)}>
-                        <Button className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark dark:bg-background dark:text-bengali-terracotta-light dark:hover:bg-bengali-mustard-light dark:hover:text-background transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl" data-lovable-editable="projects-page-view-case-study">
+                        <Button
+                          className="bg-white text-bengali-terracotta hover:bg-bengali-mustard hover:text-bengali-dark dark:bg-background dark:text-bengali-terracotta-light dark:hover:bg-bengali-mustard-light dark:hover:text-background transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl"
+                          data-lovable-editable="projects-page-view-case-study"
+                        >
                           View Case Study
                         </Button>
                       </Link>
                     </div>
-                    <div className="absolute top-4 left-4 bg-bengali-mustard dark:bg-bengali-mustard-light text-bengali-dark dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md" data-lovable-editable={`projects-page-category-${project.id}`}>
+                    <div
+                      className="absolute top-4 left-4 bg-bengali-mustard dark:bg-bengali-mustard-light text-bengali-dark dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md"
+                      data-lovable-editable={`projects-page-category-${project.id}`}
+                    >
                       {project.category}
                     </div>
-                    {project.featured && <div className="absolute top-4 right-4 bg-bengali-red dark:bg-bengali-red-light text-white dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md" data-lovable-editable={`projects-page-featured-${project.id}`}>
+                    {project.featured && (
+                      <div
+                        className="absolute top-4 right-4 bg-bengali-red dark:bg-bengali-red-light text-white dark:text-background text-xs px-3 py-1 rounded-full backdrop-blur-sm shadow-md"
+                        data-lovable-editable={`projects-page-featured-${project.id}`}
+                      >
                         Featured
-                      </div>}
+                      </div>
+                    )}
                   </div>
                   <div className="p-6">
-                    <h3 className="font-heading text-xl font-semibold text-foreground mb-2" data-lovable-editable={`projects-page-title-${project.id}`}>
+                    <h3
+                      className="font-heading text-xl font-semibold text-foreground mb-2"
+                      data-lovable-editable={`projects-page-title-${project.id}`}
+                    >
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4" data-lovable-editable={`projects-page-description-${project.id}`}>
+                    <p
+                      className="text-muted-foreground mb-4"
+                      data-lovable-editable={`projects-page-description-${project.id}`}
+                    >
                       {project.description}
                     </p>
-                    {project.results && <div className="text-bengali-red dark:text-bengali-red-light font-medium mb-4">
+                    {project.results && (
+                      <div className="text-bengali-red dark:text-bengali-red-light font-medium mb-4">
                         <span data-lovable-editable="projects-page-result-label">Result: </span>
-                        <span data-lovable-editable={`projects-page-result-${project.id}`}>{project.results}</span>
-                      </div>}
-                    <Link to={getProjectLink(project)} className="inline-flex items-center text-bengali-terracotta dark:text-bengali-mustard-light hover:text-bengali-red dark:hover:text-bengali-mustard transition-colors font-medium group">
+                        <span data-lovable-editable={`projects-page-result-${project.id}`}>
+                          {project.results}
+                        </span>
+                      </div>
+                    )}
+                    <Link
+                      to={getProjectLink(project)}
+                      className="inline-flex items-center text-bengali-terracotta dark:text-bengali-mustard-light hover:text-bengali-red dark:hover:text-bengali-mustard transition-colors font-medium group"
+                    >
                       <span data-lovable-editable="projects-page-view-details">View Details</span>
                       <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </Link>
                   </div>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </section>
@@ -286,6 +310,8 @@ const Projects = () => {
       </main>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Projects;

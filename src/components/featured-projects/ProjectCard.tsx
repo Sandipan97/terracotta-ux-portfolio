@@ -28,12 +28,15 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
         transition: { duration: 0.2 }
       }}
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 sm:h-52 md:h-56 lg:h-60 xl:h-64 overflow-hidden">
         <EditableImage 
           src={project.image} 
           alt={project.title} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 dark-glow-image"
           fallbackSrc="/placeholder.svg"
+          objectFit="cover"
+          objectPosition="center"
+          editableKey={`featured-project-card-image-${project.id}`}
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-bengali-terracotta/80 to-bengali-red/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
           <Link to={getProjectLink(project)}>

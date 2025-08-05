@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -37,8 +38,8 @@ const O2CProject = () => {
       <UniversalStickyNavigation sections={navigationSections} />
       
       <main className="pt-32">
-        {/* Hero Image Section - Fixed Height */}
-        <section className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
+        {/* Hero Image Section - Responsive Height */}
+        <section className="w-full relative h-[50vh] sm:h-[55vh] md:h-[60vh] lg:h-[65vh] xl:h-[70vh] overflow-hidden">
           <motion.div 
             className="absolute top-4 left-4 z-30"
             initial={{ opacity: 0, x: -20 }}
@@ -67,6 +68,9 @@ const O2CProject = () => {
               alt="Oxygen Concentrator O2C Project - WHO-compliant medical device interface"
               className="w-full h-full object-cover"
               fallbackSrc="/placeholder.svg"
+              objectFit="cover"
+              objectPosition="center"
+              editableKey="o2c-hero-image"
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
