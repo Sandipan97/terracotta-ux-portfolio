@@ -14,6 +14,8 @@ interface EditableImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   responsive?: boolean;
   lazy?: boolean;
   priority?: 'high' | 'medium' | 'low';
+  eager?: boolean;
+  sizes?: string;
 }
 
 const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
@@ -31,18 +33,22 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     responsive = true,
     lazy = true,
     priority = 'medium',
+    eager = false,
+    sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
     ...props 
   }, ref) => {
-    const [imgSrc, setImgSrc] = useState<string | undefined>(lazy ? undefined : src);
+    const [imgSrc, setImgSrc] = useState<string | undefined>(
+      lazy && !eager ? undefined : src
+    );
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [isVisible, setIsVisible] = useState(!lazy);
+    const [isVisible, setIsVisible] = useState(!lazy || eager);
     const imgRef = useRef<HTMLImageElement>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
-    // Intersection Observer for lazy loading
+    // Enhanced intersection observer for lazy loading
     useEffect(() => {
-      if (!lazy || isVisible) return;
+      if (!lazy || isVisible || eager) return;
 
       observerRef.current = new IntersectionObserver(
         (entries) => {
@@ -56,7 +62,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
           });
         },
         {
-          rootMargin: '50px',
+          rootMargin: '100px', // Start loading 100px before visible
           threshold: 0.1
         }
       );
@@ -70,9 +76,9 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
           observerRef.current.disconnect();
         }
       };
-    }, [lazy, isVisible]);
+    }, [lazy, isVisible, eager]);
 
-    // Load image when visible
+    // Enhanced image loading with better error handling
     useEffect(() => {
       if (!isVisible || !src) return;
 
@@ -84,18 +90,34 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
           if (imagePreloader.isLoaded(src)) {
             setImgSrc(src);
             setLoading(false);
+            setError(false);
             return;
           }
 
-          // Preload image
-          await imagePreloader.preload(src, { priority });
+          // Preload image with enhanced options
+          await imagePreloader.preload(src, { 
+            priority,
+            eager: eager || priority === 'high',
+            crossOrigin: src.includes('lovable-uploads') ? 'anonymous' : ''
+          });
+          
           setImgSrc(src);
           setError(false);
         } catch (err) {
           console.warn(`Failed to load image: ${src}`, err);
-          if (!error) {
-            setImgSrc(fallbackSrc);
-            setError(true);
+          
+          // Enhanced fallback strategy
+          if (!error && src !== fallbackSrc) {
+            try {
+              // Try to load fallback
+              await imagePreloader.preload(fallbackSrc, { priority: 'high' });
+              setImgSrc(fallbackSrc);
+              setError(true);
+            } catch {
+              // Ultimate fallback - let browser handle it
+              setImgSrc(fallbackSrc);
+              setError(true);
+            }
           }
         } finally {
           setLoading(false);
@@ -103,7 +125,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
       };
 
       loadImage();
-    }, [src, isVisible, fallbackSrc, error, priority]);
+    }, [src, isVisible, fallbackSrc, error, priority, eager]);
 
     const handleError = () => {
       if (!error && src !== fallbackSrc) {
@@ -130,16 +152,24 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
       ? "w-full h-full object-cover transition-opacity duration-300" 
       : "object-cover transition-opacity duration-300";
 
-    // Show skeleton while loading or when lazy loading
+    // Enhanced loading skeleton with pulse animation
     if (loading || !isVisible) {
       return (
         <div 
           ref={imgRef}
-          className={cn("bg-muted animate-pulse flex items-center justify-center", className)}
+          className={cn(
+            "bg-muted animate-pulse flex items-center justify-center relative overflow-hidden", 
+            className
+          )}
           style={imageStyle}
+          role="img"
+          aria-label={loading ? "Loading image..." : alt || "Image"}
         >
+          {/* Progressive loading shimmer effect */}
+          <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          
           {loading && isVisible && (
-            <div className="w-8 h-8 border-2 border-muted-foreground/20 border-t-foreground/40 rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-muted-foreground/20 border-t-foreground/40 rounded-full animate-spin z-10" />
           )}
         </div>
       );
@@ -158,8 +188,10 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         })}
         style={imageStyle}
         data-lovable-editable={editableKey}
-        loading={priority === 'high' ? 'eager' : 'lazy'}
+        loading={eager || priority === 'high' ? 'eager' : 'lazy'}
         decoding="async"
+        sizes={responsive ? sizes : undefined}
+        crossOrigin={src?.includes('lovable-uploads') ? 'anonymous' : undefined}
         {...props}
       />
     );
