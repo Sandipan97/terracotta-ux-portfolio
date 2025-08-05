@@ -65,7 +65,8 @@ const HeroTextContent = () => {
             duration: 0.8
           }} />
           </span>
-           I am
+          <br />
+           I am  
         </motion.span>
         
         <span className="relative inline-block text-5xl sm:text-6xl lg:text-7xl py-0 mt-[10px]">
