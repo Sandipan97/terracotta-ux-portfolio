@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft, ChevronRight, CheckCircle, AlertTriangle, Lightbulb, BarChart3, Clock, Shield, Eye, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -320,7 +319,12 @@ const PGDataloggerProject = () => {
           }}>
               <Card className="p-8">
                 <CardHeader>
-                  <CardTitle className="text-2xl mb-4">Our Approach</CardTitle>
+                  <div className="flex items-center justify-between mb-4">
+                    <CardTitle className="text-2xl">Our Approach</CardTitle>
+                    <Badge variant="secondary" className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                      Heuristic Evaluation
+                    </Badge>
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {["Requirement analysis and problem identification", "Heuristic evaluation using Nielsen's principles", "UI audit for layout, interaction, and visual hierarchy", "UX audit for design standards compliance", "User journey mapping to identify friction points", "Design validation with stakeholders"].map((item, index) => <div key={index} className="flex items-start gap-3">
@@ -334,17 +338,24 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <div className="w-full max-w-full overflow-hidden">
-                <EditableImage 
-                  src="/lovable-uploads/pg heuristic 1.png" 
-                  alt="UX heuristic evaluation and methodology documentation" 
-                  className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-lg" 
-                  objectFit="contain"
-                  objectPosition="center"
-                  fallbackSrc="/placeholder.svg"
-                  editableKey="pg-datalogger-heuristic-image"
-                />
-              </div>
+              <Card className="p-6">
+                <CardHeader>
+                  <CardTitle className="text-xl mb-4 text-center">Heuristic Analysis Framework</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="w-full max-w-full overflow-hidden">
+                    <EditableImage 
+                      src="/lovable-uploads/pg heuristic 1.png" 
+                      alt="UX heuristic evaluation and methodology documentation" 
+                      className="w-full h-auto max-h-[400px] object-contain rounded-lg" 
+                      objectFit="contain"
+                      objectPosition="center"
+                      fallbackSrc="/placeholder.svg"
+                      editableKey="pg-datalogger-heuristic-image"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
