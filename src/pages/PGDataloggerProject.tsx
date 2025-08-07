@@ -226,7 +226,7 @@ const PGDataloggerProject = () => {
             once: true
           }}>
               <EditableImage 
-                src="/lovable-uploads/PG after.png" 
+                src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
                 alt="Modern redesigned P&G Datalogger dashboard" 
                 className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" 
                 objectFit="cover"
