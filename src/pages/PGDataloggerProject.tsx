@@ -212,7 +212,7 @@ const PGDataloggerProject = () => {
             once: true
           }}>
               <EditableImage 
-                src="/lovable-uploads/PG before.png" 
+                src="/lovable-uploads/87dd02b2-69e7-47bd-a68d-7039d244594e.png" 
                 alt="Legacy P&G Datalogger interface showing cluttered layout" 
                 className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" 
                 objectFit="cover"
