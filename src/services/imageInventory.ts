@@ -14,6 +14,10 @@ export const IMAGE_INVENTORY = {
   ],
 
   pgDatalogger: [
+    '/lovable-uploads/PG hero1.svg',
+    '/lovable-uploads/PG Light frame.svg', 
+    '/lovable-uploads/PG hero.svg.svg',
+    '/lovable-uploads/Frame.svg',
     '/lovable-uploads/PG hero.png',
     '/lovable-uploads/PG header.png',
     '/lovable-uploads/PG before.png',

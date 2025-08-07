@@ -37,18 +37,19 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
     ...props 
   }, ref) => {
+    // Simplified state management for faster loading
     const [imgSrc, setImgSrc] = useState<string | undefined>(
-      lazy && !eager ? undefined : src
+      src?.includes('lovable-uploads') ? src : (lazy && !eager ? undefined : src)
     );
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const [isVisible, setIsVisible] = useState(!lazy || eager);
+    const [loading, setLoading] = useState(!src?.includes('lovable-uploads'));
+    const [isVisible, setIsVisible] = useState(!lazy || eager || src?.includes('lovable-uploads'));
     const imgRef = useRef<HTMLImageElement>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
-    // Enhanced intersection observer for lazy loading
+    // Simplified intersection observer - skip for lovable-uploads
     useEffect(() => {
-      if (!lazy || isVisible || eager) return;
+      if (!lazy || isVisible || eager || src?.includes('lovable-uploads')) return;
 
       observerRef.current = new IntersectionObserver(
         (entries) => {
@@ -78,23 +79,26 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
       };
     }, [lazy, isVisible, eager]);
 
-    // Enhanced image loading with better error handling
+    // Ultra-fast image loading - simplified for lovable-uploads
     useEffect(() => {
-      if (!isVisible || !src) return;
+      if (!src) return;
+
+      // For lovable-uploads: immediate loading, no preloader, no delays
+      if (src.includes('lovable-uploads')) {
+        setImgSrc(src);
+        setLoading(false);
+        setError(false);
+        return;
+      }
+
+      // For external images: only load when visible
+      if (!isVisible) return;
 
       const loadImage = async () => {
         try {
           setLoading(true);
           
-          // For lovable-uploads, bypass preloader entirely and load directly
-          if (src.includes('lovable-uploads')) {
-            setImgSrc(src);
-            setLoading(false);
-            setError(false);
-            return;
-          }
-
-          // Check if image is already preloaded
+          // Check if external image is already loaded
           if (imagePreloader.isLoaded(src)) {
             setImgSrc(src);
             setLoading(false);
@@ -102,7 +106,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
             return;
           }
 
-          // Preload image without CORS for external images
+          // Simple preload for external images only
           await imagePreloader.preload(src, { 
             priority,
             eager: eager || priority === 'high'
@@ -111,26 +115,10 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
           setImgSrc(src);
           setError(false);
         } catch (err) {
-          console.warn(`Failed to load image: ${src}`, err);
-          
-          // Enhanced fallback strategy - try direct loading for lovable-uploads
+          // Simple fallback - no complex retry logic
           if (!error && src !== fallbackSrc) {
-            try {
-              // For lovable-uploads, try direct browser loading without preloader
-              if (src.includes('lovable-uploads')) {
-                setImgSrc(src);
-                setError(false);
-              } else {
-                // Try to load fallback
-                await imagePreloader.preload(fallbackSrc, { priority: 'high' });
-                setImgSrc(fallbackSrc);
-                setError(true);
-              }
-            } catch {
-              // Ultimate fallback - let browser handle it
-              setImgSrc(fallbackSrc);
-              setError(true);
-            }
+            setImgSrc(fallbackSrc);
+            setError(true);
           }
         } finally {
           setLoading(false);
