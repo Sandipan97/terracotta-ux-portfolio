@@ -1,113 +1,107 @@
 
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { EditableImage } from '@/components/ui/editable-image';
+import { useNavigate } from 'react-router-dom';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, TrendingUp } from 'lucide-react';
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  image: string;
-  description: string;
-  results?: string;
-  date?: string;
-  slug?: string;
-}
+import { EditableImage } from '@/components/ui/editable-image';
 
 interface ProjectCardProps {
-  project: Project;
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  tags: string[];
+  route?: string;
   index: number;
-  variants: any;
 }
 
-const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
-  const projectPath = project.slug ? `/projects/${project.slug}` : `/projects/${project.id}`;
+const ProjectCard = ({ 
+  id, 
+  title, 
+  description, 
+  image, 
+  category, 
+  tags, 
+  route,
+  index 
+}: ProjectCardProps) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    if (route) {
+      navigate(route);
+    }
+  };
 
   return (
     <motion.div
-      variants={variants}
-      className="group relative bg-background/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-border/50 hover:border-border overflow-hidden"
-      whileHover={{ 
-        y: -8,
-        transition: { type: "spring", stiffness: 300, damping: 30 }
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      className="h-full"
     >
-      <Link to={projectPath} className="block">
-        {/* Image Container with Overlay */}
-        <div className="relative h-64 overflow-hidden">
-          <EditableImage
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            priority={index < 3 ? 'high' : 'medium'}
-            lazy={index >= 3}
-          />
-          
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          
-          {/* Category Badge */}
-          <div className="absolute top-4 left-4">
-            <Badge className="bg-background/90 text-foreground hover:bg-background border border-border/50">
-              {project.category}
-            </Badge>
-          </div>
-
-          {/* Results Badge - appears on hover */}
-          {project.results && (
-            <motion.div 
-              className="absolute top-4 right-4 opacity-0 group-hover:opacity-100"
-              initial={{ opacity: 0, x: 20 }}
-              whileHover={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-            >
-              <Badge className="bg-emerald-500/90 text-white hover:bg-emerald-500 border-none">
-                <TrendingUp className="w-3 h-3 mr-1" />
-                {project.results}
-              </Badge>
-            </motion.div>
-          )}
-        </div>
-
-        {/* Content */}
-        <div className="p-6 space-y-4">
-          <div className="space-y-2">
-            <h3 className="font-semibold text-xl text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
-              {project.title}
-            </h3>
-            <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
-              {project.description}
-            </p>
-          </div>
-
-          {/* Date */}
-          {project.date && (
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Calendar className="w-3 h-3" />
-              <span>{new Date(project.date).toLocaleDateString('en-US', { 
-                month: 'short', 
-                year: 'numeric' 
-              })}</span>
-            </div>
-          )}
-
-          {/* View Project Link */}
-          <div className="pt-2">
-            <span className="inline-flex items-center text-sm font-medium text-primary group-hover:text-primary/80 transition-colors duration-300">
-              View Case Study
-              <motion.span 
-                className="ml-1"
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+      <Card 
+        className="group h-full bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-500 cursor-pointer overflow-hidden dark-glow-card"
+        onClick={handleCardClick}
+      >
+        <CardContent className="p-0 h-full flex flex-col">
+          {/* Image container with mobile-responsive height */}
+          <div className="relative h-48 md:h-64 overflow-hidden">
+            <EditableImage
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              fallbackSrc="/placeholder.svg"
+              priority={index < 3}
+            />
+            
+            {/* Category badge */}
+            <div className="absolute top-3 left-3">
+              <Badge 
+                variant="secondary" 
+                className="bg-background/80 backdrop-blur-sm text-xs font-medium border-border/50"
               >
-                →
-              </motion.span>
-            </span>
+                {category}
+              </Badge>
+            </div>
           </div>
-        </div>
-      </Link>
+
+          {/* Content */}
+          <div className="p-4 xs:p-6 flex-1 flex flex-col">
+            <h3 className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+              {title}
+            </h3>
+            
+            <p className="text-muted-foreground text-sm xs:text-base leading-relaxed mb-3 xs:mb-4 flex-1 line-clamp-3">
+              {description}
+            </p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1 xs:gap-2">
+              {tags.slice(0, 3).map((tag, tagIndex) => (
+                <Badge 
+                  key={tagIndex}
+                  variant="outline" 
+                  className="text-xs px-2 py-0.5 border-border/60 hover:border-primary/40 transition-colors duration-300"
+                >
+                  {tag}
+                </Badge>
+              ))}
+              {tags.length > 3 && (
+                <Badge 
+                  variant="outline" 
+                  className="text-xs px-2 py-0.5 border-border/60 text-muted-foreground"
+                >
+                  +{tags.length - 3} more
+                </Badge>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </motion.div>
   );
 };
