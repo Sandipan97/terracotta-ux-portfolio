@@ -9,10 +9,10 @@ interface SkillCategoryProps {
     color: string;
     skills: string[];
   };
-  categoryIndex: number;
+  index: number;
 }
 
-const SkillCategory = ({ category, categoryIndex }: SkillCategoryProps) => {
+const SkillCategory = ({ category, index }: SkillCategoryProps) => {
   const categoryVariants = {
     hidden: { 
       opacity: 0, 
@@ -60,7 +60,7 @@ const SkillCategory = ({ category, categoryIndex }: SkillCategoryProps) => {
           transition={{ 
             duration: 2,
             repeat: Infinity,
-            delay: categoryIndex * 0.3
+            delay: index * 0.3
           }}
         >
           {category.icon}

@@ -34,12 +34,22 @@ const allProjects: Project[] = projects.map(project => ({
 
 const categories = ["All", ...Array.from(new Set(allProjects.map(project => project.category)))];
 
-const FeaturedProjects = () => {
+interface FeaturedProjectsProps {
+  showAll?: boolean;
+}
+
+const FeaturedProjects = ({ showAll = false }: FeaturedProjectsProps) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
-  const filteredProjects = selectedCategory === "All" ? allProjects : allProjects.filter(project => project.category === selectedCategory);
+  // Filter projects based on category
+  let filteredProjects = selectedCategory === "All" ? allProjects : allProjects.filter(project => project.category === selectedCategory);
+  
+  // If showAll is false, limit to first 6 projects for homepage
+  if (!showAll) {
+    filteredProjects = filteredProjects.slice(0, 6);
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -89,7 +99,7 @@ const FeaturedProjects = () => {
           ))}
         </motion.div>
         
-        <ScrollToNextSection targetId="design-suite" />
+        {!showAll && <ScrollToNextSection targetId="design-suite" />}
       </div>
     </section>
   );

@@ -44,3 +44,6 @@ export const skillCategories = [
     ]
   }
 ];
+
+// Export as skillsData for backward compatibility
+export const skillsData = skillCategories;
