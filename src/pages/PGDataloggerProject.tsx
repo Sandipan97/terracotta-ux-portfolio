@@ -427,7 +427,67 @@ const PGDataloggerProject = () => {
           </div>
         </div>
       </section>
+       {/* Final UI Showcase */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
+          once: true
+        }}>
+            <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
+              Final UI Showcase
+            </motion.h2>
+            <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto" variants={fadeInUp}>
+              A visual celebration of the final product, showcasing how the redesign aligns 
+              with modern UX standards and P&G's brand identity.
+            </motion.p>
+          </motion.div>
 
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
+            once: true
+          }}>
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle className="text-center">Light Mode</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <EditableImage 
+                    src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
+                    alt="Final P&G Datalogger interface in light mode" 
+                    className="w-full h-[400px] object-cover rounded-lg" 
+                    objectFit="cover"
+                    objectPosition="center"
+                    fallbackSrc="/placeholder.svg"
+                    editableKey="pg-datalogger-final-light-mode"
+                  />
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
+            once: true
+          }}>
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle className="text-center">Dark Mode</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <EditableImage 
+                    src="/lovable-uploads/07eb7894-fcab-4496-9406-38bc0f679e93.png" 
+                    alt="Final P&G Datalogger interface in dark mode" 
+                    className="w-full h-[400px] object-cover rounded-lg" 
+                    objectFit="cover"
+                    objectPosition="center"
+                    fallbackSrc="/placeholder.svg"
+                    editableKey="pg-datalogger-final-dark-mode"
+                  />
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
       {/* Design System & Components */}
       <section id="design-system" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
@@ -483,6 +543,8 @@ const PGDataloggerProject = () => {
         <BeforeAfterShowcase />
       </div>
 
+        
+      
       {/* Measurable Impact */}
       <section id="impact" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -566,66 +628,7 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-      {/* Final UI Showcase */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
-          once: true
-        }}>
-            <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
-              Final UI Showcase
-            </motion.h2>
-            <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto" variants={fadeInUp}>
-              A visual celebration of the final product, showcasing how the redesign aligns 
-              with modern UX standards and P&G's brand identity.
-            </motion.p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
-            once: true
-          }}>
-              <Card className="p-4">
-                <CardHeader>
-                  <CardTitle className="text-center">Light Mode</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <EditableImage 
-                    src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
-                    alt="Final P&G Datalogger interface in light mode" 
-                    className="w-full h-[400px] object-cover rounded-lg" 
-                    objectFit="cover"
-                    objectPosition="center"
-                    fallbackSrc="/placeholder.svg"
-                    editableKey="pg-datalogger-final-light-mode"
-                  />
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
-            once: true
-          }}>
-              <Card className="p-4">
-                <CardHeader>
-                  <CardTitle className="text-center">Dark Mode</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <EditableImage 
-                    src="/lovable-uploads/07eb7894-fcab-4496-9406-38bc0f679e93.png" 
-                    alt="Final P&G Datalogger interface in dark mode" 
-                    className="w-full h-[400px] object-cover rounded-lg" 
-                    objectFit="cover"
-                    objectPosition="center"
-                    fallbackSrc="/placeholder.svg"
-                    editableKey="pg-datalogger-final-dark-mode"
-                  />
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+     
 
       {/* Call to Action */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary/5">
