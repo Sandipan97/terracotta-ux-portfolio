@@ -32,11 +32,12 @@ const Skills = () => {
               index={index}
             />
           ))}
-          <div className="absolute inset-0 backdrop-blur-sm bg-background/40 dark:bg-background/60 z-0"></div>
+  
         </motion.div>
 
         <SkillsHighlights />
       </div>
+              <div className="absolute inset-0 backdrop-blur-sm bg-background/40 dark:bg-background/60 z-0"></div>
     </section>
   );
 };
