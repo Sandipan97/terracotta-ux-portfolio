@@ -1,29 +1,22 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
 import ResumeManager from './ResumeManager';
-
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <footer className="bg-berkeley-blue dark:bg-background text-white dark:text-foreground border-t dark:border-border">
-      <div className="container mx-auto px-4 md:px-6 py-12">
+  return <footer className="bg-berkeley-blue dark:bg-background text-white dark:text-foreground border-t dark:border-border">
+      <div className="container mx-auto px-4 md:px-6 py-12 bg-slate-700">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 
-              className="font-display text-xl font-bold mb-4 text-white dark:text-foreground"
-              data-lovable-editable="footer-portfolio-title"
-            >
+            <h3 className="font-display text-xl font-bold mb-4 text-white dark:text-foreground" data-lovable-editable="footer-portfolio-title">
               Portfolio
             </h3>
-            <p 
-              className="text-white/70 dark:text-muted-foreground mb-4 max-w-xs"
-              data-lovable-editable="footer-portfolio-description"
-            >
+            <p className="text-white/70 dark:text-muted-foreground mb-4 max-w-xs" data-lovable-editable="footer-portfolio-description">
               Senior UX Designer and Researcher with expertise in creating impactful user experiences through research and innovation.
             </p>
             <div className="flex space-x-4">
@@ -69,10 +62,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 
-              className="font-display text-xl font-bold mb-4 text-white dark:text-foreground"
-              data-lovable-editable="footer-contact-title"
-            >
+            <h3 className="font-display text-xl font-bold mb-4 text-white dark:text-foreground" data-lovable-editable="footer-contact-title">
               Get in Touch
             </h3>
             <ul className="space-y-3">
@@ -93,19 +83,11 @@ const Footer = () => {
           <div className="text-white/50 dark:text-muted-foreground text-sm mb-4 md:mb-0">
             &copy; 2025 Senior UX Designer and Researcher. All rights reserved.
           </div>
-          <Button 
-            variant="outline" 
-            size="icon"
-            onClick={scrollToTop}
-            className="border-white/30 dark:border-border text-white dark:text-foreground hover:bg-white hover:text-berkeley-blue dark:hover:bg-card dark:hover:text-foreground rounded-full"
-            aria-label="Scroll to top"
-          >
+          <Button variant="outline" size="icon" onClick={scrollToTop} className="border-white/30 dark:border-border text-white dark:text-foreground hover:bg-white hover:text-berkeley-blue dark:hover:bg-card dark:hover:text-foreground rounded-full" aria-label="Scroll to top">
             <ArrowUp className="h-5 w-5" />
           </Button>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
