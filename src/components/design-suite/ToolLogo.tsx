@@ -26,6 +26,9 @@ const ToolLogo = ({ name, logoUrl, color }: ToolLogoProps) => {
     }
   };
 
+  // Create a more visible fallback with the first letter of the tool name
+  const fallbackSrc = `https://via.placeholder.com/64x64/6366f1/ffffff?text=${name.charAt(0)}`;
+
   return (
     <motion.div
       variants={logoVariants}
@@ -44,10 +47,12 @@ const ToolLogo = ({ name, logoUrl, color }: ToolLogoProps) => {
         <EditableImage 
           src={logoUrl} 
           alt={`${name} logo`}
-          className="w-full h-full"
+          className="w-full h-full object-contain"
           objectFit="contain"
           editableKey={`tool-logo-${name.toLowerCase().replace(/\s+/g, '-')}`}
-          fallbackSrc="/placeholder.svg"
+          fallbackSrc={fallbackSrc}
+          priority="high"
+          eager={true}
         />
       </motion.div>
       <span 
