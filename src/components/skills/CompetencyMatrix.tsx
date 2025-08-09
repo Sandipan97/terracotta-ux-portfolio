@@ -15,19 +15,19 @@ const competencies: Competency[] = [
   {
     name: "Design Strategy",
     level: 95,
-    projects: ["LG Cyclops AR", "Welbilt Kitchen"],
+    projects: ["Cyclops AR Manual", "Welbilt Kitchen", "O2C Platform", "Farm Monitoring"],
     category: "strategic"
   },
   {
     name: "User Research",
     level: 90,
-    projects: ["O2C Platform", "Dripometer"],
+    projects: ["O2C Platform", "Dripometer", "Farm Monitoring"],
     category: "research"
   },
   {
     name: "Design Systems",
     level: 85,
-    projects: ["PG Datalogger", "Toy Anatomy"],
+    projects: ["PG Datalogger", "Welbilt Kitchen"],
     category: "design"
   },
   {
@@ -38,13 +38,13 @@ const competencies: Competency[] = [
   },
   {
     name: "Prototyping",
-    level: 88,
-    projects: ["Cyclops AR Manual"],
+    level: 95,
+    projects: ["PG Datalogger", "Welbilt Kitchen", "Cyclops AR Manual"],
     category: "technical"
   },
   {
     name: "Cross-functional Leadership",
-    level: 92,
+    level: 90,
     projects: ["Multiple Enterprise Projects"],
     category: "strategic"
   }
