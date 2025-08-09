@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import ScrollToNextSection from './ui/ScrollToNextSection';
 import FeaturedProjectsHeader from './featured-projects/FeaturedProjectsHeader';
 import FilterControls from './featured-projects/FilterControls';
-import ProjectCard from './featured-projects/ProjectCard';
+import FeaturedProjectCard from './featured-projects/FeaturedProjectCard';
 import BusinessImpactCard from './featured-projects/BusinessImpactCard';
 import { projects } from './project-drawer/projectData';
 import { TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
@@ -84,7 +84,7 @@ const FeaturedProjects = () => {
         >
           {filteredProjects.map((project, index) => (
             <motion.div key={project.id} variants={itemVariants}>
-              <ProjectCard project={project} index={index} variants={itemVariants} />
+              <FeaturedProjectCard project={project} index={index} variants={itemVariants} />
             </motion.div>
           ))}
         </motion.div>

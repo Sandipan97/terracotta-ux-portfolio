@@ -1,45 +1,44 @@
 
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { EditableImage } from '@/components/ui/editable-image';
 
-interface ProjectCardProps {
-  id: string;
+type Project = {
+  id: number;
   title: string;
-  description: string;
-  image: string;
   category: string;
-  tags: string[];
-  route?: string;
+  image: string;
+  description: string;
+  results?: string;
+  date?: string;
+  slug?: string;
+};
+
+interface FeaturedProjectCardProps {
+  project: Project;
   index: number;
+  variants: any;
 }
 
-const ProjectCard = ({ 
-  id, 
-  title, 
-  description, 
-  image, 
-  category, 
-  tags, 
-  route,
-  index 
-}: ProjectCardProps) => {
-  const navigate = useNavigate();
-
+const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardProps) => {
   const handleCardClick = () => {
-    if (route) {
-      navigate(route);
+    if (project.slug) {
+      window.open(`/projects/${project.slug}`, '_blank');
+    } else {
+      window.open(`/projects/${project.id}`, '_blank');
     }
   };
 
+  // Convert project data to tags for display
+  const tags = [project.category];
+  if (project.results) {
+    tags.push('Impact Driven');
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      variants={variants}
       whileHover={{ y: -8, scale: 1.02 }}
       className="h-full"
     >
@@ -51,8 +50,8 @@ const ProjectCard = ({
           {/* Image container with mobile-responsive height */}
           <div className="relative h-48 md:h-64 overflow-hidden">
             <EditableImage
-              src={image}
-              alt={title}
+              src={project.image}
+              alt={project.title}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               fallbackSrc="/placeholder.svg"
               priority={index < 3 ? "high" : "medium"}
@@ -64,7 +63,7 @@ const ProjectCard = ({
                 variant="secondary" 
                 className="bg-background/80 backdrop-blur-sm text-xs font-medium border-border/50"
               >
-                {category}
+                {project.category}
               </Badge>
             </div>
           </div>
@@ -72,11 +71,11 @@ const ProjectCard = ({
           {/* Content */}
           <div className="p-4 xs:p-6 flex-1 flex flex-col">
             <h3 className="font-heading text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
-              {title}
+              {project.title}
             </h3>
             
             <p className="text-muted-foreground text-sm xs:text-base leading-relaxed mb-3 xs:mb-4 flex-1 line-clamp-3">
-              {description}
+              {project.description}
             </p>
 
             {/* Tags */}
@@ -90,12 +89,12 @@ const ProjectCard = ({
                   {tag}
                 </Badge>
               ))}
-              {tags.length > 3 && (
+              {project.results && (
                 <Badge 
                   variant="outline" 
                   className="text-xs px-2 py-0.5 border-border/60 text-muted-foreground"
                 >
-                  +{tags.length - 3} more
+                  Results Available
                 </Badge>
               )}
             </div>
@@ -106,4 +105,4 @@ const ProjectCard = ({
   );
 };
 
-export default ProjectCard;
+export default FeaturedProjectCard;
