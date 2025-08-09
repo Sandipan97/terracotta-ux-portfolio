@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Search, ArrowRight, HelpCircle, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -51,7 +52,7 @@ export const ResearchQuestions = () => {
   };
 
   return (
-    <section id="research" className="py-20 bg-white">
+    <section id="research" className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +62,7 @@ export const ResearchQuestions = () => {
         >
           <div className="text-center mb-12">
             <motion.h2 
-              className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4"
+              className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -70,7 +71,7 @@ export const ResearchQuestions = () => {
               Research Questions
             </motion.h2>
             <motion.p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -90,7 +91,7 @@ export const ResearchQuestions = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-white border-gray-200 shadow-lg hover:border-blue-300 transition-all duration-300 group">
+                <Card className="bg-card border-border shadow-lg hover:border-blue-300 transition-all duration-300 group">
                   <CardContent className="p-8">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                       {/* Question Number */}
@@ -102,7 +103,7 @@ export const ResearchQuestions = () => {
 
                       {/* Question Content */}
                       <div className="lg:col-span-7">
-                        <h3 className="text-gray-900 text-xl font-semibold mb-3" data-lovable-editable={`welbilt-question-${index}-text`}>{item.question}</h3>
+                        <h3 className="text-foreground text-xl font-semibold mb-3" data-lovable-editable={`welbilt-question-${index}-text`}>{item.question}</h3>
                         
                         {/* Methodology Connection */}
                         <div className="flex items-center gap-3 mb-4">
@@ -160,13 +161,13 @@ export const ResearchQuestions = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.8 }}
           >
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gray-100 rounded-full border border-gray-200">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-muted rounded-full border-border border">
               <Search className="w-5 h-5 text-blue-600" />
-              <span className="text-gray-700 text-sm">Research Questions</span>
+              <span className="text-foreground text-sm">Research Questions</span>
               <ArrowRight className="w-4 h-4 text-blue-600" />
-              <span className="text-gray-700 text-sm">Design Solutions</span>
+              <span className="text-foreground text-sm">Design Solutions</span>
               <ArrowRight className="w-4 h-4 text-blue-600" />
-              <span className="text-gray-700 text-sm">Measurable Impact</span>
+              <span className="text-foreground text-sm">Measurable Impact</span>
             </div>
           </motion.div>
         </motion.div>
