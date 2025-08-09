@@ -345,7 +345,7 @@ const PGDataloggerProject = () => {
                 <CardContent>
                   <div className="w-full max-w-full overflow-hidden">
                     <EditableImage 
-                      src="/lovable-uploads/pg heuristic 1.png" 
+                      src="public/lovable-uploads/pg heuristic 1.png" 
                       alt="UX heuristic evaluation and methodology documentation" 
                       className="w-full h-auto max-h-[400px] object-contain rounded-lg" 
                       objectFit="contain"
