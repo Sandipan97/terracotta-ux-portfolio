@@ -10,8 +10,9 @@ import { skillsData } from './skills/skillsData';
 const Skills = () => {
   return (
     <section id="skills" className="py-20 bg-muted/20 relative overflow-hidden">
+      <div className="absolute inset-0 backdrop-blur-sm bg-background/40 dark:bg-background/60 z-0"></div>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="absolute inset-0 backdrop-blur-sm bg-background/40 dark:bg-background/60 z-0"></div>
+        
         <SkillsHeader />
         
         <CompetencyMatrix />
