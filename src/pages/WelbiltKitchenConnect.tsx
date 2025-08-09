@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -125,10 +126,10 @@ const WelbiltKitchenConnect = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-               <h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-8" data-lovable-editable="welbilt-impact-title">
+               <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-8" data-lovable-editable="welbilt-impact-title">
                  Transformative Impact
                </h2>
-              <blockquote className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto italic leading-relaxed mb-8" data-lovable-editable="welbilt-impact-quote">
+              <blockquote className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto italic leading-relaxed mb-8" data-lovable-editable="welbilt-impact-quote">
                 "A well-crafted design system is not just about consistency—it's about empowering teams to build better experiences faster."
               </blockquote>
               

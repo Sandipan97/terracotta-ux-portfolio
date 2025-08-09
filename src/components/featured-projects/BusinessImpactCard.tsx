@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
@@ -27,28 +28,28 @@ const BusinessImpactCard = ({ title, description, metrics, projectType, industry
       transition={{ duration: 0.6 }}
       className="mb-8"
     >
-      <Card className="bg-white/95 backdrop-blur-md shadow-xl border border-warm-terracotta/20">
+      <Card className="bg-card/95 backdrop-blur-md shadow-xl border-border">
         <CardHeader>
           <div className="flex justify-between items-start">
             <div>
               <CardTitle 
-                className="text-warm-clay text-xl"
+                className="text-foreground text-xl"
                 data-lovable-editable="business-impact-title"
               >
                 {title}
               </CardTitle>
               <p 
-                className="text-warm-clay/70 mt-2"
+                className="text-muted-foreground mt-2"
                 data-lovable-editable="business-impact-description"
               >
                 {description}
               </p>
             </div>
             <div className="flex gap-2">
-              <Badge variant="secondary" className="bg-warm-terracotta/10 text-warm-terracotta border-warm-terracotta/20">
+              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
                 <span data-lovable-editable="business-impact-project-type">{projectType}</span>
               </Badge>
-              <Badge variant="secondary" className="bg-warm-rust/10 text-warm-rust border-warm-rust/20">
+              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
                 <span data-lovable-editable="business-impact-industry">{industry}</span>
               </Badge>
             </div>
@@ -70,7 +71,7 @@ const BusinessImpactCard = ({ title, description, metrics, projectType, industry
                 <div className={`text-2xl font-bold text-${metric.color} mb-1`}>
                   {metric.value}
                 </div>
-                <div className="text-sm text-warm-clay/60 mb-1">
+                <div className="text-sm text-muted-foreground mb-1">
                   {metric.label}
                 </div>
                 <div className="text-xs text-warm-golden font-medium">

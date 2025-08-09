@@ -55,7 +55,7 @@ const ContactForm = () => {
 
           <motion.form
             onSubmit={handleSubmit}
-            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20"
+            className="bg-card/20 backdrop-blur-md rounded-2xl p-8 border border-white/20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

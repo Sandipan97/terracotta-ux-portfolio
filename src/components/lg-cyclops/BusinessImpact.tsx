@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { DollarSign, Leaf, TrendingUp, Globe } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -12,7 +13,7 @@ const impactMetrics = [
 
 export const BusinessImpact = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-background to-bengali-terracotta/5">
+    <section className="py-20 bg-gradient-to-br from-background to-muted/20">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +39,7 @@ export const BusinessImpact = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className={`bg-gradient-to-br from-${metric.color}/10 to-${metric.color}/5 border-${metric.color}/20 text-center h-full`}>
+                <Card className={`bg-card/80 backdrop-blur-sm border-border text-center h-full`}>
                   <CardContent className="p-6">
                     <metric.icon className={`w-8 h-8 text-${metric.color} mx-auto mb-4`} />
                     <div className={`text-3xl font-bold text-${metric.color} mb-2`}>{metric.value}</div>
