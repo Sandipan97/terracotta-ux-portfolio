@@ -24,7 +24,7 @@ const HomePage = () => {
         <Navbar />
         <Hero />
       </div>
-      <div id="skills" className="bg-muted/20 dark:bg-card/20 relative z-10">
+      <div id="skills" className="bg-muted/60 dark:bg-card/20 relative z-10">
         <Skills />
       </div>
       <div id="featured-projects" className="bg-background relative z-10">
