@@ -370,7 +370,7 @@ const PGDataloggerProject = () => {
           }} transition={{
             delay: index * 0.1
           }}>
-                <Card className="h-full p-6 hover:shadow-lg transition-shadow border-primary/10 bg-blue-100">
+                <Card className="h-full p-6 hover:shadow-lg transition-shadow border-primary/10 bg-blue-100 px-[12px] py-[12px]">
                   <CardContent className="pt-6">
                     <div className="text-primary mb-4">
                       {solution.icon}
@@ -455,8 +455,8 @@ const PGDataloggerProject = () => {
           }} transition={{
             delay: index * 0.05
           }}>
-                <Card className="p-4 text-center hover:shadow-md transition-shadow">
-                  <CardContent className="pt-4">
+                <Card className="p-4 text-center hover:shadow-md transition-shadow px-[8px] py-[4px] bg-blue-100">
+                  <CardContent className="pt-4 py-[8px]">
                     <p className="text-sm font-medium">{component}</p>
                   </CardContent>
                 </Card>
