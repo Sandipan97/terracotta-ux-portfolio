@@ -7,24 +7,24 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 43 22% 95%;
     --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
+    --card: 43 22% 98%;
     --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
+    --popover: 43 22% 98%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
+    --secondary: 43 18% 92%;
     --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
+    --muted: 43 18% 92%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
+    --accent: 43 18% 92%;
     --accent-foreground: 222.2 84% 4.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 43 15% 85%;
+    --input: 43 15% 85%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
@@ -34,13 +34,13 @@
     --chart-5: 27 87% 67%;
 
     /* Sidebar Variables */
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 43 22% 96%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-primary-foreground: 43 22% 98%;
+    --sidebar-accent: 43 18% 93%;
     --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 43 15% 87%;
     --sidebar-ring: 217.2 10.6% 64.9%;
 
     /* WCAG 2.2 Compliant Warm Sunset Palette */

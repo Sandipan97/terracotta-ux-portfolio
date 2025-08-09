@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -99,6 +100,23 @@ export default {
 					secondary: 'hsl(var(--text-secondary))',
 					muted: 'hsl(var(--text-muted))',
 					light: 'hsl(var(--text-light))'
+				},
+				// Bengali Color Palette
+				'bengali-terracotta': {
+					DEFAULT: 'hsl(var(--bengali-terracotta))',
+					light: 'hsl(var(--bengali-terracotta-light))'
+				},
+				'bengali-mustard': {
+					DEFAULT: 'hsl(var(--bengali-mustard))',
+					light: 'hsl(var(--bengali-mustard-light))'
+				},
+				'bengali-red': {
+					DEFAULT: 'hsl(var(--bengali-red))',
+					light: 'hsl(var(--bengali-red-light))'
+				},
+				'bengali-sage': {
+					DEFAULT: 'hsl(var(--bengali-sage))',
+					light: 'hsl(var(--bengali-sage-light))'
 				},
 				// Toy Anatomy Color System
 				'toy-anatomy': {

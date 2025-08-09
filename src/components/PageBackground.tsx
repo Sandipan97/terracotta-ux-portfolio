@@ -93,27 +93,27 @@ const PageBackground = ({ theme }: PageBackgroundProps) => {
 
   const getColorByTheme = (themeName: string) => {
     switch (themeName) {
-      case 'research': return 'text-red-600 dark:text-red-400';
-      case 'define': return 'text-orange-600 dark:text-orange-400';
-      case 'more-research': return 'text-purple-600 dark:text-purple-400';
-      case 'ideate': return 'text-blue-600 dark:text-blue-400';
-      case 'prototype': return 'text-indigo-600 dark:text-indigo-400';
-      case 'test': return 'text-green-600 dark:text-green-400';
-      case 'deploy': return 'text-emerald-600 dark:text-emerald-400';
+      case 'research': return 'text-bengali-red dark:text-bengali-red-light';
+      case 'define': return 'text-warm-golden dark:text-warm-golden-light';
+      case 'more-research': return 'text-warm-terracotta dark:text-warm-terracotta-light';
+      case 'ideate': return 'text-warm-sage dark:text-warm-sage-light';
+      case 'prototype': return 'text-warm-rust dark:text-warm-rust-light';
+      case 'test': return 'text-bengali-sage dark:text-bengali-sage-light';
+      case 'deploy': return 'text-bengali-mustard dark:text-bengali-mustard-light';
       default: return 'text-muted-foreground';
     }
   };
 
   const getAnimationDuration = (themeName: string) => {
     switch (themeName) {
-      case 'research': return 16; // 20% faster than 20
+      case 'research': return 16;
       case 'define': return 14;
       case 'more-research': return 18;
-      case 'ideate': return 12; // Fastest for ideation
+      case 'ideate': return 12;
       case 'prototype': return 15;
       case 'test': return 17;
       case 'deploy': return 13;
-      default: return 24; // 20% faster than 30
+      default: return 24;
     }
   };
 
@@ -192,7 +192,7 @@ const PageBackground = ({ theme }: PageBackgroundProps) => {
               backgroundPositionY: ['0px', '40px']
             }}
             transition={{
-              duration: 24, // 20% faster than 30
+              duration: 24,
               repeat: Infinity,
               ease: "linear"
             }}

@@ -77,7 +77,7 @@ const O2CProject = () => {
         </section>
 
         {/* Content Tile Section - Clean Background */}
-        <section className="w-full bg-background border-b">
+        <section className="w-full bg-background border-b border-border">
           <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -92,11 +92,11 @@ const O2CProject = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <div className="bg-cyan-100 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-800/30 rounded-2xl p-6 mb-8 max-w-4xl mx-auto">
-                  <h2 className="text-xl md:text-2xl font-semibold text-cyan-800 dark:text-cyan-200 mb-4">
+                <div className="bg-card border border-border rounded-2xl p-6 mb-8 max-w-4xl mx-auto">
+                  <h2 className="text-xl md:text-2xl font-semibold text-cyan-600 dark:text-cyan-400 mb-4">
                     🎯 Mission
                   </h2>
-                  <p className="text-lg md:text-xl leading-relaxed text-cyan-700 dark:text-cyan-300">
+                  <p className="text-lg md:text-xl leading-relaxed text-foreground">
                     Design WHO-compliant oxygen concentrator interfaces for diverse economic user groups across post-COVID India.
                   </p>
                 </div>
@@ -115,7 +115,7 @@ const O2CProject = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                   >
-                    <Badge className="bg-cyan-100 dark:bg-cyan-900/20 text-cyan-800 dark:text-cyan-200 border border-cyan-200 dark:border-cyan-800/30 hover:bg-cyan-200 dark:hover:bg-cyan-900/30 transition-all duration-300 px-3 py-1">
+                    <Badge className="bg-secondary text-secondary-foreground border-border hover:bg-secondary/80 transition-all duration-300 px-3 py-1">
                       {badge.icon} {badge.label}
                     </Badge>
                   </motion.div>
