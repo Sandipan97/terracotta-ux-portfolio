@@ -24,7 +24,7 @@ const Skills = () => {
         >
           {skillsData.map((category, index) => (
             <SkillCategory
-              key={category.category}
+              key={category.title}
               category={category}
               index={index}
             />
