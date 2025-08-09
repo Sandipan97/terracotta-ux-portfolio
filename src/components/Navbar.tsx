@@ -21,6 +21,23 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when clicking outside or on route change
+  useEffect(() => {
+    const handleClickOutside = () => {
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <motion.nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -32,11 +49,12 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        <Link to="/" className="font-display text-2xl font-bold text-berkeley-blue dark:text-foreground">
+      <div className="container mx-auto px-4 xs:px-6 flex justify-between items-center">
+        <Link to="/" className="font-display text-xl xs:text-2xl font-bold text-berkeley-blue dark:text-foreground">
           <motion.span 
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
+            className="block truncate max-w-[200px] xs:max-w-none"
           >
             Sandipan's Portfolio
           </motion.span>
