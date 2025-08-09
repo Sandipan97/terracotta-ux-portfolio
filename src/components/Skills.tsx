@@ -19,7 +19,7 @@ const Skills = () => {
       
         
         <motion.div 
-           <div className="absolute inset-0 backdrop-blur-sm bg-background/40 dark:bg-background/60 z-0"></div>
+          className="absolute inset-0 backdrop-blur-sm bg-background/40 dark:bg-background/60 z-0"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
