@@ -17,7 +17,7 @@ const Skills = () => {
         
         <CompetencyMatrix />
       
-        <div className="absolute inset-0 backdrop-blur-sm bg-background/40 dark:bg-background/60 z-0"></div>
+        
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -32,6 +32,7 @@ const Skills = () => {
               index={index}
             />
           ))}
+          <div className="absolute inset-0 backdrop-blur-sm bg-background/40 dark:bg-background/60 z-0"></div>
         </motion.div>
 
         <SkillsHighlights />
