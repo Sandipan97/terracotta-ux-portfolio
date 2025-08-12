@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { EditableImage } from '@/components/ui/editable-image';
@@ -22,11 +23,20 @@ interface FeaturedProjectCardProps {
 }
 
 const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardProps) => {
+  const navigate = useNavigate();
+
   const handleCardClick = () => {
     if (project.slug) {
-      window.open(`/projects/${project.slug}`, '_blank');
+      navigate(`/projects/${project.slug}`);
     } else {
-      window.open(`/projects/${project.id}`, '_blank');
+      navigate(`/projects/${project.id}`);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleCardClick();
     }
   };
 
@@ -45,6 +55,10 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
       <Card 
         className="group h-full bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-500 cursor-pointer overflow-hidden dark-glow-card"
         onClick={handleCardClick}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-label={`View project: ${project.title}`}
       >
         <CardContent className="p-0 h-full flex flex-col">
           {/* Image container with mobile-responsive height */}
