@@ -5,45 +5,45 @@ import { Search, Lightbulb, Palette, Code, TestTube, Rocket } from 'lucide-react
 import { EditableImage } from '@/components/ui/editable-image';
 const ProcessTimeline = () => {
   const phases = [{
-    phase: "Discovery",
+    phase: "Requirements Overload",
     icon: Search,
-    duration: "2 weeks",
-    deliverables: ["Stakeholder interviews", "Competitive analysis", "Current state audit"],
+    duration: "Evolving Timeline",
+    deliverables: ["Dynamic Requirements", "Stakeholder interviews", "Competitive analysis", "Current state audit"],
     color: "blue",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }, {
-    phase: "Research",
+    phase: "Incremental Research",
     icon: Lightbulb,
-    duration: "3 weeks",
+    duration: "6 weeks + 6 weeks",
     deliverables: ["User interviews", "Kitchen observations", "Pain point mapping"],
     color: "green",
     image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }, {
-    phase: "Design",
+    phase: "Design in Phases",
     icon: Palette,
-    duration: "4 weeks",
+    duration: "50 weeks",
     deliverables: ["Design system", "Wireframes", "High-fidelity prototypes"],
     color: "purple",
     image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }, {
     phase: "Development",
     icon: Code,
-    duration: "6 weeks",
-    deliverables: ["Component library", "Frontend implementation", "API integration"],
+    duration: "Parallel timeline",
+    deliverables: ["Dev connect", "Validate frontend implementation", "SPRINT management"],
     color: "orange",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }, {
     phase: "Testing",
     icon: TestTube,
-    duration: "2 weeks",
-    deliverables: ["Usability testing", "Kitchen staff feedback", "Performance optimization"],
+    duration: "8 weeks",
+    deliverables: ["Usability testing", "Brand feedback", "Customer Feedback", "Performance optimization"],
     color: "red",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }, {
     phase: "Launch",
     icon: Rocket,
-    duration: "1 week",
-    deliverables: ["Deployment", "Staff training", "Success metrics tracking"],
+    duration: "4 week",
+    deliverables: ["Deployment", "NAFEM 2025 Showcase", "Success metrics tracking"],
     color: "emerald",
     image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }];
