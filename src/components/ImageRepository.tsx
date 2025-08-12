@@ -45,7 +45,7 @@ const ImageRepository = () => {
 
   return (
     <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ const ImageRepository = () => {
           </Badge>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2">
           {allImages.map((imagePath, index) => {
             const category = getImageCategory(imagePath);
             const fileName = imagePath.split('/').pop() || '';
@@ -74,57 +74,58 @@ const ImageRepository = () => {
                 key={imagePath}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                transition={{ duration: 0.3, delay: index * 0.02 }}
                 viewport={{ once: true }}
               >
-                <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
+                <Card className="group hover:shadow-md transition-all duration-200 overflow-hidden">
                   <CardContent className="p-0">
                     <div className="relative aspect-square overflow-hidden">
                       <EditableImage
                         src={imagePath}
                         alt={fileName}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                         priority="low"
                         lazy={true}
+                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 25vw, (max-width: 1024px) 16.66vw, (max-width: 1280px) 12.5vw, 10vw"
                       />
                       
                       {/* Overlay with actions */}
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-1">
                         <Button
                           size="sm"
                           variant="secondary"
                           onClick={() => setSelectedImage(imagePath)}
-                          className="h-8 w-8 p-0"
+                          className="h-6 w-6 p-0"
                         >
-                          <Eye className="w-4 h-4" />
+                          <Eye className="w-3 h-3" />
                         </Button>
                         <Button
                           size="sm"
                           variant="secondary"
                           onClick={() => copyImagePath(imagePath)}
-                          className="h-8 w-8 p-0"
+                          className="h-6 w-6 p-0"
                         >
-                          <Copy className="w-4 h-4" />
+                          <Copy className="w-3 h-3" />
                         </Button>
                         <Button
                           size="sm"
                           variant="secondary"
                           onClick={() => downloadImage(imagePath)}
-                          className="h-8 w-8 p-0"
+                          className="h-6 w-6 p-0"
                         >
-                          <Download className="w-4 h-4" />
+                          <Download className="w-3 h-3" />
                         </Button>
                       </div>
                     </div>
                     
-                    <div className="p-3">
+                    <div className="p-2">
                       <Badge 
                         variant="outline" 
-                        className="text-xs mb-2"
+                        className="text-[10px] mb-1 px-1 py-0 h-4"
                       >
                         {formatCategoryName(category)}
                       </Badge>
-                      <p className="text-xs text-muted-foreground truncate" title={fileName}>
+                      <p className="text-[10px] text-muted-foreground truncate" title={fileName}>
                         {fileName}
                       </p>
                     </div>
