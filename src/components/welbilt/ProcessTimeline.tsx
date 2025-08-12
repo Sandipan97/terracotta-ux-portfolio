@@ -8,21 +8,21 @@ const ProcessTimeline = () => {
     phase: "Requirements Overload",
     icon: Search,
     duration: "Evolving Timeline",
-    deliverables: ["Dynamic Requirements", "Stakeholder interviews", "Competitive analysis", "Current state audit"],
+    deliverables: ["Dynamic Requirements by multiple stakeholders", "Complete revamp + Legacy website support", "Competitive analysis + Brand guidelines", "Current state audit"],
     color: "blue",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }, {
     phase: "Incremental Research",
     icon: Lightbulb,
     duration: "6 weeks + 6 weeks",
-    deliverables: ["User interviews", "Kitchen observations", "Pain point mapping"],
+    deliverables: ["Define market standards", "Incorporate existing user demands", "Pain point mapping", "Architecture + Visual language"],
     color: "green",
     image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }, {
     phase: "Design in Phases",
     icon: Palette,
     duration: "50 weeks",
-    deliverables: ["Design system", "Wireframes", "High-fidelity prototypes"],
+    deliverables: ["Design system with customized components", "Detailed Wireframes in 4 breakpoints", "High-fidelity prototypes and documentation"],
     color: "purple",
     image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }, {
