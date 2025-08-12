@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import FeaturedProjects from '@/components/FeaturedProjects';
+import ImageRepository from '@/components/ImageRepository';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -46,6 +48,9 @@ const Projects = () => {
       <section className="py-20 bg-background">
         <FeaturedProjects showAll={true} />
       </section>
+
+      {/* Image Repository Section */}
+      <ImageRepository />
     </div>
   );
 };
