@@ -136,8 +136,7 @@ const PGDataloggerProject = () => {
           Back to Projects
         </button>
 
-        <EditableImage src="https://https://github.com/Sandipan97/terracotta-ux-portfolio/blob/main/public/lovable-uploads/PG%20hero.png"
-          //"/lovable-uploads/PG hero1.svg" alt="P&G Datalogger interface comparison - old vs new design" className="w-full h-full object-cover object-center" objectFit="cover" objectPosition="center" fallbackSrc="/lovable-uploads/PG hero1.svg"
+        <EditableImage src="/lovable-uploads/PG hero1.svg"  className="w-full h-full object-cover object-center" objectFit="cover" objectPosition="center" "
       //editableKey="pg-datalogger-hero-image"
       />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
