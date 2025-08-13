@@ -140,7 +140,7 @@ const PGDataloggerProject = () => {
         </button>
 
         <EditableImage 
-          src="https://cdn.jsdelivr.net/gh/Sandipan97/terracotta-ux-portfolio/public/lovable-uploads/PG hero.png" 
+          src="/lovable-uploads/PG Hero img.webp" 
           className="w-full h-full object-cover object-center" 
           objectFit="cover" 
           objectPosition="center"
