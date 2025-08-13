@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { normalizeImageUrl, isLocalAsset } from '@/lib/assets';
 import { imagePreloader } from '@/services/imagePreloader';
 
 interface EditableImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -37,39 +38,23 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
     ...props 
   }, ref) => {
-    const normalizeImageUrl = (url: string) => {
-      if (!url) return url;
-      
-      // For lovable-uploads, ensure proper absolute path
-      if (url.includes('lovable-uploads') && !url.startsWith('http') && !url.startsWith('/')) {
-        return `/${url}`;
-      }
-      
-      // For relative paths, convert to absolute
-      if (url.startsWith('./') || (!url.startsWith('http') && !url.startsWith('/') && !url.includes('lovable-uploads'))) {
-        return new URL(url, window.location.origin).href;
-      }
-      
-      return url;
-    };
-
     const normalizedSrc = normalizeImageUrl(src || '');
     const normalizedFallbackSrc = normalizeImageUrl(fallbackSrc);
 
-    // Simplified state management - no complex preloading for lovable-uploads
+    // Simplified state management - immediate loading for local assets
     const [imgSrc, setImgSrc] = useState<string | undefined>(
-      normalizedSrc?.includes('lovable-uploads') ? normalizedSrc : (lazy && !eager ? undefined : normalizedSrc)
+      isLocalAsset(normalizedSrc) ? normalizedSrc : (lazy && !eager ? undefined : normalizedSrc)
     );
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(!normalizedSrc?.includes('lovable-uploads'));
-    const [isVisible, setIsVisible] = useState(!lazy || eager || normalizedSrc?.includes('lovable-uploads'));
+    const [loading, setLoading] = useState(!isLocalAsset(normalizedSrc));
+    const [isVisible, setIsVisible] = useState(!lazy || eager || isLocalAsset(normalizedSrc));
     const [retryCount, setRetryCount] = useState(0);
     const imgRef = useRef<HTMLImageElement>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
-    // Intersection observer for lazy loading - skip for lovable-uploads
+    // Intersection observer for lazy loading - skip for local assets
     useEffect(() => {
-      if (!lazy || isVisible || eager || normalizedSrc?.includes('lovable-uploads')) return;
+      if (!lazy || isVisible || eager || isLocalAsset(normalizedSrc)) return;
 
       observerRef.current = new IntersectionObserver(
         (entries) => {
@@ -103,8 +88,8 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     useEffect(() => {
       if (!normalizedSrc) return;
 
-      // For lovable-uploads: immediate loading, no preloader
-      if (normalizedSrc.includes('lovable-uploads')) {
+      // For local assets: immediate loading, no preloader
+      if (isLocalAsset(normalizedSrc)) {
         setImgSrc(normalizedSrc);
         setLoading(false);
         setError(false);
