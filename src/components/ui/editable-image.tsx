@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { imagePreloader } from '@/services/imagePreloader';
@@ -55,7 +56,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     const normalizedSrc = normalizeImageUrl(src || '');
     const normalizedFallbackSrc = normalizeImageUrl(fallbackSrc);
 
-    // Simplified state management for faster loading
+    // Simplified state management - no complex preloading for lovable-uploads
     const [imgSrc, setImgSrc] = useState<string | undefined>(
       normalizedSrc?.includes('lovable-uploads') ? normalizedSrc : (lazy && !eager ? undefined : normalizedSrc)
     );
@@ -66,7 +67,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     const imgRef = useRef<HTMLImageElement>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
-    // Simplified intersection observer - skip for lovable-uploads
+    // Intersection observer for lazy loading - skip for lovable-uploads
     useEffect(() => {
       if (!lazy || isVisible || eager || normalizedSrc?.includes('lovable-uploads')) return;
 
@@ -82,7 +83,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
           });
         },
         {
-          rootMargin: '100px', // Start loading 100px before visible
+          rootMargin: '100px',
           threshold: 0.1
         }
       );
@@ -98,11 +99,11 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
       };
     }, [lazy, isVisible, eager, normalizedSrc]);
 
-    // Enhanced image loading with retry logic
+    // Simplified image loading
     useEffect(() => {
       if (!normalizedSrc) return;
 
-      // For lovable-uploads: immediate loading, no preloader, no delays
+      // For lovable-uploads: immediate loading, no preloader
       if (normalizedSrc.includes('lovable-uploads')) {
         setImgSrc(normalizedSrc);
         setLoading(false);
@@ -117,38 +118,39 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         try {
           setLoading(true);
           
-          // Skip preloader for critical above-the-fold external images to avoid CORS issues
+          // For critical images (high priority or eager), skip preloader to avoid CORS/timeout issues
           const isCriticalImage = priority === 'high' || eager;
           
-          if (!isCriticalImage && imagePreloader.isLoaded(normalizedSrc)) {
-            setImgSrc(normalizedSrc);
-            setLoading(false);
-            setError(false);
-            return;
-          }
-
-          // For critical images, load directly without preloader
           if (isCriticalImage) {
+            // Direct loading for critical images
             setImgSrc(normalizedSrc);
             setError(false);
           } else {
-            // Use preloader for non-critical images
-            await imagePreloader.preload(normalizedSrc, { 
-              priority,
-              eager: eager || priority === 'high'
-            });
-            
-            setImgSrc(normalizedSrc);
-            setError(false);
+            // Use preloader for non-critical images with better error handling
+            try {
+              await imagePreloader.preload(normalizedSrc, { 
+                priority,
+                eager: false,
+                timeout: 8000 // Increased timeout
+              });
+              
+              setImgSrc(normalizedSrc);
+              setError(false);
+            } catch (preloadError) {
+              // If preloader fails, try direct loading as fallback
+              console.warn('Preloader failed, trying direct load:', preloadError);
+              setImgSrc(normalizedSrc);
+              setError(false);
+            }
           }
         } catch (err) {
           console.warn(`Failed to load image (attempt ${retryCount + 1}):`, normalizedSrc, err);
           
           // Retry logic for transient failures
-          if (retryCount < 2) {
+          if (retryCount < 1) {
             setTimeout(() => {
               setRetryCount(prev => prev + 1);
-            }, 1000 * (retryCount + 1)); // Exponential backoff
+            }, 1000 * (retryCount + 1));
             return;
           }
           
@@ -183,7 +185,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
 
     const handleLoad = () => {
       setLoading(false);
-      setRetryCount(0); // Reset retry count on successful load
+      setRetryCount(0);
     };
 
     const imageStyle = {
@@ -199,7 +201,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
       ? "w-full h-full object-cover transition-opacity duration-300" 
       : "object-cover transition-opacity duration-300";
 
-    // Enhanced loading skeleton with pulse animation
+    // Enhanced loading skeleton
     if (loading || !isVisible) {
       return (
         <div 
@@ -212,7 +214,6 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
           role="img"
           aria-label={loading ? "Loading image..." : alt || "Image"}
         >
-          {/* Progressive loading shimmer effect */}
           <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           
           {loading && isVisible && (
@@ -238,8 +239,6 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         loading={eager || priority === 'high' ? 'eager' : 'lazy'}
         decoding="async"
         sizes={responsive ? sizes : undefined}
-        referrerPolicy="no-referrer"
-        crossOrigin="anonymous"
         {...props}
       />
     );

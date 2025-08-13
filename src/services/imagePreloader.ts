@@ -19,11 +19,13 @@ class ImagePreloader {
   private cache: ImageCache = {};
   private loadingQueue: Array<{ src: string; options: PreloadOptions }> = [];
   private isProcessingQueue = false;
-  private maxConcurrentLoads = 6;
+  private maxConcurrentLoads = 4; // Reduced to prevent overwhelming the browser
   private activeLoads = 0;
 
+  // Skip preloading for problematic hosts
+  private skipHosts = ['images.unsplash.com', 'unsplash.com'];
+
   private getFullImageUrl(src: string): string {
-    // Handle relative paths and ensure proper base URL
     if (src.startsWith('/')) {
       const baseUrl = window.location.origin;
       return `${baseUrl}${src}`;
@@ -31,9 +33,18 @@ class ImagePreloader {
     return src;
   }
 
-  preload(src: string, options: PreloadOptions = {}): Promise<void> {
+  private shouldSkipPreload(src: string): boolean {
     // Skip preloading for lovable-uploads to avoid CORS issues
     if (src.includes('lovable-uploads')) {
+      return true;
+    }
+    
+    // Skip preloading for rate-limited hosts
+    return this.skipHosts.some(host => src.includes(host));
+  }
+
+  preload(src: string, options: PreloadOptions = {}): Promise<void> {
+    if (this.shouldSkipPreload(src)) {
       return Promise.resolve();
     }
 
@@ -45,15 +56,14 @@ class ImagePreloader {
 
     const promise = new Promise<void>((resolve, reject) => {
       const img = new Image();
-      const timeout = options.timeout || (options.priority === 'high' ? 5000 : 10000);
+      const timeout = options.timeout || 8000; // Increased timeout
 
-      // Set loading strategy based on options
       if (options.eager) {
         img.loading = 'eager';
       }
 
-      // Set CORS only when explicitly provided
-      if (options.crossOrigin !== undefined) {
+      // Only set CORS when explicitly provided and not for local images
+      if (options.crossOrigin !== undefined && !fullUrl.includes(window.location.origin)) {
         img.crossOrigin = options.crossOrigin;
       }
 
@@ -139,9 +149,8 @@ class ImagePreloader {
     this.loadingQueue = [];
   }
 
-  // Background preload all images after initial load
+  // Background preload with better error handling
   preloadAllImages(): void {
-    // Import here to avoid circular dependency
     import('./imageInventory').then(({ getAllImages }) => {
       const allImages = getAllImages();
       
@@ -150,46 +159,38 @@ class ImagePreloader {
       allImages.forEach((src) => {
         setTimeout(() => {
           this.preload(src, { priority: 'low' }).catch(() => {
-            console.warn(`Failed to background preload: ${src}`);
+            // Silent fail for background preloading
           });
         }, delay);
-        delay += 50; // 50ms between each image
+        delay += 100; // Increased delay to 100ms between images
       });
     });
   }
 
-  // Predictive preloading based on current route
+  // Enhanced route-specific preloading
   preloadForRoute(pathname: string): void {
     import('./imageInventory').then(({ getCriticalImages, getProjectImages }) => {
       const criticalImages = getCriticalImages();
       
-      // Always preload critical images with high priority
-      this.preloadMultiple(criticalImages, { priority: 'high', eager: true });
+      // Always preload critical lovable-uploads images (they load directly anyway)
+      const localCriticalImages = criticalImages.filter(src => src.includes('lovable-uploads'));
+      if (localCriticalImages.length > 0) {
+        this.preloadMultiple(localCriticalImages, { priority: 'high', eager: true });
+      }
 
-      // Route-specific preloading
+      // Route-specific preloading with reduced scope
       if (pathname === '/') {
-        // Homepage: preload featured project images
-        this.preloadMultiple([
-          ...getProjectImages('welbilt-kitchen-connect'),
-          ...getProjectImages('pg-datalogger'),
-          ...getProjectImages('o2c-project')
-        ], { priority: 'medium' });
-      } else if (pathname === '/projects') {
-        // Projects page: preload all showcase images
-        const showcaseImages = [
-          ...getProjectImages('welbilt-kitchen-connect'),
-          ...getProjectImages('pg-datalogger'),
-          ...getProjectImages('o2c-project'),
-          ...getProjectImages('dripometer'),
-          ...getProjectImages('farm-monitoring'),
-          ...getProjectImages('toy-anatomy'),
-          ...getProjectImages('cyclops-ar-manual')
-        ];
-        this.preloadMultiple(showcaseImages, { priority: 'high' });
+        // Homepage: preload key project images
+        const homeImages = [
+          ...getProjectImages('welbilt-kitchen-connect').slice(0, 2),
+          ...getProjectImages('pg-datalogger').slice(0, 2)
+        ].filter(src => src.includes('lovable-uploads'));
+        
+        this.preloadMultiple(homeImages, { priority: 'medium' });
       } else if (pathname.startsWith('/projects/')) {
         // Specific project page
         const projectSlug = pathname.split('/projects/')[1];
-        const projectImages = getProjectImages(projectSlug);
+        const projectImages = getProjectImages(projectSlug).filter(src => src.includes('lovable-uploads'));
         if (projectImages.length > 0) {
           this.preloadMultiple(projectImages, { priority: 'high', eager: true });
         }
@@ -200,7 +201,7 @@ class ImagePreloader {
 
 export const imagePreloader = new ImagePreloader();
 
-// Initialize background preloading after a delay
+// Initialize background preloading with delay
 setTimeout(() => {
   imagePreloader.preloadAllImages();
-}, 2000);
+}, 3000); // Increased delay
