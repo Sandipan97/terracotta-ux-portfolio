@@ -36,6 +36,24 @@ export const useRoutePreloader = () => {
         import('@/pages/ToyAnatomyProject');
         import('@/pages/CyclopsARManual');
         
+      } else if (currentPath === '/projects/welbilt-kitchen-connect') {
+        // Welbilt page: preload the two hero images that are failing
+        const welbiltHeroImages = [
+          'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        ];
+        
+        // Use timeout to avoid blocking initial render
+        setTimeout(() => {
+          welbiltHeroImages.forEach((src, index) => {
+            // Direct image preloading without the service to avoid CORS issues
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.referrerPolicy = 'no-referrer';
+            img.src = src;
+          });
+        }, 100);
+        
       } else if (currentPath.startsWith('/projects/')) {
         // From project page, likely to visit other projects or contact
         import('@/pages/Projects');

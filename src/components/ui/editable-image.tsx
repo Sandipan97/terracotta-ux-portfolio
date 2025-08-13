@@ -37,19 +37,40 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
     ...props 
   }, ref) => {
+    // Normalize image URL to handle relative paths properly
+    const normalizeImageUrl = (url: string) => {
+      if (!url) return url;
+      
+      // For lovable-uploads, ensure proper absolute path
+      if (url.includes('lovable-uploads') && !url.startsWith('http') && !url.startsWith('/')) {
+        return `/${url}`;
+      }
+      
+      // For relative paths, convert to absolute
+      if (url.startsWith('./') || (!url.startsWith('http') && !url.startsWith('/') && !url.includes('lovable-uploads'))) {
+        return new URL(url, window.location.origin).href;
+      }
+      
+      return url;
+    };
+
+    const normalizedSrc = normalizeImageUrl(src || '');
+    const normalizedFallbackSrc = normalizeImageUrl(fallbackSrc);
+
     // Simplified state management for faster loading
     const [imgSrc, setImgSrc] = useState<string | undefined>(
-      src?.includes('lovable-uploads') ? src : (lazy && !eager ? undefined : src)
+      normalizedSrc?.includes('lovable-uploads') ? normalizedSrc : (lazy && !eager ? undefined : normalizedSrc)
     );
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(!src?.includes('lovable-uploads'));
-    const [isVisible, setIsVisible] = useState(!lazy || eager || src?.includes('lovable-uploads'));
+    const [loading, setLoading] = useState(!normalizedSrc?.includes('lovable-uploads'));
+    const [isVisible, setIsVisible] = useState(!lazy || eager || normalizedSrc?.includes('lovable-uploads'));
+    const [retryCount, setRetryCount] = useState(0);
     const imgRef = useRef<HTMLImageElement>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
     // Simplified intersection observer - skip for lovable-uploads
     useEffect(() => {
-      if (!lazy || isVisible || eager || src?.includes('lovable-uploads')) return;
+      if (!lazy || isVisible || eager || normalizedSrc?.includes('lovable-uploads')) return;
 
       observerRef.current = new IntersectionObserver(
         (entries) => {
@@ -77,15 +98,15 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
           observerRef.current.disconnect();
         }
       };
-    }, [lazy, isVisible, eager]);
+    }, [lazy, isVisible, eager, normalizedSrc]);
 
-    // Ultra-fast image loading - simplified for lovable-uploads
+    // Enhanced image loading with retry logic
     useEffect(() => {
-      if (!src) return;
+      if (!normalizedSrc) return;
 
       // For lovable-uploads: immediate loading, no preloader, no delays
-      if (src.includes('lovable-uploads')) {
-        setImgSrc(src);
+      if (normalizedSrc.includes('lovable-uploads')) {
+        setImgSrc(normalizedSrc);
         setLoading(false);
         setError(false);
         return;
@@ -98,26 +119,44 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         try {
           setLoading(true);
           
-          // Check if external image is already loaded
-          if (imagePreloader.isLoaded(src)) {
-            setImgSrc(src);
+          // Skip preloader for critical above-the-fold external images to avoid CORS issues
+          const isCriticalImage = priority === 'high' || eager;
+          
+          if (!isCriticalImage && imagePreloader.isLoaded(normalizedSrc)) {
+            setImgSrc(normalizedSrc);
             setLoading(false);
             setError(false);
             return;
           }
 
-          // Simple preload for external images only
-          await imagePreloader.preload(src, { 
-            priority,
-            eager: eager || priority === 'high'
-          });
-          
-          setImgSrc(src);
-          setError(false);
+          // For critical images, load directly without preloader
+          if (isCriticalImage) {
+            setImgSrc(normalizedSrc);
+            setError(false);
+          } else {
+            // Use preloader for non-critical images
+            await imagePreloader.preload(normalizedSrc, { 
+              priority,
+              eager: eager || priority === 'high'
+            });
+            
+            setImgSrc(normalizedSrc);
+            setError(false);
+          }
         } catch (err) {
-          // Simple fallback - no complex retry logic
-          if (!error && src !== fallbackSrc) {
-            setImgSrc(fallbackSrc);
+          console.warn(`Failed to load image (attempt ${retryCount + 1}):`, normalizedSrc, err);
+          
+          // Retry logic for transient failures
+          if (retryCount < 2) {
+            setTimeout(() => {
+              setRetryCount(prev => prev + 1);
+            }, 1000 * (retryCount + 1)); // Exponential backoff
+            return;
+          }
+          
+          // Final fallback
+          if (!error && normalizedSrc !== normalizedFallbackSrc) {
+            setImgSrc(normalizedFallbackSrc);
             setError(true);
           }
         } finally {
@@ -126,11 +165,19 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
       };
 
       loadImage();
-    }, [src, isVisible, fallbackSrc, error, priority, eager]);
+    }, [normalizedSrc, isVisible, normalizedFallbackSrc, error, priority, eager, retryCount]);
 
     const handleError = () => {
-      if (!error && src !== fallbackSrc) {
-        setImgSrc(fallbackSrc);
+      console.warn('Image failed to load:', imgSrc);
+      
+      // Retry once before falling back
+      if (retryCount < 1 && imgSrc !== normalizedFallbackSrc) {
+        setRetryCount(prev => prev + 1);
+        return;
+      }
+      
+      if (!error && imgSrc !== normalizedFallbackSrc) {
+        setImgSrc(normalizedFallbackSrc);
         setError(true);
       }
       setLoading(false);
@@ -138,6 +185,7 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
 
     const handleLoad = () => {
       setLoading(false);
+      setRetryCount(0); // Reset retry count on successful load
     };
 
     const imageStyle = {
@@ -192,7 +240,8 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
         loading={eager || priority === 'high' ? 'eager' : 'lazy'}
         decoding="async"
         sizes={responsive ? sizes : undefined}
-        
+        referrerPolicy="no-referrer"
+        crossOrigin="anonymous"
         {...props}
       />
     );
