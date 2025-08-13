@@ -1,40 +1,68 @@
+
 import { motion } from 'framer-motion';
 import { Target, Users, BarChart, MessageSquare, Lightbulb, ChevronDown } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent } from '@/components/ui/card';
-const methodologies = [{
-  icon: Users,
-  title: "User Research",
-  description: "Conducted in-depth interviews with kitchen staff and managers to understand pain points and workflows",
-  connection: "research-q1"
-}, {
-  icon: BarChart,
-  title: "Usability Analysis",
-  description: "Evaluated existing system performance and identified critical inefficiencies in daily operations",
-  connection: "research-q2"
-}, {
-  icon: MessageSquare,
-  title: "Stakeholder Workshops",
-  description: "Facilitated collaborative sessions with development teams and business stakeholders",
-  connection: "research-q3"
-}, {
-  icon: Lightbulb,
-  title: "Design Thinking",
-  description: "Applied systematic design methodology to transform insights into actionable solutions",
-  connection: "research-q4"
-}];
+
+const methodologies = [
+  {
+    icon: Users,
+    title: "User Research",
+    description: "Conducted in-depth interviews with kitchen staff and managers to understand pain points and workflows",
+    connection: "research-q1"
+  },
+  {
+    icon: BarChart,
+    title: "Usability Analysis", 
+    description: "Evaluated existing system performance and identified critical inefficiencies in daily operations",
+    connection: "research-q2"
+  },
+  {
+    icon: MessageSquare,
+    title: "Stakeholder Workshops",
+    description: "Facilitated collaborative sessions with development teams and business stakeholders", 
+    connection: "research-q3"
+  },
+  {
+    icon: Lightbulb,
+    title: "Design Thinking",
+    description: "Applied systematic design methodology to transform insights into actionable solutions",
+    connection: "research-q4"
+  }
+];
+
 export const ObjectiveMethodologies = () => {
-  return <section id="objective" className="py-20 bg-background">
+  return (
+    <section id="objective" className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto"
+        >
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <motion.h2 
+              className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Objective
+            </motion.h2>
+            <motion.p 
+              className="text-lg text-muted-foreground max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              Our systematic approach to transforming kitchen management through design
+            </motion.p>
+          </div>
+
           <Accordion type="single" defaultValue="objective" collapsible className="space-y-6">
             {/* Objective Section */}
             <AccordionItem value="objective" className="border-border rounded-2xl bg-card">
@@ -79,5 +107,6 @@ export const ObjectiveMethodologies = () => {
           </Accordion>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };

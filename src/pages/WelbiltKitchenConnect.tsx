@@ -25,10 +25,10 @@ const WelbiltKitchenConnect = () => {
 
   const navigationSections = [
     { id: 'overview', label: 'Overview' },
+    { id: 'objective', label: 'Objective' },
     { id: 'transformation', label: 'Transformation' },
     { id: 'design-system', label: 'Design System' },
     { id: 'process', label: 'Process' },
-    { id: 'objective', label: 'Objective' },
     { id: 'solutions', label: 'Solutions' },
     { id: 'research', label: 'Research' },
     { id: 'findings', label: 'Findings' },
@@ -85,6 +85,11 @@ const WelbiltKitchenConnect = () => {
           <HeroSection />
         </div>
 
+        {/* Objective Section - Moved above Transformation */}
+        <div id="objective">
+          <ObjectiveMethodologies />
+        </div>
+
         {/* Before & After Transformation */}
         <div id="transformation">
           <BeforeAfterShowcase />
@@ -100,10 +105,7 @@ const WelbiltKitchenConnect = () => {
           <ProcessTimeline />
         </div>
 
-        {/* New Structured Content */}
-        <div id="objective">
-          <ObjectiveMethodologies />
-        </div>
+        {/* Additional Sections */}
         <div id="solutions">
           <EnhancedDesignSolutions />
         </div>
