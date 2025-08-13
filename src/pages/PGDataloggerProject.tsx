@@ -140,11 +140,11 @@ const PGDataloggerProject = () => {
         </button>
 
         <EditableImage 
-          src="https://sandipan97.github.io./terracotta-ux-portfolio/public/lovable-uploads/PG Hero img.webp" 
+          src={require(/lovable-uploads/PG Hero img.webp" 
           className="w-full h-full object-cover object-center" 
           objectFit="cover" 
           objectPosition="center"
-          editableKey="pg-datalogger-hero-image"
+          }
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
       </section>
