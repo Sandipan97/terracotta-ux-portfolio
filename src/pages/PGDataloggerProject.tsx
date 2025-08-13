@@ -11,8 +11,10 @@ import Footer from '@/components/Footer';
 import StickyNavigation from '@/components/pg-datalogger/StickyNavigation';
 import ProcessTimeline from '@/components/pg-datalogger/ProcessTimeline';
 import BeforeAfterShowcase from '@/components/pg-datalogger/BeforeAfterShowcase';
+
 const PGDataloggerProject = () => {
   const navigate = useNavigate();
+  
   const navigationSections = [{
     id: 'overview',
     label: 'Overview'
@@ -125,6 +127,7 @@ const PGDataloggerProject = () => {
   const handleBack = () => {
     navigate('/projects');
   };
+
   return <div className="min-h-screen bg-background">
       <Navbar />
       <StickyNavigation sections={navigationSections} />
@@ -136,9 +139,13 @@ const PGDataloggerProject = () => {
           Back to Projects
         </button>
 
-        <EditableImage src="/lovable-uploads/PG hero1.svg"  className="w-full h-full object-cover object-center" objectFit="cover" objectPosition="center" "
-      //editableKey="pg-datalogger-hero-image"
-      />
+        <EditableImage 
+          src="/lovable-uploads/PG hero1.svg" 
+          className="w-full h-full object-cover object-center" 
+          objectFit="cover" 
+          objectPosition="center"
+          editableKey="pg-datalogger-hero-image"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
       </section>
 
