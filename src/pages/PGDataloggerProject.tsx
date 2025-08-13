@@ -140,11 +140,10 @@ const PGDataloggerProject = () => {
         </button>
 
         <EditableImage 
-          src={require(/lovable-uploads/PG Hero img.webp" 
+          src="/lovable-uploads/PG Hero img.webp" 
           className="w-full h-full object-cover object-center" 
           objectFit="cover" 
           objectPosition="center"
-          }
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
       </section>
