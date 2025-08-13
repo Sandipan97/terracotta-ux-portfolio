@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { imagePreloader } from '@/services/imagePreloader';
@@ -37,7 +36,6 @@ const EditableImage = React.forwardRef<HTMLImageElement, EditableImageProps>(
     sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
     ...props 
   }, ref) => {
-    // Normalize image URL to handle relative paths properly
     const normalizeImageUrl = (url: string) => {
       if (!url) return url;
       
