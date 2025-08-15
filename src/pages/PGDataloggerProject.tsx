@@ -320,7 +320,7 @@ const PGDataloggerProject = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="w-full max-w-full overflow-hidden">
-                    <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 1.webp" className="w-full h-auto max-h-[400px] object-contain rounded-lg" objectFit="contain" objectPosition="center"  />
+                    <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 2.webp" className="w-full h-auto max-h-[400px] object-contain rounded-lg" objectFit="contain" objectPosition="center"  />
                   </div>
                 </CardContent>
               </Card>
