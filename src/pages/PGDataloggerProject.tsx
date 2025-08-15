@@ -314,7 +314,7 @@ const PGDataloggerProject = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="w-full max-w-full overflow-hidden">
-                    <EditableImage src="/lovable-uploads/pg heuristic 1.png" alt="UX heuristic evaluation and methodology documentation" className="w-full h-auto max-h-[400px] object-contain rounded-lg" objectFit="contain" objectPosition="center" fallbackSrc="/placeholder.svg" editableKey="pg-datalogger-heuristic-image" />
+                    <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 1.webp" alt="UX heuristic evaluation and methodology documentation" className="w-full h-auto max-h-[400px] object-contain rounded-lg" objectFit="contain" objectPosition="center" editableKey="pg-datalogger-heuristic-image" />
                   </div>
                 </CardContent>
               </Card>
