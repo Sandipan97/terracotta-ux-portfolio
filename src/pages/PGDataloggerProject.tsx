@@ -205,13 +205,13 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="/lovable-uploads/87dd02b2-69e7-47bd-a68d-7039d244594e.png" alt="Legacy P&G Datalogger interface showing cluttered layout" className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" objectFit="cover" objectPosition="center" fallbackSrc="/placeholder.svg" editableKey="pg-datalogger-before-image" />
+              <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PG before.webp" alt="Legacy P&G Datalogger interface showing unstructured layout" className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" objectFit="cover" objectPosition="center"  editableKey="pg-datalogger-before-image" />
             </motion.div>
 
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" alt="Modern redesigned P&G Datalogger dashboard" className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" objectFit="cover" objectPosition="center" fallbackSrc="/placeholder.svg" editableKey="pg-datalogger-after-image" />
+              <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PG after.webp"  alt="Modern redesigned P&G Datalogger dashboard" className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" objectFit="cover" objectPosition="center"  editableKey="pg-datalogger-after-image" />
             </motion.div>
           </div>
         </div>
