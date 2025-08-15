@@ -13,7 +13,7 @@ const ProcessTimeline = () => {
     title: "Heuristic Evaluation",
     description: "UX audit using Nielsen's usability principles",
     duration: "1 week",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 1.webp",
     alt: "UX evaluation and analysis process"
   }, {
     title: "Design System",
