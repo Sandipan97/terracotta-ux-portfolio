@@ -10,7 +10,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StickyNavigation from '@/components/pg-datalogger/StickyNavigation';
 import ProcessTimeline from '@/components/pg-datalogger/ProcessTimeline';
-import BeforeAfterShowcase from '@/components/pg-datalogger/BeforeAfterShowcase';
 
 const PGDataloggerProject = () => {
   const navigate = useNavigate();
@@ -36,9 +35,6 @@ const PGDataloggerProject = () => {
   }, {
     id: 'process',
     label: 'Process'
-  }, {
-    id: 'showcase',
-    label: 'Showcase'
   }, {
     id: 'impact',
     label: 'Impact'
@@ -222,7 +218,6 @@ const PGDataloggerProject = () => {
         <ProcessTimeline />
       </div>
 
-    
       {/* UX Goals & Strategy */}
       <section id="goals" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
@@ -395,6 +390,7 @@ const PGDataloggerProject = () => {
           </div>
         </div>
       </section>
+
        {/* Final UI Showcase */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -477,15 +473,6 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-    
-
-      {/* Before & After Showcase */}
-      <div id="showcase">
-        <BeforeAfterShowcase />
-      </div>
-
-        
-      
       {/* Measurable Impact */}
       <section id="impact" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -568,8 +555,6 @@ const PGDataloggerProject = () => {
           </div>
         </div>
       </section>
-
-     
 
       {/* Call to Action */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary/5">
