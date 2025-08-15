@@ -217,6 +217,12 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
+      {/* Process Timeline */}
+      <div id="process">
+        <ProcessTimeline />
+      </div>
+
+    
       {/* UX Goals & Strategy */}
       <section id="goals" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
@@ -471,10 +477,7 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-      {/* Process Timeline */}
-      <div id="process">
-        <ProcessTimeline />
-      </div>
+    
 
       {/* Before & After Showcase */}
       <div id="showcase">
