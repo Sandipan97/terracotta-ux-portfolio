@@ -93,7 +93,7 @@ const BeforeAfterShowcase = () => {
                 </Badge>
               </div>
               <div className="aspect-video bg-muted rounded-lg mb-4 relative overflow-hidden">
-                <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/public/lovable-uploads/Welbilt showcase.webp" 
+                <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/Welbilt showcase.webp" 
                      alt="Modern kitchen management interface" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-green-900/10"></div>
               </div>
