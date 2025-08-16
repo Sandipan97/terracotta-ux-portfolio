@@ -10,42 +10,42 @@ const ProcessTimeline = () => {
     duration: "Evolving Timeline",
     deliverables: ["Dynamic Requirements by multiple stakeholders", "Complete revamp + Legacy website support", "Competitive analysis + Brand guidelines", "Current state audit"],
     color: "blue",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB1.webp"
   }, {
     phase: "Incremental Research",
     icon: Lightbulb,
     duration: "6 weeks + 6 weeks",
     deliverables: ["Define market standards", "Incorporate existing user demands", "Pain point mapping", "Architecture + Visual language"],
     color: "green",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB2.webp"
   }, {
     phase: "Design in Phases",
     icon: Palette,
     duration: "50 weeks",
     deliverables: ["Design system with customized components", "Detailed Wireframes in 4 breakpoints", "High-fidelity prototypes and documentation"],
     color: "purple",
-    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB3.webp"
   }, {
     phase: "Development",
     icon: Code,
     duration: "Parallel timeline",
     deliverables: ["Dev connect", "Validate frontend implementation", "SPRINT management"],
     color: "orange",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB4.webp"
   }, {
     phase: "Testing",
     icon: TestTube,
     duration: "8 weeks",
     deliverables: ["Usability testing", "Brand feedback", "Customer Feedback", "Performance optimization"],
     color: "red",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB5.webp"
   }, {
     phase: "Launch",
     icon: Rocket,
     duration: "4 week",
     deliverables: ["Deployment", "NAFEM 2025 Showcase", "Success metrics tracking"],
     color: "emerald",
-    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    image: "https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB6.webp"
   }];
   const getColorClasses = (color: string) => {
     const colorMap = {
