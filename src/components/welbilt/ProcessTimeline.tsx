@@ -10,7 +10,7 @@ const ProcessTimeline = () => {
     duration: "Evolving Timeline",
     deliverables: ["Dynamic Requirements by multiple stakeholders", "Complete revamp + Legacy website support", "Competitive analysis + Brand guidelines", "Current state audit"],
     color: "blue",
-    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB1.webp"
+    image: "/lovable-uploads/WB1.webp"
   }, {
     phase: "Incremental Research",
     icon: Lightbulb,
@@ -24,7 +24,7 @@ const ProcessTimeline = () => {
     duration: "50 weeks",
     deliverables: ["Design system with customized components", "Detailed Wireframes in 4 breakpoints", "High-fidelity prototypes and documentation"],
     color: "purple",
-    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB3.webp"
+    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB.webp"
   }, {
     phase: "Development",
     icon: Code,
