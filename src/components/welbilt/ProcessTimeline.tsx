@@ -17,7 +17,7 @@ const ProcessTimeline = () => {
     duration: "6 weeks + 6 weeks",
     deliverables: ["Define market standards", "Incorporate existing user demands", "Pain point mapping", "Architecture + Visual language"],
     color: "green",
-    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB2.webp" 
+    image: "/lovable-uploads/WB2.webp" 
   }, {
     phase: "Design in Phases",
     icon: Palette,
