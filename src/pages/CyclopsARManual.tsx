@@ -164,15 +164,7 @@ export default function CyclopsARManual() {
               </CardContent>
             </Card>
             
-            <div className="bg-accent/10 p-6 rounded-xl border border-accent/20">
-              <p className="text-sm text-muted-foreground mb-2">
-                <strong>Prerequisite:</strong> HCL Cyclops IUM app on Android AR-enabled device
-              </p>
-              <Button variant="secondary" className="w-full sm:w-auto">
-                <Smartphone className="mr-2 h-4 w-4" />
-                Download HCL Cyclops App
-              </Button>
-            </div>
+            
           </motion.div>
         </div>
       </section>
