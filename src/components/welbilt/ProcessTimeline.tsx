@@ -24,28 +24,28 @@ const ProcessTimeline = () => {
     duration: "50 weeks",
     deliverables: ["Design system with customized components", "Detailed Wireframes in 4 breakpoints", "High-fidelity prototypes and documentation"],
     color: "purple",
-    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB.webp"
+    image: "/lovable-uploads/WB.webp"
   }, {
     phase: "Development",
     icon: Code,
     duration: "Parallel timeline",
     deliverables: ["Dev connect", "Validate frontend implementation", "SPRINT management"],
     color: "orange",
-    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB4.webp"
+    image: "/lovable-uploads/WB4.webp"
   }, {
     phase: "Testing",
     icon: TestTube,
     duration: "8 weeks",
     deliverables: ["Usability testing", "Brand feedback", "Customer Feedback", "Performance optimization"],
     color: "red",
-    image: "https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB5.webp"
+    image: "/lovable-uploads/WB5.webp"
   }, {
     phase: "Launch",
     icon: Rocket,
     duration: "4 week",
     deliverables: ["Deployment", "NAFEM 2025 Showcase", "Success metrics tracking"],
     color: "emerald",
-    image: "https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB6.webp"
+    image: "/lovable-uploads/WB6.webp"
   }];
   const getColorClasses = (color: string) => {
     const colorMap = {
