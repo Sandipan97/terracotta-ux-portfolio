@@ -51,7 +51,7 @@ const Contact = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-red-pantone to-red-pantone-dark dark:from-red-pantone-light dark:to-red-pantone py-20">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h1 data-lovable-editable="contact-hero-title" className="font-display text-4xl md:text-5xl font-bold mb-4 text-yellow-400">
+            <h1 data-lovable-editable="contact-hero-title" className="font-display text-4xl font-bold mb-4 text-orange-700 md:text-5xl">
               Get in Touch
             </h1>
             <p data-lovable-editable="contact-hero-description" className="text-lg mb-8 max-w-2xl mx-auto text-orange-600 font-semibold">
