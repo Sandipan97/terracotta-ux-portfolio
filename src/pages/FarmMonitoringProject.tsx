@@ -962,27 +962,53 @@ const FarmMonitoringProject = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                {[
-                  { screen: "Dashboard", desc: "Main interface with key metrics" },
-                  { screen: "Alerts", desc: "Smart notifications system" },
-                  { screen: "Learning", desc: "Educational content hub" }
-                ].map((screen, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20"
-                    whileHover={{ scale: 1.02, y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="aspect-[9/16] bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg mb-3 flex items-center justify-center">
-                      <div className="text-white/60 text-center">
-                        <Smartphone className="w-8 h-8 mx-auto mb-2" />
-                        <p className="text-sm">{screen.screen} Screen</p>
-                      </div>
-                    </div>
-                    <h4 className="text-white font-medium text-sm">{screen.screen}</h4>
-                    <p className="text-white/70 text-xs">{screen.desc}</p>
-                  </motion.div>
-                ))}
+                <motion.div
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20"
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="aspect-[9/16] bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+                    <EditableImage 
+                      src="/lovable-uploads/92daa44f-f4d1-472d-8910-22e82bf8b3b3.png"
+                      alt="Dashboard screen showing farm data and metrics"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-white font-medium text-sm">Dashboard</h4>
+                  <p className="text-white/70 text-xs">Main interface with key metrics</p>
+                </motion.div>
+
+                <motion.div
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20"
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="aspect-[9/16] bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+                    <EditableImage 
+                      src="/lovable-uploads/50eedb00-deb6-4ad4-9d4a-a664044ae725.png"
+                      alt="Personalized crop selection screen"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-white font-medium text-sm">Personalized for your crop</h4>
+                  <p className="text-white/70 text-xs">Smart crop management system</p>
+                </motion.div>
+
+                <motion.div
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20"
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="aspect-[9/16] bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+                    <EditableImage 
+                      src="/lovable-uploads/13fd507a-045d-444e-8db5-b79ac6d8b548.png"
+                      alt="Map view showing accurate farm location and analytics"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-white font-medium text-sm">Accurate location & Analytics</h4>
+                  <p className="text-white/70 text-xs">Precise farm mapping and data</p>
+                </motion.div>
               </motion.div>
             </div>
           </div>
