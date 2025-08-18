@@ -12,7 +12,7 @@ const FarmMonitoringProject = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate(1);
+    navigate(-1);
   };
 
   const navigationSections = [
