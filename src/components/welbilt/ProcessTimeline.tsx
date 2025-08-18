@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Search, Lightbulb, Palette, Code, TestTube, Rocket } from 'lucide-react';
 import { EditableImage } from '@/components/ui/editable-image';
+
 const ProcessTimeline = () => {
   const phases = [{
     phase: "Requirements Overload",
@@ -47,6 +48,7 @@ const ProcessTimeline = () => {
     color: "emerald",
     image: "/lovable-uploads/WB6.webp"
   }];
+
   const getColorClasses = (color: string) => {
     const colorMap = {
       blue: "bg-blue-50 text-blue-700 border-blue-200",
@@ -58,6 +60,7 @@ const ProcessTimeline = () => {
     };
     return colorMap[color as keyof typeof colorMap] || "bg-gray-50 text-gray-700 border-gray-200";
   };
+
   return <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div initial={{
@@ -132,8 +135,8 @@ const ProcessTimeline = () => {
 
                   {/* Image */}
                   <div className="flex-1 max-w-lg">
-                    <div className="aspect-video rounded-lg overflow-hidden shadow-sm">
-                      <EditableImage src={phase.image} alt={`${phase.phase} phase`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                    <div className="aspect-video rounded-lg overflow-hidden shadow-sm bg-gray-100">
+                      <EditableImage src={phase.image} alt={`${phase.phase} phase`} className="w-full h-full object-contain hover:scale-105 transition-transform duration-300" />
                     </div>
                   </div>
                 </motion.div>;
@@ -176,4 +179,5 @@ const ProcessTimeline = () => {
       </div>
     </section>;
 };
+
 export default ProcessTimeline;
