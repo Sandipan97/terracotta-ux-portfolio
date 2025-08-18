@@ -496,7 +496,7 @@ const FarmMonitoringProject = () => {
                   <EditableImage 
                     src="/lovable-uploads/92daa44f-f4d1-472d-8910-22e82bf8b3b3.png"
                     alt="Dashboard Screen"
-                    className="w-full h-80 object-contain rounded-lg"
+                    className="w-full h-auto object-contain rounded-lg"
                     fallbackSrc="/placeholder.svg"
                   />
                 </div>
@@ -516,7 +516,7 @@ const FarmMonitoringProject = () => {
                   <EditableImage 
                     src="/lovable-uploads/50eedb00-deb6-4ad4-9d4a-a664044ae725.png"
                     alt="Personalized for your crop"
-                    className="w-full h-80 object-contain rounded-lg"
+                    className="w-full h-auto object-contain rounded-lg"
                     fallbackSrc="/placeholder.svg"
                   />
                 </div>
@@ -536,7 +536,7 @@ const FarmMonitoringProject = () => {
                   <EditableImage 
                     src="/lovable-uploads/13fd507a-045d-444e-8db5-b79ac6d8b548.png"
                     alt="Accurate location & Analytics"
-                    className="w-full h-80 object-contain rounded-lg"
+                    className="w-full h-auto object-contain rounded-lg"
                     fallbackSrc="/placeholder.svg"
                   />
                 </div>
