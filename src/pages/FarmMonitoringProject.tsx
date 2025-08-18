@@ -1,8 +1,10 @@
+
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
@@ -10,6 +12,11 @@ import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigati
 
 const FarmMonitoringProject = () => {
   const navigate = useNavigate();
+
+  // Debug logging to ensure component mounts
+  useEffect(() => {
+    console.log('FarmMonitoringProject component mounted');
+  }, []);
 
   const goBack = () => {
     navigate(-1);
@@ -141,7 +148,7 @@ const FarmMonitoringProject = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-header mb-6">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Key Features & Solutions
               </h2>
               <p className="text-muted-foreground max-w-3xl mx-auto">
@@ -191,6 +198,126 @@ const FarmMonitoringProject = () => {
                 <h3 className="font-semibold text-foreground mb-3">Data Analytics</h3>
                 <p className="text-muted-foreground">Advanced analytics dashboard providing insights into crop performance and yield predictions.</p>
               </motion.div>
+
+              <motion.div
+                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-6 h-6 bg-blue-500 rounded-full"></div>
+                </div>
+                <h3 className="font-semibold text-foreground mb-3">Smart Alerts</h3>
+                <p className="text-muted-foreground">Intelligent notifications for irrigation needs, pest detection, and optimal harvest timing.</p>
+              </motion.div>
+
+              <motion.div
+                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-6 h-6 bg-purple-500 rounded-full"></div>
+                </div>
+                <h3 className="font-semibold text-foreground mb-3">Crop Planning</h3>
+                <p className="text-muted-foreground">AI-powered recommendations for crop rotation, planting schedules, and resource allocation.</p>
+              </motion.div>
+
+              <motion.div
+                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full"></div>
+                </div>
+                <h3 className="font-semibold text-foreground mb-3">Resource Management</h3>
+                <p className="text-muted-foreground">Track and optimize usage of water, fertilizers, and other agricultural inputs for maximum efficiency.</p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Design Process Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Design Process & Methodology
+              </h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto">
+                Our human-centered design approach focused on understanding farmers' daily challenges and creating intuitive solutions.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <motion.div
+                className="text-center p-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🔍</span>
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Research</h3>
+                <p className="text-muted-foreground text-sm">Field studies with farmers to understand pain points and workflows</p>
+              </motion.div>
+
+              <motion.div
+                className="text-center p-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">✏️</span>
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Design</h3>
+                <p className="text-muted-foreground text-sm">Creating intuitive interfaces optimized for outdoor mobile usage</p>
+              </motion.div>
+
+              <motion.div
+                className="text-center p-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🔧</span>
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Prototype</h3>
+                <p className="text-muted-foreground text-sm">Interactive prototypes tested in real farm environments</p>
+              </motion.div>
+
+              <motion.div
+                className="text-center p-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">📊</span>
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Validate</h3>
+                <p className="text-muted-foreground text-sm">Iterative testing and refinement based on user feedback</p>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -204,8 +331,8 @@ const FarmMonitoringProject = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-header mb-8">
-                Agricultural Impact
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-8">
+                Agricultural Impact & Results
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
