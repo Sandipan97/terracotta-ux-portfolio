@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Users, Lightbulb, Target, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -448,7 +447,7 @@ const FarmMonitoringProject = () => {
           </div>
         </section>
 
-        {/* Demo Section with Uploaded Images */}
+        {/* Demo Section with Correct Uploaded Images */}
         <section id="demo" className="py-16 bg-gradient-to-br from-green-600 to-emerald-600">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
@@ -483,7 +482,7 @@ const FarmMonitoringProject = () => {
               </div>
             </motion.div>
 
-            {/* App Screen Mockups using uploaded images */}
+            {/* App Screen Mockups using correct uploaded images */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <motion.div
                 className="text-center"
@@ -495,7 +494,7 @@ const FarmMonitoringProject = () => {
               >
                 <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
                   <EditableImage 
-                    src="/lovable-uploads/Welbilt showcase.png"
+                    src="/lovable-uploads/92daa44f-f4d1-472d-8910-22e82bf8b3b3.png"
                     alt="Dashboard Screen"
                     className="w-full h-80 object-contain rounded-lg"
                     fallbackSrc="/placeholder.svg"
@@ -515,7 +514,7 @@ const FarmMonitoringProject = () => {
               >
                 <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
                   <EditableImage 
-                    src="/lovable-uploads/Welbilt showcase.png"
+                    src="/lovable-uploads/50eedb00-deb6-4ad4-9d4a-a664044ae725.png"
                     alt="Personalized for your crop"
                     className="w-full h-80 object-contain rounded-lg"
                     fallbackSrc="/placeholder.svg"
@@ -535,7 +534,7 @@ const FarmMonitoringProject = () => {
               >
                 <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
                   <EditableImage 
-                    src="/lovable-uploads/Welbilt showcase.png"
+                    src="/lovable-uploads/13fd507a-045d-444e-8db5-b79ac6d8b548.png"
                     alt="Accurate location & Analytics"
                     className="w-full h-80 object-contain rounded-lg"
                     fallbackSrc="/placeholder.svg"
