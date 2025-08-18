@@ -1,5 +1,6 @@
+
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Play, Users, Lightbulb, Target, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
@@ -12,13 +13,20 @@ const FarmMonitoringProject = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate(1);
+    navigate(-1);
   };
 
   const navigationSections = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'features', label: 'Features' },
-    { id: 'impact', label: 'Impact' }
+    { id: 'hero', label: 'Hero' },
+    { id: 'overview', label: 'Project Overview' },
+    { id: 'empathy', label: 'Empathy & Research' },
+    { id: 'problem', label: 'Problem Definition' },
+    { id: 'ideation', label: 'Ideation' },
+    { id: 'prioritization', label: 'Prioritization' },
+    { id: 'demo', label: 'Demo' },
+    { id: 'practices', label: 'Recommended Practices' },
+    { id: 'outcomes', label: 'Outcomes' },
+    { id: 'cta', label: 'Call to Action' }
   ];
 
   return (
@@ -27,8 +35,8 @@ const FarmMonitoringProject = () => {
       <UniversalStickyNavigation sections={navigationSections} />
       
       <main className="pt-20">
-        {/* Hero Image Section - Fixed Height */}
-        <section id="overview" className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
+        {/* Hero Section */}
+        <section id="hero" className="w-full relative min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950 dark:to-emerald-950">
           <motion.div 
             className="absolute top-4 left-4 z-30"
             initial={{ opacity: 0, x: -20 }}
@@ -38,101 +46,50 @@ const FarmMonitoringProject = () => {
             <Button 
               onClick={goBack}
               variant="secondary" 
-              className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-green-600 transition-all duration-300 border border-border/50"
+              className="bg-background/80 backdrop-blur-sm"
               size="icon"
+              data-lovable-editable="back-button"
             >
               <ArrowLeft size={20} />
             </Button>
           </motion.div>
 
-          <motion.div 
-            className="absolute inset-0"
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          >
-            <EditableImage 
-              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-              alt="Farm Monitoring Mobile Application"
-              className="w-full h-full object-cover"
-              fallbackSrc="/placeholder.svg"
-            />
-          </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
-        </section>
-
-        {/* Content Tile Section - Clean Background */}
-        <section className="w-full bg-background border-b">
-          <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
+          <div className="container mx-auto px-4 md:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-6xl mx-auto"
+              transition={{ duration: 0.8 }}
             >
-              <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-                <Badge className="bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800/30 hover:bg-green-200 dark:hover:bg-green-900/30 transition-all duration-300" 
-                       tabIndex={0} role="button" aria-label="Agriculture tag">
-                  🌾 Agriculture
-                </Badge>
-                <Badge className="bg-emerald-100 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800/30 hover:bg-emerald-200 dark:hover:bg-emerald-900/30 transition-all duration-300" 
-                       tabIndex={0} role="button" aria-label="Mobile App tag">
-                  📱 Mobile App
-                </Badge>
-                <Badge className="bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800/30 hover:bg-green-200 dark:hover:bg-green-900/30 transition-all duration-300" 
-                       tabIndex={0} role="button" aria-label="UX Design tag">
-                  🎨 UX Design
-                </Badge>
-              </div>
-
-              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground text-center md:text-left">
-                Farm Monitoring Mobile Application
+              <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 text-green-800 dark:text-green-200" data-lovable-editable="hero-title">
+                Empowering Farmers Through Innovation
               </h1>
-              
-              <p className="text-lg mb-8 text-muted-foreground text-center md:text-left max-w-4xl leading-relaxed">
-                A comprehensive mobile application designed to help farmers monitor crop conditions, soil health, and weather patterns in real-time, enabling data-driven agricultural decisions for improved yields.
+              <p className="text-xl md:text-2xl text-green-700 dark:text-green-300 mb-8 max-w-4xl mx-auto" data-lovable-editable="hero-subtitle">
+                A Design Thinking Workshop Journey: From 20+ Farmer Interviews to a Revolutionary Mobile Application
               </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                <motion.div 
-                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  whileHover={{ y: -2, scale: 1.02 }}
-                >
-                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">Client</h3>
-                  <p className="font-semibold text-foreground">HCLTech</p>
-                </motion.div>
-                
-                <motion.div 
-                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                  whileHover={{ y: -2, scale: 1.02 }}
-                >
-                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">Duration</h3>
-                  <p className="font-semibold text-foreground">6 Months</p>
-                </motion.div>
-                
-                <motion.div 
-                  className="bg-card border border-border p-5 rounded-xl hover:bg-muted/50 transition-all duration-300 sm:col-span-2 lg:col-span-1"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                  whileHover={{ y: -2, scale: 1.02 }}
-                >
-                  <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">My Role</h3>
-                  <p className="font-semibold text-foreground">Lead UX Designer</p>
-                </motion.div>
-              </div>
+
+              {/* Demo Video Placeholder */}
+              <motion.div 
+                className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl bg-black"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                data-lovable-editable="demo-video-container"
+              >
+                <div className="aspect-video bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center">
+                  <Play size={80} className="text-white" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <p className="text-white text-lg font-semibold" data-lovable-editable="demo-video-text">
+                      Watch Demo: Farm Monitoring in Action
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* App Features */}
-        <section id="features" className="py-16 bg-background">
+        {/* Project Overview - Workshop Timeline */}
+        <section id="overview" className="py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -141,62 +98,587 @@ const FarmMonitoringProject = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-header mb-6">
-                Key Features & Solutions
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6" data-lovable-editable="overview-title">
+                6-Month Design Thinking Workshop
               </h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto">
-                Empowering farmers with technology-driven insights for smarter agricultural decisions and improved crop management.
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-lovable-editable="overview-description">
+                From empathy interviews to prototype validation - a comprehensive journey with HCLTech
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <motion.div
-                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 bg-green-500 rounded-full"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { phase: "Empathize", duration: "4 weeks", icon: Users, color: "bg-blue-500" },
+                { phase: "Define", duration: "2 weeks", icon: Target, color: "bg-green-500" },
+                { phase: "Ideate", duration: "3 weeks", icon: Lightbulb, color: "bg-yellow-500" },
+                { phase: "Prototype", duration: "4 weeks", icon: Zap, color: "bg-purple-500" }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.phase}
+                  className="bg-card border border-border rounded-xl p-6 text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  data-lovable-editable={`phase-${item.phase.toLowerCase()}`}
+                >
+                  <div className={`w-16 h-16 ${item.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                    <item.icon size={32} className="text-white" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">{item.phase}</h3>
+                  <p className="text-muted-foreground">{item.duration}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Empathy & Research */}
+        <section id="empathy" className="py-16 bg-green-50 dark:bg-green-950/20">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6" data-lovable-editable="empathy-title">
+                Deep Farmer Empathy & Research
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-lovable-editable="empathy-description">
+                20+ in-depth interviews with farmers across different crop types and farm sizes
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Farmer Personas */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6" data-lovable-editable="personas-title">Primary Personas</h3>
+                <div className="space-y-6">
+                  {[
+                    { name: "Rajesh Kumar", type: "Small-scale Wheat Farmer", pain: "Weather unpredictability" },
+                    { name: "Priya Sharma", type: "Organic Vegetable Grower", pain: "Soil health monitoring" },
+                    { name: "Mohammed Ali", type: "Large-scale Cotton Farmer", pain: "Resource optimization" }
+                  ].map((persona, index) => (
+                    <motion.div
+                      key={persona.name}
+                      className="bg-card border border-border rounded-lg p-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      data-lovable-editable={`persona-${persona.name.toLowerCase().replace(' ', '-')}`}
+                    >
+                      <h4 className="font-semibold text-lg">{persona.name}</h4>
+                      <p className="text-muted-foreground">{persona.type}</p>
+                      <p className="text-sm text-red-600 dark:text-red-400 mt-2">Key Pain: {persona.pain}</p>
+                    </motion.div>
+                  ))}
                 </div>
-                <h3 className="font-semibold text-foreground mb-3">Real-Time Monitoring</h3>
-                <p className="text-muted-foreground">Live tracking of soil moisture, temperature, and crop health indicators through IoT sensors.</p>
+              </div>
+
+              {/* Empathy Map */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6" data-lovable-editable="empathy-map-title">Empathy Map Insights</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { title: "Says", content: "Weather is unpredictable", color: "bg-blue-100 dark:bg-blue-900/20" },
+                    { title: "Thinks", content: "Technology is complex", color: "bg-green-100 dark:bg-green-900/20" },
+                    { title: "Does", content: "Checks fields daily", color: "bg-yellow-100 dark:bg-yellow-900/20" },
+                    { title: "Feels", content: "Anxious about crops", color: "bg-red-100 dark:bg-red-900/20" }
+                  ].map((item) => (
+                    <motion.div
+                      key={item.title}
+                      className={`${item.color} border border-border rounded-lg p-4`}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5 }}
+                      viewport={{ once: true }}
+                      data-lovable-editable={`empathy-${item.title.toLowerCase()}`}
+                    >
+                      <h4 className="font-semibold mb-2">{item.title}</h4>
+                      <p className="text-sm">{item.content}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Problem Definition - Sticky Notes */}
+        <section id="problem" className="py-16 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6" data-lovable-editable="problem-title">
+                Problem Definition Workshop
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-lovable-editable="problem-description">
+                "How Might We" questions emerged from clustering 100+ insights
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                "How might we make weather data more accessible?",
+                "How might we simplify soil health monitoring?",
+                "How might we reduce crop loss anxiety?",
+                "How might we optimize water usage?",
+                "How might we connect farmers to experts?",
+                "How might we make farming more predictable?"
+              ].map((question, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-yellow-200 dark:bg-yellow-800/30 border-l-4 border-yellow-500 p-4 rounded-r-lg transform rotate-1 hover:rotate-0 transition-transform"
+                  initial={{ opacity: 0, y: 20, rotate: Math.random() * 6 - 3 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  data-lovable-editable={`hmw-question-${index}`}
+                >
+                  <p className="font-medium text-yellow-900 dark:text-yellow-100">{question}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Ideation */}
+        <section id="ideation" className="py-16 bg-purple-50 dark:bg-purple-950/20">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6" data-lovable-editable="ideation-title">
+                Collaborative Ideation Sessions
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-lovable-editable="ideation-description">
+                150+ ideas generated through crazy 8s, sketch storms, and dot voting
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Sketch Carousel */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6" data-lovable-editable="sketches-title">Top Concept Sketches</h3>
+                <div className="space-y-4">
+                  {[
+                    { concept: "Weather Alert System", votes: 12 },
+                    { concept: "Soil Health Dashboard", votes: 10 },
+                    { concept: "Expert Chat Integration", votes: 8 },
+                    { concept: "Crop Calendar Planner", votes: 7 }
+                  ].map((sketch, index) => (
+                    <motion.div
+                      key={sketch.concept}
+                      className="bg-card border border-border rounded-lg p-4 flex justify-between items-center"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      data-lovable-editable={`sketch-${sketch.concept.toLowerCase().replace(' ', '-')}`}
+                    >
+                      <h4 className="font-semibold">{sketch.concept}</h4>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-muted-foreground">{sketch.votes} votes</span>
+                        <div className="flex">
+                          {Array.from({ length: Math.min(sketch.votes, 5) }).map((_, i) => (
+                            <div key={i} className="w-2 h-2 bg-purple-500 rounded-full mr-1"></div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Dot Voting Results */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6" data-lovable-editable="voting-title">Dot Voting Results</h3>
+                <div className="bg-card border border-border rounded-lg p-6">
+                  <div className="space-y-4">
+                    {[
+                      { feature: "Real-time Weather Alerts", priority: "High", dots: 15 },
+                      { feature: "Soil Moisture Tracking", priority: "High", dots: 13 },
+                      { feature: "Expert Consultation", priority: "Medium", dots: 8 },
+                      { feature: "Market Price Updates", priority: "Low", dots: 5 }
+                    ].map((item, index) => (
+                      <motion.div
+                        key={item.feature}
+                        className="flex justify-between items-center"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        data-lovable-editable={`voting-item-${index}`}
+                      >
+                        <div>
+                          <h4 className="font-medium">{item.feature}</h4>
+                          <Badge className={`text-xs ${
+                            item.priority === 'High' ? 'bg-red-100 text-red-800' : 
+                            item.priority === 'Medium' ? 'bg-yellow-100 text-yellow-800' : 
+                            'bg-green-100 text-green-800'
+                          }`}>
+                            {item.priority}
+                          </Badge>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          {Array.from({ length: Math.min(item.dots, 10) }).map((_, i) => (
+                            <div key={i} className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                          ))}
+                          <span className="ml-2 text-sm text-muted-foreground">{item.dots}</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Prioritization */}
+        <section id="prioritization" className="py-16 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6" data-lovable-editable="prioritization-title">
+                Feature Prioritization & Journey Mapping
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-lovable-editable="prioritization-description">
+                Impact vs Effort matrix and detailed user journey mapping
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Impact vs Effort Matrix */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6" data-lovable-editable="matrix-title">Impact vs Effort Matrix</h3>
+                <div className="relative bg-card border border-border rounded-lg p-6 h-80">
+                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 text-sm font-medium text-muted-foreground" data-lovable-editable="matrix-high-impact">
+                    High Impact
+                  </div>
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm font-medium text-muted-foreground" data-lovable-editable="matrix-low-impact">
+                    Low Impact
+                  </div>
+                  <div className="absolute left-2 top-1/2 transform -translate-y-1/2 -rotate-90 text-sm font-medium text-muted-foreground" data-lovable-editable="matrix-low-effort">
+                    Low Effort
+                  </div>
+                  <div className="absolute right-2 top-1/2 transform -translate-y-1/2 rotate-90 text-sm font-medium text-muted-foreground" data-lovable-editable="matrix-high-effort">
+                    High Effort
+                  </div>
+                  
+                  {/* Features plotted on matrix */}
+                  <motion.div 
+                    className="absolute top-16 left-16 bg-green-500 text-white px-2 py-1 rounded text-xs"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: 0.2 }}
+                    data-lovable-editable="matrix-weather-alerts"
+                  >
+                    Weather Alerts
+                  </motion.div>
+                  <motion.div 
+                    className="absolute top-20 right-20 bg-blue-500 text-white px-2 py-1 rounded text-xs"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: 0.4 }}
+                    data-lovable-editable="matrix-soil-tracking"
+                  >
+                    Soil Tracking
+                  </motion.div>
+                  <motion.div 
+                    className="absolute bottom-20 left-20 bg-yellow-500 text-white px-2 py-1 rounded text-xs"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: 0.6 }}
+                    data-lovable-editable="matrix-expert-chat"
+                  >
+                    Expert Chat
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* User Journey Map */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6" data-lovable-editable="journey-title">Farmer Journey Map</h3>
+                <div className="space-y-4">
+                  {[
+                    { phase: "Awareness", emotion: "😟", action: "Realizes crop issues" },
+                    { phase: "Research", emotion: "🤔", action: "Searches for solutions" },
+                    { phase: "Trial", emotion: "😊", action: "Downloads app" },
+                    { phase: "Adoption", emotion: "😍", action: "Uses daily monitoring" },
+                    { phase: "Advocacy", emotion: "🥳", action: "Recommends to others" }
+                  ].map((step, index) => (
+                    <motion.div
+                      key={step.phase}
+                      className="flex items-center gap-4 bg-card border border-border rounded-lg p-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      data-lovable-editable={`journey-${step.phase.toLowerCase()}`}
+                    >
+                      <div className="text-2xl">{step.emotion}</div>
+                      <div>
+                        <h4 className="font-semibold">{step.phase}</h4>
+                        <p className="text-sm text-muted-foreground">{step.action}</p>
+                      </div>
+                      {index < 4 && <ArrowRight className="text-muted-foreground ml-auto" size={20} />}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Demo Section with Uploaded Images */}
+        <section id="demo" className="py-16 bg-gradient-to-br from-green-600 to-emerald-600">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6" data-lovable-editable="demo-title">
+                Interactive App Demo
+              </h2>
+              <p className="text-xl text-green-100 max-w-3xl mx-auto" data-lovable-editable="demo-subtitle">
+                Experience the farmer-centered design in action
+              </p>
+            </motion.div>
+
+            {/* Full-width Demo Video */}
+            <motion.div 
+              className="mb-12 rounded-2xl overflow-hidden shadow-2xl bg-black max-w-6xl mx-auto"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              data-lovable-editable="main-demo-video"
+            >
+              <div className="aspect-video bg-gradient-to-br from-green-700 to-emerald-700 flex items-center justify-center">
+                <Play size={100} className="text-white" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <p className="text-white text-2xl font-semibold">Full App Walkthrough Demo</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* App Screen Mockups using uploaded images */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <motion.div
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                data-lovable-editable="screen-dashboard"
+              >
+                <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
+                  <EditableImage 
+                    src="/lovable-uploads/Welbilt showcase.png"
+                    alt="Dashboard Screen"
+                    className="w-full h-80 object-contain rounded-lg"
+                    fallbackSrc="/placeholder.svg"
+                  />
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">Real-time Dashboard</h3>
+                <p className="text-green-100 text-sm">Monitor all farm metrics in one place</p>
               </motion.div>
 
               <motion.div
-                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
-                initial={{ opacity: 0, y: 20 }}
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
+                data-lovable-editable="screen-personalized"
               >
-                <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 bg-emerald-500 rounded-full"></div>
+                <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
+                  <EditableImage 
+                    src="/lovable-uploads/Welbilt showcase.png"
+                    alt="Personalized for your crop"
+                    className="w-full h-80 object-contain rounded-lg"
+                    fallbackSrc="/placeholder.svg"
+                  />
                 </div>
-                <h3 className="font-semibold text-foreground mb-3">Weather Integration</h3>
-                <p className="text-muted-foreground">Comprehensive weather forecasting with alerts for optimal planting and harvesting times.</p>
+                <h3 className="text-white font-semibold text-lg mb-2">Personalized for Your Crop</h3>
+                <p className="text-green-100 text-sm">Tailored insights for your specific farming needs</p>
               </motion.div>
 
               <motion.div
-                className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border"
-                initial={{ opacity: 0, y: 20 }}
+                className="text-center"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
+                data-lovable-editable="screen-analytics"
               >
-                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 bg-green-500 rounded-full"></div>
+                <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
+                  <EditableImage 
+                    src="/lovable-uploads/Welbilt showcase.png"
+                    alt="Accurate location & Analytics"
+                    className="w-full h-80 object-contain rounded-lg"
+                    fallbackSrc="/placeholder.svg"
+                  />
                 </div>
-                <h3 className="font-semibold text-foreground mb-3">Data Analytics</h3>
-                <p className="text-muted-foreground">Advanced analytics dashboard providing insights into crop performance and yield predictions.</p>
+                <h3 className="text-white font-semibold text-lg mb-2">Accurate Location & Analytics</h3>
+                <p className="text-green-100 text-sm">Precise field mapping and data analytics</p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Agricultural Impact */}
-        <section id="impact" className="py-16 bg-gradient-to-br from-green-600 to-emerald-600">
+        {/* Recommended Practices */}
+        <section id="practices" className="py-16 bg-green-50 dark:bg-green-950/20">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6" data-lovable-editable="practices-title">
+                Integrated Farming Practices
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-lovable-editable="practices-description">
+                Technology-enhanced traditional and organic farming methods
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Vermicomposting Integration",
+                  description: "Smart monitoring of earthworm composting with temperature and moisture sensors",
+                  icon: "🪱"
+                },
+                {
+                  title: "Natural Fertilizer Tracking",
+                  description: "App-guided organic fertilizer schedules based on soil nutrient analysis",
+                  icon: "🌱"
+                },
+                {
+                  title: "Water Conservation Methods",
+                  description: "IoT-enabled drip irrigation with real-time soil moisture monitoring",
+                  icon: "💧"
+                },
+                {
+                  title: "Companion Planting Guide",
+                  description: "AI-recommended plant combinations for natural pest control",
+                  icon: "🌿"
+                },
+                {
+                  title: "Expert Network Access",
+                  description: "Direct connection to agricultural specialists and extension officers",
+                  icon: "👨‍🌾"
+                },
+                {
+                  title: "Community Knowledge Hub",
+                  description: "Local farmer networks sharing region-specific best practices",
+                  icon: "🤝"
+                }
+              ].map((practice, index) => (
+                <motion.div
+                  key={practice.title}
+                  className="bg-card border border-border rounded-xl p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  data-lovable-editable={`practice-${practice.title.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <div className="text-4xl mb-4">{practice.icon}</div>
+                  <h3 className="font-semibold text-lg mb-3">{practice.title}</h3>
+                  <p className="text-muted-foreground">{practice.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Outcomes */}
+        <section id="outcomes" className="py-16 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6" data-lovable-editable="outcomes-title">
+                Workshop Impact & Results
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-lovable-editable="outcomes-description">
+                Measurable outcomes from our design thinking approach
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+              {[
+                { metric: "95%", label: "Farmer Satisfaction", icon: "😀" },
+                { metric: "80%", label: "Daily App Usage", icon: "📱" },
+                { metric: "60%", label: "Crop Yield Improvement", icon: "🌾" },
+                { metric: "40%", label: "Water Usage Reduction", icon: "💧" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className="text-center bg-card border border-border rounded-xl p-6"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  data-lovable-editable={`outcome-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <div className="text-4xl mb-2">{stat.icon}</div>
+                  <div className="text-3xl font-bold text-green-600 mb-2">{stat.metric}</div>
+                  <div className="text-muted-foreground">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Workshop Feedback */}
+            <motion.div
+              className="bg-green-100 dark:bg-green-900/20 rounded-2xl p-8 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              data-lovable-editable="workshop-feedback"
+            >
+              <blockquote className="text-xl italic text-green-800 dark:text-green-200 mb-4">
+                "The design thinking workshop completely transformed how we approach farmer needs. The deep empathy work revealed insights we never would have discovered through surveys alone."
+              </blockquote>
+              <cite className="text-green-700 dark:text-green-300 font-semibold">
+                - Product Manager, HCLTech Agricultural Division
+              </cite>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section id="cta" className="py-16 bg-gradient-to-br from-green-600 to-emerald-600">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -204,35 +686,30 @@ const FarmMonitoringProject = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-header mb-8">
-                Agricultural Impact
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6" data-lovable-editable="cta-title">
+                Ready for Agricultural Co-creation?
               </h2>
+              <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto" data-lovable-editable="cta-description">
+                Let's design farmer-centered solutions together through collaborative workshops and deep empathy research
+              </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
-                   <div className="text-4xl font-bold text-white mb-2">28%</div>
-                   <div className="text-white">Yield Improvement</div>
-                 </div>
-                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
-                   <div className="text-4xl font-bold text-white mb-2">35%</div>
-                   <div className="text-white">Water Conservation</div>
-                 </div>
-                 <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
-                   <div className="text-4xl font-bold text-white mb-2">50%</div>
-                   <div className="text-white">Decision Speed</div>
-                 </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  className="bg-white text-green-600 hover:bg-green-50 hover:text-green-700 px-8 py-3 text-lg"
+                  onClick={() => navigate('/contact')}
+                  data-lovable-editable="cta-primary-button"
+                >
+                  Start a Design Workshop
+                </Button>
+                <Button 
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg"
+                  onClick={() => navigate('/projects')}
+                  data-lovable-editable="cta-secondary-button"
+                >
+                  View More AgTech Projects
+                </Button>
               </div>
-
-              <blockquote className="text-xl text-white max-w-4xl mx-auto italic leading-relaxed mb-8">
-                "Technology in agriculture isn't about replacing tradition—it's about enhancing farmers' wisdom with data-driven insights."
-              </blockquote>
-              
-              <Button 
-                className="bg-white text-green-600 hover:bg-green-100 hover:text-green-700 transition-all duration-300"
-                onClick={() => navigate('/contact')}
-              >
-                Discuss AgTech Projects
-              </Button>
             </motion.div>
           </div>
         </section>
