@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Download, Users, Droplets, Sun, Wrench, ChevronDown, ExternalLink, CheckCircle, Target, Search, Lightbulb, Clock, MapPin, Smartphone, BarChart3, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -971,7 +970,7 @@ const FarmMonitoringProject = () => {
                     <EditableImage 
                       src="/lovable-uploads/92daa44f-f4d1-472d-8910-22e82bf8b3b3.png"
                       alt="Dashboard screen showing farm data and metrics"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <h4 className="text-white font-medium text-sm">Dashboard</h4>
@@ -987,7 +986,7 @@ const FarmMonitoringProject = () => {
                     <EditableImage 
                       src="/lovable-uploads/50eedb00-deb6-4ad4-9d4a-a664044ae725.png"
                       alt="Personalized crop selection screen"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <h4 className="text-white font-medium text-sm">Personalized for your crop</h4>
@@ -1003,7 +1002,7 @@ const FarmMonitoringProject = () => {
                     <EditableImage 
                       src="/lovable-uploads/13fd507a-045d-444e-8db5-b79ac6d8b548.png"
                       alt="Map view showing accurate farm location and analytics"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <h4 className="text-white font-medium text-sm">Accurate location & Analytics</h4>
