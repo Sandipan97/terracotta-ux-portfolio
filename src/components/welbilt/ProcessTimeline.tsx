@@ -135,8 +135,13 @@ const ProcessTimeline = () => {
 
                   {/* Image */}
                   <div className="flex-1 max-w-lg">
-                    <div className="aspect-video rounded-lg overflow-hidden shadow-sm bg-gray-100">
-                      <EditableImage src={phase.image} alt={`${phase.phase} phase`} className="w-full h-full object-contain hover:scale-105 transition-transform duration-300" />
+                    <div className="rounded-lg overflow-hidden shadow-sm bg-gray-100 flex items-center justify-center min-h-[200px]">
+                      <EditableImage 
+                        src={phase.image} 
+                        alt={`${phase.phase} phase`} 
+                        className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300" 
+                        style={{ width: 'auto', height: 'auto' }}
+                      />
                     </div>
                   </div>
                 </motion.div>;
