@@ -7,15 +7,15 @@ import { EditableImage } from '@/components/ui/editable-image';
 
 const BeforeAfterShowcase = () => {
   const improvements = [{
-    metric: "Task Completion Time",
-    before: "8.5 minutes",
-    after: "3.2 minutes",
-    improvement: "62% faster",
+    metric: "Loading Time",
+    before: "1.5 - 2 minutes",
+    after: "40 seconds",
+    improvement: "67% faster",
     icon: Clock
   }, {
-    metric: "User Satisfaction",
-    before: "6.2/10",
-    after: "8.7/10",
+    metric: "User Satisfaction - PCSAT",
+    before: "4.1/7",
+    after: "6.9/7",
     improvement: "+40% increase",
     icon: Users
   }, {
@@ -73,7 +73,7 @@ const BeforeAfterShowcase = () => {
                 </Badge>
               </div>
               <div className="aspect-video bg-muted rounded-lg mb-4 relative overflow-hidden">
-                <EditableImage src="/lovable-uploads/Welbilt Legacy.webp"  alt="Legacy kitchen management interface" className="w-full h-full object-cover opacity-100" />
+                <EditableImage src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Legacy kitchen management interface" className="w-full h-full object-cover opacity-80" />
                 <div className="absolute inset-0 bg-red-900/10"></div>
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2" data-lovable-editable="welbilt-before-title">Legacy Interface</h3>
@@ -93,8 +93,8 @@ const BeforeAfterShowcase = () => {
                 </Badge>
               </div>
               <div className="aspect-video bg-muted rounded-lg mb-4 relative overflow-hidden">
-                <EditableImage src="/lovable-uploads/Welbilt Revamp.webp" 
-                     alt="Modern kitchen management interface" className="w-full h-full object-cover opacity-100" />
+                <EditableImage src="/lovable-uploads/Welbilt showcase.webp" 
+                     alt="Modern kitchen management interface" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-green-900/10"></div>
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2" data-lovable-editable="welbilt-after-title">Redesigned Experience</h3>
