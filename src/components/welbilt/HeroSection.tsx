@@ -32,7 +32,7 @@ const HeroSection = () => {
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
               <EditableImage 
-                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/lovable-uploads/WB old.webp"
                 alt="Legacy kitchen management interface"
                 className="w-full h-full"
                 objectFit="cover"
@@ -57,7 +57,7 @@ const HeroSection = () => {
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
               <EditableImage 
-                src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/lovable-uploads/WB new.webp"
                 alt="Modern kitchen management interface"
                 className="w-full h-full"
                 objectFit="cover"
