@@ -35,7 +35,7 @@ const HeroProfileSection = () => {
     >
       <div className="relative">
         <motion.div 
-          className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer relative"
+          className="w-64 h-64 sm:w-80 sm:h-72 md:w-80 md:h-96 lg:w-120 lg:h-120 rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer relative"
           onClick={handleProfileClick}
           whileHover={{
             scale: 1.05,
@@ -94,7 +94,7 @@ const HeroProfileSection = () => {
           whileHover={{ scale: 1.05, y: -2 }}
           data-lovable-editable="hero-profile-chip"
         >
-          AI is Everywhere. Can you spot?
+          Professional Empath
         </motion.div>
       </div>
     </motion.div>
