@@ -14,6 +14,8 @@ import { EnhancedDesignSolutions } from '@/components/welbilt/EnhancedDesignSolu
 import { ResearchQuestions } from '@/components/welbilt/ResearchQuestions';
 import { KeyFindings } from '@/components/welbilt/KeyFindings';
 import { DetailedSolutions } from '@/components/welbilt/DetailedSolutions';
+import ProjectTestimonial from '@/components/project/ProjectTestimonial';
+
 const WelbiltKitchenConnect = () => {
   const navigate = useNavigate();
   const handleBack = () => {
@@ -71,6 +73,14 @@ const WelbiltKitchenConnect = () => {
       }
     }
   };
+
+  const testimonial = {
+    quote: "I want to take a moment to sincerely thank you for the incredible work you've contributed during your time on the KitchenConnect project. From the very beginning-well before we even kicked off the Material UI implementation-it was clear that you brought a sharp eye for UX, a deep understanding of functionality, and a thoughtful, analytical approach to every challenge. Your ability to connect the dots and dive deep into complex UX puzzles has been a game-changer for us. I especially appreciated how you took the lead in evaluating the current state of our portal, identifying major UX gaps, and highlighting where human-centered design was missing...Beyond your technical contributions, I'm incredibly grateful for the leadership and support you provided, especially when I was away.",
+    author: "Nour Daghstani",
+    title: "Project Lead, WELBILT",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
+  };
+
   return <div className="min-h-screen bg-background">
       <Navbar />
       <UniversalStickyNavigation sections={navigationSections} />
@@ -133,48 +143,38 @@ const WelbiltKitchenConnect = () => {
           <DetailedSolutions />
         </div>
 
-        {/* Final Impact Section */}
+        {/* Testimonial Section */}
         <section id="impact" className="py-20 bg-muted/20">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.8
-          }} viewport={{
-            once: true
-          }}>
-               <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-8" data-lovable-editable="welbilt-impact-title">
-                 Transformative Impact
-               </h2>
-              <blockquote className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto italic leading-relaxed mb-8" data-lovable-editable="welbilt-impact-quote">
-                "A well-crafted design system is not just about consistency—it's about empowering teams to build better experiences faster."
-              </blockquote>
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-8 text-center" data-lovable-editable="welbilt-testimonial-title">
+                Client Testimonial
+              </h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                  <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
-                    <div className="text-4xl font-bold text-foreground mb-2">35%</div>
-                    <div className="text-muted-foreground">Development Acceleration</div>
-                  </div>
-                  <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
-                    <div className="text-4xl font-bold text-foreground mb-2">85%</div>
-                    <div className="text-muted-foreground">User Satisfaction</div>
-                  </div>
-                  <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
-                    <div className="text-4xl font-bold text-foreground mb-2">50+</div>
-                    <div className="text-muted-foreground">Design Components</div>
-                  </div>
+              <ProjectTestimonial testimonial={testimonial} />
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+                <div className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center">
+                  <div className="text-lg font-semibold text-foreground mb-2" data-lovable-editable="welbilt-tile-1">Great response at NAFEM 25</div>
+                  <div className="text-muted-foreground">Industry Recognition</div>
+                </div>
+                <div className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center">
+                  <div className="text-lg font-semibold text-foreground mb-2" data-lovable-editable="welbilt-tile-2">New Customers - QT, Ice-o-matic</div>
+                  <div className="text-muted-foreground">Market Expansion</div>
+                </div>
+                <div className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center">
+                  <div className="text-lg font-semibold text-foreground mb-2" data-lovable-editable="welbilt-tile-3">Revamped Welbilt</div>
+                  <div className="text-muted-foreground">Platform Transformation</div>
+                </div>
               </div>
               
-              <motion.div className="mt-12">
-                <motion.div whileHover={{
-                scale: 1.05
-              }} whileTap={{
-                scale: 0.95
-              }}>
+              <motion.div className="mt-12 text-center">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button variant="default" className="text-lg px-8 py-3" onClick={() => navigate('/contact')}>
                     Let's Build Something Great
                   </Button>
@@ -188,4 +188,5 @@ const WelbiltKitchenConnect = () => {
       <Footer />
     </div>;
 };
+
 export default WelbiltKitchenConnect;
