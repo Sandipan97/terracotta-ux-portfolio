@@ -3,10 +3,12 @@ import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 import { Linkedin } from 'lucide-react';
 import ExecutiveSummaryCard from './ExecutiveSummaryCard';
+
 const HeroTextContent = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const fullText = 'Sandipan';
+
   useEffect(() => {
     if (currentIndex < fullText.length) {
       const timeout = setTimeout(() => {
@@ -16,6 +18,7 @@ const HeroTextContent = () => {
       return () => clearTimeout(timeout);
     }
   }, [currentIndex, fullText]);
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('featured-projects');
     if (projectsSection) {
@@ -27,72 +30,77 @@ const HeroTextContent = () => {
 
   // LinkedIn profile URL - easily editable
   const linkedInUrl = "https://www.linkedin.com/in/your-profile";
-  return <motion.div className="order-2 md:order-1 flex flex-col justify-center items-center md:items-start text-center md:text-left w-full h-full pr-0 md:pr-8 lg:pr-12" initial={{
-    opacity: 0,
-    x: -50
-  }} animate={{
-    opacity: 1,
-    x: 0
-  }} transition={{
-    duration: 0.8,
-    ease: "easeOut"
-  }}>
-      <motion.h1 initial={{
-      opacity: 0,
-      y: 20
-    }} animate={{
-      opacity: 1,
-      y: 0
-    }} transition={{
-      delay: 0.2,
-      duration: 0.6
-    }} className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-warm-clay mb-3 md:mb-4 px-0 py-0 my-0 w-full">
-        <motion.span initial={{
-        opacity: 0
-      }} animate={{
-        opacity: 1
-      }} transition={{
-        delay: 0.5
-      }} data-lovable-editable="hero-greeting" className="relative inline-block py-0 mb-1 text-2xl sm:text-3xl text-warm-rust leading-tight">
-          <span className="relative inline-block mb-1 py-0 my-[20px]">
-            Hi,
-            <motion.span className="absolute -bottom-1 left-0 h-1 bg-warm-golden" initial={{
-            width: 0
-          }} animate={{
-            width: "100%"
-          }} transition={{
-            delay: 1.2,
-            duration: 0.8
-          }} />
+
+  return (
+    <motion.div 
+      className="order-2 md:order-1 flex flex-col justify-center items-center md:items-start text-center md:text-left w-full h-full pr-0 md:pr-8 lg:pr-12" 
+      initial={{ opacity: 0, x: -50 }} 
+      animate={{ opacity: 1, x: 0 }} 
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <motion.h1 
+        initial={{ opacity: 0, y: 30 }} 
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }} 
+        className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-warm-clay mb-6 md:mb-8 px-0 py-0 my-0 w-full leading-tight"
+      >
+        <motion.span 
+          initial={{ opacity: 0, scale: 0.8 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          transition={{ delay: 0.5, duration: 0.6, ease: "backOut" }} 
+          data-lovable-editable="hero-greeting" 
+          className="relative inline-block py-0 mb-4 text-2xl sm:text-3xl text-warm-rust leading-relaxed"
+        >
+          <span className="relative inline-block mb-3 py-0 my-0">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.5, ease: "easeOut" }}
+            >
+              Hi,
+            </motion.span>
+            <motion.span 
+              className="absolute -bottom-2 left-0 h-1 bg-warm-golden rounded-full" 
+              initial={{ width: 0, opacity: 0 }} 
+              animate={{ width: "100%", opacity: 1 }} 
+              transition={{ delay: 1.3, duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            />
           </span>
           <br />
-          <span className="mt-0">I am</span>
+          <motion.span 
+            className="mt-2 block"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}
+          >
+            I am
+          </motion.span>
         </motion.span>
         
-        <span className="relative inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl py-0 mt-1">
-          <motion.span initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          delay: 1.0
-        }} data-lovable-editable="hero-name" className="text-warm-terracotta dark:text-warm-terracotta px-0 mx-0">
+        <span className="relative inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl py-0 mt-4 leading-tight">
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ delay: 1.1, duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }} 
+            data-lovable-editable="hero-name" 
+            className="text-warm-terracotta dark:text-warm-terracotta px-0 mx-0"
+          >
             {displayText}
-            <motion.span className="inline-block w-1 h-12 sm:h-16 md:h-16 lg:h-20 bg-warm-terracotta dark:bg-warm-terracotta ml-1" animate={{
-            opacity: [1, 0, 1]
-          }} transition={{
-            duration: 1,
-            repeat: Infinity
-          }} />
+            <motion.span 
+              className="inline-block w-1 h-12 sm:h-16 md:h-16 lg:h-20 bg-warm-terracotta dark:bg-warm-terracotta ml-2" 
+              animate={{ opacity: [1, 0, 1], scaleY: [1, 0.8, 1] }} 
+              transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+            />
           </motion.span>
-          <motion.span className="absolute -bottom-1 left-0 h-1 bg-warm-terracotta dark:bg-warm-terracotta" initial={{
-          width: 0
-        }} animate={{
-          width: currentIndex === fullText.length ? "100%" : "0%"
-        }} transition={{
-          delay: 1.4,
-          duration: 0.8
-        }} />
+          <motion.span 
+            className="absolute -bottom-2 left-0 h-2 bg-warm-terracotta dark:bg-warm-terracotta rounded-full" 
+            initial={{ width: 0, opacity: 0 }} 
+            animate={{ 
+              width: currentIndex === fullText.length ? "100%" : "0%",
+              opacity: currentIndex === fullText.length ? 1 : 0
+            }} 
+            transition={{ delay: 1.6, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          />
         </span>
       </motion.h1>
       
@@ -143,6 +151,8 @@ const HeroTextContent = () => {
           </Button>
         </motion.div>
       </motion.div>
-    </motion.div>;
+    </motion.div>
+  );
 };
+
 export default HeroTextContent;
