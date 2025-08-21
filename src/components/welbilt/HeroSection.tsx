@@ -128,7 +128,7 @@ const HeroSection = () => {
             data-lovable-editable="welbilt-hero-description"
           >
             A comprehensive redesign of Welbilt's KITCHENCONNECT platform, featuring a complete design system 
-            that gained new customers for Welbilt, increase our revenue, and enhanced user experience across all touchpoints.
+            that gained new customers for Welbilt, increased our revenue, and enhanced user experience across all touchpoints.
           </motion.p>
 
           <motion.div
