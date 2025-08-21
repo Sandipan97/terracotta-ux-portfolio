@@ -76,7 +76,7 @@ const HeroTextContent = () => {
           opacity: 1
         }} transition={{
           delay: 1.0
-        }} data-lovable-editable="hero-name" className="text-warm-terracotta dark:text-warm-terracotta px-0 mx-[20px]">
+        }} data-lovable-editable="hero-name" className="text-warm-terracotta dark:text-warm-terracotta px-0 mx-0">
             {displayText}
             <motion.span className="inline-block w-1 h-12 sm:h-16 md:h-16 lg:h-20 bg-warm-terracotta dark:bg-warm-terracotta ml-1" animate={{
             opacity: [1, 0, 1]
