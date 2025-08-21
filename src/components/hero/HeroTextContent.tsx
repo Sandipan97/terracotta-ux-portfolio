@@ -73,7 +73,7 @@ const HeroTextContent = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}
           >
-            I am
+            I am      
           </motion.span>
         </motion.span>
         
