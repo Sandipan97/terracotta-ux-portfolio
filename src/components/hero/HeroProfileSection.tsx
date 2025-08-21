@@ -35,7 +35,7 @@ const HeroProfileSection = () => {
     >
       <div className="relative">
         <motion.div 
-          className="w-64 h-64 sm:w-80 sm:h-72 md:w-80 md:h-96 lg:w-120 lg:h-120 rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer relative"
+          className="w-80 h-80 sm:w-96 sm:h-96 md:w-120 md:h-120 lg:w-200 lg:h-200 rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer relative"
           onClick={handleProfileClick}
           whileHover={{
             scale: 1.05,
