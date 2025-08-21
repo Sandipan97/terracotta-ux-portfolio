@@ -11,7 +11,7 @@ const ProcessTimeline = () => {
     duration: "Evolving Timeline",
     deliverables: ["Dynamic Requirements by multiple stakeholders", "Complete revamp + Legacy website support", "Competitive analysis + Brand guidelines", "Current state audit"],
     color: "blue",
-    image: "/lovable-uploads/WB1.webp"
+    image: "/lovable-uploads/WB01.webp"
   }, {
     phase: "Incremental Research",
     icon: Lightbulb,
@@ -39,7 +39,7 @@ const ProcessTimeline = () => {
     duration: "8 weeks",
     deliverables: ["Usability testing", "Brand feedback", "Customer Feedback", "Performance optimization"],
     color: "red",
-    image: "/lovable-uploads/WB5.webp"
+    image: "/lovable-uploads/WB test.webp"
   }, {
     phase: "Launch",
     icon: Rocket,
