@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
@@ -30,7 +29,7 @@ const HeroTextContent = () => {
   };
 
   // LinkedIn profile URL - easily editable
-  const linkedInUrl = "https://www.linkedin.com/in/your-profile";
+  const linkedInUrl = "https://www.linkedin.com/in/sandipan-naskar-129a88155/";
 
   return (
     <motion.div 
@@ -50,9 +49,9 @@ const HeroTextContent = () => {
           animate={{ opacity: 1, scale: 1 }} 
           transition={{ delay: 0.5, duration: 0.6, ease: "backOut" }} 
           data-lovable-editable="hero-greeting" 
-          className="relative inline-block py-0 mb-8 text-2xl sm:text-3xl text-warm-rust leading-relaxed"
+          className="relative inline-block py-0 mb-16 text-2xl sm:text-3xl text-warm-rust leading-relaxed"
         >
-          <span className="relative inline-block mb-3 py-0 my-0">
+          <span className="relative inline-block mb-6 py-0 my-0">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,8 +88,15 @@ const HeroTextContent = () => {
             {displayText}
             <motion.span 
               className="inline-block w-1 h-12 sm:h-16 md:h-16 lg:h-20 bg-warm-terracotta dark:bg-warm-terracotta ml-2" 
-              animate={{ opacity: [1, 0, 1], scaleY: [1, 0.8, 1] }} 
-              transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ 
+                opacity: [1, 0, 1], 
+                scaleY: [1, 0.8, 1]
+              }} 
+              transition={{ 
+                duration: 1.2, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
             />
           </motion.span>
           <motion.span 
