@@ -39,16 +39,16 @@ const DesignSystemGallery = () => {
   }];
 
   const metrics = [{
-    label: "Components",
-    value: "50+",
-    description: "Reusable components"
+    label: "Component Sets",
+    value: "200+",
+    description: "Reusable Variable-enabled components"
   }, {
     label: "Coverage",
     value: "95%",
     description: "Design token adoption"
   }, {
     label: "Efficiency",
-    value: "35%",
+    value: "85%",
     description: "Development speed increase"
   }, {
     label: "Consistency",
