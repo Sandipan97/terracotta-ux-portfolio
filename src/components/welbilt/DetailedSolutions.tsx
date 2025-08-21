@@ -12,7 +12,7 @@ const detailedSolutions = [
     challenge: "Fragmented design patterns causing 65% development delays",
     approach: "Created comprehensive component library with design tokens, documentation, and implementation guidelines",
     components: [
-      "50+ reusable UI components",
+      "200+ reusable UI components",
       "Unified color and typography system",
       "Responsive grid and spacing tokens",
       "Accessibility-first design patterns"
