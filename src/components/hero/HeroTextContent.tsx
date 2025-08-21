@@ -49,9 +49,9 @@ const HeroTextContent = () => {
           animate={{ opacity: 1, scale: 1 }} 
           transition={{ delay: 0.5, duration: 0.6, ease: "backOut" }} 
           data-lovable-editable="hero-greeting" 
-          className="relative inline-block py-0 mb-16 text-2xl sm:text-3xl text-warm-rust leading-relaxed"
+          className="relative inline-block pr-20 mb-16 text-2xl sm:text-3xl text-warm-rust leading-relaxed"
         >
-          <span className="relative inline-block mb-6 py-0 my-0">
+          <span className="relative inline-block mb-8 py-0 my-0">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
