@@ -106,8 +106,8 @@ const ProcessTimeline = () => {
             }} viewport={{
               once: true
             }} className={`flex flex-col lg:flex-row items-center gap-8 ${isEven ? 'lg:flex-row-reverse' : ''}`}>
-                  {/* Content Card */}
-                  <div className="flex-1 max-w-lg">
+                  {/* Content Card - Made narrower */}
+                  <div className="flex-1 max-w-sm">
                     <Card className="p-6 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg ${getColorClasses(phase.color)}`}>
@@ -133,9 +133,9 @@ const ProcessTimeline = () => {
                     <Icon className="text-primary" size={20} />
                   </div>
 
-                  {/* Image */}
-                  <div className="flex-1 max-w-lg">
-                    <div className="rounded-lg overflow-hidden shadow-sm bg-gray-100 flex items-center justify-center min-h-[200px]">
+                  {/* Image - Made bigger */}
+                  <div className="flex-1 max-w-2xl">
+                    <div className="rounded-lg overflow-hidden shadow-sm bg-gray-100 flex items-center justify-center min-h-[300px]">
                       <EditableImage 
                         src={phase.image} 
                         alt={`${phase.phase} phase`} 
