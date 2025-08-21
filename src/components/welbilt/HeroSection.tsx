@@ -32,7 +32,7 @@ const HeroSection = () => {
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
               <EditableImage 
-                src="/lovable-uploads/WB old.webp"
+                src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB old.webp"
                 alt="Legacy kitchen management interface"
                 className="w-full h-full"
                 objectFit="cover"
@@ -57,7 +57,7 @@ const HeroSection = () => {
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
               <EditableImage 
-                src="/lovable-uploads/WB new.webp"
+                src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB new.webp"
                 alt="Modern kitchen management interface"
                 className="w-full h-full"
                 objectFit="cover"
@@ -127,8 +127,8 @@ const HeroSection = () => {
             transition={{ delay: 0.8, duration: 0.8 }}
             data-lovable-editable="welbilt-hero-description"
           >
-            A comprehensive redesign of Welbilt's kitchen management platform, featuring a complete design system 
-            that improved development efficiency by 35% and enhanced user experience across all touchpoints.
+            A comprehensive redesign of Welbilt's KITCHENCONNECT platform, featuring a complete design system 
+            that gained new customers for Welbilt, increase our revenue, and enhanced user experience across all touchpoints.
           </motion.p>
 
           <motion.div
