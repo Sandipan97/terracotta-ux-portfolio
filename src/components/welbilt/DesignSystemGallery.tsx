@@ -99,6 +99,27 @@ const DesignSystemGallery = () => {
                 <div className="text-xs text-muted-foreground" data-lovable-editable={`welbilt-metric-${index}-desc`}>{metric.description}</div>
               </motion.div>)}
           </div>
+
+          {/* Video Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="w-full max-w-6xl mx-auto mb-16"
+          >
+            <div className="relative w-full" style={{ padding: '56.25% 0 0 0' }}>
+              <iframe 
+                src="https://player.vimeo.com/video/1112119240?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&dnt=1" 
+                frameBorder="0" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin"
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                title="Welbilt Design System Showcase"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Component Gallery */}
