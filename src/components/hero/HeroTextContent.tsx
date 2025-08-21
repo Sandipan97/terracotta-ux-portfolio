@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
@@ -49,7 +50,7 @@ const HeroTextContent = () => {
           animate={{ opacity: 1, scale: 1 }} 
           transition={{ delay: 0.5, duration: 0.6, ease: "backOut" }} 
           data-lovable-editable="hero-greeting" 
-          className="relative inline-block py-0 mb-4 text-2xl sm:text-3xl text-warm-rust leading-relaxed"
+          className="relative inline-block py-0 mb-8 text-2xl sm:text-3xl text-warm-rust leading-relaxed"
         >
           <span className="relative inline-block mb-3 py-0 my-0">
             <motion.span
@@ -77,7 +78,7 @@ const HeroTextContent = () => {
           </motion.span>
         </motion.span>
         
-        <span className="relative inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl py-0 mt-4 leading-tight">
+        <span className="relative inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl py-0 mt-8 leading-tight">
           <motion.span 
             initial={{ opacity: 0, scale: 0.9 }} 
             animate={{ opacity: 1, scale: 1 }} 
