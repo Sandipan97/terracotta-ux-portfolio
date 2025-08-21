@@ -94,7 +94,7 @@ const HeroProfileSection = () => {
           whileHover={{ scale: 1.05, y: -2 }}
           data-lovable-editable="hero-profile-chip"
         >
-          AI Everywhere—how many can you spot?
+          AI is Everywhere. Can you spot?
         </motion.div>
       </div>
     </motion.div>
