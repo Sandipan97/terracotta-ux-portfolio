@@ -6,10 +6,10 @@ import { Award, Users, Lightbulb, TrendingUp } from 'lucide-react';
 
 const ExecutiveSummaryCard = () => {
   const credentials = [
-    { icon: Award, label: "5+ Years Experience", color: "warm-terracotta" },
-    { icon: Users, label: "24+ Projects", color: "warm-rust" },
-    { icon: Lightbulb, label: "IISc Graduate", color: "warm-golden" },
-    { icon: TrendingUp, label: "40% User Satisfaction Increase", color: "warm-sage" }
+    { icon: Award, label: "4 Years Experience", color: "warm-terracotta" },
+    { icon: Users, label: "10+ Projects", color: "warm-rust" },
+    { icon: Lightbulb, label: "IISc Alumnus", color: "warm-golden" },
+    { icon: TrendingUp, label: "Mining User Satisfaction", color: "warm-sage" }
   ];
 
   return (
@@ -22,7 +22,7 @@ const ExecutiveSummaryCard = () => {
       <Card className="bg-card/90 backdrop-blur-md border-border shadow-xl">
         <CardContent className="p-6">
           <h3 className="text-lg font-semibold text-foreground mb-4">
-            Senior UX Designer & Product Manager
+            Senior UX Designer & Design Systems Expert
           </h3>
           <div className="grid grid-cols-2 gap-3">
             {credentials.map((credential, index) => (
@@ -57,6 +57,12 @@ const ExecutiveSummaryCard = () => {
               </Badge>
               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
                 Product Strategy
+              </Badge>
+               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
+                AI Integration
+              </Badge>
+               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
+                AR Design
               </Badge>
             </div>
           </motion.div>
