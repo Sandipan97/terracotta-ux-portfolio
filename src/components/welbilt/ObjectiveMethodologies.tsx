@@ -86,15 +86,15 @@ export const ObjectiveMethodologies = () => {
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                     <div className="text-center p-4 bg-card rounded-lg border-border border">
-                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-1-value">35%</div>
-                      <div className="text-sm text-muted-foreground" data-lovable-editable="welbilt-objective-metric-1-label">Development Speed</div>
+                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-1-value">$1,28,000</div>
+                      <div className="text-sm text-muted-foreground" data-lovable-editable="welbilt-objective-metric-1-label">Revenue Earned</div>
                     </div>
                     <div className="text-center p-4 bg-card rounded-lg border-border border">
-                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-2-value">50+</div>
+                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-2-value">200+</div>
                       <div className="text-sm text-muted-foreground" data-lovable-editable="welbilt-objective-metric-2-label">Design Components</div>
                     </div>
                     <div className="text-center p-4 bg-card rounded-lg border-border border">
-                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-3-value">85%</div>
+                      <div className="text-2xl font-bold text-blue-600" data-lovable-editable="welbilt-objective-metric-3-value">90%</div>
                       <div className="text-sm text-muted-foreground" data-lovable-editable="welbilt-objective-metric-3-label">User Satisfaction</div>
                     </div>
                   </div>
