@@ -73,7 +73,7 @@ const BeforeAfterShowcase = () => {
                 </Badge>
               </div>
               <div className="aspect-video bg-muted rounded-lg mb-4 relative overflow-hidden">
-                <EditableImage src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Legacy kitchen management interface" className="w-full h-full object-cover opacity-80" />
+                <EditableImage src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/Welbilt Legacy.webp" alt="Legacy kitchen management interface" className="w-full h-full object-cover opacity-80" />
                 <div className="absolute inset-0 bg-red-900/10"></div>
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2" data-lovable-editable="welbilt-before-title">Legacy Interface</h3>
@@ -93,7 +93,7 @@ const BeforeAfterShowcase = () => {
                 </Badge>
               </div>
               <div className="aspect-video bg-muted rounded-lg mb-4 relative overflow-hidden">
-                <EditableImage src="/lovable-uploads/Welbilt showcase.webp" 
+                <EditableImage src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/Welbilt Revamp.webp" 
                      alt="Modern kitchen management interface" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-green-900/10"></div>
               </div>
