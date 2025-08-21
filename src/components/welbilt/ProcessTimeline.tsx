@@ -164,19 +164,19 @@ const ProcessTimeline = () => {
       }} className="mt-16 bg-white rounded-2xl p-8 border border-gray-200">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-1-value">18</div>
-              <div className="text-gray-600" data-lovable-editable="welbilt-stat-1-label">Total Weeks</div>
+              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-1-value">1.5</div>
+              <div className="text-gray-600" data-lovable-editable="welbilt-stat-1-label">Years Duration</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-2-value">25+</div>
+              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-2-value">10+</div>
               <div className="text-gray-600" data-lovable-editable="welbilt-stat-2-label">Stakeholders</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-3-value">150+</div>
-              <div className="text-gray-600" data-lovable-editable="welbilt-stat-3-label">User Insights</div>
+              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-3-value">$1,28,000</div>
+              <div className="text-gray-600" data-lovable-editable="welbilt-stat-3-label">Earned Revenue</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-4-value">50+</div>
+              <div className="text-3xl font-bold text-primary mb-2" data-lovable-editable="welbilt-stat-4-value">200+</div>
               <div className="text-gray-600" data-lovable-editable="welbilt-stat-4-label">Components Built</div>
             </div>
           </div>
