@@ -160,11 +160,11 @@ const WelbiltKitchenConnect = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
                 <div className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center">
-                  <div className="text-lg font-semibold text-foreground mb-2" data-lovable-editable="welbilt-tile-1">Great response at NAFEM 25</div>
+                  <div className="text-lg font-semibold text-foreground mb-2" data-lovable-editable="welbilt-tile-1">Big Win @ NAFEM 25</div>
                   <div className="text-muted-foreground">Industry Recognition</div>
                 </div>
                 <div className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center">
-                  <div className="text-lg font-semibold text-foreground mb-2" data-lovable-editable="welbilt-tile-2">New Customers - QT, Ice-o-matic</div>
+                  <div className="text-lg font-semibold text-foreground mb-2" data-lovable-editable="welbilt-tile-2">New Customers - QT, Ice-o-matic etc</div>
                   <div className="text-muted-foreground">Market Expansion</div>
                 </div>
                 <div className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center">
