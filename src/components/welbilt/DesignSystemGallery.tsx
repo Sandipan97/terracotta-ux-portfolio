@@ -4,45 +4,38 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Palette, Type, Layout, Component, Code, Zap } from 'lucide-react';
-import { EditableImage } from '@/components/ui/editable-image';
 
 const DesignSystemGallery = () => {
   const systemComponents = [{
     category: "Color System",
     icon: Palette,
     description: "Unified color palette with semantic tokens",
-    items: ["Primary", "Secondary", "Success", "Warning", "Error"],
-    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    items: ["Primary", "Secondary", "Success", "Warning", "Error"]
   }, {
     category: "Typography",
     icon: Type,
     description: "Scalable type system with clear hierarchy",
-    items: ["Headings", "Body Text", "Captions", "Labels"],
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    items: ["Headings", "Body Text", "Captions", "Labels"]
   }, {
     category: "Layout Grid",
     icon: Layout,
     description: "Responsive grid system for all devices",
-    items: ["12-column", "Breakpoints", "Spacing", "Containers"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    items: ["12-column", "Breakpoints", "Spacing", "Containers"]
   }, {
     category: "Components",
     icon: Component,
     description: "50+ reusable UI components",
-    items: ["Buttons", "Forms", "Cards", "Navigation", "Modals"],
-    image: "https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    items: ["Buttons", "Forms", "Cards", "Navigation", "Modals"]
   }, {
     category: "Code Quality",
     icon: Code,
     description: "Documented, tested, and accessible",
-    items: ["TypeScript", "Storybook", "Tests", "Documentation"],
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    items: ["TypeScript", "Storybook", "Tests", "Documentation"]
   }, {
     category: "Performance",
     icon: Zap,
     description: "Optimized for speed and efficiency",
-    items: ["Tree-shaking", "Lazy loading", "Caching", "Bundle optimization"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+    items: ["Tree-shaking", "Lazy loading", "Caching", "Bundle optimization"]
   }];
 
   const metrics = [{
@@ -125,20 +118,16 @@ const DesignSystemGallery = () => {
             once: true
           }}>
                 <Card className="group hover:shadow-lg transition-all duration-300 border-border bg-card h-full">
-                  <div className="aspect-video relative overflow-hidden rounded-t-lg">
-                    <EditableImage src={component.image} alt={`${component.category} design system`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                    <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
-                    <div className="absolute top-4 left-4">
-                      <div className="inline-flex items-center justify-center w-10 h-10 bg-card/90 rounded-lg">
-                        <Icon className="text-primary" size={20} />
-                      </div>
-                    </div>
-                  </div>
-                  
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-2" data-lovable-editable={`welbilt-component-${index}-title`}>
-                      {component.category}
-                    </h3>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg">
+                        <Icon className="text-primary" size={24} />
+                      </div>
+                      <h3 className="text-xl font-semibold text-foreground" data-lovable-editable={`welbilt-component-${index}-title`}>
+                        {component.category}
+                      </h3>
+                    </div>
+                    
                     <p className="text-muted-foreground mb-4 text-sm" data-lovable-editable={`welbilt-component-${index}-desc`}>
                       {component.description}
                     </p>
@@ -148,8 +137,6 @@ const DesignSystemGallery = () => {
                           <span data-lovable-editable={`welbilt-component-${index}-item-${itemIndex}`}>{item}</span>
                         </Badge>)}
                     </div>
-                    
-                    
                   </div>
                 </Card>
               </motion.div>;
