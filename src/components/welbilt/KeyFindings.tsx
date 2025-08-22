@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { TrendingUp, FileImage, ChevronDown, ArrowRight, AlertTriangle, CheckCircle, Zap } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -16,7 +17,7 @@ const findings = [
     visualNote: "Heat map analysis of user interactions",
     impact: "60% error reduction potential",
     solutionAnchor: "detailed-interface",
-    color: "red"
+    color: "warm-rust"
   },
   {
     id: 'finding-2',
@@ -28,7 +29,7 @@ const findings = [
     visualNote: "Development velocity comparison chart",
     impact: "35% development acceleration achieved",
     solutionAnchor: "detailed-design-system",
-    color: "blue"
+    color: "warm-golden"
   },
   {
     id: 'finding-3',
@@ -40,7 +41,7 @@ const findings = [
     visualNote: "Kitchen workflow timing analysis",
     impact: "40% time savings in team coordination",
     solutionAnchor: "detailed-collaboration",
-    color: "green"
+    color: "warm-sage"
   }
 ];
 
@@ -54,29 +55,29 @@ export const KeyFindings = () => {
 
   const getColorScheme = (color: string) => {
     switch (color) {
-      case 'red':
+      case 'warm-rust':
         return {
-          bg: 'bg-white',
-          border: 'border-red-200',
-          icon: 'bg-red-600',
-          text: 'text-red-700',
-          badge: 'bg-red-50 text-red-700 border-red-200'
+          bg: 'bg-gradient-to-br from-warm-rust-light/15 to-warm-rust-light/5',
+          border: 'border-warm-rust-light/40',
+          icon: 'bg-gradient-to-br from-warm-rust to-warm-rust/90',
+          text: 'text-warm-rust',
+          badge: 'bg-warm-rust-light/20 text-warm-rust border-warm-rust-light/40'
         };
-      case 'blue':
+      case 'warm-golden':
         return {
-          bg: 'bg-white',
-          border: 'border-blue-200',
-          icon: 'bg-blue-600',
-          text: 'text-blue-700',
-          badge: 'bg-blue-50 text-blue-700 border-blue-200'
+          bg: 'bg-gradient-to-br from-warm-golden-light/15 to-warm-golden-light/5',
+          border: 'border-warm-golden-light/40',
+          icon: 'bg-gradient-to-br from-warm-golden to-warm-golden-hover',
+          text: 'text-warm-golden',
+          badge: 'bg-warm-golden-light/20 text-warm-golden border-warm-golden-light/40'
         };
-      case 'green':
+      case 'warm-sage':
         return {
-          bg: 'bg-white',
-          border: 'border-green-200',
-          icon: 'bg-green-600',
-          text: 'text-green-700',
-          badge: 'bg-green-50 text-green-700 border-green-200'
+          bg: 'bg-gradient-to-br from-warm-sage-light/15 to-warm-sage-light/5',
+          border: 'border-warm-sage-light/40',
+          icon: 'bg-gradient-to-br from-warm-sage to-warm-sage/90',
+          text: 'text-warm-sage',
+          badge: 'bg-warm-sage-light/20 text-warm-sage border-warm-sage-light/40'
         };
       default:
         return {
@@ -135,12 +136,12 @@ export const KeyFindings = () => {
                 >
                   <AccordionItem 
                     value={finding.id} 
-                    className={`border rounded-2xl ${colorScheme.bg} ${colorScheme.border} shadow-sm`}
+                    className={`border rounded-2xl ${colorScheme.bg} ${colorScheme.border} shadow-lg hover:shadow-xl transition-all duration-300`}
                   >
                     <AccordionTrigger className="px-8 py-6 hover:no-underline group">
                       <div className="flex items-center gap-6 w-full">
                         {/* Finding Icon */}
-                        <div className={`w-14 h-14 ${colorScheme.icon} rounded-2xl flex items-center justify-center flex-shrink-0`}>
+                        <div className={`w-14 h-14 ${colorScheme.icon} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
                           <Icon className="w-7 h-7 text-white" />
                         </div>
 
@@ -148,16 +149,16 @@ export const KeyFindings = () => {
                         <div className="flex-1 text-left">
                           <div className="flex items-center gap-3 mb-2">
                             <h3 className="font-semibold text-gray-900 text-xl" data-lovable-editable={`welbilt-finding-${index}-title`}>{finding.title}</h3>
-                            <Badge className={colorScheme.badge}>
+                            <Badge className={`${colorScheme.badge} shadow-sm`}>
                               <span data-lovable-editable={`welbilt-finding-${index}-type`}>{finding.type}</span>
                             </Badge>
                           </div>
-                          <p className={`${colorScheme.text} text-lg`} data-lovable-editable={`welbilt-finding-${index}-summary`}>{finding.summary}</p>
+                          <p className={`${colorScheme.text} text-lg font-medium`} data-lovable-editable={`welbilt-finding-${index}-summary`}>{finding.summary}</p>
                         </div>
 
                         {/* Visual Indicator */}
                         <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200">
+                          <div className="w-12 h-12 bg-gray-50/80 rounded-lg flex items-center justify-center border border-gray-200/60 backdrop-blur-sm">
                             <FileImage className="w-6 h-6 text-gray-500" />
                           </div>
                           <ChevronDown className="w-5 h-5 text-gray-500 group-data-[state=open]:rotate-180 transition-transform duration-200" />
@@ -169,7 +170,7 @@ export const KeyFindings = () => {
                       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Detailed Analysis */}
                         <div className="lg:col-span-2">
-                          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                          <div className="bg-gray-50/80 rounded-xl p-6 border border-gray-200/60 shadow-sm backdrop-blur-sm">
                             <h4 className="text-gray-900 font-semibold mb-3" data-lovable-editable="welbilt-finding-analysis-label">Detailed Analysis</h4>
                             <p className="text-gray-700 leading-relaxed mb-4" data-lovable-editable={`welbilt-finding-${index}-details`}>{finding.details}</p>
                             
@@ -178,7 +179,7 @@ export const KeyFindings = () => {
                                 <TrendingUp className={`w-4 h-4 ${colorScheme.text}`} />
                                 <span className={colorScheme.text}>
                                   <span data-lovable-editable="welbilt-finding-impact-label">Impact: </span>
-                                  <span data-lovable-editable={`welbilt-finding-${index}-impact`}>{finding.impact}</span>
+                                  <span data-lovable-editable={`welbilt-finding-${index}-impact`} className="font-medium">{finding.impact}</span>
                                 </span>
                               </div>
                             </div>
@@ -188,7 +189,7 @@ export const KeyFindings = () => {
                         {/* Visual Support & Action */}
                         <div className="space-y-4">
                           {/* Visual Note */}
-                          <Card className="bg-gray-50 border-gray-200">
+                          <Card className="bg-gray-50/80 border-gray-200/60 shadow-sm backdrop-blur-sm">
                             <CardContent className="p-4">
                               <div className="flex items-center gap-3 mb-3">
                                 <FileImage className="w-5 h-5 text-gray-500" />
@@ -201,7 +202,7 @@ export const KeyFindings = () => {
                           {/* Solution Link */}
                           <Button
                             onClick={() => scrollToSolution(finding.solutionAnchor)}
-                            className={`w-full ${colorScheme.icon} hover:opacity-90 text-white border-0`}
+                            className={`w-full ${colorScheme.icon} hover:opacity-90 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300`}
                           >
                             <span data-lovable-editable={`welbilt-finding-${index}-btn`}>View Solution</span>
                             <ArrowRight className="w-4 h-4 ml-2" />
@@ -223,26 +224,26 @@ export const KeyFindings = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
           >
-            <Card className="bg-white border-blue-200 text-center shadow-sm">
+            <Card className="bg-gradient-to-br from-warm-golden-light/20 to-warm-golden-light/5 border-warm-golden-light/40 text-center shadow-lg hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold text-gray-900 mb-2" data-lovable-editable="welbilt-finding-stat-1-value">3</div>
-                <div className="text-blue-700 text-sm" data-lovable-editable="welbilt-finding-stat-1-label">Critical Findings</div>
+                <div className="text-warm-golden text-sm font-medium" data-lovable-editable="welbilt-finding-stat-1-label">Critical Findings</div>
                 <div className="text-gray-600 text-xs mt-1" data-lovable-editable="welbilt-finding-stat-1-desc">Driving Design Decisions</div>
               </CardContent>
             </Card>
             
-            <Card className="bg-white border-green-200 text-center shadow-sm">
+            <Card className="bg-gradient-to-br from-warm-sage-light/20 to-warm-sage-light/5 border-warm-sage-light/40 text-center shadow-lg hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold text-gray-900 mb-2" data-lovable-editable="welbilt-finding-stat-2-value">65%</div>
-                <div className="text-green-700 text-sm" data-lovable-editable="welbilt-finding-stat-2-label">Performance Gap</div>
+                <div className="text-warm-sage text-sm font-medium" data-lovable-editable="welbilt-finding-stat-2-label">Performance Gap</div>
                 <div className="text-gray-600 text-xs mt-1" data-lovable-editable="welbilt-finding-stat-2-desc">Identified & Addressed</div>
               </CardContent>
             </Card>
             
-            <Card className="bg-white border-purple-200 text-center shadow-sm">
+            <Card className="bg-gradient-to-br from-warm-terracotta-light/20 to-warm-terracotta-light/5 border-warm-terracotta-light/40 text-center shadow-lg hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold text-gray-900 mb-2" data-lovable-editable="welbilt-finding-stat-3-value">4</div>
-                <div className="text-purple-700 text-sm" data-lovable-editable="welbilt-finding-stat-3-label">Solution Areas</div>
+                <div className="text-warm-terracotta text-sm font-medium" data-lovable-editable="welbilt-finding-stat-3-label">Solution Areas</div>
                 <div className="text-gray-600 text-xs mt-1" data-lovable-editable="welbilt-finding-stat-3-desc">Directly Targeted</div>
               </CardContent>
             </Card>

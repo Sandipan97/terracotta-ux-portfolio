@@ -13,7 +13,8 @@ const solutions = [
     description: "Created 50+ reusable components with consistent patterns, colors, and typography to eliminate design debt and accelerate development.",
     impact: "35% faster development",
     tags: ["Component Library", "Design Tokens", "Documentation"],
-    anchor: "detailed-design-system"
+    anchor: "detailed-design-system",
+    theme: "warm-terracotta"
   },
   {
     id: 'workflow-optimization',
@@ -22,7 +23,8 @@ const solutions = [
     description: "Redesigned kitchen operation flows to reduce cognitive load and minimize errors during peak service hours.",
     impact: "60% error reduction",
     tags: ["User Experience", "Process Design", "Efficiency"],
-    anchor: "detailed-workflows"
+    anchor: "detailed-workflows",
+    theme: "warm-golden"
   },
   {
     id: 'user-interface',
@@ -31,7 +33,8 @@ const solutions = [
     description: "Simplified complex controls into logical groupings with clear visual hierarchy and contextual feedback systems.",
     impact: "85% user satisfaction",
     tags: ["UI Design", "Usability", "Accessibility"],
-    anchor: "detailed-interface"
+    anchor: "detailed-interface",
+    theme: "warm-sage"
   },
   {
     id: 'collaboration-tools',
@@ -40,7 +43,8 @@ const solutions = [
     description: "Enhanced communication between kitchen staff and management through real-time updates and status indicators.",
     impact: "40% time savings",
     tags: ["Communication", "Real-time", "Team Management"],
-    anchor: "detailed-collaboration"
+    anchor: "detailed-collaboration",
+    theme: "warm-rust"
   }
 ];
 
@@ -53,6 +57,46 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
     const element = document.getElementById(anchor);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const getThemeClasses = (theme: string) => {
+    switch (theme) {
+      case 'warm-terracotta':
+        return {
+          bg: 'bg-gradient-to-br from-warm-terracotta-light/15 to-warm-terracotta-light/5',
+          icon: 'bg-gradient-to-br from-warm-terracotta to-warm-terracotta-hover',
+          border: 'border-warm-terracotta-light/40 hover:border-warm-terracotta-light/60',
+          impact: 'text-warm-terracotta'
+        };
+      case 'warm-golden':
+        return {
+          bg: 'bg-gradient-to-br from-warm-golden-light/15 to-warm-golden-light/5',
+          icon: 'bg-gradient-to-br from-warm-golden to-warm-golden-hover',
+          border: 'border-warm-golden-light/40 hover:border-warm-golden-light/60',
+          impact: 'text-warm-golden'
+        };
+      case 'warm-sage':
+        return {
+          bg: 'bg-gradient-to-br from-warm-sage-light/15 to-warm-sage-light/5',
+          icon: 'bg-gradient-to-br from-warm-sage to-warm-sage/90',
+          border: 'border-warm-sage-light/40 hover:border-warm-sage-light/60',
+          impact: 'text-warm-sage'
+        };
+      case 'warm-rust':
+        return {
+          bg: 'bg-gradient-to-br from-warm-rust-light/15 to-warm-rust-light/5',
+          icon: 'bg-gradient-to-br from-warm-rust to-warm-rust/90',
+          border: 'border-warm-rust-light/40 hover:border-warm-rust-light/60',
+          impact: 'text-warm-rust'
+        };
+      default:
+        return {
+          bg: 'bg-card',
+          icon: 'bg-blue-600',
+          border: 'border-blue-300',
+          impact: 'text-blue-700'
+        };
     }
   };
 
@@ -88,60 +132,63 @@ export const EnhancedDesignSolutions = ({ showDetailed = false }: EnhancedDesign
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {solutions.map((solution, index) => (
-              <motion.div
-                key={solution.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="group"
-              >
-                <Card className="bg-card border-border h-full hover:border-blue-300 transition-all duration-300 shadow-lg">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4">
-                        <solution.icon className="w-8 h-8 text-white" />
+            {solutions.map((solution, index) => {
+              const themeClasses = getThemeClasses(solution.theme);
+              return (
+                <motion.div
+                  key={solution.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  className="group"
+                >
+                  <Card className={`${themeClasses.bg} border ${themeClasses.border} h-full transition-all duration-300 shadow-lg hover:shadow-xl`}>
+                    <CardHeader className="pb-4">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`w-16 h-16 ${themeClasses.icon} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
+                          <solution.icon className="w-8 h-8 text-white" />
+                        </div>
+                        <div className="w-12 h-12 bg-muted/60 rounded-lg flex items-center justify-center border-border border backdrop-blur-sm">
+                          <FileImage className="w-6 h-6 text-muted-foreground" />
+                        </div>
                       </div>
-                      <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center border-border border">
-                        <FileImage className="w-6 h-6 text-muted-foreground" />
+                      <CardTitle className="text-foreground text-xl mb-2" data-lovable-editable={`welbilt-solution-${index}-title`}>{solution.title}</CardTitle>
+                      <div className="flex flex-wrap gap-2">
+                        {solution.tags.map((tag, tagIndex) => (
+                          <Badge key={tagIndex} variant="secondary" className="bg-background/70 backdrop-blur-sm border-current/20 hover:bg-background/90 transition-colors">
+                            <span data-lovable-editable={`welbilt-solution-${index}-tag-${tagIndex}`}>{tag}</span>
+                          </Badge>
+                        ))}
                       </div>
-                    </div>
-                    <CardTitle className="text-foreground text-xl mb-2" data-lovable-editable={`welbilt-solution-${index}-title`}>{solution.title}</CardTitle>
-                    <div className="flex flex-wrap gap-2">
-                      {solution.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="secondary">
-                          <span data-lovable-editable={`welbilt-solution-${index}-tag-${tagIndex}`}>{tag}</span>
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <p className="text-muted-foreground leading-relaxed mb-4" data-lovable-editable={`welbilt-solution-${index}-description`}>{solution.description}</p>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="text-sm">
-                        <span className="text-blue-700 font-semibold" data-lovable-editable={`welbilt-solution-${index}-impact`}>{solution.impact}</span>
-                        <span className="text-muted-foreground ml-2" data-lovable-editable="welbilt-solution-improvement-label">improvement</span>
-                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <p className="text-muted-foreground leading-relaxed mb-4" data-lovable-editable={`welbilt-solution-${index}-description`}>{solution.description}</p>
                       
-                      {!showDetailed && (
-                        <Button
-                          onClick={() => scrollToDetailed(solution.anchor)}
-                          variant="outline"
-                          size="sm"
-                          className="group-hover:translate-x-1 transition-all duration-300"
-                        >
-                          <span data-lovable-editable={`welbilt-solution-${index}-btn`}>View Full Solution</span>
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                      <div className="flex items-center justify-between">
+                        <div className="text-sm">
+                          <span className={`${themeClasses.impact} font-semibold`} data-lovable-editable={`welbilt-solution-${index}-impact`}>{solution.impact}</span>
+                          <span className="text-muted-foreground ml-2" data-lovable-editable="welbilt-solution-improvement-label">improvement</span>
+                        </div>
+                        
+                        {!showDetailed && (
+                          <Button
+                            onClick={() => scrollToDetailed(solution.anchor)}
+                            variant="outline"
+                            size="sm"
+                            className="group-hover:translate-x-1 transition-all duration-300 bg-background/60 backdrop-blur-sm hover:bg-background/90"
+                          >
+                            <span data-lovable-editable={`welbilt-solution-${index}-btn`}>View Full Solution</span>
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
 
           {!showDetailed && (
