@@ -154,16 +154,16 @@ const HeroSection = () => {
             className="grid grid-cols-3 gap-4 text-center"
           >
             <div>
-              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-1-value">35%</div>
-              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-1-label">Faster Development</div>
+              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-1-value">Gained New Customers</div>
+              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-1-label">QT, Ice-o-Matic etc</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-2-value">50+</div>
-              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-2-label">Components</div>
+              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-2-value">15+</div>
+              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-2-label">Interconneted Features</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-3-value">85%</div>
-              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-3-label">User Satisfaction</div>
+              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-3-value">NAFEM 2025</div>
+              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-3-label">Peak User Satisfaction</div>
             </div>
           </motion.div>
         </motion.div>
