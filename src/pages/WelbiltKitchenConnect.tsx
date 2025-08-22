@@ -15,9 +15,6 @@ import { ResearchQuestions } from '@/components/welbilt/ResearchQuestions';
 import { KeyFindings } from '@/components/welbilt/KeyFindings';
 import { DetailedSolutions } from '@/components/welbilt/DetailedSolutions';
 import ProjectTestimonial from '@/components/project/ProjectTestimonial';
-<link rel="preload" as="image" href="/lovable-uploads/WB new.webp" />
-<link rel="preload" as="image" href="/lovable-uploads/Welbilt Legacy.webp" />
-
 
 const WelbiltKitchenConnect = () => {
   const navigate = useNavigate();
