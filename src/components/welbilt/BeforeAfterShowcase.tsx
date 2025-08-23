@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -133,22 +132,22 @@ const BeforeAfterShowcase = () => {
         delay: 0.4
       }} viewport={{
         once: true
-      }} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      }} className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {improvements.map((item, index) => {
           const Icon = item.icon;
-          return <Card key={index} className="p-6 bg-card border-border text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
-                  <Icon className="text-primary" size={24} />
+          return <Card key={index} className="p-8 bg-gradient-to-br from-warm-terracotta-light/10 to-warm-golden-light/10 border-warm-terracotta/20 text-center hover:shadow-lg transition-all duration-300 group">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-warm-terracotta/10 rounded-xl mb-6 group-hover:bg-warm-terracotta/20 transition-colors">
+                  <Icon className="text-warm-terracotta" size={28} />
                 </div>
-                <h3 className="font-semibold text-foreground mb-3" data-lovable-editable={`welbilt-metric-${index}-title`}>{item.metric}</h3>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-red-600" data-lovable-editable={`welbilt-metric-${index}-before`}>Before: {item.before}</span>
+                <h3 className="font-heading font-bold text-xl text-foreground mb-6" data-lovable-editable={`welbilt-metric-${index}-title`}>{item.metric}</h3>
+                <div className="space-y-4">
+                  <div className="p-3 bg-red-50/80 rounded-lg border border-red-100">
+                    <span className="text-sm text-red-700 font-medium" data-lovable-editable={`welbilt-metric-${index}-before`}>Before: {item.before}</span>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-green-600" data-lovable-editable={`welbilt-metric-${index}-after`}>After: {item.after}</span>
+                  <div className="p-4 bg-gradient-to-r from-green-50 to-warm-golden-light/20 rounded-xl border border-green-200 shadow-sm">
+                    <span className="text-lg font-bold text-green-800" data-lovable-editable={`welbilt-metric-${index}-after`}>After: {item.after}</span>
                   </div>
-                  <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
+                  <Badge variant="secondary" className="bg-warm-terracotta text-white hover:bg-warm-terracotta-hover text-sm font-bold px-4 py-2">
                     <span data-lovable-editable={`welbilt-metric-${index}-improvement`}>{item.improvement}</span>
                   </Badge>
                 </div>
