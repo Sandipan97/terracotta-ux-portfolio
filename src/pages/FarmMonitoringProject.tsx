@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Users, Lightbulb, Target, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -613,104 +612,110 @@ const FarmMonitoringProject = () => {
         </section>
 
         {/* Demo Section with Vimeo Video */}
-        <section id="demo" className="py-16 bg-gradient-to-br from-green-600 to-emerald-600">
+        <section id="demo" className="py-8 bg-gradient-to-br from-green-600 to-emerald-600 min-h-screen flex items-center">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6" data-lovable-editable="demo-title">
-                Interactive App Demo
-              </h2>
-              <p className="text-xl text-green-100 max-w-3xl mx-auto" data-lovable-editable="demo-subtitle">
-                Experience the farmer-centered design in action
-              </p>
-            </motion.div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
+              {/* Left Column - Header and App Screens */}
+              <div className="space-y-8">
+                {/* Header */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-center lg:text-left"
+                >
+                  <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" data-lovable-editable="demo-title">
+                    Interactive App Demo
+                  </h2>
+                  <p className="text-lg text-green-100 max-w-2xl" data-lovable-editable="demo-subtitle">
+                    Experience the farmer-centered design in action
+                  </p>
+                </motion.div>
 
-            {/* Vimeo Video Embed */}
-            <motion.div 
-              className="mb-12 rounded-2xl overflow-hidden shadow-2xl bg-black max-w-6xl mx-auto"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              data-lovable-editable="main-demo-video"
-            >
-              <div style={{ padding: "133.33% 0 0 0", position: "relative" }}>
-                <iframe 
-                  src="https://player.vimeo.com/video/1112123237?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
-                  frameBorder="0" 
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                  referrerPolicy="strict-origin-when-cross-origin" 
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }} 
-                  title="Farm Monitoring App Demo"
-                />
+                {/* App Screen Mockups */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    viewport={{ once: true }}
+                    data-lovable-editable="screen-dashboard"
+                  >
+                    <div className="bg-white rounded-xl p-2 shadow-xl mb-3">
+                      <EditableImage 
+                        src="/lovable-uploads/92daa44f-f4d1-472d-8910-22e82bf8b3b3.png"
+                        alt="Dashboard Screen"
+                        className="w-full h-auto object-contain rounded-lg max-h-32"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                    <h3 className="text-white font-semibold text-sm mb-1">Real-time Dashboard</h3>
+                    <p className="text-green-100 text-xs">Monitor all farm metrics</p>
+                  </motion.div>
+
+                  <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    data-lovable-editable="screen-personalized"
+                  >
+                    <div className="bg-white rounded-xl p-2 shadow-xl mb-3">
+                      <EditableImage 
+                        src="/lovable-uploads/50eedb00-deb6-4ad4-9d4a-a664044ae725.png"
+                        alt="Personalized for your crop"
+                        className="w-full h-auto object-contain rounded-lg max-h-32"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                    <h3 className="text-white font-semibold text-sm mb-1">Personalized Insights</h3>
+                    <p className="text-green-100 text-xs">Tailored for your crop</p>
+                  </motion.div>
+
+                  <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    viewport={{ once: true }}
+                    data-lovable-editable="screen-analytics"
+                  >
+                    <div className="bg-white rounded-xl p-2 shadow-xl mb-3">
+                      <EditableImage 
+                        src="/lovable-uploads/13fd507a-045d-444e-8db5-b79ac6d8b548.png"
+                        alt="Accurate location & Analytics"
+                        className="w-full h-auto object-contain rounded-lg max-h-32"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+                    <h3 className="text-white font-semibold text-sm mb-1">Location & Analytics</h3>
+                    <p className="text-green-100 text-xs">Precise field mapping</p>
+                  </motion.div>
+                </div>
               </div>
-            </motion.div>
 
-            {/* App Screen Mockups using correct uploaded images */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <motion.div
-                className="text-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+              {/* Right Column - Vimeo Video */}
+              <motion.div 
+                className="rounded-2xl overflow-hidden shadow-2xl bg-black"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                data-lovable-editable="screen-dashboard"
+                data-lovable-editable="main-demo-video"
               >
-                <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
-                  <EditableImage 
-                    src="/lovable-uploads/92daa44f-f4d1-472d-8910-22e82bf8b3b3.png"
-                    alt="Dashboard Screen"
-                    className="w-full h-auto object-contain rounded-lg"
-                    fallbackSrc="/placeholder.svg"
+                <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+                  <iframe 
+                    src="https://player.vimeo.com/video/1112123237?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }} 
+                    title="Farm Monitoring App Demo"
                   />
                 </div>
-                <h3 className="text-white font-semibold text-lg mb-2">Real-time Dashboard</h3>
-                <p className="text-green-100 text-sm">Monitor all farm metrics in one place</p>
-              </motion.div>
-
-              <motion.div
-                className="text-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                data-lovable-editable="screen-personalized"
-              >
-                <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
-                  <EditableImage 
-                    src="/lovable-uploads/50eedb00-deb6-4ad4-9d4a-a664044ae725.png"
-                    alt="Personalized for your crop"
-                    className="w-full h-auto object-contain rounded-lg"
-                    fallbackSrc="/placeholder.svg"
-                  />
-                </div>
-                <h3 className="text-white font-semibold text-lg mb-2">Personalized for Your Crop</h3>
-                <p className="text-green-100 text-sm">Tailored insights for your specific farming needs</p>
-              </motion.div>
-
-              <motion.div
-                className="text-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-                data-lovable-editable="screen-analytics"
-              >
-                <div className="bg-white rounded-2xl p-4 shadow-xl mb-4">
-                  <EditableImage 
-                    src="/lovable-uploads/13fd507a-045d-444e-8db5-b79ac6d8b548.png"
-                    alt="Accurate location & Analytics"
-                    className="w-full h-auto object-contain rounded-lg"
-                    fallbackSrc="/placeholder.svg"
-                  />
-                </div>
-                <h3 className="text-white font-semibold text-lg mb-2">Accurate Location & Analytics</h3>
-                <p className="text-green-100 text-sm">Precise field mapping and data analytics</p>
               </motion.div>
             </div>
           </div>
