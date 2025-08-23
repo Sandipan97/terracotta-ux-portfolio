@@ -135,12 +135,10 @@ const PGDataloggerProject = () => {
           Back to Projects
         </button>
 
-        <EditableImage 
-          src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PG heroimg.webp" 
-          className="w-full h-full object-cover object-center" 
-          objectFit="cover" 
-          objectPosition="center"
-        />
+        <div style={{padding:'75% 0 0 0',position:'relative'}}>
+          <iframe src="https://player.vimeo.com/video/1112592027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;dnt=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} title="PGsystem"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
       </section>
 
@@ -428,7 +426,17 @@ const PGDataloggerProject = () => {
                   <CardTitle className="text-center">Dark Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <EditableImage src="/lovable-uploads/07eb7894-fcab-4496-9406-38bc0f679e93.png" alt="Final P&G Datalogger interface in dark mode" className="w-full h-[400px] object-cover rounded-lg" objectFit="cover" objectPosition="center" fallbackSrc="/placeholder.svg" editableKey="pg-datalogger-final-dark-mode" />
+                  <div className="w-full relative" style={{ padding: '75% 0 0 0' }}>
+                    <iframe 
+                      src="https://player.vimeo.com/video/1112592027?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
+                      frameBorder="0" 
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                      referrerPolicy="strict-origin-when-cross-origin" 
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                      title="PGsystem"
+                      className="rounded-lg"
+                    />
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
