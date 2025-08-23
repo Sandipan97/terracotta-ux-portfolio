@@ -2,136 +2,100 @@ import { motion } from 'framer-motion';
 import { Palette, Zap, Code, Users, FileImage, CheckCircle, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
-const detailedSolutions = [
-  {
-    id: 'detailed-design-system',
-    icon: Palette,
-    title: "Unified Design System Implementation",
-    subtitle: "Building consistency across the entire platform",
-    challenge: "Fragmented design patterns causing inconsistencies and violations",
-    approach: "Created comprehensive component library with design tokens, documentation, and implementation guidelines",
-    components: [
-      "200+ reusable UI components",
-      "Unified color and typography system tokens",
-      "Responsive grid and spacing rules",
-      "Accessibility-first design patterns"
-    ],
-    outcomes: [
-      "35% faster development cycles",
-      "90% reduction in design inconsistencies",
-      "Improved developer experience and adoption"
-    ],
-    technologies: ["Figma", "Figjam Storybooks", "Design Tokens", "Heuristic Evaluations"]
-  },
-  {
-    id: 'detailed-workflows',
-    icon: Zap,
-    title: "Streamlined Customer-Brand-Organizational Workflows",
-    subtitle: "Optimizing operations for peak efficiency",
-    challenge: "Complex and interlinked workflows causing longer task completion and data leaks",
-    approach: "Redesigned user journeys with simplified intuitive navigation, contextual actions, and standardised interfaces",
-    components: [
-      "Distinct navigation with logical grouping",
-      "Context and Brand-aware feature suggestions",
-      "Adjust architecture for different stakeholders",
-      "Progressive disclosure for complex tasks"
-    ],
-    outcomes: [
-      "60% reduction in operational errors",
-      "40% faster task completion",
-      "Improved staff confidence and satisfaction"
-    ],
-    technologies: ["User Journey Mapping", "Workflow Analysis", "Interviews and Brainstorming"]
-  },
-  {
-    id: 'detailed-interface',
-    icon: Code,
-    title: "Intuitive Interface Architecture",
-    subtitle: "Creating clarity in complex monitoring and ERP operations",
-    challenge: "Poor accessibility and heuristics leading to user errors",
-    approach: "Implemented clear information architecture with improved feature hierarchy and grouping",
-    components: [
-      "Logical categories for features",
-      "Redesign Menu system and Navigation",
-      "Contextual Search and status indicators",
-      "Error prevention and recovery patterns"
-    ],
-    outcomes: [
-      "85% improvement in user satisfaction",
-      "70% reduction in training time",
-      "Consistent experience across devices"
-    ],
-    technologies: [ "Design System", "Business Requirements", "Accessibility Standards"]
-  },
-  {
-    id: 'detailed-collaboration',
-    icon: Users,
-    title: "Enhanced Team Collaboration",
-    subtitle: "Design front-runner keeping Dev and BA teams on the same page",
-    challenge: "Communication gaps causing 30% of service delays",
-    approach: "Developed real-time communication with all the teams for status tracking and smooth delivery",
-    components: [
-      "Daily meeting with Client and Dev team",
-      "Twice-a-week update to Management and BA",
-      "Team coordination and capability tracking",
-      "SPRINT management"
-    ],
-    outcomes: [
-      "40% reduction in coordination time",
-      "30% fewer service delays and errors",
-      "Improved team communication and morale"
-    ],
-    technologies: ["e-mail", "Jira Kanban boards", "Meetings"]
-  }
-];
-
+const detailedSolutions = [{
+  id: 'detailed-design-system',
+  icon: Palette,
+  title: "Unified Design System Implementation",
+  subtitle: "Building consistency across the entire platform",
+  challenge: "Fragmented design patterns causing 65% development delays",
+  approach: "Created comprehensive component library with design tokens, documentation, and implementation guidelines",
+  components: ["200+ reusable UI components", "Unified color and typography system", "Responsive grid and spacing tokens", "Accessibility-first design patterns"],
+  outcomes: ["35% faster development cycles", "90% reduction in design inconsistencies", "Improved developer experience and adoption"],
+  technologies: ["Figma", "Storybook", "Design Tokens", "CSS-in-JS"]
+}, {
+  id: 'detailed-workflows',
+  icon: Zap,
+  title: "Streamlined Kitchen Workflows",
+  subtitle: "Optimizing operations for peak efficiency",
+  challenge: "Complex workflows causing 40% longer task completion times",
+  approach: "Redesigned user journeys with simplified navigation, contextual actions, and predictive interfaces",
+  components: ["Simplified navigation with logical grouping", "Context-aware action suggestions", "One-click common operations", "Progressive disclosure for complex tasks"],
+  outcomes: ["60% reduction in operational errors", "40% faster task completion", "Improved staff confidence and satisfaction"],
+  technologies: ["User Journey Mapping", "Workflow Analysis", "Prototype Testing"]
+}, {
+  id: 'detailed-interface',
+  icon: Code,
+  title: "Intuitive Interface Architecture",
+  subtitle: "Creating clarity in complex kitchen operations",
+  challenge: "Poor visual hierarchy leading to 60% of user errors",
+  approach: "Implemented clear information architecture with improved visual hierarchy and contextual feedback systems",
+  components: ["Clear visual hierarchy and typography", "Contextual feedback and status indicators", "Error prevention and recovery patterns", "Mobile-responsive touch interfaces"],
+  outcomes: ["85% improvement in user satisfaction", "70% reduction in training time", "Consistent experience across devices"],
+  technologies: ["React", "TypeScript", "Responsive Design", "Accessibility Standards"]
+}, {
+  id: 'detailed-collaboration',
+  icon: Users,
+  title: "Enhanced Team Collaboration",
+  subtitle: "Connecting kitchen teams in real-time",
+  challenge: "Communication gaps causing 30% of service delays",
+  approach: "Developed real-time communication tools with status tracking and automated notifications",
+  components: ["Real-time status dashboard", "Automated notification system", "Team coordination tools", "Performance tracking and insights"],
+  outcomes: ["40% reduction in coordination time", "30% fewer service delays", "Improved team communication and morale"],
+  technologies: ["WebSocket", "Real-time APIs", "Push Notifications", "Data Visualization"]
+}];
 export const DetailedSolutions = () => {
-  return (
-    <section className="py-20 bg-gray-50">
+  return <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <motion.h2 
-              className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              data-lovable-editable="welbilt-detailed-title"
-            >
+            <motion.h2 className="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-4" initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} data-lovable-editable="welbilt-detailed-title">
               Detailed Solutions
             </motion.h2>
-            <motion.p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              data-lovable-editable="welbilt-detailed-description"
-            >
+            <motion.p className="text-xl text-gray-600 max-w-3xl mx-auto" initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            delay: 0.2
+          }} data-lovable-editable="welbilt-detailed-description">
               In-depth look at how research insights transformed into actionable design solutions
             </motion.p>
           </div>
 
           <div className="space-y-16">
             {detailedSolutions.map((solution, index) => {
-              const Icon = solution.icon;
-              
-              return (
-                <motion.div
-                  key={solution.id}
-                  id={solution.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="scroll-mt-24"
-                >
+            const Icon = solution.icon;
+            return <motion.div key={solution.id} id={solution.id} initial={{
+              opacity: 0,
+              y: 40
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: index * 0.1
+            }} className="scroll-mt-24">
                   <Card className="bg-white border-gray-200 shadow-lg overflow-hidden">
                     <CardHeader className="pb-8">
                       <div className="flex items-start gap-6">
@@ -176,12 +140,10 @@ export const DetailedSolutions = () => {
                             <span data-lovable-editable="welbilt-detailed-components-label">Key Components</span>
                           </h4>
                           <ul className="space-y-3">
-                            {solution.components.map((component, idx) => (
-                              <li key={idx} className="flex items-start gap-3">
+                            {solution.components.map((component, idx) => <li key={idx} className="flex items-start gap-3">
                                 <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                                 <span className="text-gray-700" data-lovable-editable={`welbilt-detailed-${index}-component-${idx}`}>{component}</span>
-                              </li>
-                            ))}
+                              </li>)}
                           </ul>
                         </div>
 
@@ -191,12 +153,10 @@ export const DetailedSolutions = () => {
                             <span data-lovable-editable="welbilt-detailed-outcomes-label">Measured Outcomes</span>
                           </h4>
                           <ul className="space-y-3">
-                            {solution.outcomes.map((outcome, idx) => (
-                              <li key={idx} className="flex items-start gap-3">
+                            {solution.outcomes.map((outcome, idx) => <li key={idx} className="flex items-start gap-3">
                                 <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                                 <span className="text-gray-700" data-lovable-editable={`welbilt-detailed-${index}-outcome-${idx}`}>{outcome}</span>
-                              </li>
-                            ))}
+                              </li>)}
                           </ul>
                         </div>
                       </div>
@@ -205,35 +165,30 @@ export const DetailedSolutions = () => {
                       <div>
                         <h4 className="text-gray-900 font-semibold mb-4" data-lovable-editable="welbilt-detailed-technologies-label">Technologies & Methods</h4>
                         <div className="flex flex-wrap gap-2">
-                          {solution.technologies.map((tech, idx) => (
-                            <Badge key={idx} variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
+                          {solution.technologies.map((tech, idx) => <Badge key={idx} variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
                               <span data-lovable-editable={`welbilt-detailed-${index}-tech-${idx}`}>{tech}</span>
-                            </Badge>
-                          ))}
+                            </Badge>)}
                         </div>
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
-              );
-            })}
+                </motion.div>;
+          })}
           </div>
 
           {/* Navigation to Impact */}
-          <motion.div 
-            className="text-center mt-16"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gray-100 rounded-full border border-gray-200">
-              <span className="text-gray-700 text-sm" data-lovable-editable="welbilt-detailed-impact-text">Ready to see the impact?</span>
-              <ArrowRight className="w-4 h-4 text-blue-600" />
-            </div>
+          <motion.div className="text-center mt-16" initial={{
+          opacity: 0
+        }} whileInView={{
+          opacity: 1
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.8
+        }}>
+            
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
