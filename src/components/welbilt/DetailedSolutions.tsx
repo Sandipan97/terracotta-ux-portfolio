@@ -13,54 +13,55 @@ const detailedSolutions = [
     approach: "Created comprehensive component library with design tokens, documentation, and implementation guidelines",
     components: [
       "200+ reusable UI components",
-      "Unified color and typography system",
-      "Responsive grid and spacing tokens",
+      "Unified color and typography tokens",
+      "Responsive grid and spacing layout",
       "Accessibility-first design patterns"
     ],
     outcomes: [
       "35% faster development cycles",
-      "90% reduction in design inconsistencies",
-      "Improved developer experience and adoption"
+      "99% reduction in design inconsistencies",
+      "Improved experience and adoption"
     ],
-    technologies: ["Figma", "Storybook", "Design Tokens", "CSS-in-JS"]
+    technologies: ["Figma", "Storybook", "Design Tokens", "Heuristic Evaluations"]
   },
   {
     id: 'detailed-workflows',
     icon: Zap,
-    title: "Streamlined Kitchen Workflows",
-    subtitle: "Optimizing operations for peak efficiency",
-    challenge: "Complex workflows causing 40% longer task completion times",
-    approach: "Redesigned user journeys with simplified navigation, contextual actions, and predictive interfaces",
+    title: "Distinct Customer-Brand-Organization Workflows",
+    subtitle: "Optimizing operations for peak efficiency for varied stakeholder views",
+    challenge: "Complex interlinked workflows causing inconsistencies and data leaks",
+    approach: "Redesigned user journeys with defined architectures, navigation, contextual actions, and predictive interfaces",
     components: [
       "Simplified navigation with logical grouping",
       "Context-aware action suggestions",
-      "One-click common operations",
-      "Progressive disclosure for complex tasks"
+      "Unified common operations with specific stakeholder dashboards",
+      "Increased Security - Data encapsulation and management"
     ],
     outcomes: [
       "60% reduction in operational errors",
-      "40% faster task completion",
-      "Improved staff confidence and satisfaction"
+      "Faster rate of task completion",
+      "Improved confidence with Brands like Merrychef, Merco, Frymaster, Garland etc"
     ],
-    technologies: ["User Journey Mapping", "Workflow Analysis", "Prototype Testing"]
+    technologies: ["User Journey Mapping", "Workflow Analysis and Interviews", "Heuristic Testing"]
   },
   {
     id: 'detailed-interface',
     icon: Code,
     title: "Intuitive Interface Architecture",
-    subtitle: "Creating clarity in complex kitchen operations",
-    challenge: "Poor visual hierarchy leading to 60% of user errors",
-    approach: "Implemented clear information architecture with improved visual hierarchy and contextual feedback systems",
+    subtitle: "Creating clarity in complex execution  and support operations",
+    challenge: "Poor categorization of features, lacking hierarchy leading to breakdowns",
+    approach: "Implemented clear information architecture with clear feature distinction and encapsulation",
     components: [
-      "Clear visual hierarchy and typography",
-      "Contextual feedback and status indicators",
+      "Redesign entire menu system and navigation",
+      "Grouping related features for conceptual understanding",
       "Error prevention and recovery patterns",
-      "Mobile-responsive touch interfaces"
+      "Responsiveness - breakpoints adjusted for all devices"
     ],
     outcomes: [
       "85% improvement in user satisfaction",
       "70% reduction in training time",
       "Consistent experience across devices"
+      "Progressive disclosure for complex tasks with help"
     ],
     technologies: ["React", "TypeScript", "Responsive Design", "Accessibility Standards"]
   },
@@ -68,14 +69,14 @@ const detailedSolutions = [
     id: 'detailed-collaboration',
     icon: Users,
     title: "Enhanced Team Collaboration",
-    subtitle: "Connecting kitchen teams in real-time",
-    challenge: "Communication gaps causing 30% of service delays",
-    approach: "Developed real-time communication tools with status tracking and automated notifications",
+    subtitle: "Design Front-runners keeping all the teams on the same page",
+    challenge: "Communication gaps causing 30-40% of service delays",
+    approach: "Developed real-time communication with dev and BA team, took accountability for decisions and paced SPRINT timelines",
     components: [
-      "Real-time status dashboard",
-      "Automated notification system",
-      "Team coordination tools",
-      "Performance tracking and insights"
+      "Daily connect with Client and  Dev team",
+      "Twice a Week update to BA and Management",
+      "Team coordination and SPRINT management",
+      "Capability tracking and adjustments"
     ],
     outcomes: [
       "40% reduction in coordination time",
