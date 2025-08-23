@@ -39,7 +39,7 @@ const ProcessTimeline = () => {
     duration: "8 weeks",
     deliverables: ["Usability testing", "Brand feedback", "Customer Feedback", "Performance optimization"],
     color: "red",
-    image: "/lovable-uploads/WB test.webp"
+    image: "/lovable-uploads/WBtest.webp"
   }, {
     phase: "Launch",
     icon: Rocket,
