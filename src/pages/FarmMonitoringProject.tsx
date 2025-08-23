@@ -724,7 +724,7 @@ const FarmMonitoringProject = () => {
                 </motion.div>
               </div>
 
-              {/* Desktop Layout (Two Columns) */}
+              {/* Desktop and Large Tablet Layout (Two Columns) */}
               <div className="hidden lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:min-h-[80vh]">
                 {/* Left Column - Header and Images */}
                 <motion.div
@@ -760,7 +760,7 @@ const FarmMonitoringProject = () => {
                       viewport={{ once: true }}
                       data-lovable-editable="screen-dashboard"
                     >
-                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-48">
+                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-64">
                         <EditableImage 
                           src="/lovable-uploads/92daa44f-f4d1-472d-8910-22e82bf8b3b3.png"
                           alt="Dashboard Screen"
@@ -780,7 +780,7 @@ const FarmMonitoringProject = () => {
                       viewport={{ once: true }}
                       data-lovable-editable="screen-personalized"
                     >
-                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-48">
+                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-64">
                         <EditableImage 
                           src="/lovable-uploads/50eedb00-deb6-4ad4-9d4a-a664044ae725.png"
                           alt="Personalized for your crop"
@@ -800,7 +800,7 @@ const FarmMonitoringProject = () => {
                       viewport={{ once: true }}
                       data-lovable-editable="screen-analytics"
                     >
-                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-48">
+                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-64">
                         <EditableImage 
                           src="/lovable-uploads/13fd507a-045d-444e-8db5-b79ac6d8b548.png"
                           alt="Accurate location & Analytics"
