@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Users, Lightbulb, Target, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -36,7 +35,7 @@ const FarmMonitoringProject = () => {
       
       <main className="pt-20">
         {/* Enhanced Hero Section */}
-        <section id="hero" className="w-full relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section id="hero" className="w-full relative h-screen flex items-center justify-center overflow-hidden">
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-green-950 dark:via-emerald-950 dark:to-teal-950"></div>
           
@@ -98,78 +97,141 @@ const FarmMonitoringProject = () => {
             </Button>
           </motion.div>
 
-          <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-6xl mx-auto"
-            >
-              {/* Project Type Badge */}
+          <div className="container mx-auto px-4 md:px-6 relative z-10 h-full flex items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full max-h-[80vh]">
+              {/* Left Column - Text Content */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mb-6"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6 lg:space-y-8 text-center lg:text-left"
               >
-                <Badge className="bg-green-100 text-green-700 hover:bg-green-200 border-green-200 px-4 py-2 text-sm font-medium dark:bg-green-900/30 dark:text-green-300 dark:border-green-700" data-lovable-editable="hero-badge">
-                  Design Thinking Workshop • UX Research
-                </Badge>
+                {/* Project Type Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <Badge className="bg-green-100 text-green-700 hover:bg-green-200 border-green-200 px-4 py-2 text-sm font-medium dark:bg-green-900/30 dark:text-green-300 dark:border-green-700" data-lovable-editable="hero-badge">
+                    Design Thinking Workshop • UX Research
+                  </Badge>
+                </motion.div>
+
+                {/* Main Title */}
+                <motion.h1 
+                  className="font-heading text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight" 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  data-lovable-editable="hero-title"
+                >
+                  Empowering Farmers Through{' '}
+                  <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                    Innovation
+                  </span>
+                </motion.h1>
+
+                {/* Subtitle */}
+                <motion.p 
+                  className="text-lg sm:text-xl text-muted-foreground leading-relaxed" 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  data-lovable-editable="hero-subtitle"
+                >
+                  A Design Thinking Workshop Journey: From 20+ Farmer Interviews to a Revolutionary Mobile Application
+                </motion.p>
+
+                {/* Action Buttons */}
+                <motion.div 
+                  className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <Button 
+                    className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 text-base group"
+                    onClick={() => document.getElementById('overview')?.scrollIntoView({ behavior: 'smooth' })}
+                    data-lovable-editable="hero-primary-button"
+                  >
+                    Explore the Journey
+                    <motion.div
+                      className="ml-2 group-hover:translate-x-1 transition-transform duration-200"
+                      animate={{ x: [0, 3, 0] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      →
+                    </motion.div>
+                  </Button>
+                  
+                  <Button 
+                    variant="outline"
+                    className="border-green-300 text-green-700 hover:bg-green-50 hover:border-green-400 px-6 py-3 text-base transition-all duration-300 dark:border-green-700 dark:text-green-300 dark:hover:bg-green-900/20"
+                    onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
+                    data-lovable-editable="hero-secondary-button"
+                  >
+                    View Live Demo
+                  </Button>
+                </motion.div>
+
+                {/* Stats Row - Hidden on mobile to save space */}
+                <motion.div 
+                  className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4 pt-6 lg:pt-8"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                >
+                  {[
+                    { number: "20+", label: "Farmer Interviews", icon: "👨‍🌾" },
+                    { number: "6", label: "Month Workshop", icon: "🗓️" },
+                    { number: "150+", label: "Ideas Generated", icon: "💡" },
+                    { number: "4", label: "Design Phases", icon: "🎯" }
+                  ].map((stat, index) => (
+                    <motion.div
+                      key={stat.label}
+                      className="text-center bg-background/60 backdrop-blur-sm rounded-xl p-3 border border-border/50"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      data-lovable-editable={`hero-stat-${index}`}
+                    >
+                      <div className="text-lg mb-1">{stat.icon}</div>
+                      <div className="text-xl font-bold text-green-600 dark:text-green-400">{stat.number}</div>
+                      <div className="text-xs text-muted-foreground font-medium">{stat.label}</div>
+                    </motion.div>
+                  ))}
+                </motion.div>
               </motion.div>
 
-              {/* Main Title */}
-              <motion.h1 
-                className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight" 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                data-lovable-editable="hero-title"
-              >
-                Empowering Farmers Through{' '}
-                <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                  Innovation
-                </span>
-              </motion.h1>
-
-              {/* Subtitle */}
-              <motion.p 
-                className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed" 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                data-lovable-editable="hero-subtitle"
-              >
-                A Design Thinking Workshop Journey: From 20+ Farmer Interviews to a Revolutionary Mobile Application
-              </motion.p>
-
-              {/* Enhanced App Showcase */}
+              {/* Right Column - App Showcase */}
               <motion.div 
-                className="relative max-w-5xl mx-auto mb-12"
+                className="relative max-w-2xl mx-auto lg:mx-0"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
                 data-lovable-editable="demo-showcase-container"
               >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 p-4 sm:p-6 md:p-8">
+                <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 p-3 lg:p-6">
                   {/* Decorative Elements */}
-                  <div className="absolute top-4 left-4 flex space-x-2">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <div className="absolute top-3 left-3 flex space-x-2">
+                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-yellow-400 rounded-full"></div>
+                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full"></div>
                   </div>
                   
                   {/* App Showcase Image */}
                   <EditableImage 
                     src="/lovable-uploads/f4d57f92-208a-4c6c-96e9-7b59286e0167.png"
                     alt="Farm Monitoring App Showcase - Multiple mobile screens showing dashboard, personalized crop data, and analytics"
-                    className="w-full h-auto object-contain rounded-2xl"
+                    className="w-full h-auto object-contain rounded-xl lg:rounded-2xl max-h-[50vh] lg:max-h-[60vh]"
                     priority="critical"
                     fallbackSrc="/placeholder.svg"
                   />
                   
                   {/* Floating Info Cards */}
                   <motion.div
-                    className="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
+                    className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 bg-green-500 text-white px-2 py-1 lg:px-4 lg:py-2 rounded-full text-xs lg:text-sm font-semibold shadow-lg"
                     animate={{ y: [-5, 5, -5] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   >
@@ -177,7 +239,7 @@ const FarmMonitoringProject = () => {
                   </motion.div>
                   
                   <motion.div
-                    className="absolute -bottom-4 -left-4 bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
+                    className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 bg-emerald-500 text-white px-2 py-1 lg:px-4 lg:py-2 rounded-full text-xs lg:text-sm font-semibold shadow-lg"
                     animate={{ y: [5, -5, 5] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                   >
@@ -185,68 +247,7 @@ const FarmMonitoringProject = () => {
                   </motion.div>
                 </div>
               </motion.div>
-
-              {/* Action Buttons */}
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-              >
-                <Button 
-                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-3 text-lg group"
-                  onClick={() => document.getElementById('overview')?.scrollIntoView({ behavior: 'smooth' })}
-                  data-lovable-editable="hero-primary-button"
-                >
-                  Explore the Journey
-                  <motion.div
-                    className="ml-2 group-hover:translate-x-1 transition-transform duration-200"
-                    animate={{ x: [0, 3, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    →
-                  </motion.div>
-                </Button>
-                
-                <Button 
-                  variant="outline"
-                  className="border-green-300 text-green-700 hover:bg-green-50 hover:border-green-400 px-8 py-3 text-lg transition-all duration-300 dark:border-green-700 dark:text-green-300 dark:hover:bg-green-900/20"
-                  onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                  data-lovable-editable="hero-secondary-button"
-                >
-                  View Live Demo
-                </Button>
-              </motion.div>
-
-              {/* Stats Row */}
-              <motion.div 
-                className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 mt-16 max-w-3xl mx-auto"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-              >
-                {[
-                  { number: "20+", label: "Farmer Interviews", icon: "👨‍🌾" },
-                  { number: "6", label: "Month Workshop", icon: "🗓️" },
-                  { number: "150+", label: "Ideas Generated", icon: "💡" },
-                  { number: "4", label: "Design Phases", icon: "🎯" }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    className="text-center bg-background/60 backdrop-blur-sm rounded-2xl p-4 border border-border/50"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    data-lovable-editable={`hero-stat-${index}`}
-                  >
-                    <div className="text-2xl mb-1">{stat.icon}</div>
-                    <div className="text-2xl font-bold text-green-600 dark:text-green-400">{stat.number}</div>
-                    <div className="text-xs text-muted-foreground font-medium">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
