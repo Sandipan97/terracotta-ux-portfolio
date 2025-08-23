@@ -4,8 +4,11 @@ import HeroTextContent from './hero/HeroTextContent';
 import HeroProfileSection from './hero/HeroProfileSection';
 import HeroScrollButton from './hero/HeroScrollButton';
 import InteractivePolkaDotBackground from './hero/InteractivePolkaDotBackground';
+import { useOptimizedImageLoading } from '@/hooks/useOptimizedImageLoading';
 
 const Hero = () => {
+  useOptimizedImageLoading();
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden dark-glow-subtle pt-16 md:pt-20">
       <HeroBackground />

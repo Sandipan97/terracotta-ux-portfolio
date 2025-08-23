@@ -1,8 +1,9 @@
+
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Play } from 'lucide-react';
-import { EditableImage } from '@/components/ui/editable-image';
+import { OptimizedEditableImage } from '@/components/ui/optimized-editable-image';
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -31,13 +32,15 @@ const HeroSection = () => {
             className="relative group"
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
-              <EditableImage 
+              <OptimizedEditableImage 
                 src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB old.webp"
                 alt="Legacy kitchen management interface"
                 className="w-full h-full"
                 objectFit="cover"
                 editableKey="welbilt-hero-before-image"
                 fallbackSrc="/placeholder.svg"
+                priority="critical"
+                eager={true}
               />
               <div className="absolute inset-0 bg-red-500/20"></div>
               <div className="absolute bottom-4 left-4">
@@ -56,13 +59,15 @@ const HeroSection = () => {
             className="relative group"
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
-              <EditableImage 
+              <OptimizedEditableImage 
                 src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB new.webp"
                 alt="Modern kitchen management interface"
                 className="w-full h-full"
                 objectFit="cover"
                 editableKey="welbilt-hero-after-image"
                 fallbackSrc="/placeholder.svg"
+                priority="critical"
+                eager={true}
               />
               <div className="absolute inset-0 bg-green-500/20"></div>
               <div className="absolute bottom-4 left-4">
