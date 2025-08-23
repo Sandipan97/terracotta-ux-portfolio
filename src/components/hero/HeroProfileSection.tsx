@@ -63,6 +63,8 @@ const HeroProfileSection = () => {
                 objectFit="cover" 
                 editableKey="hero-profile-front-image" 
                 fallbackSrc="/placeholder.svg" 
+                priority="critical"
+                eager={true}
               />
             </div>
             
@@ -80,7 +82,10 @@ const HeroProfileSection = () => {
                 className="w-full h-full" 
                 objectFit="cover" 
                 editableKey="hero-profile-back-image" 
-                fallbackSrc="/lovable-uploads/6398c5dd-6f26-4b1e-81d7-c8ba13221088.png" 
+                fallbackSrc="/placeholder.svg"
+                priority="critical"
+                eager={true}
+                lazy={false}
               />
             </div>
           </motion.div>
