@@ -725,10 +725,10 @@ const FarmMonitoringProject = () => {
               </div>
 
               {/* Desktop and Large Tablet Layout (Two Columns) */}
-              <div className="hidden lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:min-h-[80vh]">
+              <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start lg:min-h-[100vh]">
                 {/* Left Column - Header and Images */}
                 <motion.div
-                  className="space-y-6"
+                  className="space-y-8"
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
@@ -746,7 +746,7 @@ const FarmMonitoringProject = () => {
 
                   {/* App Screen Mockups - Horizontal Layout */}
                   <motion.div
-                    className="grid grid-cols-3 gap-4"
+                    className="grid grid-cols-3 gap-6"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -760,7 +760,7 @@ const FarmMonitoringProject = () => {
                       viewport={{ once: true }}
                       data-lovable-editable="screen-dashboard"
                     >
-                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-64">
+                      <div className="bg-white rounded-xl p-4 shadow-xl mb-4 aspect-[9/16] flex items-center justify-center max-h-80">
                         <EditableImage 
                           src="/lovable-uploads/92daa44f-f4d1-472d-8910-22e82bf8b3b3.png"
                           alt="Dashboard Screen"
@@ -768,8 +768,8 @@ const FarmMonitoringProject = () => {
                           fallbackSrc="/placeholder.svg"
                         />
                       </div>
-                      <h3 className="text-white font-semibold text-sm mb-1">Real-time Dashboard</h3>
-                      <p className="text-green-100 text-xs">Monitor all farm metrics</p>
+                      <h3 className="text-white font-semibold text-base mb-2">Real-time Dashboard</h3>
+                      <p className="text-green-100 text-sm">Monitor all farm metrics</p>
                     </motion.div>
 
                     <motion.div
@@ -780,7 +780,7 @@ const FarmMonitoringProject = () => {
                       viewport={{ once: true }}
                       data-lovable-editable="screen-personalized"
                     >
-                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-64">
+                      <div className="bg-white rounded-xl p-4 shadow-xl mb-4 aspect-[9/16] flex items-center justify-center max-h-80">
                         <EditableImage 
                           src="/lovable-uploads/50eedb00-deb6-4ad4-9d4a-a664044ae725.png"
                           alt="Personalized for your crop"
@@ -788,8 +788,8 @@ const FarmMonitoringProject = () => {
                           fallbackSrc="/placeholder.svg"
                         />
                       </div>
-                      <h3 className="text-white font-semibold text-sm mb-1">Personalized Insights</h3>
-                      <p className="text-green-100 text-xs">Tailored for your crop</p>
+                      <h3 className="text-white font-semibold text-base mb-2">Personalized Insights</h3>
+                      <p className="text-green-100 text-sm">Tailored for your crop</p>
                     </motion.div>
 
                     <motion.div
@@ -800,7 +800,7 @@ const FarmMonitoringProject = () => {
                       viewport={{ once: true }}
                       data-lovable-editable="screen-analytics"
                     >
-                      <div className="bg-white rounded-xl p-3 shadow-xl mb-3 aspect-[9/16] flex items-center justify-center max-h-64">
+                      <div className="bg-white rounded-xl p-4 shadow-xl mb-4 aspect-[9/16] flex items-center justify-center max-h-80">
                         <EditableImage 
                           src="/lovable-uploads/13fd507a-045d-444e-8db5-b79ac6d8b548.png"
                           alt="Accurate location & Analytics"
@@ -808,8 +808,8 @@ const FarmMonitoringProject = () => {
                           fallbackSrc="/placeholder.svg"
                         />
                       </div>
-                      <h3 className="text-white font-semibold text-sm mb-1">Location & Analytics</h3>
-                      <p className="text-green-100 text-xs">Precise field mapping</p>
+                      <h3 className="text-white font-semibold text-base mb-2">Location & Analytics</h3>
+                      <p className="text-green-100 text-sm">Precise field mapping</p>
                     </motion.div>
                   </motion.div>
                 </motion.div>
@@ -823,7 +823,7 @@ const FarmMonitoringProject = () => {
                   viewport={{ once: true }}
                   data-lovable-editable="main-demo-video"
                 >
-                  <div style={{ padding: "75% 0 0 0", position: "relative" }}>
+                  <div style={{ padding: "133.33% 0 0 0", position: "relative" }}>
                     <iframe 
                       src="https://player.vimeo.com/video/1112123237?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
                       frameBorder="0" 
