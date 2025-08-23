@@ -462,7 +462,10 @@ const PGDataloggerProject = () => {
           <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
           once: true
         }} className="mb-12">
-            <EditableImage src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Complete design system components in light and dark modes" className="w-full h-[400px] object-cover rounded-xl shadow-lg" objectFit="cover" objectPosition="center" fallbackSrc="/placeholder.svg" editableKey="pg-datalogger-design-system-image" />
+            <div style={{padding:'75% 0 0 0',position:'relative'}}>
+              <iframe src="https://player.vimeo.com/video/1112592027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;dnt=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} title="PGsystem" className="rounded-xl shadow-lg"></iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
