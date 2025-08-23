@@ -33,7 +33,7 @@ const HeroSection = () => {
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
               <OptimizedEditableImage 
-                src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB old.webp"
+                src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WBoldDashboard.webp"
                 alt="Legacy kitchen management interface"
                 className="w-full h-full"
                 objectFit="cover"
@@ -60,7 +60,7 @@ const HeroSection = () => {
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
               <OptimizedEditableImage 
-                src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WB new.webp"
+                src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WBnewDashboard.webp"
                 alt="Modern kitchen management interface"
                 className="w-full h-full"
                 objectFit="cover"
