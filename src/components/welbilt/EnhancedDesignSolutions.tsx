@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Palette, Code, Zap, Users, ArrowRight, FileImage } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,40 +8,40 @@ const solutions = [
   {
     id: 'design-system',
     icon: Palette,
-    title: "Unified Design System",
-    description: "Created 50+ reusable components with consistent patterns, colors, and typography to eliminate design debt and accelerate development.",
+    title: "Unified Design System Implementation",
+    description: "Created comprehensive component library with 200+ reusable UI components, design tokens, and implementation guidelines to eliminate fragmented design patterns.",
     impact: "35% faster development",
-    tags: ["Component Library", "Design Tokens", "Documentation"],
+    tags: ["Component Library", "Design Tokens", "Accessibility Standards"],
     anchor: "detailed-design-system",
     theme: "warm-terracotta"
   },
   {
     id: 'workflow-optimization',
     icon: Zap,
-    title: "Streamlined Workflows",
-    description: "Redesigned kitchen operation flows to reduce cognitive load and minimize errors during peak service hours.",
+    title: "Streamlined Customer-Brand-Organizational Workflows",
+    description: "Redesigned complex user journeys with simplified intuitive navigation, contextual actions, and standardized interfaces to reduce operational errors.",
     impact: "60% error reduction",
-    tags: ["User Experience", "Process Design", "Efficiency"],
+    tags: ["User Journey Mapping", "Workflow Analysis", "Process Design"],
     anchor: "detailed-workflows",
     theme: "warm-golden"
   },
   {
     id: 'user-interface',
     icon: Code,
-    title: "Intuitive Interface Design",
-    description: "Simplified complex controls into logical groupings with clear visual hierarchy and contextual feedback systems.",
+    title: "Intuitive Interface Architecture",
+    description: "Implemented clear information architecture with improved feature hierarchy, logical categorization, and contextual search to enhance user satisfaction.",
     impact: "85% user satisfaction",
-    tags: ["UI Design", "Usability", "Accessibility"],
+    tags: ["Information Architecture", "UI Design", "Heuristic Evaluations"],
     anchor: "detailed-interface",
     theme: "warm-sage"
   },
   {
     id: 'collaboration-tools',
     icon: Users,
-    title: "Team Collaboration Features",
-    description: "Enhanced communication between kitchen staff and management through real-time updates and status indicators.",
+    title: "Enhanced Team Collaboration",
+    description: "Developed real-time communication systems with daily client and dev team meetings, sprint management, and capability tracking for smooth delivery.",
     impact: "40% time savings",
-    tags: ["Communication", "Real-time", "Team Management"],
+    tags: ["Team Coordination", "Sprint Management", "Communication"],
     anchor: "detailed-collaboration",
     theme: "warm-rust"
   }
