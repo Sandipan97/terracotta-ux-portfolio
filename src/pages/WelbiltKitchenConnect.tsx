@@ -12,7 +12,6 @@ import ProcessTimeline from '@/components/welbilt/ProcessTimeline';
 import { ObjectiveMethodologies } from '@/components/welbilt/ObjectiveMethodologies';
 import { EnhancedDesignSolutions } from '@/components/welbilt/EnhancedDesignSolutions';
 import { ResearchQuestions } from '@/components/welbilt/ResearchQuestions';
-import { KeyFindings } from '@/components/welbilt/KeyFindings';
 import { DetailedSolutions } from '@/components/welbilt/DetailedSolutions';
 import ProjectTestimonial from '@/components/project/ProjectTestimonial';
 
@@ -40,15 +39,13 @@ const WelbiltKitchenConnect = () => {
     id: 'solutions',
     label: 'Solutions'
   }, {
-    id: 'research',
-    label: 'Research'
-  }, {
-    id: 'findings',
-    label: 'Findings'
+    id: 'detailed-solutions',
+    label: 'Detailed Solutions'
   }, {
     id: 'impact',
     label: 'Impact'
   }];
+
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -167,9 +164,6 @@ const WelbiltKitchenConnect = () => {
           <EnhancedDesignSolutions />
         </div>
         
-        <div id="findings">
-          <KeyFindings />
-        </div>
         <div id="detailed-solutions">
           <DetailedSolutions />
         </div>
