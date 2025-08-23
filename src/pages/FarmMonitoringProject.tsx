@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Users, Lightbulb, Target, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -611,7 +612,7 @@ const FarmMonitoringProject = () => {
           </div>
         </section>
 
-        {/* Demo Section with Correct Uploaded Images */}
+        {/* Demo Section with Vimeo Video */}
         <section id="demo" className="py-16 bg-gradient-to-br from-green-600 to-emerald-600">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
@@ -629,7 +630,7 @@ const FarmMonitoringProject = () => {
               </p>
             </motion.div>
 
-            {/* Full-width Demo Video */}
+            {/* Vimeo Video Embed */}
             <motion.div 
               className="mb-12 rounded-2xl overflow-hidden shadow-2xl bg-black max-w-6xl mx-auto"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -638,11 +639,15 @@ const FarmMonitoringProject = () => {
               viewport={{ once: true }}
               data-lovable-editable="main-demo-video"
             >
-              <div className="aspect-video bg-gradient-to-br from-green-700 to-emerald-700 flex items-center justify-center">
-                <Play size={100} className="text-white" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-white text-2xl font-semibold">Full App Walkthrough Demo</p>
-                </div>
+              <div style={{ padding: "133.33% 0 0 0", position: "relative" }}>
+                <iframe 
+                  src="https://player.vimeo.com/video/1112123237?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
+                  frameBorder="0" 
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                  referrerPolicy="strict-origin-when-cross-origin" 
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }} 
+                  title="Farm Monitoring App Demo"
+                />
               </div>
             </motion.div>
 
