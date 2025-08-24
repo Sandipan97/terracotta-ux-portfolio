@@ -3,84 +3,73 @@ import { Smartphone, Cpu, Eye, Volume2, Globe, Zap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { EditableImage } from '@/components/ui/editable-image';
-
 const ARTechnologyShowcase = () => {
-  const arFeatures = [
-    {
-      icon: Smartphone,
-      title: "Cross-Platform AR",
-      description: "Native Android and iOS AR support",
-      details: ["ARCore integration", "ARKit compatibility", "Unity 3D engine"],
-      color: "bg-blue-500"
-    },
-    {
-      icon: Cpu,
-      title: "Real-time Processing",
-      description: "Instant 3D model rendering and tracking",
-      details: ["60 FPS rendering", "SLAM tracking", "Occlusion handling"],
-      color: "bg-green-500"
-    },
-    {
-      icon: Eye,
-      title: "Computer Vision",
-      description: "Advanced surface detection and tracking",
-      details: ["Plane detection", "Light estimation", "Object recognition"],
-      color: "bg-purple-500"
-    },
-    {
-      icon: Volume2,
-      title: "Voice Guidance",
-      description: "Multi-language audio instructions",
-      details: ["Text-to-speech", "Multiple accents", "Adjustable speed"],
-      color: "bg-orange-500"
-    },
-    {
-      icon: Globe,
-      title: "Offline Capability",
-      description: "Full functionality without internet",
-      details: ["Local 3D models", "Cached content", "Progressive download"],
-      color: "bg-teal-500"
-    },
-    {
-      icon: Zap,
-      title: "Performance Optimized",
-      description: "Battery efficient AR experience",
-      details: ["Dynamic LOD", "GPU optimization", "Power management"],
-      color: "bg-red-500"
-    }
-  ];
-
-  const demoImages = [
-    {
-      title: "Product Placement",
-      image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      alt: "AR microwave placement in kitchen environment",
-      description: "Accurate spatial positioning with realistic lighting"
-    },
-    {
-      title: "Interactive Features",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      alt: "AR interaction with 3D microwave model",
-      description: "Touch interactions with animated feedback"
-    },
-    {
-      title: "Voice Guidance",
-      image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-      alt: "Voice guidance visualization in AR",
-      description: "Audio-visual instructions with progress indicators"
-    }
-  ];
-
-  return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+  const arFeatures = [{
+    icon: Smartphone,
+    title: "Cross-Platform AR",
+    description: "Native Android and iOS AR support",
+    details: ["ARCore integration", "ARKit compatibility", "Unity 3D engine"],
+    color: "bg-blue-500"
+  }, {
+    icon: Cpu,
+    title: "Real-time Processing",
+    description: "Instant 3D model rendering and tracking",
+    details: ["60 FPS rendering", "SLAM tracking", "Occlusion handling"],
+    color: "bg-green-500"
+  }, {
+    icon: Eye,
+    title: "Computer Vision",
+    description: "Advanced surface detection and tracking",
+    details: ["Plane detection", "Light estimation", "Object recognition"],
+    color: "bg-purple-500"
+  }, {
+    icon: Volume2,
+    title: "Voice Guidance",
+    description: "Multi-language audio instructions",
+    details: ["Text-to-speech", "Multiple accents", "Adjustable speed"],
+    color: "bg-orange-500"
+  }, {
+    icon: Globe,
+    title: "Offline Capability",
+    description: "Full functionality without internet",
+    details: ["Local 3D models", "Cached content", "Progressive download"],
+    color: "bg-teal-500"
+  }, {
+    icon: Zap,
+    title: "Performance Optimized",
+    description: "Battery efficient AR experience",
+    details: ["Dynamic LOD", "GPU optimization", "Power management"],
+    color: "bg-red-500"
+  }];
+  const demoImages = [{
+    title: "Product Placement",
+    image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    alt: "AR microwave placement in kitchen environment",
+    description: "Accurate spatial positioning with realistic lighting"
+  }, {
+    title: "Interactive Features",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    alt: "AR interaction with 3D microwave model",
+    description: "Touch interactions with animated feedback"
+  }, {
+    title: "Voice Guidance",
+    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    alt: "Voice guidance visualization in AR",
+    description: "Audio-visual instructions with progress indicators"
+  }];
+  return <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <motion.div className="text-center mb-16" initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6
+      }} viewport={{
+        once: true
+      }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             AR Technology Stack
           </h2>
@@ -91,14 +80,18 @@ const ARTechnologyShowcase = () => {
 
         {/* Technical Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {arFeatures.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+          {arFeatures.map((feature, index) => <motion.div key={index} initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6,
+          delay: index * 0.1
+        }} viewport={{
+          once: true
+        }}>
               <Card className="h-full hover:shadow-lg transition-all duration-300 border-primary/20 group">
                 <CardHeader>
                   <div className="flex items-center mb-4">
@@ -117,95 +110,24 @@ const ARTechnologyShowcase = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    {feature.details.map((detail, i) => (
-                      <div key={i} className="flex items-center">
+                    {feature.details.map((detail, i) => <div key={i} className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
                         <span className="text-sm text-muted-foreground">
                           {detail}
                         </span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
-          ))}
+            </motion.div>)}
         </div>
 
         {/* AR Demo Showcase */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-center mb-8">
-            AR Experience Demo
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {demoImages.map((demo, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
-                  <CardContent className="p-0">
-                    <div className="relative h-48 overflow-hidden">
-                      <EditableImage
-                        src={demo.image}
-                        alt={demo.alt}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        fallbackSrc="/placeholder.svg"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h4 className="text-white font-semibold mb-1">{demo.title}</h4>
-                        <p className="text-white/80 text-xs">{demo.description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        
 
         {/* Technical Specifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
-            <CardHeader>
-              <CardTitle className="text-center">Technical Specifications</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  { label: "Min OS", value: "Android 7.0+", sub: "iOS 11.0+" },
-                  { label: "AR Framework", value: "ARCore", sub: "ARKit" },
-                  { label: "Rendering", value: "Unity 3D", sub: "OpenGL ES 3.0" },
-                  { label: "Model Size", value: "< 50MB", sub: "Optimized LOD" }
-                ].map((spec, index) => (
-                  <div key={index} className="text-center p-4 bg-background/50 rounded-lg">
-                    <div className="text-sm text-muted-foreground mb-1">{spec.label}</div>
-                    <div className="font-semibold text-primary">{spec.value}</div>
-                    <div className="text-xs text-muted-foreground">{spec.sub}</div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ARTechnologyShowcase;
