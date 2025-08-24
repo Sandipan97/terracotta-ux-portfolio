@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -67,8 +68,8 @@ const DripometerProject = () => {
             className="absolute inset-0"
           >
             <EditableImage 
-              src="/lovable-uploads/7fd5c57c-a8aa-4fc9-af30-aaa2cce4294b.png" 
-              alt="Dripometer - IV Drip Monitoring Device with LED indicators and digital display"
+              src="/lovable-uploads/8c47a62f-b4cc-4527-8ebc-ee8c7518fc4c.png" 
+              alt="Dripometer 2.0 - Advanced IV Drip Monitoring Device with digital display and LED indicators"
               className="w-full h-full object-cover"
               fallbackSrc="/placeholder.svg"
             />
