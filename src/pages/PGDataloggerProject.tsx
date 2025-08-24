@@ -524,9 +524,9 @@ const PGDataloggerProject = () => {
             </motion.p>
           </motion.div>
 
-          {/* Custom layout: Image 65%, Component tiles 35% */}
+          {/* Custom layout: Video 65%, Component tiles 35% */}
           <div className="flex flex-col lg:flex-row gap-12 items-start">
-            {/* Image Section - 65% width */}
+            {/* Video Section - 65% width */}
             <motion.div 
               initial="initial" 
               whileInView="animate" 
@@ -534,24 +534,20 @@ const PGDataloggerProject = () => {
               viewport={{once: true}}
               className="w-full lg:w-[65%]"
             >
-              <Card className="p-4">
-                <CardHeader>
-                  <CardTitle className="text-center">P&G Research Razor 2.0 Interface</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <EditableImage 
-                    src="/lovable-uploads/5b4b6c6d-fa8a-4017-b18f-aada7eb54f5f.png" 
-                    alt="P&G Research Razor 2.0 configuration interface showing the redesigned dashboard" 
-                    className="w-full h-auto rounded-lg shadow-lg" 
-                    objectFit="contain" 
-                    objectPosition="center"
-                    priority="medium"
-                    width="800"
-                    height="600"
-                    editableKey="pg-datalogger-design-system-showcase" 
+              <div className="w-full">
+                <div style={{padding:'56.25% 0 0 0',position:'relative'}}>
+                  <iframe 
+                    src="https://player.vimeo.com/video/1112592027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;dnt=1" 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} 
+                    title="PGsystem" 
+                    className="rounded-xl shadow-lg"
                   />
-                </CardContent>
-              </Card>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+              </div>
             </motion.div>
 
             {/* Component Tiles - 35% width */}
