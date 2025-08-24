@@ -169,7 +169,7 @@ const PGDataloggerProject = () => {
             <motion.div variants={fadeInUp}>
               <Badge 
                 variant="outline" 
-                className="mb-4 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-blue-800 hover:from-blue-100 hover:to-purple-100 transition-all duration-300"
+                className="mb-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-blue-200 dark:border-blue-700 text-blue-800 dark:text-blue-100 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800 dark:hover:to-blue-700 transition-all duration-300"
               >
                 Industrial UX • P&G
               </Badge>
@@ -188,7 +188,7 @@ const PGDataloggerProject = () => {
             </motion.p>
 
             <motion.div variants={fadeInUp}>
-              <Button size="lg" className="text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
+              <Button size="lg" className="text-white bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-800 hover:from-blue-700 hover:to-blue-800 dark:hover:from-blue-800 dark:hover:to-blue-900 transition-all duration-300">
                 View Full Case Study
                 <ChevronRight className="w-4 h-4 ml-2" />
               </Button>
@@ -277,44 +277,50 @@ const PGDataloggerProject = () => {
             icon: <Zap className="w-8 h-8" />,
             title: "Performance",
             desc: "Improve power efficiency and speed",
-            gradient: "from-yellow-100 via-orange-50 to-red-50",
-            iconBg: "bg-gradient-to-br from-yellow-400 to-orange-500",
-            border: "border-yellow-200 hover:border-orange-300"
+            gradient: "from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800",
+            iconBg: "bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700",
+            border: "border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600",
+            textColor: "text-foreground"
           }, {
             icon: <Eye className="w-8 h-8" />,
             title: "Accessibility",
             desc: "Enhance user-friendliness for all users",
-            gradient: "from-green-100 via-emerald-50 to-teal-50",
-            iconBg: "bg-gradient-to-br from-green-400 to-emerald-500",
-            border: "border-green-200 hover:border-emerald-300"
+            gradient: "from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800",
+            iconBg: "bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700",
+            border: "border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600",
+            textColor: "text-foreground"
           }, {
             icon: <Shield className="w-8 h-8" />,
             title: "Reliability",
             desc: "Ensure stability and scalability",
-            gradient: "from-blue-100 via-indigo-50 to-purple-50",
-            iconBg: "bg-gradient-to-br from-blue-400 to-indigo-500",
-            border: "border-blue-200 hover:border-indigo-300"
+            gradient: "from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800",
+            iconBg: "bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700",
+            border: "border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600",
+            textColor: "text-foreground"
           }, {
             icon: <BarChart3 className="w-8 h-8" />,
             title: "Evaluation",
             desc: "Conduct heuristic assessment",
-            gradient: "from-purple-100 via-pink-50 to-rose-50",
-            iconBg: "bg-gradient-to-br from-purple-400 to-pink-500",
-            border: "border-purple-200 hover:border-pink-300"
+            gradient: "from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800",
+            iconBg: "bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700",
+            border: "border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600",
+            textColor: "text-foreground"
           }, {
             icon: <Clock className="w-8 h-8" />,
             title: "Journey Mapping",
             desc: "Identify user friction points",
-            gradient: "from-cyan-100 via-sky-50 to-blue-50",
-            iconBg: "bg-gradient-to-br from-cyan-400 to-sky-500",
-            border: "border-cyan-200 hover:border-sky-300"
+            gradient: "from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800",
+            iconBg: "bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700",
+            border: "border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600",
+            textColor: "text-foreground"
           }, {
             icon: <CheckCircle className="w-8 h-8" />,
             title: "Integration",
             desc: "Audit UI and hardware connection",
-            gradient: "from-emerald-100 via-green-50 to-lime-50",
-            iconBg: "bg-gradient-to-br from-emerald-400 to-green-500",
-            border: "border-emerald-200 hover:border-green-300"
+            gradient: "from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800",
+            iconBg: "bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700",
+            border: "border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600",
+            textColor: "text-foreground"
           }].map((goal, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }} transition={{
@@ -325,7 +331,7 @@ const PGDataloggerProject = () => {
                     <div className={`text-white mb-4 flex justify-center w-16 h-16 rounded-full mx-auto ${goal.iconBg} shadow-lg items-center`}>
                       {goal.icon}
                     </div>
-                    <h3 className="text-lg font-semibold mb-2">{goal.title}</h3>
+                    <h3 className={`text-lg font-semibold mb-2 ${goal.textColor}`}>{goal.title}</h3>
                     <p className="text-muted-foreground">{goal.desc}</p>
                   </CardContent>
                 </Card>
@@ -349,13 +355,13 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <Card className="p-8 bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 border-2 border-slate-200 hover:border-slate-300 transition-all duration-300">
+              <Card className="p-8 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800 border-2 border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
-                    <CardTitle className="text-2xl">Our Approach</CardTitle>
+                    <CardTitle className="text-2xl text-foreground">Our Approach</CardTitle>
                     <Badge 
                       variant="secondary" 
-                      className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 border-blue-200 hover:from-blue-200 hover:to-indigo-200 transition-all duration-300"
+                      className="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-800 dark:to-blue-700 text-blue-800 dark:text-blue-100 border-blue-200 dark:border-blue-600 hover:from-blue-200 hover:to-blue-300 dark:hover:from-blue-700 dark:hover:to-blue-600 transition-all duration-300"
                     >
                       Heuristic Evaluation
                     </Badge>
@@ -363,7 +369,7 @@ const PGDataloggerProject = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {["Requirement analysis and problem identification", "Heuristic evaluation using Nielsen's principles", "UI audit for layout, interaction, and visual hierarchy", "UX audit for design standards compliance", "User journey mapping to identify friction points", "Design validation with stakeholders"].map((item, index) => <div key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center mt-0.5 flex-shrink-0">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700 flex items-center justify-center mt-0.5 flex-shrink-0">
                         <CheckCircle className="w-4 h-4 text-white" />
                       </div>
                       <p className="text-muted-foreground">{item}</p>
@@ -375,9 +381,9 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <Card className="p-6 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 border-2 border-indigo-200 hover:border-blue-300 transition-all duration-300">
+              <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-2 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-xl mb-4 text-center">Heuristic Analysis Framework</CardTitle>
+                  <CardTitle className="text-xl mb-4 text-center text-foreground">Heuristic Analysis Framework</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="w-full max-w-full overflow-hidden">
@@ -418,15 +424,15 @@ const PGDataloggerProject = () => {
           }}>
                 <Card className={`h-full p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 ${
                   problem.impact === 'High' 
-                    ? 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 border-2 border-red-200 hover:border-orange-300' 
-                    : 'bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 border-2 border-yellow-200 hover:border-amber-300'
+                    ? 'bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800 border-2 border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600' 
+                    : 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-2 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600'
                 }`}>
                   <CardHeader className="pb-4 px-0">
                     <div className="flex items-center justify-between mb-2">
                       <div className={`p-2 rounded-full ${
                         problem.impact === 'High' 
-                          ? 'bg-gradient-to-br from-red-400 to-orange-500' 
-                          : 'bg-gradient-to-br from-yellow-400 to-amber-500'
+                          ? 'bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700' 
+                          : 'bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700'
                       }`}>
                         <AlertTriangle className="w-4 h-4 text-white" />
                       </div>
@@ -434,14 +440,14 @@ const PGDataloggerProject = () => {
                         variant={problem.color as any} 
                         className={`text-xs ${
                           problem.impact === 'High'
-                            ? 'bg-gradient-to-r from-red-100 to-orange-100 text-red-800 border-red-200'
-                            : 'bg-gradient-to-r from-yellow-100 to-amber-100 text-yellow-800 border-yellow-200'
+                            ? 'bg-gradient-to-r from-amber-100 to-amber-200 dark:from-amber-800 dark:to-amber-700 text-amber-800 dark:text-amber-100 border-amber-200 dark:border-amber-600'
+                            : 'bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-800 dark:to-blue-700 text-blue-800 dark:text-blue-100 border-blue-200 dark:border-blue-600'
                         }`}
                       >
                         {problem.impact} Impact
                       </Badge>
                     </div>
-                    <CardTitle className="text-lg">{problem.title}</CardTitle>
+                    <CardTitle className="text-lg text-foreground">{problem.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{problem.description}</p>
@@ -470,25 +476,19 @@ const PGDataloggerProject = () => {
             delay: index * 0.1
           }}>
                 <Card className={`h-full p-6 hover:shadow-lg transition-all duration-300 border-2 hover:scale-105 ${
-                  index % 6 === 0 ? 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-blue-200 hover:border-indigo-300' :
-                  index % 6 === 1 ? 'bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-green-200 hover:border-emerald-300' :
-                  index % 6 === 2 ? 'bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 border-purple-200 hover:border-pink-300' :
-                  index % 6 === 3 ? 'bg-gradient-to-br from-cyan-50 via-sky-50 to-blue-50 border-cyan-200 hover:border-sky-300' :
-                  index % 6 === 4 ? 'bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 border-orange-200 hover:border-amber-300' :
-                  'bg-gradient-to-br from-teal-50 via-green-50 to-lime-50 border-teal-200 hover:border-green-300'
+                  index % 3 === 0 ? 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600' :
+                  index % 3 === 1 ? 'bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800 border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600' :
+                  'bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800 border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600'
                 }`}>
                   <CardContent className="pt-6">
                     <div className={`text-white mb-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
-                      index % 6 === 0 ? 'bg-gradient-to-br from-blue-400 to-indigo-500' :
-                      index % 6 === 1 ? 'bg-gradient-to-br from-green-400 to-emerald-500' :
-                      index % 6 === 2 ? 'bg-gradient-to-br from-purple-400 to-pink-500' :
-                      index % 6 === 3 ? 'bg-gradient-to-br from-cyan-400 to-sky-500' :
-                      index % 6 === 4 ? 'bg-gradient-to-br from-orange-400 to-amber-500' :
-                      'bg-gradient-to-br from-teal-400 to-green-500'
+                      index % 3 === 0 ? 'bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700' :
+                      index % 3 === 1 ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700' :
+                      'bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700'
                     }`}>
                       {solution.icon}
                     </div>
-                    <h3 className="text-lg font-semibold mb-3">{solution.title}</h3>
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">{solution.title}</h3>
                     <p className="text-muted-foreground">{solution.description}</p>
                   </CardContent>
                 </Card>
@@ -530,15 +530,15 @@ const PGDataloggerProject = () => {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
             >
-              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400 bg-gradient-to-br from-orange-50 via-yellow-50 to-blue-50 border-2 border-orange-200/50 shadow-orange-200/30">
-                <CardHeader className="bg-gradient-to-r from-orange-100/80 to-yellow-100/80 rounded-lg mb-4">
-                  <CardTitle className="text-center text-xl md:text-2xl flex items-center justify-center gap-2 text-orange-800">
-                    <Sun className="w-6 h-6 text-orange-500" />
+              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800 border-2 border-amber-200 dark:border-amber-700 shadow-amber-200/30 dark:shadow-amber-900/30">
+                <CardHeader className="bg-gradient-to-r from-amber-100/80 to-amber-200/80 dark:from-amber-800/80 dark:to-amber-700/80 rounded-lg mb-4">
+                  <CardTitle className="text-center text-xl md:text-2xl flex items-center justify-center gap-2 text-amber-800 dark:text-amber-100">
+                    <Sun className="w-6 h-6 text-amber-500 dark:text-amber-400" />
                     Light Mode
                     <div className="flex gap-1">
-                      <div className="w-1 h-1 bg-orange-400 rounded-full animate-pulse"></div>
-                      <div className="w-1 h-1 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                      <div className="w-1 h-1 bg-orange-300 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                      <div className="w-1 h-1 bg-amber-400 dark:bg-amber-300 rounded-full animate-pulse"></div>
+                      <div className="w-1 h-1 bg-amber-500 dark:bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-1 h-1 bg-amber-300 dark:bg-amber-200 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
                     </div>
                   </CardTitle>
                 </CardHeader>
@@ -546,7 +546,7 @@ const PGDataloggerProject = () => {
                   <EditableImage 
                     src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
                     alt="Final P&G Datalogger interface in light mode" 
-                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gradient-to-br from-orange-25 to-yellow-25 border border-orange-100/50" 
+                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gradient-to-br from-amber-25 to-amber-25 border border-amber-100 dark:border-amber-800" 
                     objectFit="contain" 
                     objectPosition="center" 
                     priority="medium"
@@ -575,15 +575,15 @@ const PGDataloggerProject = () => {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
             >
-              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 border-2 border-blue-400/30 shadow-blue-900/50">
-                <CardHeader className="bg-gradient-to-r from-slate-800/80 to-blue-800/80 rounded-lg mb-4">
-                  <CardTitle className="text-center text-xl md:text-2xl flex items-center justify-center gap-2 text-blue-100">
-                    <Moon className="w-6 h-6 text-blue-300" />
+              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-2 border-blue-200 dark:border-blue-700 shadow-blue-200/30 dark:shadow-blue-900/50">
+                <CardHeader className="bg-gradient-to-r from-blue-100/80 to-blue-200/80 dark:from-blue-800/80 dark:to-blue-700/80 rounded-lg mb-4">
+                  <CardTitle className="text-center text-xl md:text-2xl flex items-center justify-center gap-2 text-blue-800 dark:text-blue-100">
+                    <Moon className="w-6 h-6 text-blue-500 dark:text-blue-300" />
                     Dark Mode
                     <div className="flex gap-1">
-                      <div className="w-1 h-1 bg-blue-400 rounded-full animate-pulse"></div>
-                      <div className="w-1 h-1 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                      <div className="w-1 h-1 bg-slate-300 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                      <div className="w-1 h-1 bg-blue-400 dark:bg-blue-300 rounded-full animate-pulse"></div>
+                      <div className="w-1 h-1 bg-blue-500 dark:bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-1 h-1 bg-blue-300 dark:bg-blue-200 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
                     </div>
                   </CardTitle>
                 </CardHeader>
@@ -591,7 +591,7 @@ const PGDataloggerProject = () => {
                   <EditableImage 
                     src="/lovable-uploads/c64045fa-88c4-490f-b9e7-a1b91bc8fe65.png" 
                     alt="P&G Research Razor 2.0 interface in dark mode showing the redesigned dashboard" 
-                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gradient-to-br from-slate-800 to-blue-900 border border-blue-700/50" 
+                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gradient-to-br from-blue-25 to-blue-25 dark:from-blue-900 dark:to-blue-800 border border-blue-100 dark:border-blue-700" 
                     objectFit="contain" 
                     objectPosition="center" 
                     priority="medium"
@@ -667,17 +667,12 @@ const PGDataloggerProject = () => {
                     transition={{delay: index * 0.05}}
                   >
                     <Card className={`p-2 text-center hover:shadow-md transition-all duration-300 hover:scale-105 border-2 ${
-                      index % 8 === 0 ? 'bg-gradient-to-br from-blue-50 to-indigo-100 border-blue-200 hover:border-indigo-300' :
-                      index % 8 === 1 ? 'bg-gradient-to-br from-green-50 to-emerald-100 border-green-200 hover:border-emerald-300' :
-                      index % 8 === 2 ? 'bg-gradient-to-br from-purple-50 to-pink-100 border-purple-200 hover:border-pink-300' :
-                      index % 8 === 3 ? 'bg-gradient-to-br from-orange-50 to-red-100 border-orange-200 hover:border-red-300' :
-                      index % 8 === 4 ? 'bg-gradient-to-br from-cyan-50 to-teal-100 border-cyan-200 hover:border-teal-300' :
-                      index % 8 === 5 ? 'bg-gradient-to-br from-yellow-50 to-amber-100 border-yellow-200 hover:border-amber-300' :
-                      index % 8 === 6 ? 'bg-gradient-to-br from-rose-50 to-pink-100 border-rose-200 hover:border-pink-300' :
-                      'bg-gradient-to-br from-violet-50 to-purple-100 border-violet-200 hover:border-purple-300'
+                      index % 3 === 0 ? 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600' :
+                      index % 3 === 1 ? 'bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800 border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600' :
+                      'bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800 border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600'
                     }`}>
                       <CardContent className="py-2 px-1">
-                        <p className="text-xs font-medium leading-tight">{component}</p>
+                        <p className="text-xs font-medium leading-tight text-foreground">{component}</p>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -716,44 +711,44 @@ const PGDataloggerProject = () => {
                 metric: "60%",
                 label: "Reduction in User Errors",
                 icon: <CheckCircle className="w-6 h-6" />,
-                gradient: "from-green-50 via-emerald-50 to-teal-50",
-                iconBg: "bg-gradient-to-br from-green-400 to-emerald-500",
-                border: "border-green-200 hover:border-emerald-300"
+                gradient: "from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800",
+                iconBg: "bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700",
+                border: "border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600"
               }, {
                 metric: "85%",
                 label: "Improved User Satisfaction",
                 icon: <Eye className="w-6 h-6" />,
-                gradient: "from-blue-50 via-indigo-50 to-purple-50",
-                iconBg: "bg-gradient-to-br from-blue-400 to-indigo-500",
-                border: "border-blue-200 hover:border-indigo-300"
+                gradient: "from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800",
+                iconBg: "bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700",
+                border: "border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600"
               }, {
                 metric: "40%",
                 label: "Faster Task Completion",
                 icon: <Clock className="w-6 h-6" />,
-                gradient: "from-orange-50 via-amber-50 to-yellow-50",
-                iconBg: "bg-gradient-to-br from-orange-400 to-amber-500",
-                border: "border-orange-200 hover:border-amber-300"
+                gradient: "from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800",
+                iconBg: "bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700",
+                border: "border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600"
               }, {
                 metric: "95%",
                 label: "Clearer Navigation",
                 icon: <BarChart3 className="w-6 h-6" />,
-                gradient: "from-purple-50 via-pink-50 to-rose-50",
-                iconBg: "bg-gradient-to-br from-purple-400 to-pink-500",
-                border: "border-purple-200 hover:border-pink-300"
+                gradient: "from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800",
+                iconBg: "bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700",
+                border: "border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600"
               }, {
                 metric: "100%",
                 label: "Theme Accessibility",
                 icon: <Shield className="w-6 h-6" />,
-                gradient: "from-cyan-50 via-sky-50 to-blue-50",
-                iconBg: "bg-gradient-to-br from-cyan-400 to-sky-500",
-                border: "border-cyan-200 hover:border-sky-300"
+                gradient: "from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800",
+                iconBg: "bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700",
+                border: "border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600"
               }, {
                 metric: "75%",
                 label: "Real-time Feedback",
                 icon: <Zap className="w-6 h-6" />,
-                gradient: "from-yellow-50 via-lime-50 to-green-50",
-                iconBg: "bg-gradient-to-br from-yellow-400 to-lime-500",
-                border: "border-yellow-200 hover:border-lime-300"
+                gradient: "from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800",
+                iconBg: "bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700",
+                border: "border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600"
               }].map((impact, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
                 once: true
               }} transition={{
@@ -787,23 +782,19 @@ const PGDataloggerProject = () => {
                 delay: index * 0.1
               }}>
                     <Card className={`p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 ${
-                      index % 5 === 0 ? 'bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-indigo-200 hover:border-purple-300' :
-                      index % 5 === 1 ? 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 border-emerald-200 hover:border-teal-300' :
-                      index % 5 === 2 ? 'bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 border-rose-200 hover:border-pink-300' :
-                      index % 5 === 3 ? 'bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 border-amber-200 hover:border-orange-300' :
-                      'bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 border-sky-200 hover:border-blue-300'
+                      index % 3 === 0 ? 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600' :
+                      index % 3 === 1 ? 'bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800 border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600' :
+                      'bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800 border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600'
                     }`}>
                       <CardContent className="pt-6 flex items-center gap-4">
                         <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                          index % 5 === 0 ? 'bg-gradient-to-br from-indigo-400 to-purple-500' :
-                          index % 5 === 1 ? 'bg-gradient-to-br from-emerald-400 to-teal-500' :
-                          index % 5 === 2 ? 'bg-gradient-to-br from-rose-400 to-pink-500' :
-                          index % 5 === 3 ? 'bg-gradient-to-br from-amber-400 to-orange-500' :
-                          'bg-gradient-to-br from-sky-400 to-blue-500'
+                          index % 3 === 0 ? 'bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700' :
+                          index % 3 === 1 ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700' :
+                          'bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700'
                         }`}>
                           <Lightbulb className="w-5 h-5 text-white" />
                         </div>
-                        <p className="font-medium">{enhancement}</p>
+                        <p className="font-medium text-foreground">{enhancement}</p>
                       </CardContent>
                     </Card>
                   </motion.div>)}
