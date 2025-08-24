@@ -132,15 +132,15 @@ export default function CyclopsARManual() {
       </section>
 
       {/* Demo & Proof of Concept */}
-      <section id="demo" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-12">
+      <section id="demo" className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">Demo & Proof of Concept</h2>
             <p className="text-muted-foreground">Real-world validation of our AR manual technology</p>
           </motion.div>
 
           <motion.div {...fadeInUp} className="space-y-8">
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden border-0 shadow-2xl">
               <CardContent className="p-0">
                 <div style={{
                   padding: "56.25% 0 0 0",
