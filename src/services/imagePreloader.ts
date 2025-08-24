@@ -21,7 +21,7 @@ class ImagePreloader {
   private cache: ImageCache = {};
   private loadingQueue: Array<{ src: string; options: PreloadOptions }> = [];
   private isProcessingQueue = false;
-  private maxConcurrentLoads = 3; // Reduced to prevent overwhelming the browser
+  private maxConcurrentLoads = 6; // Increased for better performance on project pages
   private activeLoads = 0;
 
   // Skip preloading for problematic hosts
@@ -57,10 +57,16 @@ class ImagePreloader {
 
     const promise = new Promise<void>((resolve, reject) => {
       const img = new Image();
-      const timeout = options.timeout || 10000; // Increased timeout
+      const timeout = options.timeout || (options.priority === 'high' ? 5000 : 10000);
 
       if (options.eager) {
         img.loading = 'eager';
+      }
+
+      // Enhanced image loading attributes for better performance
+      img.decoding = 'async';
+      if (options.crossOrigin) {
+        img.crossOrigin = options.crossOrigin;
       }
 
       const timeoutId = setTimeout(() => {
@@ -145,7 +151,7 @@ class ImagePreloader {
     this.loadingQueue = [];
   }
 
-  // Background preload with better error handling
+  // Enhanced background preload with better performance
   preloadAllImages(): void {
     import('./imageInventory').then(({ getAllImages }) => {
       const allImages = getAllImages();
@@ -153,7 +159,7 @@ class ImagePreloader {
       // Only preload external images in background
       const externalImages = allImages.filter(src => !isLocalAsset(src));
       
-      // Stagger loading to avoid overwhelming the browser
+      // Stagger loading with reduced delay for better performance
       let delay = 0;
       externalImages.forEach((src) => {
         setTimeout(() => {
@@ -161,39 +167,47 @@ class ImagePreloader {
             // Silent fail for background preloading
           });
         }, delay);
-        delay += 150; // Increased delay between images
+        delay += 100; // Reduced delay between images
       });
     });
   }
 
-  // Enhanced route-specific preloading
+  // Enhanced route-specific preloading with better concurrency
   preloadForRoute(pathname: string): void {
     import('./imageInventory').then(({ getCriticalImages, getProjectImages }) => {
       const criticalImages = getCriticalImages();
       
-      // Only preload external critical images
+      // Preload all critical images with high priority
       const externalCriticalImages = criticalImages.filter(src => !isLocalAsset(src));
       if (externalCriticalImages.length > 0) {
         this.preloadMultiple(externalCriticalImages, { priority: 'high', eager: true });
       }
 
-      // Route-specific preloading with reduced scope for external images only
+      // Enhanced route-specific preloading
       if (pathname === '/') {
         // Homepage: preload key external project images
         const homeImages = [
           ...getProjectImages('welbilt-kitchen-connect'),
           ...getProjectImages('pg-datalogger')
-        ].filter(src => !isLocalAsset(src)).slice(0, 4); // Limit to first 4 external images
+        ].filter(src => !isLocalAsset(src)).slice(0, 6); // Increased limit
         
         if (homeImages.length > 0) {
           this.preloadMultiple(homeImages, { priority: 'medium' });
         }
+      } else if (pathname.startsWith('/projects/pg-datalogger')) {
+        // PG Datalogger specific optimizations
+        const pgImages = [
+          'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGold.webp',
+          'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGnew.webp',
+          'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 2.webp'
+        ];
+        this.preloadMultiple(pgImages, { priority: 'high', eager: true });
       } else if (pathname.startsWith('/projects/')) {
-        // Specific project page - preload external images only
+        // Specific project page - preload external images with higher limits
         const projectSlug = pathname.split('/projects/')[1];
         const projectImages = getProjectImages(projectSlug).filter(src => !isLocalAsset(src));
         if (projectImages.length > 0) {
-          this.preloadMultiple(projectImages.slice(0, 6), { priority: 'high', eager: true });
+          this.preloadMultiple(projectImages.slice(0, 8), { priority: 'high', eager: true });
         }
       }
     });
@@ -202,7 +216,7 @@ class ImagePreloader {
 
 export const imagePreloader = new ImagePreloader();
 
-// Initialize background preloading with delay
+// Initialize background preloading with optimized delay
 setTimeout(() => {
   imagePreloader.preloadAllImages();
-}, 5000); // Increased delay to let page load first
+}, 3000); // Reduced delay for faster background loading

@@ -41,8 +41,9 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
     const normalizedSrc = normalizeImageUrl(src || '');
     const normalizedFallbackSrc = normalizeImageUrl(fallbackSrc);
     
-    // Fast path for local assets and critical images
+    // Enhanced fast path logic
     const isCritical = priority === 'critical' || eager;
+    const isHighPriority = priority === 'high';
     const isLocal = isLocalAsset(normalizedSrc);
     const shouldLoadImmediately = isLocal || isCritical || !lazy;
 
@@ -56,9 +57,12 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
     const imgRef = useRef<HTMLImageElement>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
-    // Enhanced intersection observer for non-critical images
+    // Enhanced intersection observer with priority-based thresholds
     useEffect(() => {
       if (shouldLoadImmediately || isVisible) return;
+
+      const rootMargin = isCritical ? '300px' : 
+                        isHighPriority ? '200px' : '100px';
 
       observerRef.current = new IntersectionObserver(
         (entries) => {
@@ -72,7 +76,7 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
           });
         },
         {
-          rootMargin: priority === 'high' ? '200px' : '100px',
+          rootMargin,
           threshold: 0.1
         }
       );
@@ -86,9 +90,9 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
           observerRef.current.disconnect();
         }
       };
-    }, [shouldLoadImmediately, isVisible, priority]);
+    }, [shouldLoadImmediately, isVisible, isCritical, isHighPriority]);
 
-    // Optimized image loading logic
+    // Enhanced image loading with better performance strategies
     useEffect(() => {
       if (!normalizedSrc || !isVisible) return;
 
@@ -104,25 +108,36 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
             return;
           }
 
-          // Critical images: direct loading to avoid preloader delays
-          if (isCritical) {
+          // Critical and high priority images: enhanced direct loading
+          if (isCritical || isHighPriority) {
+            // Use enhanced preloader for better caching
+            try {
+              await imagePreloader.preload(normalizedSrc, { 
+                priority: priority as 'high' | 'medium' | 'low',
+                eager: eager,
+                timeout: isCritical ? 3000 : 5000
+              });
+            } catch {
+              // Continue with direct loading if preloader fails
+            }
+            
             setImgSrc(normalizedSrc);
             setError(false);
             return;
           }
 
-          // Non-critical external images: use optimized preloader
+          // Standard priority images: use optimized preloader
           try {
             await imagePreloader.preload(normalizedSrc, { 
               priority: priority as 'high' | 'medium' | 'low',
               eager: false,
-              timeout: priority === 'high' ? 5000 : 8000
+              timeout: 8000
             });
             
             setImgSrc(normalizedSrc);
             setError(false);
           } catch {
-            // Fallback to direct loading if preloader fails
+            // Fallback to direct loading
             setImgSrc(normalizedSrc);
             setError(false);
           }
@@ -138,7 +153,7 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
       };
 
       loadImage();
-    }, [normalizedSrc, isVisible, normalizedFallbackSrc, isLocal, isCritical, priority]);
+    }, [normalizedSrc, isVisible, normalizedFallbackSrc, isLocal, isCritical, isHighPriority, priority, eager]);
 
     const handleError = () => {
       if (!error && imgSrc !== normalizedFallbackSrc) {
@@ -164,7 +179,7 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
       ? "w-full h-full object-cover" 
       : "object-cover";
 
-    // Enhanced loading skeleton with shimmer
+    // Enhanced loading skeleton with better performance indicators
     if (loading || !isVisible) {
       return (
         <div 
@@ -178,11 +193,14 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
           role="img"
           aria-label={loading ? "Loading image..." : alt || "Image"}
         >
-          {/* Shimmer effect */}
-          <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          {/* Enhanced shimmer effect */}
+          <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           
           {loading && isVisible && (
-            <div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-foreground/40 rounded-full animate-spin z-10" />
+            <div className={cn(
+              "border-2 border-muted-foreground/20 rounded-full animate-spin z-10",
+              isCritical ? "w-8 h-8 border-t-primary" : "w-6 h-6 border-t-foreground/40"
+            )} />
           )}
         </div>
       );
@@ -203,8 +221,9 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
         )}
         style={imageStyle}
         data-lovable-editable={editableKey}
-        loading={isCritical ? 'eager' : 'lazy'}
+        loading={isCritical || isHighPriority ? 'eager' : 'lazy'}
         decoding="async"
+        fetchPriority={isCritical ? 'high' : isHighPriority ? 'high' : 'auto'}
         sizes={responsive ? sizes : undefined}
         {...props}
       />

@@ -10,9 +10,24 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StickyNavigation from '@/components/pg-datalogger/StickyNavigation';
 import ProcessTimeline from '@/components/pg-datalogger/ProcessTimeline';
+import { useEffect } from 'react';
+import { imagePreloader } from '@/services/imagePreloader';
 
 const PGDataloggerProject = () => {
   const navigate = useNavigate();
+
+  // Preload critical images on component mount
+  useEffect(() => {
+    const criticalImages = [
+      '/lovable-uploads/PG heroimg.webp',
+      'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGold.webp',
+      'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGnew.webp',
+      'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 2.webp',
+      '/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png'
+    ];
+
+    imagePreloader.preloadMultiple(criticalImages, { priority: 'high', eager: true });
+  }, []);
   
   const navigationSections = [{
     id: 'overview',
@@ -128,7 +143,7 @@ const PGDataloggerProject = () => {
       <Navbar />
       <StickyNavigation sections={navigationSections} />
       
-      {/* Hero Image Section - Fixed Height with Responsive Adjustments */}
+      {/* Hero Image Section - Optimized for Critical Loading */}
       <section id="overview" className="w-full relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
         <button onClick={handleBack} className="absolute top-4 left-4 z-30 inline-flex items-center gap-2 bg-background/80 backdrop-blur-sm text-foreground hover:bg-background transition-colors px-3 py-2 rounded-lg border border-border/50">
           <ArrowLeft className="w-4 h-4" />
@@ -143,6 +158,8 @@ const PGDataloggerProject = () => {
           objectPosition="center"
           priority="critical"
           eager={true}
+          width="1920"
+          height="1080"
           editableKey="pg-datalogger-hero-image"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
@@ -180,7 +197,7 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-      {/* Project Overview */}
+      {/* Project Overview - Optimized Image Loading */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-12 sm:mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
@@ -205,13 +222,35 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGold.webp" alt="Legacy P&G Datalogger interface showing unstructured layout" className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" objectFit="cover" objectPosition="center"  editableKey="pg-datalogger-before-image" />
+              <EditableImage 
+                src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGold.webp" 
+                alt="Legacy P&G Datalogger interface showing unstructured layout" 
+                className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" 
+                objectFit="cover" 
+                objectPosition="center"
+                priority="high"
+                eager={true}
+                width="800"
+                height="400"
+                editableKey="pg-datalogger-before-image" 
+              />
             </motion.div>
 
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGnew.webp"  alt="Modern redesigned P&G Datalogger dashboard" className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" objectFit="cover" objectPosition="center"  editableKey="pg-datalogger-after-image" />
+              <EditableImage 
+                src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGnew.webp"  
+                alt="Modern redesigned P&G Datalogger dashboard" 
+                className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover object-center rounded-xl shadow-lg" 
+                objectFit="cover" 
+                objectPosition="center"
+                priority="high"
+                eager={true}
+                width="800"
+                height="400"
+                editableKey="pg-datalogger-after-image" 
+              />
             </motion.div>
           </div>
         </div>
@@ -277,7 +316,7 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-      {/* UX Audit & Methodology */}
+      {/* UX Audit & Methodology - Optimized Heuristic Framework Image */}
       <section id="audit" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
@@ -319,7 +358,16 @@ const PGDataloggerProject = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="w-full max-w-full overflow-hidden">
-                    <EditableImage src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 2.webp" className="w-full h-auto max-h-[400px] object-contain rounded-lg" objectFit="contain" objectPosition="center"  />
+                    <EditableImage 
+                      src="https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 2.webp" 
+                      className="w-full h-auto max-h-[400px] object-contain rounded-lg" 
+                      objectFit="contain" 
+                      objectPosition="center"
+                      priority="high"
+                      eager={true}
+                      width="600"
+                      height="400"
+                    />
                   </div>
                 </CardContent>
               </Card>
@@ -395,7 +443,7 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-       {/* Final UI Showcase */}
+       {/* Final UI Showcase - Optimized Final Image Loading */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
@@ -419,7 +467,18 @@ const PGDataloggerProject = () => {
                   <CardTitle className="text-center">Light Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <EditableImage src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" alt="Final P&G Datalogger interface in light mode" className="w-full h-[400px] object-cover rounded-lg" objectFit="cover" objectPosition="center" fallbackSrc="/placeholder.svg" editableKey="pg-datalogger-final-light-mode" />
+                  <EditableImage 
+                    src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
+                    alt="Final P&G Datalogger interface in light mode" 
+                    className="w-full h-[400px] object-cover rounded-lg" 
+                    objectFit="cover" 
+                    objectPosition="center" 
+                    priority="medium"
+                    width="600"
+                    height="400"
+                    fallbackSrc="/placeholder.svg" 
+                    editableKey="pg-datalogger-final-light-mode" 
+                  />
                 </CardContent>
               </Card>
             </motion.div>
