@@ -127,7 +127,7 @@ export const projects: Project[] = [
     slug: "pg-datalogger",
     title: "P&G Datalogger UX Revamp",
     category: "Industrial UX",
-    image: "/lovable-uploads/45a7df38-b06b-4dd3-9680-2ad85a0a40be.png",
+    image: "/lovable-uploads/0f45f882-6a9c-43ff-b770-0437818a4f62.png",
     description: "A complete redesign of the Datalogger application to enhance usability, performance, and reliability with modern UX standards.",
     client: "Procter & Gamble",
     duration: "6 Months",
