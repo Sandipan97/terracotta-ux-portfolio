@@ -57,31 +57,36 @@ const getCategoryClasses = (category: string) => {
       return {
         bg: 'bg-warm-terracotta/15 dark:bg-warm-terracotta-light/10',
         text: 'text-warm-terracotta dark:text-warm-terracotta-light',
-        border: 'border-warm-terracotta/30 dark:border-warm-terracotta-light/20'
+        border: 'border-warm-terracotta/30 dark:border-warm-terracotta-light/20',
+        progress: 'bg-warm-terracotta dark:bg-warm-terracotta-light'
       };
     case 'design':
       return {
         bg: 'bg-warm-rust/15 dark:bg-warm-rust-light/10',
         text: 'text-warm-rust dark:text-warm-rust-light',
-        border: 'border-warm-rust/30 dark:border-warm-rust-light/20'
+        border: 'border-warm-rust/30 dark:border-warm-rust-light/20',
+        progress: 'bg-warm-rust dark:bg-warm-rust-light'
       };
     case 'research':
       return {
         bg: 'bg-warm-golden/15 dark:bg-warm-golden-light/10',
         text: 'text-warm-golden dark:text-warm-golden-light',
-        border: 'border-warm-golden/30 dark:border-warm-golden-light/20'
+        border: 'border-warm-golden/30 dark:border-warm-golden-light/20',
+        progress: 'bg-warm-golden dark:bg-warm-golden-light'
       };
     case 'technical':
       return {
         bg: 'bg-warm-sage/15 dark:bg-warm-sage-light/10',
         text: 'text-warm-sage dark:text-warm-sage-light',
-        border: 'border-warm-sage/30 dark:border-warm-sage-light/20'
+        border: 'border-warm-sage/30 dark:border-warm-sage-light/20',
+        progress: 'bg-warm-sage dark:bg-warm-sage-light'
       };
     default:
       return {
         bg: 'bg-muted/10',
         text: 'text-muted-foreground',
-        border: 'border-muted/20'
+        border: 'border-muted/20',
+        progress: 'bg-primary'
       };
   }
 };
@@ -121,10 +126,16 @@ const CompetencyMatrix = () => {
                       {competency.level}%
                     </Badge>
                   </div>
-                  <Progress 
-                    value={competency.level} 
-                    className="h-2 bg-muted"
-                  />
+                  <div className="relative">
+                    <div className="h-2 w-full overflow-hidden rounded-full bg-muted/30">
+                      <motion.div
+                        className={`h-full transition-all duration-1000 ${categoryClasses.progress}`}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${competency.level}%` }}
+                        transition={{ delay: index * 0.1 + 0.3, duration: 0.8 }}
+                      />
+                    </div>
+                  </div>
                   <div className="text-sm text-muted-foreground">
                     <span className="font-medium">Evidence: </span>
                     {competency.projects.join(', ')}
