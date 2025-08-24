@@ -1,10 +1,10 @@
-
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { EditableImage } from '@/components/ui/editable-image';
 import { Play } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 type Project = {
   id: number;
@@ -26,8 +26,20 @@ interface FeaturedProjectCardProps {
 
 const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardProps) => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+
+  // Projects that should show "Coming Soon" toast instead of navigating
+  const comingSoonProjects = ['o2c-project', 'toy-anatomy'];
 
   const handleCardClick = () => {
+    if (comingSoonProjects.includes(project.slug || '')) {
+      toast({
+        title: "Stay Tuned! Coming Soon",
+        description: "This project page is currently under development.",
+      });
+      return;
+    }
+
     if (project.slug) {
       navigate(`/projects/${project.slug}`);
     } else {
