@@ -20,19 +20,20 @@ const NewEmbodimentDesign = () => {
               </AccordionTrigger>
               <AccordionContent className="pb-6">
                 <div className="space-y-8">
-                  {/* Technical Drawings */}
+                  {/* Images Grid - Responsive Layout */}
                   <motion.div
-                    className="space-y-6"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-6"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
                   >
-                    <h4 className="font-semibold text-foreground text-lg flex items-center">
-                      <span className="text-emerald-600 dark:text-emerald-400 mr-2">📐</span>
-                      Technical Drawings & Specifications
-                    </h4>
-                    <div className="w-full">
+                    {/* Technical Drawings */}
+                    <div className="space-y-4">
+                      <h4 className="font-semibold text-foreground text-lg flex items-center">
+                        <span className="text-emerald-600 dark:text-emerald-400 mr-2">📐</span>
+                        Technical Drawings
+                      </h4>
                       <EditableImage
                         src="/lovable-uploads/65a1c70b-0e77-4dc8-884a-4187c2184a88.png"
                         alt="Technical drawings showing detailed dimensions and component specifications for the Dripometer device"
@@ -40,21 +41,13 @@ const NewEmbodimentDesign = () => {
                         fallbackSrc="/placeholder.svg"
                       />
                     </div>
-                  </motion.div>
 
-                  {/* 3D Rendered Device */}
-                  <motion.div
-                    className="space-y-6"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    viewport={{ once: true }}
-                  >
-                    <h4 className="font-semibold text-foreground text-lg flex items-center">
-                      <span className="text-emerald-600 dark:text-emerald-400 mr-2">🎨</span>
-                      3D Rendered Final Design
-                    </h4>
-                    <div className="w-full">
+                    {/* 3D Rendered Device */}
+                    <div className="space-y-4">
+                      <h4 className="font-semibold text-foreground text-lg flex items-center">
+                        <span className="text-emerald-600 dark:text-emerald-400 mr-2">🎨</span>
+                        3D Rendered Design
+                      </h4>
                       <EditableImage
                         src="/lovable-uploads/0910b8fc-6d6d-470d-a9cf-402a4995699a.png"
                         alt="3D rendered view of the Dripometer device showing the final design with display, LED indicators, and pole mounting system"
@@ -62,21 +55,13 @@ const NewEmbodimentDesign = () => {
                         fallbackSrc="/placeholder.svg"
                       />
                     </div>
-                  </motion.div>
 
-                  {/* Component Assembly */}
-                  <motion.div
-                    className="space-y-6"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    viewport={{ once: true }}
-                  >
-                    <h4 className="font-semibold text-foreground text-lg flex items-center">
-                      <span className="text-emerald-600 dark:text-emerald-400 mr-2">🔩</span>
-                      Component Assembly & Hardware Details
-                    </h4>
-                    <div className="w-full">
+                    {/* Component Assembly */}
+                    <div className="space-y-4">
+                      <h4 className="font-semibold text-foreground text-lg flex items-center">
+                        <span className="text-emerald-600 dark:text-emerald-400 mr-2">🔩</span>
+                        Component Assembly
+                      </h4>
                       <EditableImage
                         src="/lovable-uploads/fd591559-34bf-47c7-b106-fde3b50253e7.png"
                         alt="Detailed view of component assembly showing mounting hardware, sensors, and internal structure of the Dripometer"
