@@ -23,7 +23,7 @@ const SkillsHighlights = () => {
         {highlights.map((highlight, index) => (
           <motion.div
             key={highlight}
-            className="bg-warm-golden/15 dark:bg-warm-golden-light/15 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-warm-golden/25 dark:border-warm-golden-light/25 focus:outline-none focus:ring-2 focus:ring-warm-golden focus:ring-offset-2"
+            className="bg-warm-rust/20 dark:bg-warm-rust-light/15 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-warm-rust/30 dark:border-warm-rust-light/25 focus:outline-none focus:ring-2 focus:ring-warm-rust focus:ring-offset-2 dark:focus:ring-warm-rust-light"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ 
@@ -37,7 +37,7 @@ const SkillsHighlights = () => {
             role="button"
             aria-label={`Highlight: ${highlight}`}
           >
-            <span className="text-warm-clay dark:text-warm-golden-light font-medium text-xs sm:text-sm whitespace-nowrap">
+            <span className="text-warm-rust dark:text-warm-rust-light font-medium text-xs sm:text-sm whitespace-nowrap">
               {highlight}
             </span>
           </motion.div>

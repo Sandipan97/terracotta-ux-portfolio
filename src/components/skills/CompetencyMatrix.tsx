@@ -55,27 +55,27 @@ const getCategoryClasses = (category: string) => {
   switch (category) {
     case 'strategic':
       return {
-        bg: 'bg-warm-terracotta/10',
-        text: 'text-warm-terracotta',
-        border: 'border-warm-terracotta/20'
+        bg: 'bg-warm-terracotta/15 dark:bg-warm-terracotta-light/10',
+        text: 'text-warm-terracotta dark:text-warm-terracotta-light',
+        border: 'border-warm-terracotta/30 dark:border-warm-terracotta-light/20'
       };
     case 'design':
       return {
-        bg: 'bg-warm-rust/10',
-        text: 'text-warm-rust',
-        border: 'border-warm-rust/20'
+        bg: 'bg-warm-rust/15 dark:bg-warm-rust-light/10',
+        text: 'text-warm-rust dark:text-warm-rust-light',
+        border: 'border-warm-rust/30 dark:border-warm-rust-light/20'
       };
     case 'research':
       return {
-        bg: 'bg-warm-golden/10',
-        text: 'text-warm-golden',
-        border: 'border-warm-golden/20'
+        bg: 'bg-warm-golden/15 dark:bg-warm-golden-light/10',
+        text: 'text-warm-golden dark:text-warm-golden-light',
+        border: 'border-warm-golden/30 dark:border-warm-golden-light/20'
       };
     case 'technical':
       return {
-        bg: 'bg-warm-sage/10',
-        text: 'text-warm-sage',
-        border: 'border-warm-sage/20'
+        bg: 'bg-warm-sage/15 dark:bg-warm-sage-light/10',
+        text: 'text-warm-sage dark:text-warm-sage-light',
+        border: 'border-warm-sage/30 dark:border-warm-sage-light/20'
       };
     default:
       return {
@@ -94,7 +94,7 @@ const CompetencyMatrix = () => {
       transition={{ duration: 0.6 }}
       className="mb-8"
     >
-      <Card className="bg-card backdrop-blur-md shadow-xl border-border">
+      <Card className="bg-card/80 dark:bg-card/90 backdrop-blur-md shadow-xl border-warm-terracotta/20 dark:border-warm-terracotta-light/10">
         <CardHeader>
           <CardTitle className="text-foreground text-xl">Professional Competency Matrix</CardTitle>
           <p className="text-muted-foreground">Evidence-based skill assessment with project examples</p>

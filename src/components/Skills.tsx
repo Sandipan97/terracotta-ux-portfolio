@@ -9,7 +9,7 @@ import { skillsData } from './skills/skillsData';
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-muted/20 relative overflow-hidden">
+    <section id="skills" className="py-20 bg-warm-golden-light/20 dark:bg-warm-golden-light/5 relative overflow-hidden">
       
       <div className="container mx-auto px-4 md:px-6">
         
