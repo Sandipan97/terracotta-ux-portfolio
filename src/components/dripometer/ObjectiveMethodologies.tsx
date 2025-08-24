@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { EditableImage } from '@/components/ui/editable-image';
@@ -110,7 +109,7 @@ const ObjectiveMethodologies = () => {
                         </div>
                         <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200">Legacy IV Monitoring</h4>
                       </div>
-                      <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 h-64">
+                      <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 h-72">
                         <EditableImage
                           src="/lovable-uploads/f9158d02-a831-4cc5-8cc4-ec86a3ee4989.png"
                           alt="Legacy IV drip monitoring device showing traditional analog display"
