@@ -73,6 +73,9 @@ const DesignProcess = ({ onBackgroundChange }: DesignProcessProps) => {
     <section className="py-6 sm:py-8 lg:py-10 bg-transparent relative overflow-hidden flex flex-col justify-center" ref={ref}>
       <BackgroundManager activeBackground={activeBackground} />
 
+      {/* Blur overlay between background and content */}
+      <div className="absolute inset-0 z-5 backdrop-blur-[2px] bg-background/10" />
+
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative z-10 max-w-6xl">
         <DesignProcessHeader />
 
