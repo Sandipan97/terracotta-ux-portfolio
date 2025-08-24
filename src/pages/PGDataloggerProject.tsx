@@ -524,27 +524,51 @@ const PGDataloggerProject = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
-          once: true
-        }} className="mb-12">
-            <div style={{padding:'75% 0 0 0',position:'relative'}}>
-              <iframe src="https://player.vimeo.com/video/1112592027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;dnt=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} title="PGsystem" className="rounded-xl shadow-lg"></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {components.map((component, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
+          {/* Two-column layout: Video left, Component tiles right */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Video Section - Left Column */}
+            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
-          }} transition={{
-            delay: index * 0.05
           }}>
-                <Card className="p-4 text-center hover:shadow-md transition-shadow px-[8px] py-[4px] bg-blue-100">
-                  <CardContent className="pt-4 py-[8px]">
-                    <p className="text-sm font-medium">{component}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
+              <div className="w-full max-w-lg mx-auto lg:mx-0">
+                <div style={{padding:'56.25% 0 0 0',position:'relative'}}>
+                  <iframe 
+                    src="https://player.vimeo.com/video/1112592027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;dnt=1" 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} 
+                    title="PGsystem" 
+                    className="rounded-xl shadow-lg"
+                  />
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+              </div>
+            </motion.div>
+
+            {/* Component Tiles - Right Column */}
+            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
+            once: true
+          }}>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {components.map((component, index) => 
+                  <motion.div 
+                    key={index} 
+                    initial="initial" 
+                    whileInView="animate" 
+                    variants={fadeInUp} 
+                    viewport={{once: true}} 
+                    transition={{delay: index * 0.05}}
+                  >
+                    <Card className="p-2 text-center hover:shadow-md transition-shadow bg-blue-50 border-blue-100 hover:bg-blue-100">
+                      <CardContent className="py-2 px-1">
+                        <p className="text-xs font-medium leading-tight">{component}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
