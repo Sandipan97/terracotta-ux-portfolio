@@ -41,11 +41,13 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
     const normalizedSrc = normalizeImageUrl(src || '');
     const normalizedFallbackSrc = normalizeImageUrl(fallbackSrc);
     
-    // Enhanced fast path logic
+    // Critical images should load immediately without any lazy loading
     const isCritical = priority === 'critical' || eager;
     const isHighPriority = priority === 'high';
     const isLocal = isLocalAsset(normalizedSrc);
-    const shouldLoadImmediately = isLocal || isCritical || !lazy;
+    
+    // Force immediate loading for critical/high priority images
+    const shouldLoadImmediately = isLocal || isCritical || isHighPriority || !lazy;
 
     const [imgSrc, setImgSrc] = useState<string | undefined>(
       shouldLoadImmediately ? normalizedSrc : undefined
@@ -57,12 +59,14 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
     const imgRef = useRef<HTMLImageElement>(null);
     const observerRef = useRef<IntersectionObserver | null>(null);
 
-    // Enhanced intersection observer with priority-based thresholds
+    // Skip intersection observer for critical and high priority images
     useEffect(() => {
-      if (shouldLoadImmediately || isVisible) return;
+      if (shouldLoadImmediately) {
+        setIsVisible(true);
+        return;
+      }
 
-      const rootMargin = isCritical ? '300px' : 
-                        isHighPriority ? '200px' : '100px';
+      const rootMargin = '100px';
 
       observerRef.current = new IntersectionObserver(
         (entries) => {
@@ -90,9 +94,9 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
           observerRef.current.disconnect();
         }
       };
-    }, [shouldLoadImmediately, isVisible, isCritical, isHighPriority]);
+    }, [shouldLoadImmediately]);
 
-    // Enhanced image loading with better performance strategies
+    // Simplified image loading for critical/high priority images
     useEffect(() => {
       if (!normalizedSrc || !isVisible) return;
 
@@ -100,33 +104,15 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
         try {
           setLoading(true);
           
-          // Instant loading for local assets
-          if (isLocal) {
+          // Immediate loading for local assets and critical images
+          if (isLocal || isCritical || isHighPriority) {
             setImgSrc(normalizedSrc);
             setLoading(false);
             setError(false);
             return;
           }
 
-          // Critical and high priority images: enhanced direct loading
-          if (isCritical || isHighPriority) {
-            // Use enhanced preloader for better caching
-            try {
-              await imagePreloader.preload(normalizedSrc, { 
-                priority: priority as 'high' | 'medium' | 'low',
-                eager: eager,
-                timeout: isCritical ? 3000 : 5000
-              });
-            } catch {
-              // Continue with direct loading if preloader fails
-            }
-            
-            setImgSrc(normalizedSrc);
-            setError(false);
-            return;
-          }
-
-          // Standard priority images: use optimized preloader
+          // Standard loading for other images
           try {
             await imagePreloader.preload(normalizedSrc, { 
               priority: priority as 'high' | 'medium' | 'low',
@@ -179,8 +165,8 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
       ? "w-full h-full object-cover" 
       : "object-cover";
 
-    // Enhanced loading skeleton with better performance indicators
-    if (loading || !isVisible) {
+    // Simplified loading state for critical images
+    if (loading || (!shouldLoadImmediately && !isVisible)) {
       return (
         <div 
           ref={imgRef}
@@ -193,9 +179,6 @@ const OptimizedEditableImage = React.forwardRef<HTMLImageElement, OptimizedEdita
           role="img"
           aria-label={loading ? "Loading image..." : alt || "Image"}
         >
-          {/* Enhanced shimmer effect */}
-          <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-          
           {loading && isVisible && (
             <div className={cn(
               "border-2 border-muted-foreground/20 rounded-full animate-spin z-10",

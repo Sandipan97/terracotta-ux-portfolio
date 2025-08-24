@@ -65,7 +65,9 @@ const HeroSection = () => {
                 alt="Welbilt Kitchen Connect Platform Interface"
                 className="w-full h-full object-contain"
                 fallbackSrc="/placeholder.svg"
-                priority="high"
+                priority="critical"
+                eager={true}
+                lazy={false}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>

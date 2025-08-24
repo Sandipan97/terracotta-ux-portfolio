@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -17,9 +18,53 @@ import ProjectTestimonial from '@/components/project/ProjectTestimonial';
 
 const WelbiltKitchenConnect = () => {
   const navigate = useNavigate();
+  
+  // Add preload link for hero image
+  useEffect(() => {
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.href = '/lovable-uploads/Welbilt showcase.webp';
+    preloadLink.as = 'image';
+    preloadLink.fetchPriority = 'high';
+    document.head.appendChild(preloadLink);
+
+    // Update meta tags for better social media previews
+    const updateMetaTags = () => {
+      const metaTags = [
+        { property: 'og:title', content: 'Welbilt Kitchen Connect - IoT Platform Redesign' },
+        { property: 'og:description', content: 'Transforming kitchen equipment management through intuitive design and enhanced user experience for commercial kitchen operators.' },
+        { property: 'og:image', content: `${window.location.origin}/lovable-uploads/Welbilt showcase.webp` },
+        { property: 'og:url', content: window.location.href },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:image', content: `${window.location.origin}/lovable-uploads/Welbilt showcase.webp` }
+      ];
+
+      metaTags.forEach(({ property, name, content }) => {
+        const selector = property ? `meta[property="${property}"]` : `meta[name="${name}"]`;
+        let meta = document.querySelector(selector);
+        
+        if (!meta) {
+          meta = document.createElement('meta');
+          if (property) meta.setAttribute('property', property);
+          if (name) meta.setAttribute('name', name);
+          document.head.appendChild(meta);
+        }
+        
+        meta.setAttribute('content', content);
+      });
+    };
+
+    updateMetaTags();
+
+    return () => {
+      document.head.removeChild(preloadLink);
+    };
+  }, []);
+
   const handleBack = () => {
     navigate('/projects');
   };
+
   const navigationSections = [{
     id: 'overview',
     label: 'Overview'
