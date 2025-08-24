@@ -1,51 +1,53 @@
+
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { EditableImage } from '@/components/ui/editable-image';
-import { Target, Lightbulb, Play } from 'lucide-react';
 
 const ObjectiveMethodologies = () => {
+  const methodologies = [
+    { stage: "Market Research", technique: "TAM Analysis, Patent Study, User Personas" },
+    { stage: "Ideation & Brainstorming", technique: "60+ Playful Anatomy Concepts" },
+    { stage: "Design & Prototyping", technique: "Function Structure, Mechatronic Integration" },
+    { stage: "Customer Experience", technique: "Journey Maps for Students, Teachers, Parents" },
+    { stage: "Validation", technique: "Surveys + HOQ Matrix + Feasibility Studies" }
+  ];
+
   return (
-    <section id="objective" className="py-20 bg-gradient-to-br from-emerald-50/50 via-white to-teal-50/30 dark:from-emerald-950/20 dark:via-gray-900 dark:to-teal-950/20">
+    <section id="objective" className="py-16 bg-emerald-50/30 dark:bg-emerald-950/20">
       <div className="container mx-auto px-4 md:px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.6 }} 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <Accordion type="single" collapsible defaultValue="objective-methodologies" className="w-full">
-            <AccordionItem 
-              value="objective-methodologies" 
-              className="border-2 border-emerald-200/60 dark:border-emerald-800/60 rounded-3xl px-8 py-2 bg-gradient-to-r from-emerald-50/80 via-white to-emerald-50/80 dark:from-emerald-900/20 dark:via-gray-900/50 dark:to-emerald-900/20 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300"
-            >
-              <AccordionTrigger className="text-2xl font-bold text-foreground hover:text-emerald-600 dark:hover:text-emerald-400 py-8 group">
-                <div className="flex items-center gap-4">
-                  <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-3 rounded-xl shadow-lg group-hover:shadow-emerald-500/25 transition-all duration-300">
-                    <Target className="w-6 h-6 text-white" />
-                  </div>
-                  <span>OBJECTIVE & METHODOLOGIES</span>
+            <AccordionItem value="objective-methodologies" className="border border-emerald-200 dark:border-emerald-800 rounded-2xl px-6 bg-emerald-50/20 dark:bg-emerald-950/10">
+              <AccordionTrigger className="text-xl font-semibold text-foreground hover:text-emerald-600 py-6">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🎯</span>
+                  <span>OBJECTIVE & METHODOLOGY</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="pb-8">
-                <div className="flex gap-10">
-                  <div className="w-[35%] space-y-8">
-                    
+                <div className="flex flex-col lg:flex-row gap-10">
+                  <div className="w-full lg:w-[35%] space-y-8">
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5 }}
                       viewport={{ once: true }}
-                      className="bg-gradient-to-br from-emerald-100/80 to-emerald-50/50 dark:from-emerald-900/30 dark:to-emerald-950/20 rounded-2xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-lg"
+                      className="bg-background/90 rounded-lg p-6 border border-emerald-200/50 dark:border-emerald-800/50"
                     >
-                      <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-200 mb-4 flex items-center gap-3">
-                        <div className="bg-emerald-600 p-2 rounded-lg">
-                          <Target className="w-5 h-5 text-white" />
-                        </div>
-                        Objective
-                      </h3>
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-                        Redesign and Revamp an IV-drip monitor system developed by CPDMed (IISc) with new functionalities, robust tamperproof embodiment, affordability in mind tailored for resource-constrained medical environments such as NICUs, burns wards, and rural health centers.
+                      <h3 className="font-bold text-lg text-foreground mb-4">🎯 OBJECTIVE</h3>
+                      <p className="text-muted-foreground leading-relaxed mb-4">
+                        To introduce an interactive, modular anatomy simulator toy that educates children (aged 5–13) through a playful, tactile, and mechatronics-enhanced experience — turning human biology into fun, hands-on learning.
                       </p>
+                      <div className="bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-200/30 dark:border-emerald-800/30 rounded-lg p-4">
+                        <p className="text-foreground font-medium">
+                          💡 Aimed at bridging the gap between bookish biology and experiential learning — with a future-ready toy that talks, lights up, and responds to touch.
+                        </p>
+                      </div>
                     </motion.div>
 
                     <motion.div
@@ -53,99 +55,72 @@ const ObjectiveMethodologies = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                       viewport={{ once: true }}
-                      className="bg-gradient-to-br from-teal-100/80 to-teal-50/50 dark:from-teal-900/30 dark:to-teal-950/20 rounded-2xl p-6 border border-teal-200/50 dark:border-teal-800/50 shadow-lg"
+                      className="bg-background/90 rounded-lg p-6 border border-emerald-200/50 dark:border-emerald-800/50"
                     >
-                      <h3 className="text-xl font-bold text-teal-800 dark:text-teal-200 mb-6 flex items-center gap-3">
-                        <div className="bg-teal-600 p-2 rounded-lg">
-                          <Lightbulb className="w-5 h-5 text-white" />
-                        </div>
-                        Methodologies Employed
+                      <h3 className="font-bold text-lg text-foreground mb-4 flex items-center">
+                        🛠️ METHODOLOGY
                       </h3>
-                      <div className="grid gap-4">
-                        {[
-                          {
-                            title: "Contextual Inquiry:",
-                            description: "Stakeholder interviews across public/private healthcare facilities",
-                            color: "emerald"
-                          },
-                          {
-                            title: "Functional Decomposition & Morphological Analysis:",
-                            description: "Created over 10 design variants",
-                            color: "teal"
-                          },
-                          {
-                            title: "Quality Function Deployment (QFD):",
-                            description: "Mapped stakeholder voice to engineering specs",
-                            color: "cyan"
-                          },
-                          {
-                            title: "Failure Mode and Effects Analysis (FMEA):",
-                            description: "Risk evaluation with high-RPN mitigation",
-                            color: "blue"
-                          },
-                          {
-                            title: "Power Budgeting:",
-                            description: "Ensured 20-hour operation with a 3.7V 10,000mAh battery",
-                            color: "indigo"
-                          }
-                        ].map((method, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className={`bg-white/80 dark:bg-gray-800/50 rounded-xl p-4 border-l-4 border-${method.color}-500 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
-                          >
-                            <strong className="text-gray-900 dark:text-gray-100 text-lg">{method.title}</strong>
-                            <p className="text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">{method.description}</p>
-                          </motion.div>
-                        ))}
+                      <div className="overflow-x-auto">
+                        <table className="w-full border-collapse">
+                          <thead>
+                            <tr className="border-b border-emerald-200 dark:border-emerald-800">
+                              <th className="text-left py-3 px-4 font-semibold text-foreground bg-emerald-50/50 dark:bg-emerald-950/30 rounded-tl-lg">
+                                Stage
+                              </th>
+                              <th className="text-left py-3 px-4 font-semibold text-foreground bg-emerald-50/50 dark:bg-emerald-950/30 rounded-tr-lg">
+                                Technique Used
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {methodologies.map((row, index) => (
+                              <motion.tr
+                                key={index}
+                                className="border-b border-emerald-200/30 dark:border-emerald-800/30 hover:bg-emerald-50/20 dark:hover:bg-emerald-950/20 transition-colors"
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                              >
+                                <td className="py-3 px-4 font-medium text-emerald-600 dark:text-emerald-400">
+                                  {row.stage}
+                                </td>
+                                <td className="py-3 px-4 text-muted-foreground">
+                                  {row.technique}
+                                </td>
+                              </motion.tr>
+                            ))}
+                          </tbody>
+                        </table>
                       </div>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                      viewport={{ once: true }}
-                      className="bg-gradient-to-r from-emerald-100/90 to-teal-100/90 dark:from-emerald-900/40 dark:to-teal-900/40 rounded-2xl p-6 border-l-4 border-emerald-500 shadow-lg"
-                    >
-                      <p className="text-gray-700 dark:text-gray-200 text-lg">
-                        <strong className="text-emerald-700 dark:text-emerald-300 text-xl">📌 Result:</strong> 
-                        <span className="ml-2">A clear, insight-driven pathway from user needs to validated, deployable design.</span>
-                      </p>
                     </motion.div>
                   </div>
 
                   <motion.div 
-                    className="w-[65%] space-y-6"
+                    className="w-full lg:w-[65%] space-y-6"
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                     viewport={{ once: true }}
                   >
-                    {/* Legacy Device - Made smaller */}
-                    <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-4 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="bg-gradient-to-r from-red-500 to-orange-500 p-2 rounded-lg">
-                          <span className="text-white font-bold text-xs">OLD</span>
+                    {/* Legacy Device Card - Made smaller */}
+                    <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2 rounded-lg">
+                          <span className="text-white text-lg">🏥</span>
                         </div>
-                        <h4 className="text-base font-bold text-gray-800 dark:text-gray-200">Legacy Device</h4>
+                        <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200">Legacy IV Monitoring</h4>
                       </div>
-                      <div className="relative group overflow-hidden rounded-xl max-h-48">
-                        <EditableImage 
-                          src="/lovable-uploads/d7004b56-b3d9-4f38-b006-2c629ba78879.png" 
-                          alt="Old IV drip monitoring device setup showing monitoring device and sensor-mount attached to drip set"
-                          className="w-full h-auto rounded-xl border-2 border-gray-200/50 dark:border-gray-700/50 transition-transform duration-500 group-hover:scale-105 object-cover"
-                          editableKey="dripometer-old-device-image"
-                          objectFit="contain"
+                      <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 h-48">
+                        <EditableImage
+                          src="/lovable-uploads/c7e17435-62f5-4df9-ba72-b82586ee7390.png"
+                          alt="Legacy IV drip monitoring device showing traditional analog display"
+                          className="w-full h-full object-cover rounded-xl hover:scale-105 transition-transform duration-500"
                           fallbackSrc="/placeholder.svg"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                       </div>
-                      <p className="text-xs text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
-                        Previous generation device with basic monitoring capabilities and limited user interface
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+                        Current IV monitoring relies on manual observation and basic analog displays, leading to delayed detection of critical issues.
                       </p>
                     </div>
 
@@ -153,7 +128,7 @@ const ObjectiveMethodologies = () => {
                     <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2 rounded-lg">
-                          <Play className="text-white font-bold text-sm w-5 h-5" />
+                          <span className="text-white text-lg">🎥</span>
                         </div>
                         <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200">Product Showcase</h4>
                       </div>
@@ -168,7 +143,7 @@ const ObjectiveMethodologies = () => {
                         />
                       </div>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
-                        Interactive demonstration of the Dripometer 2.0 system showcasing real-time monitoring capabilities
+                        Interactive demonstration of the Dripometer 2.0 system showcasing real-time monitoring capabilities and smart alerting features.
                       </p>
                     </div>
                   </motion.div>
