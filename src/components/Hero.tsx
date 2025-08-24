@@ -15,11 +15,12 @@ const Hero = () => {
       <InteractivePolkaDotBackground />
 
       <div className="container mx-auto px-3 md:px-4 lg:px-6 xl:px-8 z-10 py-4 md:py-6 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-4rem)]">
-          <div className="lg:col-span-7 xl:col-span-6">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 md:gap-12 lg:gap-12 items-center min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-4rem)]">
+          {/* Mobile: Image first, Desktop: Text first */}
+          <div className="w-full lg:col-span-7 xl:col-span-6 order-2 lg:order-1">
             <HeroTextContent />
           </div>
-          <div className="lg:col-span-5 xl:col-span-6">
+          <div className="w-full lg:col-span-5 xl:col-span-6 order-1 lg:order-2">
             <HeroProfileSection />
           </div>
         </div>

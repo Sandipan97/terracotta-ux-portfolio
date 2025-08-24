@@ -28,14 +28,14 @@ const HeroProfileSection = () => {
 
   return (
     <motion.div 
-      className="order-1 lg:order-2 flex justify-center lg:justify-end xl:justify-center" 
+      className="flex justify-center lg:justify-end xl:justify-center" 
       initial={{ opacity: 0, scale: 0.9 }} 
       animate={{ opacity: 1, scale: 1 }} 
       transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
     >
       <div className="relative">
         <motion.div 
-          className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] rounded-full overflow-hidden border-4 lg:border-6 border-white shadow-2xl cursor-pointer relative" 
+          className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] rounded-full overflow-hidden border-3 sm:border-4 lg:border-6 border-white shadow-2xl cursor-pointer relative" 
           onClick={handleProfileClick} 
           whileHover={{
             scale: 1.05,
@@ -92,7 +92,7 @@ const HeroProfileSection = () => {
         </motion.div>
         
         <motion.div 
-          className="absolute -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 xl:-bottom-6 xl:-right-6 text-warm-terracotta dark:text-white px-3 lg:px-4 xl:px-6 py-2 lg:py-3 rounded-full font-medium bg-white dark:bg-warm-terracotta backdrop-blur-md border border-white/20 dark:border-warm-terracotta/20 shadow-lg text-xs lg:text-sm xl:text-base" 
+          className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 lg:-bottom-4 lg:-right-4 xl:-bottom-6 xl:-right-6 text-warm-terracotta dark:text-white px-2 sm:px-3 lg:px-4 xl:px-6 py-1 sm:py-2 lg:py-3 rounded-full font-medium bg-white dark:bg-warm-terracotta backdrop-blur-md border border-white/20 dark:border-warm-terracotta/20 shadow-lg text-xs sm:text-xs lg:text-sm xl:text-base" 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ delay: 1, duration: 0.5 }} 

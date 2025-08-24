@@ -34,7 +34,7 @@ const HeroTextContent = () => {
 
   return (
     <motion.div 
-      className="order-2 lg:order-1 flex flex-col justify-center items-center lg:items-start text-center lg:text-left w-full h-full pr-0 lg:pr-6 xl:pr-8" 
+      className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left w-full h-full pr-0 lg:pr-6 xl:pr-8 mt-6 lg:mt-0" 
       initial={{ opacity: 0, x: -50 }} 
       animate={{ opacity: 1, x: 0 }} 
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -56,7 +56,7 @@ const HeroTextContent = () => {
           <div className="grid grid-cols-1 gap-2 sm:gap-3 md:gap-4">
             {/* "Hi," */}
             <motion.span 
-              className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-warm-rust leading-tight"
+              className="block text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-medium text-warm-rust leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
@@ -75,7 +75,7 @@ const HeroTextContent = () => {
             
             {/* "I am" */}
             <motion.span 
-              className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-warm-rust leading-tight"
+              className="block text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-medium text-warm-rust leading-tight"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
@@ -87,18 +87,18 @@ const HeroTextContent = () => {
 
         {/* Name Section */}
         <motion.div
-          className="relative"
+          className="relative mb-4 sm:mb-6"
           initial={{ opacity: 0, scale: 0.9 }} 
           animate={{ opacity: 1, scale: 1 }} 
           transition={{ delay: 1.0, duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
         >
           <h1 className="font-display font-bold text-warm-terracotta dark:text-warm-terracotta leading-tight">
-            {/* Responsive Typography with clamp() */}
+            {/* Responsive Typography with clamp() - Adjusted for better mobile scaling */}
             <span 
               className="block relative"
               style={{ 
-                fontSize: 'clamp(2rem, 8vw, 6rem)', 
-                lineHeight: 'clamp(2.2rem, 8.8vw, 6.6rem)' 
+                fontSize: 'clamp(1.75rem, 7vw, 6rem)', 
+                lineHeight: 'clamp(2rem, 7.5vw, 6.6rem)' 
               }}
               data-lovable-editable="hero-name"
             >
@@ -106,7 +106,7 @@ const HeroTextContent = () => {
                 {displayText}
                 <motion.span 
                   className="inline-block w-1 bg-warm-terracotta dark:bg-warm-terracotta ml-2" 
-                  style={{ height: 'clamp(2rem, 8vw, 6rem)' }}
+                  style={{ height: 'clamp(1.75rem, 7vw, 6rem)' }}
                   animate={{ 
                     opacity: [1, 0, 1], 
                     scaleY: [1, 0.8, 1]
