@@ -51,12 +51,10 @@ const PGDataloggerProject = () => {
     id: 'process',
     label: 'Process'
   }, {
-    id: 'impact',
-    label: 'Impact'
-  }, {
-    id: 'future',
-    label: 'Future'
+    id: 'impact-future',
+    label: 'Impact & Future'
   }];
+
   const fadeInUp = {
     initial: {
       opacity: 0,
@@ -625,85 +623,113 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-      {/* Measurable Impact */}
-      <section id="impact" className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* Combined Measurable Impact & Future Enhancements */}
+      <section id="impact-future" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
         }}>
             <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
-              Measurable Impact
+              Impact & Future Roadmap
             </motion.h2>
+            <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto" variants={fadeInUp}>
+              Measurable improvements achieved and planned enhancements for continued evolution.
+            </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[{
-            metric: "60%",
-            label: "Reduction in User Errors",
-            icon: <CheckCircle className="w-6 h-6" />
-          }, {
-            metric: "85%",
-            label: "Improved User Satisfaction",
-            icon: <Eye className="w-6 h-6" />
-          }, {
-            metric: "40%",
-            label: "Faster Task Completion",
-            icon: <Clock className="w-6 h-6" />
-          }, {
-            metric: "95%",
-            label: "Clearer Navigation",
-            icon: <BarChart3 className="w-6 h-6" />
-          }, {
-            metric: "100%",
-            label: "Theme Accessibility",
-            icon: <Shield className="w-6 h-6" />
-          }, {
-            metric: "75%",
-            label: "Real-time Feedback",
-            icon: <Zap className="w-6 h-6" />
-          }].map((impact, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Measurable Impact - Left Side */}
+            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
-          }} transition={{
-            delay: index * 0.1
           }}>
-                <Card className="h-full p-6 text-center hover:shadow-lg transition-shadow">
-                  <CardContent className="pt-6">
-                    <div className="text-primary mb-4 flex justify-center">
-                      {impact.icon}
-                    </div>
-                    <div className="text-3xl font-bold text-primary mb-2">{impact.metric}</div>
-                    <p className="text-muted-foreground font-medium">{impact.label}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
-          </div>
-        </div>
-      </section>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-4 text-center">Measurable Impact</h3>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {[{
+                metric: "60%",
+                label: "Reduction in User Errors",
+                icon: <CheckCircle className="w-6 h-6" />
+              }, {
+                metric: "85%",
+                label: "Improved User Satisfaction",
+                icon: <Eye className="w-6 h-6" />
+              }, {
+                metric: "40%",
+                label: "Faster Task Completion",
+                icon: <Clock className="w-6 h-6" />
+              }, {
+                metric: "95%",
+                label: "Clearer Navigation",
+                icon: <BarChart3 className="w-6 h-6" />
+              }, {
+                metric: "100%",
+                label: "Theme Accessibility",
+                icon: <Shield className="w-6 h-6" />
+              }, {
+                metric: "75%",
+                label: "Real-time Feedback",
+                icon: <Zap className="w-6 h-6" />
+              }].map((impact, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
+                once: true
+              }} transition={{
+                delay: index * 0.1
+              }}>
+                    <Card className="h-full p-6 text-center hover:shadow-lg transition-shadow">
+                      <CardContent className="pt-6">
+                        <div className="text-primary mb-4 flex justify-center">
+                          {impact.icon}
+                        </div>
+                        <div className="text-3xl font-bold text-primary mb-2">{impact.metric}</div>
+                        <p className="text-muted-foreground font-medium">{impact.label}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>)}
+              </div>
+            </motion.div>
 
-      {/* Future Enhancements */}
-      <section id="future" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
-          once: true
-        }}>
-            <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
-              Future Enhancements
-            </motion.h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {futureEnhancements.map((enhancement, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
+            {/* Future Enhancements - Right Side */}
+            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
-          }} transition={{
-            delay: index * 0.1
           }}>
-                <Card className="p-6 hover:shadow-lg transition-shadow">
-                  <CardContent className="pt-6 flex items-center gap-4">
-                    <Lightbulb className="w-5 h-5 text-primary flex-shrink-0" />
-                    <p className="font-medium">{enhancement}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-4 text-center">Future Enhancements</h3>
+              </div>
+              
+              <div className="grid gap-6">
+                {futureEnhancements.map((enhancement, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
+                once: true
+              }} transition={{
+                delay: index * 0.1
+              }}>
+                    <Card className="p-6 hover:shadow-lg transition-shadow">
+                      <CardContent className="pt-6 flex items-center gap-4">
+                        <Lightbulb className="w-5 h-5 text-primary flex-shrink-0" />
+                        <p className="font-medium">{enhancement}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>)}
+              </div>
+
+              {/* Vision Statement */}
+              <motion.div
+                initial="initial" 
+                whileInView="animate" 
+                variants={fadeInUp} 
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/20"
+              >
+                <h4 className="text-lg font-bold text-foreground mb-3">
+                  Our Vision
+                </h4>
+                <p className="text-muted-foreground">
+                  Transform the P&G Datalogger into a comprehensive, intelligent industrial management platform 
+                  that anticipates future challenges through data-driven insights and continuous UX optimization.
+                </p>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
