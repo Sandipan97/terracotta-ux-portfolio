@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,7 +14,6 @@ import KeyFindings from '@/components/dripometer/KeyFindings';
 import DesignSolutions from '@/components/dripometer/DesignSolutions';
 import MethodTranslation from '@/components/dripometer/MethodTranslation';
 import ProjectStatus from '@/components/dripometer/ProjectStatus';
-import ProcessTimeline from '@/components/dripometer/ProcessTimeline';
 import TechnicalArchitecture from '@/components/dripometer/TechnicalArchitecture';
 import NewEmbodimentDesign from '@/components/dripometer/NewEmbodimentDesign';
 
@@ -47,9 +47,6 @@ const DripometerProject = () => {
   }, {
     id: 'status',
     label: 'Status'
-  }, {
-    id: 'timeline',
-    label: 'Timeline'
   }, {
     id: 'architecture',
     label: 'Architecture'
@@ -265,11 +262,6 @@ const DripometerProject = () => {
         </div>
         <div id="status">
           <ProjectStatus />
-        </div>
-        
-        {/* Process Timeline */}
-        <div id="timeline">
-          <ProcessTimeline />
         </div>
         
         {/* Technical Architecture */}
