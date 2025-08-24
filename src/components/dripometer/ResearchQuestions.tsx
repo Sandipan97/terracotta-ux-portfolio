@@ -94,8 +94,8 @@ const ResearchQuestions = () => {
                     </h4>
                     <div className="w-full">
                       <EditableImage
-                        src="/lovable-uploads/O2C competitors.png"
-                        alt="Technical dependency matrix linking customer requirements to engineering specifications"
+                        src="/lovable-uploads/2063ac89-e100-43f4-8d0f-a43e889adabf.png"
+                        alt="Competitor products analysis showing various drip monitoring devices and their features"
                         className="w-full h-auto rounded-lg border border-teal-200/50 shadow-md"
                         fallbackSrc="/placeholder.svg"
                       />
