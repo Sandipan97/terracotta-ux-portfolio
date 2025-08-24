@@ -59,12 +59,13 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900 dark:to-indigo-800">
+            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900 dark:to-indigo-800">
               <EditableImage
-                src="/lovable-uploads/Welbilt showcase.png"
+                src="/lovable-uploads/Welbilt showcase.webp"
                 alt="Welbilt Kitchen Connect Platform Interface"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 fallbackSrc="/placeholder.svg"
+                priority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
