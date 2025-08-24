@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowLeft, ChevronRight, CheckCircle, AlertTriangle, Lightbulb, BarChart3, Clock, Shield, Eye, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -444,7 +443,7 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-       {/* Final UI Showcase - Optimized Final Image Loading */}
+       {/* Final UI Showcase - Enhanced with Overlapping Layout */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
@@ -459,19 +458,33 @@ const PGDataloggerProject = () => {
             </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
-            once: true
-          }}>
-              <Card className="p-4">
+          {/* Overlapping Images Container */}
+          <div className="relative flex justify-center items-center h-[600px] md:h-[700px]">
+            {/* Light Mode Card - Left Side */}
+            <motion.div 
+              className="absolute z-10"
+              style={{ left: '10%', top: '10%' }}
+              initial="initial" 
+              whileInView="animate" 
+              variants={fadeInUp} 
+              viewport={{ once: true }}
+              whileHover={{ 
+                scale: 1.05, 
+                zIndex: 50, 
+                rotateY: -5,
+                x: -20,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+            >
+              <Card className="p-4 w-[400px] md:w-[500px] shadow-2xl hover:shadow-3xl transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-center">Light Mode</CardTitle>
+                  <CardTitle className="text-center text-xl">Light Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <EditableImage 
                     src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
                     alt="Final P&G Datalogger interface in light mode" 
-                    className="w-full h-[400px] object-cover rounded-lg" 
+                    className="w-full h-[350px] md:h-[400px] object-cover rounded-lg" 
                     objectFit="cover" 
                     objectPosition="center" 
                     priority="medium"
@@ -484,18 +497,31 @@ const PGDataloggerProject = () => {
               </Card>
             </motion.div>
 
-            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
-            once: true
-          }}>
-              <Card className="p-4">
+            {/* Dark Mode Card - Right Side, Overlapping */}
+            <motion.div 
+              className="absolute z-20"
+              style={{ right: '10%', top: '20%' }}
+              initial="initial" 
+              whileInView="animate" 
+              variants={fadeInUp} 
+              viewport={{ once: true }}
+              whileHover={{ 
+                scale: 1.05, 
+                zIndex: 50, 
+                rotateY: 5,
+                x: 20,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+            >
+              <Card className="p-4 w-[400px] md:w-[500px] shadow-2xl hover:shadow-3xl transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-center">Dark Mode</CardTitle>
+                  <CardTitle className="text-center text-xl">Dark Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <EditableImage 
                     src="/lovable-uploads/c64045fa-88c4-490f-b9e7-a1b91bc8fe65.png" 
                     alt="P&G Research Razor 2.0 interface in dark mode showing the redesigned dashboard" 
-                    className="w-full h-[400px] object-cover rounded-lg" 
+                    className="w-full h-[350px] md:h-[400px] object-cover rounded-lg" 
                     objectFit="cover" 
                     objectPosition="center" 
                     priority="medium"
