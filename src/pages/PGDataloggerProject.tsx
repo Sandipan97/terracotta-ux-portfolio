@@ -18,7 +18,7 @@ const PGDataloggerProject = () => {
 
   useEffect(() => {
     const criticalImages = [
-      '/lovable-uploads/PG heroimg.webp',
+      '/lovable-uploads/9a27016d-1bc4-4778-b5d1-d0c1e5ef70d6.png',
       'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGold.webp',
       'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/PGnew.webp',
       'https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 2.webp',
@@ -140,7 +140,7 @@ const PGDataloggerProject = () => {
       <Navbar />
       <StickyNavigation sections={navigationSections} />
       
-      {/* Hero Image Section - Optimized for Critical Loading */}
+      {/* Hero Image Section - Updated with new image */}
       <section id="overview" className="w-full relative h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
         <button onClick={handleBack} className="absolute top-4 left-4 z-30 inline-flex items-center gap-2 bg-background/80 backdrop-blur-sm text-foreground hover:bg-background transition-colors px-3 py-2 rounded-lg border border-border/50">
           <ArrowLeft className="w-4 h-4" />
@@ -148,8 +148,8 @@ const PGDataloggerProject = () => {
         </button>
 
         <EditableImage 
-          src="/lovable-uploads/PG heroimg.webp" 
-          alt="P&G Datalogger Project Hero" 
+          src="/lovable-uploads/9a27016d-1bc4-4778-b5d1-d0c1e5ef70d6.png" 
+          alt="P&G Research Razor 2.0 Heuristics & Revamp Project Hero" 
           className="w-full h-full object-cover"
           objectFit="cover"
           objectPosition="center"
@@ -847,4 +847,5 @@ const PGDataloggerProject = () => {
       <Footer />
     </div>;
 };
+
 export default PGDataloggerProject;
