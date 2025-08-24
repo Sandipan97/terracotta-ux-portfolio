@@ -459,7 +459,7 @@ const PGDataloggerProject = () => {
           </motion.div>
 
           {/* Enhanced Overlapping Images Container */}
-          <div className="relative flex justify-center items-center h-[700px] md:h-[800px] lg:h-[900px] overflow-visible">
+          <div className="relative flex justify-center items-center h-[800px] md:h-[900px] lg:h-[1000px] overflow-visible">
             {/* Light Mode Card - Left Side */}
             <motion.div 
               className="absolute z-10"
@@ -476,7 +476,7 @@ const PGDataloggerProject = () => {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
             >
-              <Card className="p-4 w-[500px] md:w-[600px] lg:w-[700px] shadow-2xl hover:shadow-4xl transition-all duration-400">
+              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400">
                 <CardHeader>
                   <CardTitle className="text-center text-xl md:text-2xl">Light Mode</CardTitle>
                 </CardHeader>
@@ -484,12 +484,12 @@ const PGDataloggerProject = () => {
                   <EditableImage 
                     src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
                     alt="Final P&G Datalogger interface in light mode" 
-                    className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover rounded-lg" 
-                    objectFit="cover" 
+                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gray-50" 
+                    objectFit="contain" 
                     objectPosition="center" 
                     priority="medium"
                     width="800"
-                    height="600"
+                    height="650"
                     fallbackSrc="/placeholder.svg" 
                     editableKey="pg-datalogger-final-light-mode" 
                   />
@@ -513,7 +513,7 @@ const PGDataloggerProject = () => {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
             >
-              <Card className="p-4 w-[500px] md:w-[600px] lg:w-[700px] shadow-2xl hover:shadow-4xl transition-all duration-400">
+              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400">
                 <CardHeader>
                   <CardTitle className="text-center text-xl md:text-2xl">Dark Mode</CardTitle>
                 </CardHeader>
@@ -521,12 +521,12 @@ const PGDataloggerProject = () => {
                   <EditableImage 
                     src="/lovable-uploads/c64045fa-88c4-490f-b9e7-a1b91bc8fe65.png" 
                     alt="P&G Research Razor 2.0 interface in dark mode showing the redesigned dashboard" 
-                    className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover rounded-lg" 
-                    objectFit="cover" 
+                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gray-900" 
+                    objectFit="contain" 
                     objectPosition="center" 
                     priority="medium"
                     width="800"
-                    height="600"
+                    height="650"
                     fallbackSrc="/placeholder.svg" 
                     editableKey="pg-datalogger-final-dark-mode" 
                   />
