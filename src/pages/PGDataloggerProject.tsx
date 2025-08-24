@@ -256,6 +256,82 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
+      {/* Design System & Components - Moved here from later in the page */}
+      <section id="design-system" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
+          once: true
+        }}>
+            <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
+              Design System & Components
+            </motion.h2>
+            <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto" variants={fadeInUp}>
+              A robust design system was created in Figma with light and dark themes, 
+              modular components, and responsive layouts following accessibility standards.
+            </motion.p>
+          </motion.div>
+
+          {/* Custom layout: Video 65%, Component tiles 35% */}
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
+            {/* Video Section - 65% width */}
+            <motion.div 
+              initial="initial" 
+              whileInView="animate" 
+              variants={fadeInUp} 
+              viewport={{once: true}}
+              className="w-full lg:w-[65%]"
+            >
+              <div className="w-full">
+                <div style={{padding:'56.25% 0 0 0',position:'relative'}}>
+                  <iframe 
+                    src="https://player.vimeo.com/video/1112592027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;dnt=1" 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} 
+                    title="PGsystem" 
+                    className="rounded-xl shadow-lg"
+                  />
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+              </div>
+            </motion.div>
+
+            {/* Component Tiles - 35% width */}
+            <motion.div 
+              initial="initial" 
+              whileInView="animate" 
+              variants={fadeInUp} 
+              viewport={{once: true}}
+              className="w-full lg:w-[35%]"
+            >
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
+                {components.map((component, index) => 
+                  <motion.div 
+                    key={index} 
+                    initial="initial" 
+                    whileInView="animate" 
+                    variants={fadeInUp} 
+                    viewport={{once: true}} 
+                    transition={{delay: index * 0.05}}
+                  >
+                    <Card className={`p-2 text-center hover:shadow-md transition-all duration-300 hover:scale-105 border-2 ${
+                      index % 3 === 0 ? 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600' :
+                      index % 3 === 1 ? 'bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800 border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600' :
+                      'bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800 border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600'
+                    }`}>
+                      <CardContent className="py-2 px-1">
+                        <p className="text-xs font-medium leading-tight text-foreground">{component}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Timeline - Moved above Design Process */}
       <div id="process">
         <ProcessTimeline />
@@ -607,82 +683,6 @@ const PGDataloggerProject = () => {
         </div>
       </section>
       
-      {/* Design System & Components */}
-      <section id="design-system" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
-          once: true
-        }}>
-            <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={fadeInUp}>
-              Design System & Components
-            </motion.h2>
-            <motion.p className="text-lg text-muted-foreground max-w-3xl mx-auto" variants={fadeInUp}>
-              A robust design system was created in Figma with light and dark themes, 
-              modular components, and responsive layouts following accessibility standards.
-            </motion.p>
-          </motion.div>
-
-          {/* Custom layout: Video 65%, Component tiles 35% */}
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
-            {/* Video Section - 65% width */}
-            <motion.div 
-              initial="initial" 
-              whileInView="animate" 
-              variants={fadeInUp} 
-              viewport={{once: true}}
-              className="w-full lg:w-[65%]"
-            >
-              <div className="w-full">
-                <div style={{padding:'56.25% 0 0 0',position:'relative'}}>
-                  <iframe 
-                    src="https://player.vimeo.com/video/1112592027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;dnt=1" 
-                    frameBorder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                    referrerPolicy="strict-origin-when-cross-origin" 
-                    style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} 
-                    title="PGsystem" 
-                    className="rounded-xl shadow-lg"
-                  />
-                </div>
-                <script src="https://player.vimeo.com/api/player.js"></script>
-              </div>
-            </motion.div>
-
-            {/* Component Tiles - 35% width */}
-            <motion.div 
-              initial="initial" 
-              whileInView="animate" 
-              variants={fadeInUp} 
-              viewport={{once: true}}
-              className="w-full lg:w-[35%]"
-            >
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
-                {components.map((component, index) => 
-                  <motion.div 
-                    key={index} 
-                    initial="initial" 
-                    whileInView="animate" 
-                    variants={fadeInUp} 
-                    viewport={{once: true}} 
-                    transition={{delay: index * 0.05}}
-                  >
-                    <Card className={`p-2 text-center hover:shadow-md transition-all duration-300 hover:scale-105 border-2 ${
-                      index % 3 === 0 ? 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600' :
-                      index % 3 === 1 ? 'bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900 dark:to-emerald-800 border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600' :
-                      'bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900 dark:to-amber-800 border-amber-200 dark:border-amber-700 hover:border-amber-300 dark:hover:border-amber-600'
-                    }`}>
-                      <CardContent className="py-2 px-1">
-                        <p className="text-xs font-medium leading-tight text-foreground">{component}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                )}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Combined Measurable Impact & Future Enhancements */}
       <section id="impact-future" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
