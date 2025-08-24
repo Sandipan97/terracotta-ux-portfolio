@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { EditableImage } from '@/components/ui/editable-image';
@@ -103,7 +102,6 @@ const ObjectiveMethodologies = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     viewport={{ once: true }}
                   >
-                    {/* Legacy Device Card - Made smaller */}
                     <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2 rounded-lg">
@@ -113,7 +111,7 @@ const ObjectiveMethodologies = () => {
                       </div>
                       <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 h-48">
                         <EditableImage
-                          src="/lovable-uploads/c7e17435-62f5-4df9-ba72-b82586ee7390.png"
+                          src="/lovable-uploads/f9158d02-a831-4cc5-8cc4-ec86a3ee4989.png"
                           alt="Legacy IV drip monitoring device showing traditional analog display"
                           className="w-full h-full object-cover rounded-xl hover:scale-105 transition-transform duration-500"
                           fallbackSrc="/placeholder.svg"
@@ -124,7 +122,6 @@ const ObjectiveMethodologies = () => {
                       </p>
                     </div>
 
-                    {/* Video Showcase - Square aspect ratio */}
                     <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2 rounded-lg">
