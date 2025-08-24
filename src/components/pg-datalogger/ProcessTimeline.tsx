@@ -46,7 +46,7 @@ const ProcessTimeline = () => {
         <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
         once: true
       }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Design Process Timeline</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Design Process</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             A systematic approach to transforming legacy industrial UX into modern, user-friendly interfaces
           </p>
