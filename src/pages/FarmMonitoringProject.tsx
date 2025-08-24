@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { EditableImage } from '@/components/ui/editable-image';
 import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
+
 const FarmMonitoringProject = () => {
   const navigate = useNavigate();
   const goBack = () => {
@@ -43,6 +44,7 @@ const FarmMonitoringProject = () => {
     id: 'cta',
     label: 'Call to Action'
   }];
+  
   return <div className="min-h-screen bg-background">
       <Navbar />
       <UniversalStickyNavigation sections={navigationSections} />
@@ -284,7 +286,7 @@ const FarmMonitoringProject = () => {
           </div>
         </section>
 
-        {/* Project Overview - Workshop Timeline */}
+        {/* Design Thinking Workshop */}
         <section id="overview" className="py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div initial={{
@@ -299,53 +301,46 @@ const FarmMonitoringProject = () => {
             once: true
           }} className="text-center mb-12">
               <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6" data-lovable-editable="overview-title">
-                6-Month Design Thinking Workshop
+                Design Thinking Workshop
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-lovable-editable="overview-description">
                 From empathy interviews to prototype validation - a comprehensive journey with HCLTech
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[{
-              phase: "Empathize",
-              duration: "4 weeks",
-              icon: Users,
-              color: "bg-blue-500"
-            }, {
-              phase: "Define",
-              duration: "2 weeks",
-              icon: Target,
-              color: "bg-green-500"
-            }, {
-              phase: "Ideate",
-              duration: "3 weeks",
-              icon: Lightbulb,
-              color: "bg-yellow-500"
-            }, {
-              phase: "Prototype",
-              duration: "4 weeks",
-              icon: Zap,
-              color: "bg-purple-500"
-            }].map((item, index) => <motion.div key={item.phase} className="bg-card border border-border rounded-xl p-6 text-center" initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.5,
-              delay: index * 0.1
-            }} viewport={{
-              once: true
-            }} data-lovable-editable={`phase-${item.phase.toLowerCase()}`}>
-                  <div className={`w-16 h-16 ${item.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <item.icon size={32} className="text-white" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">{item.phase}</h3>
-                  <p className="text-muted-foreground">{item.duration}</p>
-                </motion.div>)}
-            </div>
+            <motion.div initial={{
+            opacity: 0,
+            scale: 0.9
+          }} whileInView={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.8
+          }} viewport={{
+            once: true
+          }} className="max-w-4xl mx-auto">
+              <div className="rounded-2xl overflow-hidden shadow-2xl bg-black">
+                <div style={{
+                  padding: "56.25% 0 0 0",
+                  position: "relative"
+                }}>
+                  <iframe 
+                    src="https://player.vimeo.com/video/1112591814?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%"
+                    }} 
+                    title="DT SESSION" 
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -1083,4 +1078,5 @@ const FarmMonitoringProject = () => {
       <Footer />
     </div>;
 };
+
 export default FarmMonitoringProject;
