@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import FeaturedProjects from '@/components/FeaturedProjects';
-import ImageRepository from '@/components/ImageRepository';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -51,9 +50,6 @@ const Projects = () => {
       <section className="py-20 bg-background">
         <FeaturedProjects showAll={true} />
       </section>
-
-      {/* Image Repository Section */}
-      <ImageRepository />
     </div>
   );
 };
