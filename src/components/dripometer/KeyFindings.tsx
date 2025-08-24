@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { EditableImage } from '@/components/ui/editable-image';
@@ -9,40 +8,40 @@ const KeyFindings = () => {
     {
       title: "Manual Monitoring = Errors + No Audit Trail",
       implication: "Need for a central console to monitor",
-      imageSrc: "/lovable-uploads/nurses.png",
-      imageAlt: "Nurse manually logging IV data in medical ward",
+      imageSrc: "/lovable-uploads/60ae458b-c4ba-4d01-b5be-9eb33e273157.png",
+      imageAlt: "Nurses manually monitoring IV drips in medical ward showing communication challenges",
       color: "red",
       priority: "high"
     },
     {
       title: "Occupying Both Hangers of the Pole is Bad",
       implication: "Must only occupy one hanger or none",
-      imageSrc: "/lovable-uploads/Occupy hangers.png",
-      imageAlt: "Physical device setup showing compact pole-mounted dripometer unit",
+      imageSrc: "/lovable-uploads/2f3ecb79-bba5-4335-a1ad-f73cb8c55b36.png",
+      imageAlt: "Physical dripometer device setup showing compact pole-mounted monitoring unit",
       color: "orange",
       priority: "high"
     },
     {
       title: "Alarms at bedside cause Panic in Patients",
       implication: "Need central system to show alarms",
-      imageSrc: "/lovable-uploads/Ward panic.png",
-      imageAlt: "Central console screen with bed layout and alerts",
+      imageSrc: "/lovable-uploads/73b1bb72-5288-4ced-98a6-27e351d283ab.png",
+      imageAlt: "Hospital ward scene showing patients distressed by beeping alarms from medical equipment",
       color: "yellow",
       priority: "medium"
     },
     {
       title: "High Device Theft Risk",
       implication: "Must be locked to pole somehow",
-      imageSrc: "/lovable-uploads/Drip-steal.png",
-      imageAlt: "Lockable clamp and hospital-only pairing logic",
+      imageSrc: "/lovable-uploads/5ae3858c-c78d-43cc-9b9c-af28dbfd9094.png",
+      imageAlt: "Security concern illustration showing potential theft of medical monitoring devices",
       color: "purple",
       priority: "high"
     },
     {
       title: "Nurses prefer \"plug-n-play\" interfaces",
       implication: "Device must be easy to use",
-      imageSrc: "/lovable-uploads/nurses.png",
-      imageAlt: "Snap-fit sensor mechanism and LED indicators",
+      imageSrc: "/lovable-uploads/0f0a9044-a21a-4094-9bbc-7d404d04371b.png",
+      imageAlt: "Simple plug-and-play device interface design for easy nurse operation",
       color: "green",
       priority: "medium"
     }
@@ -106,7 +105,7 @@ const KeyFindings = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <div className="grid md:grid-cols-3 gap-6 items-center">
+                      <div className="grid md:grid-cols-3 gap-6 items-start">
                         <div className="md:col-span-2 space-y-4">
                           <div className="flex items-start gap-3">
                             <div className="flex-shrink-0">
@@ -143,15 +142,15 @@ const KeyFindings = () => {
                         </div>
 
                         <div className="md:col-span-1">
-                          <div className="relative group overflow-hidden rounded-xl shadow-lg">
+                          <div className="relative group overflow-hidden rounded-xl shadow-lg bg-white/80 dark:bg-gray-800/80 p-2">
                             <EditableImage
                               src={finding.imageSrc}
                               alt={finding.imageAlt}
-                              className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
+                              className="w-full h-auto object-contain max-h-64 transition-transform duration-500 group-hover:scale-105"
                               fallbackSrc="/placeholder.svg"
                               editableKey={`dripometer-finding-${index}`}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <div className="absolute top-2 right-2">
                               <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
                                 <Search className="w-4 h-4 text-gray-600 dark:text-gray-300" />
