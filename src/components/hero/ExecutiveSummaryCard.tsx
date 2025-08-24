@@ -6,7 +6,7 @@ import { Award, Users, Lightbulb, TrendingUp } from 'lucide-react';
 
 const ExecutiveSummaryCard = () => {
   const credentials = [
-    { icon: Award, label: "5 Years of Design and Counting", color: "warm-terracotta" },
+    { icon: Award, label: "4+ Years of Design", color: "warm-terracotta" },
     { icon: Users, label: "Creative & Analytical", color: "warm-rust" },
     { icon: Lightbulb, label: "IISc Alumnus", color: "warm-golden" },
     { icon: TrendingUp, label: "Mining User Satisfaction", color: "warm-terracotta" }
@@ -19,60 +19,49 @@ const ExecutiveSummaryCard = () => {
       transition={{ delay: 0.3, duration: 0.6 }}
       className="mb-4 lg:mb-6 w-full"
     >
-      <Card className="bg-card/95 backdrop-blur-md border-border shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-hidden">
-        <CardContent className="p-8 lg:p-10 relative">
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-warm-golden/5 via-transparent to-warm-terracotta/5 pointer-events-none" />
-          
-          {/* Header */}
-          <div className="relative z-10 mb-8 lg:mb-10">
-            <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-foreground mb-3 leading-tight bg-gradient-to-r from-warm-terracotta to-warm-golden bg-clip-text text-transparent">
-              Senior UX Designer & Design Systems Expert
-            </h3>
-            <div className="w-20 h-0.5 bg-gradient-to-r from-warm-golden to-warm-terracotta rounded-full" />
-          </div>
-
-          {/* Credentials Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-7 mb-8 lg:mb-10 relative z-10">
+      <Card className="bg-card/90 backdrop-blur-md border-border shadow-xl">
+        <CardContent className="p-4 lg:p-6">
+          <h3 className="text-base lg:text-lg xl:text-xl font-semibold text-foreground mb-3 lg:mb-4">
+            Senior UX Designer & Design Systems Expert
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3">
             {credentials.map((credential, index) => (
               <motion.div
                 key={credential.label}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
-                className="flex items-start space-x-4 lg:space-x-5 p-4 lg:p-5 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-warm-golden/30 transition-all duration-300 hover:transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                className="flex items-center space-x-2 lg:space-x-3"
               >
-                <div className={`p-3 lg:p-4 rounded-lg bg-${credential.color}/10 border border-${credential.color}/20 flex-shrink-0`}>
-                  <credential.icon className={`w-5 h-5 lg:w-6 lg:h-6 text-${credential.color}`} />
+                <div className={`p-1.5 lg:p-2 rounded-lg bg-${credential.color}/10`}>
+                  <credential.icon className={`w-3 h-3 lg:w-4 lg:h-4 text-${credential.color}`} />
                 </div>
-                <span className="text-base lg:text-lg font-semibold text-foreground leading-relaxed flex-1">
+                <span className="text-xs lg:text-sm font-medium text-foreground leading-tight">
                   {credential.label}
                 </span>
               </motion.div>
             ))}
           </div>
-
-          {/* Skills Badges */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="pt-8 lg:pt-10 border-t border-gradient-to-r from-transparent via-border to-transparent relative z-10"
+            className="mt-3 lg:mt-4 pt-3 lg:pt-4 border-t border-border"
           >
-            <div className="flex flex-wrap gap-3 lg:gap-4 justify-center sm:justify-start">
-              <Badge variant="secondary" className="bg-warm-golden/10 text-warm-golden border-warm-golden/30 hover:bg-warm-golden/20 transition-all duration-300 text-sm lg:text-base font-semibold px-4 py-2 rounded-full">
+            <div className="flex flex-wrap gap-1.5 lg:gap-2">
+              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 Design Systems
               </Badge>
-              <Badge variant="secondary" className="bg-warm-golden/10 text-warm-golden border-warm-golden/30 hover:bg-warm-golden/20 transition-all duration-300 text-sm lg:text-base font-semibold px-4 py-2 rounded-full">
+              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 User Research
               </Badge>
-              <Badge variant="secondary" className="bg-warm-golden/10 text-warm-golden border-warm-golden/30 hover:bg-warm-golden/20 transition-all duration-300 text-sm lg:text-base font-semibold px-4 py-2 rounded-full">
+              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 Product Strategy
               </Badge>
-              <Badge variant="secondary" className="bg-warm-golden/10 text-warm-golden border-warm-golden/30 hover:bg-warm-golden/20 transition-all duration-300 text-sm lg:text-base font-semibold px-4 py-2 rounded-full">
+               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 AI Integration
               </Badge>
-              <Badge variant="secondary" className="bg-warm-golden/10 text-warm-golden border-warm-golden/30 hover:bg-warm-golden/20 transition-all duration-300 text-sm lg:text-base font-semibold px-4 py-2 rounded-full">
+               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 AR Design
               </Badge>
             </div>
