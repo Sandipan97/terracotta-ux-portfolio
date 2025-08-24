@@ -458,38 +458,38 @@ const PGDataloggerProject = () => {
             </motion.p>
           </motion.div>
 
-          {/* Overlapping Images Container */}
-          <div className="relative flex justify-center items-center h-[600px] md:h-[700px]">
+          {/* Enhanced Overlapping Images Container */}
+          <div className="relative flex justify-center items-center h-[700px] md:h-[800px] lg:h-[900px] overflow-visible">
             {/* Light Mode Card - Left Side */}
             <motion.div 
               className="absolute z-10"
-              style={{ left: '10%', top: '10%' }}
+              style={{ left: '5%', top: '5%' }}
               initial="initial" 
               whileInView="animate" 
               variants={fadeInUp} 
               viewport={{ once: true }}
               whileHover={{ 
-                scale: 1.05, 
-                zIndex: 50, 
-                rotateY: -5,
-                x: -20,
-                transition: { duration: 0.3, ease: "easeOut" }
+                scale: 1.08, 
+                zIndex: 100, 
+                rotateY: -8,
+                x: -30,
+                transition: { duration: 0.4, ease: "easeOut" }
               }}
             >
-              <Card className="p-4 w-[400px] md:w-[500px] shadow-2xl hover:shadow-3xl transition-all duration-300">
+              <Card className="p-4 w-[500px] md:w-[600px] lg:w-[700px] shadow-2xl hover:shadow-4xl transition-all duration-400">
                 <CardHeader>
-                  <CardTitle className="text-center text-xl">Light Mode</CardTitle>
+                  <CardTitle className="text-center text-xl md:text-2xl">Light Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <EditableImage 
                     src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
                     alt="Final P&G Datalogger interface in light mode" 
-                    className="w-full h-[350px] md:h-[400px] object-cover rounded-lg" 
+                    className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover rounded-lg" 
                     objectFit="cover" 
                     objectPosition="center" 
                     priority="medium"
-                    width="600"
-                    height="400"
+                    width="800"
+                    height="600"
                     fallbackSrc="/placeholder.svg" 
                     editableKey="pg-datalogger-final-light-mode" 
                   />
@@ -500,33 +500,33 @@ const PGDataloggerProject = () => {
             {/* Dark Mode Card - Right Side, Overlapping */}
             <motion.div 
               className="absolute z-20"
-              style={{ right: '10%', top: '20%' }}
+              style={{ right: '5%', top: '15%' }}
               initial="initial" 
               whileInView="animate" 
               variants={fadeInUp} 
               viewport={{ once: true }}
               whileHover={{ 
-                scale: 1.05, 
-                zIndex: 50, 
-                rotateY: 5,
-                x: 20,
-                transition: { duration: 0.3, ease: "easeOut" }
+                scale: 1.08, 
+                zIndex: 100, 
+                rotateY: 8,
+                x: 30,
+                transition: { duration: 0.4, ease: "easeOut" }
               }}
             >
-              <Card className="p-4 w-[400px] md:w-[500px] shadow-2xl hover:shadow-3xl transition-all duration-300">
+              <Card className="p-4 w-[500px] md:w-[600px] lg:w-[700px] shadow-2xl hover:shadow-4xl transition-all duration-400">
                 <CardHeader>
-                  <CardTitle className="text-center text-xl">Dark Mode</CardTitle>
+                  <CardTitle className="text-center text-xl md:text-2xl">Dark Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <EditableImage 
                     src="/lovable-uploads/c64045fa-88c4-490f-b9e7-a1b91bc8fe65.png" 
                     alt="P&G Research Razor 2.0 interface in dark mode showing the redesigned dashboard" 
-                    className="w-full h-[350px] md:h-[400px] object-cover rounded-lg" 
+                    className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover rounded-lg" 
                     objectFit="cover" 
                     objectPosition="center" 
                     priority="medium"
-                    width="600"
-                    height="400"
+                    width="800"
+                    height="600"
                     fallbackSrc="/placeholder.svg" 
                     editableKey="pg-datalogger-final-dark-mode" 
                   />
