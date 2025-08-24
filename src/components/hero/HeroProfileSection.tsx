@@ -28,19 +28,19 @@ const HeroProfileSection = () => {
 
   return (
     <motion.div 
-      className="order-1 md:order-2 flex justify-center md:justify-end" 
+      className="order-1 lg:order-2 flex justify-center lg:justify-end xl:justify-center" 
       initial={{ opacity: 0, scale: 0.9 }} 
       animate={{ opacity: 1, scale: 1 }} 
       transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
     >
       <div className="relative">
         <motion.div 
-          className="w-80 h-80 sm:w-96 sm:h-96 md:w-120 md:h-120 lg:w-200 lg:h-200 rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer relative" 
+          className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] rounded-full overflow-hidden border-4 lg:border-6 border-white shadow-2xl cursor-pointer relative" 
           onClick={handleProfileClick} 
           whileHover={{
             scale: 1.05,
             borderColor: "hsl(var(--warm-terracotta))",
-            boxShadow: "0 20px 40px -10px hsla(var(--warm-terracotta), 0.3)"
+            boxShadow: "0 25px 50px -10px hsla(var(--warm-terracotta), 0.4)"
           }} 
           transition={{ duration: 0.3 }} 
           style={{ perspective: "1000px" }}
@@ -92,7 +92,7 @@ const HeroProfileSection = () => {
         </motion.div>
         
         <motion.div 
-          className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 text-warm-terracotta dark:text-white px-3 md:px-6 py-1 md:py-3 rounded-full font-medium bg-white dark:bg-warm-terracotta backdrop-blur-md border border-white/20 dark:border-warm-terracotta/20 shadow-lg text-xs md:text-base" 
+          className="absolute -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 xl:-bottom-6 xl:-right-6 text-warm-terracotta dark:text-white px-3 lg:px-4 xl:px-6 py-2 lg:py-3 rounded-full font-medium bg-white dark:bg-warm-terracotta backdrop-blur-md border border-white/20 dark:border-warm-terracotta/20 shadow-lg text-xs lg:text-sm xl:text-base" 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ delay: 1, duration: 0.5 }} 

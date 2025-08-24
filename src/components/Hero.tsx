@@ -10,14 +10,18 @@ const Hero = () => {
   useOptimizedImageLoading();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden dark-glow-subtle pt-16 md:pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden dark-glow-subtle pt-12 md:pt-16">
       <HeroBackground />
       <InteractivePolkaDotBackground />
 
-      <div className="container mx-auto px-4 md:px-6 z-10 py-4 md:py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-10 items-center min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-6rem)]">
-          <HeroTextContent />
-          <HeroProfileSection />
+      <div className="container mx-auto px-3 md:px-4 lg:px-6 xl:px-8 z-10 py-4 md:py-6 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-4rem)]">
+          <div className="lg:col-span-7 xl:col-span-6">
+            <HeroTextContent />
+          </div>
+          <div className="lg:col-span-5 xl:col-span-6">
+            <HeroProfileSection />
+          </div>
         </div>
 
         <HeroScrollButton />

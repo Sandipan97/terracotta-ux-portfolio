@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
@@ -33,7 +34,7 @@ const HeroTextContent = () => {
 
   return (
     <motion.div 
-      className="order-2 md:order-1 flex flex-col justify-center items-center md:items-start text-center md:text-left w-full h-full pr-0 md:pr-8 lg:pr-12" 
+      className="order-2 lg:order-1 flex flex-col justify-center items-center lg:items-start text-center lg:text-left w-full h-full pr-0 lg:pr-4 xl:pr-6" 
       initial={{ opacity: 0, x: -50 }} 
       animate={{ opacity: 1, x: 0 }} 
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -42,16 +43,16 @@ const HeroTextContent = () => {
         initial={{ opacity: 0, y: 30 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }} 
-        className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-warm-clay mb-6 md:mb-8 px-0 py-0 my-0 w-full leading-tight"
+        className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-warm-clay mb-4 md:mb-6 lg:mb-8 px-0 py-0 my-0 w-full leading-tight"
       >
         <motion.span 
           initial={{ opacity: 0, scale: 0.8 }} 
           animate={{ opacity: 1, scale: 1 }} 
           transition={{ delay: 0.5, duration: 0.6, ease: "backOut" }} 
           data-lovable-editable="hero-greeting" 
-          className="relative inline-block pr-8 mb-16 text-2xl sm:text-3xl text-warm-rust leading-relaxed"
+          className="relative inline-block pr-4 lg:pr-8 mb-8 lg:mb-16 text-xl sm:text-2xl lg:text-3xl text-warm-rust leading-relaxed"
         >
-          <span className="relative inline-block mb-8 py-0 my-0">
+          <span className="relative inline-block mb-4 lg:mb-8 py-0 my-0">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -60,7 +61,7 @@ const HeroTextContent = () => {
               Hi,
             </motion.span>
             <motion.span 
-              className="absolute -bottom-2 left-0 h-1 bg-warm-golden rounded-full" 
+              className="absolute -bottom-1 lg:-bottom-2 left-0 h-0.5 lg:h-1 bg-warm-golden rounded-full" 
               initial={{ width: 0, opacity: 0 }} 
               animate={{ width: "100%", opacity: 1 }} 
               transition={{ delay: 1.3, duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -77,7 +78,7 @@ const HeroTextContent = () => {
           </motion.span>
         </motion.span>
         
-        <span className="relative inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl py-0 mt-8 leading-tight">
+        <span className="relative inline-block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-8xl py-0 mt-4 lg:mt-8 leading-tight">
           <motion.span 
             initial={{ opacity: 0, scale: 0.9 }} 
             animate={{ opacity: 1, scale: 1 }} 
@@ -87,7 +88,7 @@ const HeroTextContent = () => {
           >
             {displayText}
             <motion.span 
-              className="inline-block w-1 h-12 sm:h-16 md:h-16 lg:h-20 bg-warm-terracotta dark:bg-warm-terracotta ml-2" 
+              className="inline-block w-0.5 lg:w-1 h-8 sm:h-12 md:h-14 lg:h-16 xl:h-20 2xl:h-24 bg-warm-terracotta dark:bg-warm-terracotta ml-1 lg:ml-2" 
               animate={{ 
                 opacity: [1, 0, 1], 
                 scaleY: [1, 0.8, 1]
@@ -100,7 +101,7 @@ const HeroTextContent = () => {
             />
           </motion.span>
           <motion.span 
-            className="absolute -bottom-2 left-0 h-2 bg-warm-terracotta dark:bg-warm-terracotta rounded-full" 
+            className="absolute -bottom-1 lg:-bottom-2 left-0 h-1 lg:h-2 bg-warm-terracotta dark:bg-warm-terracotta rounded-full" 
             initial={{ width: 0, opacity: 0 }} 
             animate={{ 
               width: currentIndex === fullText.length ? "100%" : "0%",
@@ -113,7 +114,7 @@ const HeroTextContent = () => {
       
       <ExecutiveSummaryCard />
       
-      <motion.div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start w-full" initial={{
+      <motion.div className="flex flex-wrap gap-3 md:gap-4 justify-center lg:justify-start w-full mt-4" initial={{
       opacity: 0,
       y: 20
     }} animate={{

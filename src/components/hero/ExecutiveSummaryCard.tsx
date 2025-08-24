@@ -17,26 +17,26 @@ const ExecutiveSummaryCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3, duration: 0.6 }}
-      className="mb-6"
+      className="mb-4 lg:mb-6 w-full"
     >
       <Card className="bg-card/90 backdrop-blur-md border-border shadow-xl">
-        <CardContent className="p-6">
-          <h3 className="text-lg font-semibold text-foreground mb-4">
+        <CardContent className="p-4 lg:p-6">
+          <h3 className="text-base lg:text-lg xl:text-xl font-semibold text-foreground mb-3 lg:mb-4">
             Senior UX Designer & Design Systems Expert
           </h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3">
             {credentials.map((credential, index) => (
               <motion.div
                 key={credential.label}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-2 lg:space-x-3"
               >
-                <div className={`p-2 rounded-lg bg-${credential.color}/10`}>
-                  <credential.icon className={`w-4 h-4 text-${credential.color}`} />
+                <div className={`p-1.5 lg:p-2 rounded-lg bg-${credential.color}/10`}>
+                  <credential.icon className={`w-3 h-3 lg:w-4 lg:h-4 text-${credential.color}`} />
                 </div>
-                <span className="text-sm font-medium text-foreground">
+                <span className="text-xs lg:text-sm font-medium text-foreground leading-tight">
                   {credential.label}
                 </span>
               </motion.div>
@@ -46,22 +46,22 @@ const ExecutiveSummaryCard = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="mt-4 pt-4 border-t border-border"
+            className="mt-3 lg:mt-4 pt-3 lg:pt-4 border-t border-border"
           >
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
+            <div className="flex flex-wrap gap-1.5 lg:gap-2">
+              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 Design Systems
               </Badge>
-              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
+              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 User Research
               </Badge>
-              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
+              <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 Product Strategy
               </Badge>
-               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
+               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 AI Integration
               </Badge>
-               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border">
+               <Badge variant="secondary" className="bg-muted text-muted-foreground border-border text-xs">
                 AR Design
               </Badge>
             </div>
