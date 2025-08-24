@@ -1,33 +1,40 @@
+
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { EditableImage } from '@/components/ui/editable-image';
+
 const ProcessTimeline = () => {
   const timelineSteps = [{
     title: "Requirements Analysis",
     description: "Stakeholder interviews and requirement gathering",
     duration: "2 weeks",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    alt: "Team collaboration and requirements gathering"
+    alt: "Team collaboration and requirements gathering",
+    isLarge: false
   }, {
     title: "Heuristic Evaluation",
     description: "UX audit using Nielsen's usability principles",
     duration: "1 week",
-    image: "https://sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/pg heuristic 1.webp",
-    alt: "UX evaluation and analysis process"
+    image: "/lovable-uploads/6785b268-33ae-45f4-9699-ac8dcf58caab.png",
+    alt: "Heuristic evaluation report showing usability compliance metrics",
+    isLarge: true
   }, {
     title: "Design System",
     description: "Scalable component library and tokenized design",
     duration: "3 weeks",
-    image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    alt: "Design system components and patterns"
+    image: "/lovable-uploads/ac493a89-2647-4b81-91e0-89d524425628.png",
+    alt: "Design system components and UI patterns overview",
+    isLarge: true
   }, {
     title: "Implementation",
     description: "Development and testing with stakeholders",
     duration: "4 weeks",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    alt: "Development and implementation process"
+    alt: "Development and implementation process",
+    isLarge: false
   }];
+
   const fadeInUp = {
     initial: {
       opacity: 0,
@@ -41,6 +48,7 @@ const ProcessTimeline = () => {
       duration: 0.6
     }
   };
+
   return <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
@@ -59,21 +67,28 @@ const ProcessTimeline = () => {
               {/* Timeline Line */}
               <div className="absolute top-24 left-0 right-0 h-0.5 bg-primary/20 z-0" />
               
-              {timelineSteps.map((step, index) => <motion.div key={index} className="relative flex-1 max-w-xs" initial={{
-              opacity: 0,
-              y: 50
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} viewport={{
-              once: true
-            }}>
-                  <Card className="relative z-10 hover:shadow-lg transition-all duration-300">
+              {timelineSteps.map((step, index) => <motion.div 
+                key={index} 
+                className={`relative flex-1 ${step.isLarge ? 'max-w-md' : 'max-w-xs'}`} 
+                initial={{
+                  opacity: 0,
+                  y: 50
+                }} 
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} 
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1
+                }} 
+                viewport={{
+                  once: true
+                }}
+              >
+                  <Card className={`relative z-10 hover:shadow-lg transition-all duration-300 ${step.isLarge ? 'transform scale-110' : ''}`}>
                     <CardContent className="p-6 px-[24px] py-[24px]">
-                      <div className="mb-4 relative h-40 overflow-hidden rounded-lg">
+                      <div className={`mb-4 relative overflow-hidden rounded-lg ${step.isLarge ? 'h-56' : 'h-40'}`}>
                         <EditableImage src={step.image} alt={step.alt} className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
                       </div>
                       
@@ -113,9 +128,9 @@ const ProcessTimeline = () => {
                     <CheckCircle className="w-4 h-4 text-primary-foreground" />
                   </div>
                   
-                  <Card className="flex-1 hover:shadow-lg transition-all duration-300">
+                  <Card className={`flex-1 hover:shadow-lg transition-all duration-300 ${step.isLarge ? 'transform scale-105' : ''}`}>
                     <CardContent className="p-6">
-                      <div className="mb-4 h-40 overflow-hidden rounded-lg">
+                      <div className={`mb-4 overflow-hidden rounded-lg ${step.isLarge ? 'h-56' : 'h-40'}`}>
                         <EditableImage src={step.image} alt={step.alt} className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
                       </div>
                       
@@ -136,4 +151,5 @@ const ProcessTimeline = () => {
       </div>
     </section>;
 };
+
 export default ProcessTimeline;
