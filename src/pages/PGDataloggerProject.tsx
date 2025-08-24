@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, ChevronRight, CheckCircle, AlertTriangle, Lightbulb, BarChart3, Clock, Shield, Eye, Zap } from 'lucide-react';
+import { ArrowLeft, ChevronRight, CheckCircle, AlertTriangle, Lightbulb, BarChart3, Clock, Shield, Eye, Zap, Sun, Moon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { EditableImage } from '@/components/ui/editable-image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -443,7 +443,7 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-       {/* Final UI Showcase - Enhanced with Overlapping Layout */}
+       {/* Final UI Showcase - Enhanced with Day/Night Vibes */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
@@ -458,9 +458,9 @@ const PGDataloggerProject = () => {
             </motion.p>
           </motion.div>
 
-          {/* Enhanced Overlapping Images Container */}
+          {/* Enhanced Overlapping Images Container with Day/Night Themes */}
           <div className="relative flex justify-center items-center h-[800px] md:h-[900px] lg:h-[1000px] overflow-visible">
-            {/* Light Mode Card - Left Side */}
+            {/* Light Mode Card - Day Vibe */}
             <motion.div 
               className="absolute z-10"
               style={{ left: '5%', top: '5%' }}
@@ -476,15 +476,23 @@ const PGDataloggerProject = () => {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
             >
-              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400">
-                <CardHeader>
-                  <CardTitle className="text-center text-xl md:text-2xl">Light Mode</CardTitle>
+              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400 bg-gradient-to-br from-orange-50 via-yellow-50 to-blue-50 border-2 border-orange-200/50 shadow-orange-200/30">
+                <CardHeader className="bg-gradient-to-r from-orange-100/80 to-yellow-100/80 rounded-lg mb-4">
+                  <CardTitle className="text-center text-xl md:text-2xl flex items-center justify-center gap-2 text-orange-800">
+                    <Sun className="w-6 h-6 text-orange-500" />
+                    Light Mode
+                    <div className="flex gap-1">
+                      <div className="w-1 h-1 bg-orange-400 rounded-full animate-pulse"></div>
+                      <div className="w-1 h-1 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-1 h-1 bg-orange-300 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                    </div>
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <EditableImage 
                     src="/lovable-uploads/b4c2ae55-67cd-4940-9279-f65e91d622c6.png" 
                     alt="Final P&G Datalogger interface in light mode" 
-                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gray-50" 
+                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gradient-to-br from-orange-25 to-yellow-25 border border-orange-100/50" 
                     objectFit="contain" 
                     objectPosition="center" 
                     priority="medium"
@@ -497,7 +505,7 @@ const PGDataloggerProject = () => {
               </Card>
             </motion.div>
 
-            {/* Dark Mode Card - Right Side, Overlapping */}
+            {/* Dark Mode Card - Night Vibe */}
             <motion.div 
               className="absolute z-20"
               style={{ right: '5%', top: '15%' }}
@@ -513,15 +521,23 @@ const PGDataloggerProject = () => {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
             >
-              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400">
-                <CardHeader>
-                  <CardTitle className="text-center text-xl md:text-2xl">Dark Mode</CardTitle>
+              <Card className="p-4 w-[550px] md:w-[650px] lg:w-[750px] shadow-2xl hover:shadow-4xl transition-all duration-400 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 border-2 border-blue-400/30 shadow-blue-900/50">
+                <CardHeader className="bg-gradient-to-r from-slate-800/80 to-blue-800/80 rounded-lg mb-4">
+                  <CardTitle className="text-center text-xl md:text-2xl flex items-center justify-center gap-2 text-blue-100">
+                    <Moon className="w-6 h-6 text-blue-300" />
+                    Dark Mode
+                    <div className="flex gap-1">
+                      <div className="w-1 h-1 bg-blue-400 rounded-full animate-pulse"></div>
+                      <div className="w-1 h-1 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-1 h-1 bg-slate-300 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                    </div>
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <EditableImage 
                     src="/lovable-uploads/c64045fa-88c4-490f-b9e7-a1b91bc8fe65.png" 
                     alt="P&G Research Razor 2.0 interface in dark mode showing the redesigned dashboard" 
-                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gray-900" 
+                    className="w-full h-[450px] md:h-[550px] lg:h-[650px] object-contain rounded-lg bg-gradient-to-br from-slate-800 to-blue-900 border border-blue-700/50" 
                     objectFit="contain" 
                     objectPosition="center" 
                     priority="medium"
