@@ -125,11 +125,35 @@ const ObjectiveMethodologies = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     viewport={{ once: true }}
                   >
-                    {/* Video Showcase */}
+                    {/* Legacy Device - Made smaller */}
+                    <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-4 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="bg-gradient-to-r from-red-500 to-orange-500 p-2 rounded-lg">
+                          <span className="text-white font-bold text-xs">OLD</span>
+                        </div>
+                        <h4 className="text-base font-bold text-gray-800 dark:text-gray-200">Legacy Device</h4>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-xl max-h-48">
+                        <EditableImage 
+                          src="/lovable-uploads/d7004b56-b3d9-4f38-b006-2c629ba78879.png" 
+                          alt="Old IV drip monitoring device setup showing monitoring device and sensor-mount attached to drip set"
+                          className="w-full h-auto rounded-xl border-2 border-gray-200/50 dark:border-gray-700/50 transition-transform duration-500 group-hover:scale-105 object-cover"
+                          editableKey="dripometer-old-device-image"
+                          objectFit="contain"
+                          fallbackSrc="/placeholder.svg"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                      </div>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                        Previous generation device with basic monitoring capabilities and limited user interface
+                      </p>
+                    </div>
+
+                    {/* Video Showcase - Made larger */}
                     <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2 rounded-lg">
-                          <Play className="text-white font-bold text-sm w-4 h-4" />
+                          <Play className="text-white font-bold text-sm w-5 h-5" />
                         </div>
                         <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200">Product Showcase</h4>
                       </div>
@@ -148,30 +172,6 @@ const ObjectiveMethodologies = () => {
                       </div>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
                         Interactive demonstration of the Dripometer 2.0 system showcasing real-time monitoring capabilities
-                      </p>
-                    </div>
-
-                    {/* Legacy Device */}
-                    <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-gradient-to-r from-red-500 to-orange-500 p-2 rounded-lg">
-                          <span className="text-white font-bold text-sm">OLD</span>
-                        </div>
-                        <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200">Legacy Device</h4>
-                      </div>
-                      <div className="relative group overflow-hidden rounded-xl">
-                        <EditableImage 
-                          src="/lovable-uploads/d7004b56-b3d9-4f38-b006-2c629ba78879.png" 
-                          alt="Old IV drip monitoring device setup showing monitoring device and sensor-mount attached to drip set"
-                          className="w-full h-auto rounded-xl border-2 border-gray-200/50 dark:border-gray-700/50 transition-transform duration-500 group-hover:scale-105"
-                          editableKey="dripometer-old-device-image"
-                          objectFit="contain"
-                          fallbackSrc="/placeholder.svg"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
-                        Previous generation device with basic monitoring capabilities and limited user interface
                       </p>
                     </div>
                   </motion.div>
