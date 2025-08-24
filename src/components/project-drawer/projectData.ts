@@ -34,7 +34,7 @@ export const projects: Project[] = [
     slug: "gharana-food-delivery",
     title: "Gharana - Home Food Delivery App", // data-lovable-editable="project-1-title"
     category: "Mobile App", // data-lovable-editable="project-1-category"
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    image: "/lovable-uploads/73119a00-5871-4b9c-b573-badf5634bc16.png",
     description: "A mobile platform that bridges the gap between home-based cloud kitchens and customers seeking authentic, homemade meals.", // data-lovable-editable="project-1-description"
     client: "Gharana Food Tech", // data-lovable-editable="project-1-client"
     duration: "8 Months", // data-lovable-editable="project-1-duration"
