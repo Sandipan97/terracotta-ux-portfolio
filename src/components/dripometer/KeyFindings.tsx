@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { EditableImage } from '@/components/ui/editable-image';
@@ -83,14 +84,14 @@ const KeyFindings = () => {
               value="key-findings" 
               className="border-2 border-blue-200/60 dark:border-blue-800/60 rounded-3xl px-8 py-2 bg-gradient-to-r from-blue-50/80 via-white to-teal-50/80 dark:from-blue-900/20 dark:via-gray-900/50 dark:to-teal-900/20 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300"
             >
-              <AccordionTrigger className="text-2xl font-bold text-foreground hover:text-blue-600 dark:hover:text-blue-400 py-8 group">
+              <AccordionTrigger className="text-2xl md:text-3xl font-bold text-foreground hover:text-blue-600 dark:hover:text-blue-400 py-8 group">
                 <div className="flex items-center gap-4">
                   <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-xl shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300">
                     <Search className="w-6 h-6 text-white" />
                   </div>
                   <span>KEY FINDINGS</span>
                   <div className="bg-red-100 dark:bg-red-900/30 px-3 py-1 rounded-full">
-                    <span className="text-red-700 dark:text-red-300 text-sm font-medium">with visual evidence</span>
+                    <span className="text-red-700 dark:text-red-300 text-sm md:text-base font-medium">with visual evidence</span>
                   </div>
                 </div>
               </AccordionTrigger>
@@ -99,41 +100,41 @@ const KeyFindings = () => {
                   {findings.map((finding, index) => (
                     <motion.div
                       key={index}
-                      className={`${getColorClasses(finding.color, finding.priority)} rounded-2xl p-6 border-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
+                      className={`${getColorClasses(finding.color, finding.priority)} rounded-2xl p-8 border-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <div className="grid md:grid-cols-3 gap-6 items-start">
-                        <div className="md:col-span-2 space-y-4">
-                          <div className="flex items-start gap-3">
+                      <div className="grid md:grid-cols-3 gap-8 items-start">
+                        <div className="md:col-span-2 space-y-6">
+                          <div className="flex items-start gap-4">
                             <div className="flex-shrink-0">
                               {finding.priority === 'high' ? (
-                                <AlertTriangle className="w-6 h-6 text-red-600 dark:text-red-400" />
+                                <AlertTriangle className="w-8 h-8 text-red-600 dark:text-red-400" />
                               ) : (
-                                <CheckCircle className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                                <CheckCircle className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                               )}
                             </div>
                             <div>
-                              <h4 className="font-bold text-lg leading-tight">
-                                <span className="bg-white/60 dark:bg-gray-800/60 px-2 py-1 rounded-lg mr-2 text-sm font-mono">
+                              <h4 className="font-bold text-xl md:text-2xl leading-tight">
+                                <span className="bg-white/60 dark:bg-gray-800/60 px-3 py-2 rounded-lg mr-3 text-base font-mono">
                                   #{index + 1}
                                 </span>
                                 {finding.title}
                               </h4>
                               {finding.priority === 'high' && (
-                                <div className="inline-flex items-center gap-1 mt-2 bg-red-100 dark:bg-red-900/40 px-2 py-1 rounded-full">
-                                  <AlertTriangle className="w-3 h-3 text-red-600 dark:text-red-400" />
-                                  <span className="text-xs font-medium text-red-700 dark:text-red-300">HIGH PRIORITY</span>
+                                <div className="inline-flex items-center gap-2 mt-3 bg-red-100 dark:bg-red-900/40 px-3 py-2 rounded-full">
+                                  <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400" />
+                                  <span className="text-sm font-medium text-red-700 dark:text-red-300">HIGH PRIORITY</span>
                                 </div>
                               )}
                             </div>
                           </div>
                           
-                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 border-l-4 border-emerald-500">
-                            <p className="text-sm flex items-start gap-2">
-                              <span className="text-emerald-600 dark:text-emerald-400 font-bold text-lg">→</span>
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-6 border-l-4 border-emerald-500">
+                            <p className="text-base md:text-lg flex items-start gap-3">
+                              <span className="text-emerald-600 dark:text-emerald-400 font-bold text-2xl">→</span>
                               <span className="italic text-gray-700 dark:text-gray-300">
                                 <strong>Implication:</strong> {finding.implication}
                               </span>
@@ -163,17 +164,17 @@ const KeyFindings = () => {
                   ))}
                   
                   <motion.div 
-                    className="bg-gradient-to-r from-emerald-100/90 to-teal-100/90 dark:from-emerald-900/40 dark:to-teal-900/40 rounded-2xl p-6 border-l-4 border-emerald-500 shadow-lg mt-6"
+                    className="bg-gradient-to-r from-emerald-100/90 to-teal-100/90 dark:from-emerald-900/40 dark:to-teal-900/40 rounded-2xl p-8 border-l-4 border-emerald-500 shadow-lg mt-6"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                     viewport={{ once: true }}
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="bg-emerald-600 p-2 rounded-lg">
-                        <CheckCircle className="w-5 h-5 text-white" />
+                    <div className="flex items-center gap-4">
+                      <div className="bg-emerald-600 p-3 rounded-lg">
+                        <CheckCircle className="w-6 h-6 text-white" />
                       </div>
-                      <p className="text-gray-700 dark:text-gray-200 text-lg">
+                      <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl">
                         <strong className="text-emerald-700 dark:text-emerald-300">Next Step:</strong> 
                         <span className="ml-2">See </span>
                         <a href="#solutions" className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold underline decoration-2 underline-offset-2">
