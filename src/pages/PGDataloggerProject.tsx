@@ -16,7 +16,6 @@ import { imagePreloader } from '@/services/imagePreloader';
 const PGDataloggerProject = () => {
   const navigate = useNavigate();
 
-  // Preload critical images on component mount
   useEffect(() => {
     const criticalImages = [
       '/lovable-uploads/PG heroimg.webp',
@@ -168,7 +167,10 @@ const PGDataloggerProject = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <motion.div className="max-w-6xl mx-auto text-center" initial="initial" animate="animate" variants={staggerContainer}>
             <motion.div variants={fadeInUp}>
-              <Badge variant="outline" className="mb-4">
+              <Badge 
+                variant="outline" 
+                className="mb-4 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-blue-800 hover:from-blue-100 hover:to-purple-100 transition-all duration-300"
+              >
                 Industrial UX • P&G
               </Badge>
             </motion.div>
@@ -186,7 +188,7 @@ const PGDataloggerProject = () => {
             </motion.p>
 
             <motion.div variants={fadeInUp}>
-              <Button size="lg" className="text-white">
+              <Button size="lg" className="text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
                 View Full Case Study
                 <ChevronRight className="w-4 h-4 ml-2" />
               </Button>
@@ -274,35 +276,53 @@ const PGDataloggerProject = () => {
             {[{
             icon: <Zap className="w-8 h-8" />,
             title: "Performance",
-            desc: "Improve power efficiency and speed"
+            desc: "Improve power efficiency and speed",
+            gradient: "from-yellow-100 via-orange-50 to-red-50",
+            iconBg: "bg-gradient-to-br from-yellow-400 to-orange-500",
+            border: "border-yellow-200 hover:border-orange-300"
           }, {
             icon: <Eye className="w-8 h-8" />,
             title: "Accessibility",
-            desc: "Enhance user-friendliness for all users"
+            desc: "Enhance user-friendliness for all users",
+            gradient: "from-green-100 via-emerald-50 to-teal-50",
+            iconBg: "bg-gradient-to-br from-green-400 to-emerald-500",
+            border: "border-green-200 hover:border-emerald-300"
           }, {
             icon: <Shield className="w-8 h-8" />,
             title: "Reliability",
-            desc: "Ensure stability and scalability"
+            desc: "Ensure stability and scalability",
+            gradient: "from-blue-100 via-indigo-50 to-purple-50",
+            iconBg: "bg-gradient-to-br from-blue-400 to-indigo-500",
+            border: "border-blue-200 hover:border-indigo-300"
           }, {
             icon: <BarChart3 className="w-8 h-8" />,
             title: "Evaluation",
-            desc: "Conduct heuristic assessment"
+            desc: "Conduct heuristic assessment",
+            gradient: "from-purple-100 via-pink-50 to-rose-50",
+            iconBg: "bg-gradient-to-br from-purple-400 to-pink-500",
+            border: "border-purple-200 hover:border-pink-300"
           }, {
             icon: <Clock className="w-8 h-8" />,
             title: "Journey Mapping",
-            desc: "Identify user friction points"
+            desc: "Identify user friction points",
+            gradient: "from-cyan-100 via-sky-50 to-blue-50",
+            iconBg: "bg-gradient-to-br from-cyan-400 to-sky-500",
+            border: "border-cyan-200 hover:border-sky-300"
           }, {
             icon: <CheckCircle className="w-8 h-8" />,
             title: "Integration",
-            desc: "Audit UI and hardware connection"
+            desc: "Audit UI and hardware connection",
+            gradient: "from-emerald-100 via-green-50 to-lime-50",
+            iconBg: "bg-gradient-to-br from-emerald-400 to-green-500",
+            border: "border-emerald-200 hover:border-green-300"
           }].map((goal, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }} transition={{
             delay: index * 0.1
           }}>
-                <Card className="h-full text-center p-6 hover:shadow-lg transition-shadow">
+                <Card className={`h-full text-center p-6 hover:shadow-lg transition-all duration-300 bg-gradient-to-br ${goal.gradient} border-2 ${goal.border} hover:scale-105`}>
                   <CardContent className="pt-6">
-                    <div className="text-primary mb-4 flex justify-center">
+                    <div className={`text-white mb-4 flex justify-center w-16 h-16 rounded-full mx-auto ${goal.iconBg} shadow-lg items-center`}>
                       {goal.icon}
                     </div>
                     <h3 className="text-lg font-semibold mb-2">{goal.title}</h3>
@@ -329,18 +349,23 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <Card className="p-8">
+              <Card className="p-8 bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 border-2 border-slate-200 hover:border-slate-300 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
                     <CardTitle className="text-2xl">Our Approach</CardTitle>
-                    <Badge variant="secondary" className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                    <Badge 
+                      variant="secondary" 
+                      className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 border-blue-200 hover:from-blue-200 hover:to-indigo-200 transition-all duration-300"
+                    >
                       Heuristic Evaluation
                     </Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {["Requirement analysis and problem identification", "Heuristic evaluation using Nielsen's principles", "UI audit for layout, interaction, and visual hierarchy", "UX audit for design standards compliance", "User journey mapping to identify friction points", "Design validation with stakeholders"].map((item, index) => <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <CheckCircle className="w-4 h-4 text-white" />
+                      </div>
                       <p className="text-muted-foreground">{item}</p>
                     </div>)}
                 </CardContent>
@@ -350,7 +375,7 @@ const PGDataloggerProject = () => {
             <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
             once: true
           }}>
-              <Card className="p-6">
+              <Card className="p-6 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 border-2 border-indigo-200 hover:border-blue-300 transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-xl mb-4 text-center">Heuristic Analysis Framework</CardTitle>
                 </CardHeader>
@@ -391,11 +416,28 @@ const PGDataloggerProject = () => {
           }} transition={{
             delay: index * 0.1
           }}>
-                <Card className="h-full p-6 hover:shadow-lg transition-shadow py-0">
+                <Card className={`h-full p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 ${
+                  problem.impact === 'High' 
+                    ? 'bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 border-2 border-red-200 hover:border-orange-300' 
+                    : 'bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 border-2 border-yellow-200 hover:border-amber-300'
+                }`}>
                   <CardHeader className="pb-4 px-0">
                     <div className="flex items-center justify-between mb-2">
-                      <AlertTriangle className="w-5 h-5 text-destructive" />
-                      <Badge variant={problem.color as any} className="text-xs">
+                      <div className={`p-2 rounded-full ${
+                        problem.impact === 'High' 
+                          ? 'bg-gradient-to-br from-red-400 to-orange-500' 
+                          : 'bg-gradient-to-br from-yellow-400 to-amber-500'
+                      }`}>
+                        <AlertTriangle className="w-4 h-4 text-white" />
+                      </div>
+                      <Badge 
+                        variant={problem.color as any} 
+                        className={`text-xs ${
+                          problem.impact === 'High'
+                            ? 'bg-gradient-to-r from-red-100 to-orange-100 text-red-800 border-red-200'
+                            : 'bg-gradient-to-r from-yellow-100 to-amber-100 text-yellow-800 border-yellow-200'
+                        }`}
+                      >
                         {problem.impact} Impact
                       </Badge>
                     </div>
@@ -427,9 +469,23 @@ const PGDataloggerProject = () => {
           }} transition={{
             delay: index * 0.1
           }}>
-                <Card className="h-full p-6 hover:shadow-lg transition-shadow border-primary/10 bg-blue-100 px-[12px] py-[12px]">
+                <Card className={`h-full p-6 hover:shadow-lg transition-all duration-300 border-2 hover:scale-105 ${
+                  index % 6 === 0 ? 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-blue-200 hover:border-indigo-300' :
+                  index % 6 === 1 ? 'bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-green-200 hover:border-emerald-300' :
+                  index % 6 === 2 ? 'bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 border-purple-200 hover:border-pink-300' :
+                  index % 6 === 3 ? 'bg-gradient-to-br from-cyan-50 via-sky-50 to-blue-50 border-cyan-200 hover:border-sky-300' :
+                  index % 6 === 4 ? 'bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 border-orange-200 hover:border-amber-300' :
+                  'bg-gradient-to-br from-teal-50 via-green-50 to-lime-50 border-teal-200 hover:border-green-300'
+                }`}>
                   <CardContent className="pt-6">
-                    <div className="text-primary mb-4">
+                    <div className={`text-white mb-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
+                      index % 6 === 0 ? 'bg-gradient-to-br from-blue-400 to-indigo-500' :
+                      index % 6 === 1 ? 'bg-gradient-to-br from-green-400 to-emerald-500' :
+                      index % 6 === 2 ? 'bg-gradient-to-br from-purple-400 to-pink-500' :
+                      index % 6 === 3 ? 'bg-gradient-to-br from-cyan-400 to-sky-500' :
+                      index % 6 === 4 ? 'bg-gradient-to-br from-orange-400 to-amber-500' :
+                      'bg-gradient-to-br from-teal-400 to-green-500'
+                    }`}>
                       {solution.icon}
                     </div>
                     <h3 className="text-lg font-semibold mb-3">{solution.title}</h3>
@@ -610,7 +666,16 @@ const PGDataloggerProject = () => {
                     viewport={{once: true}} 
                     transition={{delay: index * 0.05}}
                   >
-                    <Card className="p-2 text-center hover:shadow-md transition-shadow bg-blue-50 border-blue-100 hover:bg-blue-100">
+                    <Card className={`p-2 text-center hover:shadow-md transition-all duration-300 hover:scale-105 border-2 ${
+                      index % 8 === 0 ? 'bg-gradient-to-br from-blue-50 to-indigo-100 border-blue-200 hover:border-indigo-300' :
+                      index % 8 === 1 ? 'bg-gradient-to-br from-green-50 to-emerald-100 border-green-200 hover:border-emerald-300' :
+                      index % 8 === 2 ? 'bg-gradient-to-br from-purple-50 to-pink-100 border-purple-200 hover:border-pink-300' :
+                      index % 8 === 3 ? 'bg-gradient-to-br from-orange-50 to-red-100 border-orange-200 hover:border-red-300' :
+                      index % 8 === 4 ? 'bg-gradient-to-br from-cyan-50 to-teal-100 border-cyan-200 hover:border-teal-300' :
+                      index % 8 === 5 ? 'bg-gradient-to-br from-yellow-50 to-amber-100 border-yellow-200 hover:border-amber-300' :
+                      index % 8 === 6 ? 'bg-gradient-to-br from-rose-50 to-pink-100 border-rose-200 hover:border-pink-300' :
+                      'bg-gradient-to-br from-violet-50 to-purple-100 border-violet-200 hover:border-purple-300'
+                    }`}>
                       <CardContent className="py-2 px-1">
                         <p className="text-xs font-medium leading-tight">{component}</p>
                       </CardContent>
@@ -650,35 +715,53 @@ const PGDataloggerProject = () => {
                 {[{
                 metric: "60%",
                 label: "Reduction in User Errors",
-                icon: <CheckCircle className="w-6 h-6" />
+                icon: <CheckCircle className="w-6 h-6" />,
+                gradient: "from-green-50 via-emerald-50 to-teal-50",
+                iconBg: "bg-gradient-to-br from-green-400 to-emerald-500",
+                border: "border-green-200 hover:border-emerald-300"
               }, {
                 metric: "85%",
                 label: "Improved User Satisfaction",
-                icon: <Eye className="w-6 h-6" />
+                icon: <Eye className="w-6 h-6" />,
+                gradient: "from-blue-50 via-indigo-50 to-purple-50",
+                iconBg: "bg-gradient-to-br from-blue-400 to-indigo-500",
+                border: "border-blue-200 hover:border-indigo-300"
               }, {
                 metric: "40%",
                 label: "Faster Task Completion",
-                icon: <Clock className="w-6 h-6" />
+                icon: <Clock className="w-6 h-6" />,
+                gradient: "from-orange-50 via-amber-50 to-yellow-50",
+                iconBg: "bg-gradient-to-br from-orange-400 to-amber-500",
+                border: "border-orange-200 hover:border-amber-300"
               }, {
                 metric: "95%",
                 label: "Clearer Navigation",
-                icon: <BarChart3 className="w-6 h-6" />
+                icon: <BarChart3 className="w-6 h-6" />,
+                gradient: "from-purple-50 via-pink-50 to-rose-50",
+                iconBg: "bg-gradient-to-br from-purple-400 to-pink-500",
+                border: "border-purple-200 hover:border-pink-300"
               }, {
                 metric: "100%",
                 label: "Theme Accessibility",
-                icon: <Shield className="w-6 h-6" />
+                icon: <Shield className="w-6 h-6" />,
+                gradient: "from-cyan-50 via-sky-50 to-blue-50",
+                iconBg: "bg-gradient-to-br from-cyan-400 to-sky-500",
+                border: "border-cyan-200 hover:border-sky-300"
               }, {
                 metric: "75%",
                 label: "Real-time Feedback",
-                icon: <Zap className="w-6 h-6" />
+                icon: <Zap className="w-6 h-6" />,
+                gradient: "from-yellow-50 via-lime-50 to-green-50",
+                iconBg: "bg-gradient-to-br from-yellow-400 to-lime-500",
+                border: "border-yellow-200 hover:border-lime-300"
               }].map((impact, index) => <motion.div key={index} initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
                 once: true
               }} transition={{
                 delay: index * 0.1
               }}>
-                    <Card className="h-full p-6 text-center hover:shadow-lg transition-shadow">
+                    <Card className={`h-full p-6 text-center hover:shadow-lg transition-all duration-300 hover:scale-105 bg-gradient-to-br ${impact.gradient} border-2 ${impact.border}`}>
                       <CardContent className="pt-6">
-                        <div className="text-primary mb-4 flex justify-center">
+                        <div className={`text-white mb-4 flex justify-center w-12 h-12 rounded-full mx-auto ${impact.iconBg} shadow-lg items-center`}>
                           {impact.icon}
                         </div>
                         <div className="text-3xl font-bold text-primary mb-2">{impact.metric}</div>
@@ -703,9 +786,23 @@ const PGDataloggerProject = () => {
               }} transition={{
                 delay: index * 0.1
               }}>
-                    <Card className="p-6 hover:shadow-lg transition-shadow">
+                    <Card className={`p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 ${
+                      index % 5 === 0 ? 'bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-indigo-200 hover:border-purple-300' :
+                      index % 5 === 1 ? 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 border-emerald-200 hover:border-teal-300' :
+                      index % 5 === 2 ? 'bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 border-rose-200 hover:border-pink-300' :
+                      index % 5 === 3 ? 'bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 border-amber-200 hover:border-orange-300' :
+                      'bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 border-sky-200 hover:border-blue-300'
+                    }`}>
                       <CardContent className="pt-6 flex items-center gap-4">
-                        <Lightbulb className="w-5 h-5 text-primary flex-shrink-0" />
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                          index % 5 === 0 ? 'bg-gradient-to-br from-indigo-400 to-purple-500' :
+                          index % 5 === 1 ? 'bg-gradient-to-br from-emerald-400 to-teal-500' :
+                          index % 5 === 2 ? 'bg-gradient-to-br from-rose-400 to-pink-500' :
+                          index % 5 === 3 ? 'bg-gradient-to-br from-amber-400 to-orange-500' :
+                          'bg-gradient-to-br from-sky-400 to-blue-500'
+                        }`}>
+                          <Lightbulb className="w-5 h-5 text-white" />
+                        </div>
                         <p className="font-medium">{enhancement}</p>
                       </CardContent>
                     </Card>
@@ -719,7 +816,7 @@ const PGDataloggerProject = () => {
                 variants={fadeInUp} 
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/20"
+                className="mt-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 p-6 rounded-2xl border-2 border-primary/20 hover:border-primary/30 transition-all duration-300"
               >
                 <h4 className="text-lg font-bold text-foreground mb-3">
                   Our Vision
@@ -735,7 +832,7 @@ const PGDataloggerProject = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary/5">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial="initial" whileInView="animate" variants={staggerContainer} viewport={{
           once: true
@@ -747,7 +844,7 @@ const PGDataloggerProject = () => {
               Let's discuss how we can modernize your industrial applications with user-centered design.
             </motion.p>
             <motion.div variants={fadeInUp}>
-              <Button size="lg" className="text-white">
+              <Button size="lg" className="text-white bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300">
                 Get in Touch
                 <ChevronRight className="w-4 h-4 ml-2" />
               </Button>
