@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import UniversalStickyNavigation from '@/components/ui/universal-sticky-navigation';
-import { HeroSection } from '@/components/pg-datalogger/HeroSection';
+import HeroSection from '@/components/pg-datalogger/HeroSection';
 import { ProjectOverview } from '@/components/pg-datalogger/ProjectOverview';
 import { UXGoalsStrategy } from '@/components/pg-datalogger/UXGoalsStrategy';
 import { UXAuditMethodology } from '@/components/pg-datalogger/UXAuditMethodology';
