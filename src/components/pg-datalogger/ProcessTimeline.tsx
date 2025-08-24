@@ -63,13 +63,13 @@ const ProcessTimeline = () => {
         <div className="relative">
           {/* Desktop Timeline */}
           <div className="hidden md:block">
-            <div className="flex items-start justify-between relative">
+            <div className="flex items-start justify-between relative gap-6">
               {/* Timeline Line */}
               <div className="absolute top-24 left-0 right-0 h-0.5 bg-primary/20 z-0" />
               
               {timelineSteps.map((step, index) => <motion.div 
                 key={index} 
-                className={`relative flex-1 ${step.isLarge ? 'max-w-md' : 'max-w-xs'}`} 
+                className={`relative flex-1 ${step.isLarge ? 'min-w-[400px] max-w-[450px]' : 'min-w-[320px] max-w-[380px]'}`} 
                 initial={{
                   opacity: 0,
                   y: 50
@@ -88,7 +88,7 @@ const ProcessTimeline = () => {
               >
                   <Card className={`relative z-10 hover:shadow-lg transition-all duration-300 ${step.isLarge ? 'transform scale-110' : ''}`}>
                     <CardContent className="p-6 px-[24px] py-[24px]">
-                      <div className={`mb-4 relative overflow-hidden rounded-lg ${step.isLarge ? 'h-56' : 'h-40'}`}>
+                      <div className={`mb-4 relative overflow-hidden rounded-lg ${step.isLarge ? 'h-64' : 'h-48'}`}>
                         <EditableImage src={step.image} alt={step.alt} className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
                       </div>
                       
@@ -130,7 +130,7 @@ const ProcessTimeline = () => {
                   
                   <Card className={`flex-1 hover:shadow-lg transition-all duration-300 ${step.isLarge ? 'transform scale-105' : ''}`}>
                     <CardContent className="p-6">
-                      <div className={`mb-4 overflow-hidden rounded-lg ${step.isLarge ? 'h-56' : 'h-40'}`}>
+                      <div className={`mb-4 overflow-hidden rounded-lg ${step.isLarge ? 'h-64' : 'h-48'}`}>
                         <EditableImage src={step.image} alt={step.alt} className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
                       </div>
                       
