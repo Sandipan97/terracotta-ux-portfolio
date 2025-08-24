@@ -524,13 +524,17 @@ const PGDataloggerProject = () => {
             </motion.p>
           </motion.div>
 
-          {/* Two-column layout: Video left, Component tiles right */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Video Section - Left Column */}
-            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
-            once: true
-          }}>
-              <div className="w-full max-w-lg mx-auto lg:mx-0">
+          {/* Custom layout: Video 65%, Component tiles 35% */}
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
+            {/* Video Section - 65% width */}
+            <motion.div 
+              initial="initial" 
+              whileInView="animate" 
+              variants={fadeInUp} 
+              viewport={{once: true}}
+              className="w-full lg:w-[65%]"
+            >
+              <div className="w-full">
                 <div style={{padding:'56.25% 0 0 0',position:'relative'}}>
                   <iframe 
                     src="https://player.vimeo.com/video/1112592027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;dnt=1" 
@@ -546,11 +550,15 @@ const PGDataloggerProject = () => {
               </div>
             </motion.div>
 
-            {/* Component Tiles - Right Column */}
-            <motion.div initial="initial" whileInView="animate" variants={fadeInUp} viewport={{
-            once: true
-          }}>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {/* Component Tiles - 35% width */}
+            <motion.div 
+              initial="initial" 
+              whileInView="animate" 
+              variants={fadeInUp} 
+              viewport={{once: true}}
+              className="w-full lg:w-[35%]"
+            >
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
                 {components.map((component, index) => 
                   <motion.div 
                     key={index} 
