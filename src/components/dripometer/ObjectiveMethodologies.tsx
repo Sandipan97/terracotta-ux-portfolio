@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { EditableImage } from '@/components/ui/editable-image';
@@ -28,8 +27,9 @@ const ObjectiveMethodologies = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="pb-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                  <div className="space-y-8">
+                <div className="flex gap-10">
+                  <div className="w-[35%] space-y-8">
+                    
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -119,7 +119,7 @@ const ObjectiveMethodologies = () => {
                   </div>
 
                   <motion.div 
-                    className="space-y-6"
+                    className="w-[65%] space-y-6"
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
@@ -149,7 +149,7 @@ const ObjectiveMethodologies = () => {
                       </p>
                     </div>
 
-                    {/* Video Showcase - Made larger */}
+                    {/* Video Showcase - Square aspect ratio */}
                     <div className="bg-white/80 dark:bg-gray-800/50 rounded-2xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2 rounded-lg">
@@ -157,18 +157,15 @@ const ObjectiveMethodologies = () => {
                         </div>
                         <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200">Product Showcase</h4>
                       </div>
-                      <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
-                        <div style={{padding: '56.25% 0 0 0', position: 'relative'}}>
-                          <iframe 
-                            src="https://player.vimeo.com/video/1112610596?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
-                            frameBorder="0" 
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                            referrerPolicy="strict-origin-when-cross-origin" 
-                            style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}} 
-                            title="Dripometer"
-                            className="rounded-xl"
-                          />
-                        </div>
+                      <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 aspect-square">
+                        <iframe 
+                          src="https://player.vimeo.com/video/1112610596?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
+                          frameBorder="0" 
+                          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                          referrerPolicy="strict-origin-when-cross-origin" 
+                          className="absolute inset-0 w-full h-full rounded-xl" 
+                          title="Dripometer"
+                        />
                       </div>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
                         Interactive demonstration of the Dripometer 2.0 system showcasing real-time monitoring capabilities
