@@ -6,7 +6,7 @@ import FeaturedProjectsHeader from './featured-projects/FeaturedProjectsHeader';
 import FilterControls from './featured-projects/FilterControls';
 import FeaturedProjectCard from './featured-projects/FeaturedProjectCard';
 import BusinessImpactCard from './featured-projects/BusinessImpactCard';
-import { projects } from './project-drawer/projectData';
+import { projectFiles } from './project-drawer/projectData';
 import { TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
 
 type Project = {
@@ -18,6 +18,7 @@ type Project = {
   results?: string;
   date?: string;
   slug?: string;
+  videoThumbnail?: string;
 };
 
 // Project priority mapping based on requested order
@@ -63,14 +64,15 @@ const sortProjectsByPriority = (projects: Project[]): Project[] => {
 };
 
 // Map the project data to match the expected format and sort by priority
-const mappedProjects: Project[] = projects.map(project => ({
+const mappedProjects: Project[] = projectFiles.map(project => ({
   id: project.id,
   title: project.title,
   category: project.category,
   image: project.image,
   description: project.description,
   slug: project.slug,
-  results: project.id === 1 ? "Reduced error rate by 45%" : project.id === 2 ? "Accelerated development by 35%" : project.id === 3 ? "Reduced support calls by 60%" : project.id === 4 ? "Improved user satisfaction by 85%" : project.id === 5 ? "Increased monitoring accuracy by 95%" : project.id === 6 ? "Improved crop yield by 28%" : project.id === 7 ? "Increased learning outcomes by 40%" : undefined,
+  videoThumbnail: project.videoThumbnail,
+  results: project.results,
   date: project.id === 1 ? "2024-02" : project.id === 2 ? "2023-11" : project.id === 3 ? "2023-08" : project.id === 4 ? "2023-05" : project.id === 5 ? "2023-03" : project.id === 6 ? "2022-11" : project.id === 7 ? "2022-08" : "2024-01"
 }));
 

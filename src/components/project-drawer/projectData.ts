@@ -11,6 +11,7 @@ export interface Project {
   tags: string[];
   featured: boolean;
   slug?: string;
+  videoThumbnail?: string;
 }
 
 export interface ProjectFileData {
@@ -22,7 +23,11 @@ export interface ProjectFileData {
   duration?: string;
   results?: string;
   slug?: string;
+  videoThumbnail?: string;
 }
+
+// Import video thumbnail service
+import { getProjectThumbnail } from '@/services/videoThumbnailService';
 
 export const projects: Project[] = [
   {
@@ -62,7 +67,8 @@ export const projects: Project[] = [
     duration: "6 Months",
     role: "Lead AR/UX Designer",
     tags: ["AR/VR", "Interactive Design", "User Experience", "Product Innovation"],
-    featured: true
+    featured: true,
+    videoThumbnail: getProjectThumbnail("cyclops-ar-manual")
   },
   {
     id: 5,
@@ -114,7 +120,8 @@ export const projects: Project[] = [
     duration: "6 Months",
     role: "UX Designer",
     tags: ["UX Design", "Mobile App", "Agriculture"],
-    featured: false
+    featured: false,
+    videoThumbnail: getProjectThumbnail("farm-monitoring")
   },
   {
     id: 9,
@@ -139,8 +146,8 @@ export const projectFiles: ProjectFileData[] = projects.map(project => ({
   description: project.description,
   duration: project.duration,
   slug: project.slug,
+  videoThumbnail: project.videoThumbnail,
   results: project.id === 1 ? "200% increase in home chef registrations" :
-           
            project.id === 3 ? "35% faster development cycles" :
            project.id === 4 ? "75% reduction in manual printing costs" :
            project.id === 5 ? "95% increase in monitoring accuracy" :

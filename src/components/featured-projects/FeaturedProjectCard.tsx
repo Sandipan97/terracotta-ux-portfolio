@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { EditableImage } from '@/components/ui/editable-image';
+import { Play } from 'lucide-react';
 
 type Project = {
   id: number;
@@ -14,6 +15,7 @@ type Project = {
   results?: string;
   date?: string;
   slug?: string;
+  videoThumbnail?: string;
 };
 
 interface FeaturedProjectCardProps {
@@ -46,6 +48,10 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
     tags.push('Impact Driven');
   }
 
+  // Use video thumbnail if available, otherwise fallback to image
+  const displayImage = project.videoThumbnail || project.image;
+  const hasVideo = !!project.videoThumbnail;
+
   return (
     <motion.div
       variants={variants}
@@ -64,12 +70,21 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
           {/* Image container with mobile-responsive height */}
           <div className="relative h-48 md:h-64 overflow-hidden">
             <EditableImage
-              src={project.image}
+              src={displayImage}
               alt={project.title}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              fallbackSrc="/placeholder.svg"
+              fallbackSrc={project.image}
               priority={index < 3 ? "high" : "medium"}
             />
+            
+            {/* Video Play Icon Overlay */}
+            {hasVideo && (
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">
+                <div className="w-16 h-16 bg-primary/90 rounded-full flex items-center justify-center backdrop-blur-sm">
+                  <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+                </div>
+              </div>
+            )}
             
             {/* Category badge */}
             <div className="absolute top-3 left-3">
@@ -80,6 +95,19 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
                 {project.category}
               </Badge>
             </div>
+
+            {/* Video indicator badge */}
+            {hasVideo && (
+              <div className="absolute top-3 right-3">
+                <Badge 
+                  variant="secondary" 
+                  className="bg-primary/80 text-primary-foreground backdrop-blur-sm text-xs font-medium border-primary/50"
+                >
+                  <Play className="w-3 h-3 mr-1" />
+                  Video
+                </Badge>
+              </div>
+            )}
           </div>
 
           {/* Content */}

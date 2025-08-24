@@ -48,6 +48,13 @@ export const IMAGE_INVENTORY = {
     '/lovable-uploads/UX audit.png'
   ],
 
+  // Video thumbnails from project hero sections
+  videoThumbnails: [
+    'https://vumbnail.com/1112617166_1280x720.jpg', // Cyclops AR Manual hero video
+    'https://vumbnail.com/1107501121_1280x720.jpg', // Cyclops AR Manual demo video
+    'https://vumbnail.com/1112591814_1280x720.jpg'  // Farm Monitoring workshop video
+  ],
+
   // Design process and methodology images - medium priority
   designProcess: [
     '/lovable-uploads/0a2bbc05-480f-4072-9af3-2a444df422b3.png',
@@ -83,14 +90,15 @@ export const getAllImages = () => {
   return Object.values(IMAGE_INVENTORY).flat();
 };
 
-// Get critical images (hero + showcase)
+// Get critical images (hero + showcase + video thumbnails)
 export const getCriticalImages = () => {
   return [
     ...IMAGE_INVENTORY.hero,
     ...IMAGE_INVENTORY.welbiltShowcase,
     ...IMAGE_INVENTORY.pgDatalogger.slice(0, 2), // First 2 PG images
     ...IMAGE_INVENTORY.o2cProject,
-    ...IMAGE_INVENTORY.dripometer.slice(0, 1) // First Dripometer image
+    ...IMAGE_INVENTORY.dripometer.slice(0, 1), // First Dripometer image
+    ...IMAGE_INVENTORY.videoThumbnails // Include video thumbnails in critical images
   ];
 };
 
@@ -101,10 +109,15 @@ export const getProjectImages = (projectSlug: string) => {
     'pg-datalogger': IMAGE_INVENTORY.pgDatalogger,
     'o2c-project': IMAGE_INVENTORY.o2cProject,
     'dripometer': IMAGE_INVENTORY.dripometer,
-    'farm-monitoring': IMAGE_INVENTORY.farmMonitoring,
+    'farm-monitoring': [...IMAGE_INVENTORY.farmMonitoring, 'https://vumbnail.com/1112591814_1280x720.jpg'],
     'toy-anatomy': IMAGE_INVENTORY.toyAnatomy,
-    'cyclops-ar-manual': IMAGE_INVENTORY.cyclopsAR
+    'cyclops-ar-manual': [...IMAGE_INVENTORY.cyclopsAR, 'https://vumbnail.com/1112617166_1280x720.jpg', 'https://vumbnail.com/1107501121_1280x720.jpg']
   };
   
   return projectMap[projectSlug] || [];
+};
+
+// Get video thumbnails specifically
+export const getVideoThumbnails = () => {
+  return IMAGE_INVENTORY.videoThumbnails;
 };
