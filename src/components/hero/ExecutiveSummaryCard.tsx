@@ -6,10 +6,10 @@ import { Award, Users, Lightbulb, TrendingUp } from 'lucide-react';
 
 const ExecutiveSummaryCard = () => {
   const credentials = [
-    { icon: Award, label: "4 Years Experience", color: "warm-terracotta" },
-    { icon: Users, label: "10+ Projects", color: "warm-rust" },
+    { icon: Award, label: "5 Years of Design and Counting", color: "warm-terracotta" },
+    { icon: Users, label: "Creative & Analytical", color: "warm-rust" },
     { icon: Lightbulb, label: "IISc Alumnus", color: "warm-golden" },
-    { icon: TrendingUp, label: "Mining User Satisfaction", color: "warm-sage" }
+    { icon: TrendingUp, label: "Mining User Satisfaction", color: "warm-terracotta" }
   ];
 
   return (
