@@ -72,7 +72,7 @@ export const ObjectiveMethodologies = () => {
                     <Target className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-left">
-                    <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground" data-lovable-editable="welbilt-objective-title">Project Objective</h2>
+                    <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground" data-lovable-editable="welbilt-objective-title">Project Overview</h2>
                     <p className="text-muted-foreground mt-1" data-lovable-editable="welbilt-objective-subtitle">Transform kitchen management through systematic design</p>
                   </div>
                 </div>
