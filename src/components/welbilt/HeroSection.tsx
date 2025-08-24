@@ -61,7 +61,7 @@ const HeroSection = () => {
           >
             <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900 dark:to-indigo-800">
               <EditableImage
-                src="/lovable-uploads/Welbilt showcase.webp"
+                src="/lovable-uploads/WBnew.webp"
                 alt="Welbilt Kitchen Connect Platform Interface"
                 className="w-full h-full object-contain"
                 fallbackSrc="/placeholder.svg"
