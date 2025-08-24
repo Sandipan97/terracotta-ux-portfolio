@@ -15,6 +15,7 @@ import MethodTranslation from '@/components/dripometer/MethodTranslation';
 import ProjectStatus from '@/components/dripometer/ProjectStatus';
 import ProcessTimeline from '@/components/dripometer/ProcessTimeline';
 import TechnicalArchitecture from '@/components/dripometer/TechnicalArchitecture';
+import NewEmbodimentDesign from '@/components/dripometer/NewEmbodimentDesign';
 
 const DripometerProject = () => {
   const navigate = useNavigate();
@@ -37,6 +38,9 @@ const DripometerProject = () => {
   }, {
     id: 'solutions',
     label: 'Solutions'
+  }, {
+    id: 'embodiment',
+    label: 'Embodiment'
   }, {
     id: 'methods',
     label: 'Methods'
@@ -252,6 +256,9 @@ const DripometerProject = () => {
         </div>
         <div id="solutions">
           <DesignSolutions />
+        </div>
+        <div id="embodiment">
+          <NewEmbodimentDesign />
         </div>
         <div id="methods">
           <MethodTranslation />
