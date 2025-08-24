@@ -127,14 +127,21 @@ export default function CyclopsARManual() {
                 padding: "56.25% 0 0 0",
                 position: "relative"
               }} className="rounded-xl overflow-hidden">
-                  <iframe src="https://player.vimeo.com/video/1107501121?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&dnt=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%"
-                }} title="AR video" />
-                </div>
+                <iframe 
+                  src="https://player.vimeo.com/video/1107501121?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&dnt=1" 
+                  frameBorder="0" 
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                  referrerPolicy="strict-origin-when-cross-origin" 
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%"
+                  }} 
+                  title="AR video" 
+                />
+              </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full animate-pulse" />
               <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/20 rounded-full animate-bounce" />
@@ -154,13 +161,24 @@ export default function CyclopsARManual() {
           <motion.div {...fadeInUp} className="space-y-8">
             <Card className="overflow-hidden">
               <CardContent className="p-0">
-                <div className="aspect-video bg-muted/50 relative group cursor-pointer">
-                  <EditableImage src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="AR manual demo video thumbnail" className="w-full h-full object-cover" fallbackSrc="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <Button size="lg" className="rounded-full w-16 h-16 group-hover:scale-110 transition-transform">
-                      <Play className="w-6 h-6" />
-                    </Button>
-                  </div>
+                <div style={{
+                  padding: "56.25% 0 0 0",
+                  position: "relative"
+                }} className="rounded-xl overflow-hidden">
+                  <iframe 
+                    src="https://player.vimeo.com/video/1107501121?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&dnt=1" 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%"
+                    }} 
+                    title="AR video" 
+                  />
                 </div>
               </CardContent>
             </Card>
