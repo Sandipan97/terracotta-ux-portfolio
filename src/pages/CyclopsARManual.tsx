@@ -127,13 +127,13 @@ export default function CyclopsARManual() {
                 padding: "56.25% 0 0 0",
                 position: "relative"
               }} className="rounded-xl overflow-hidden">
-                  <iframe src="https://player.vimeo.com/video/1112617166?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" style={{
+                  <iframe src="https://player.vimeo.com/video/1107501121?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&dnt=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" style={{
                   position: "absolute",
                   top: 0,
                   left: 0,
                   width: "100%",
                   height: "100%"
-                }} title="Rotate" />
+                }} title="AR video" />
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full animate-pulse" />
