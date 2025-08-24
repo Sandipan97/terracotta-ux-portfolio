@@ -53,7 +53,7 @@ const DripometerProject = () => {
             <Button 
               onClick={goBack}
               variant="secondary" 
-              className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-emerald-600 transition-all duration-300 border border-border/50"
+              className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-emerald-600 transition-all duration-300 border border-border/50 shadow-lg hover:shadow-xl"
               size="icon"
               aria-label="Go back to projects"
             >
@@ -77,33 +77,39 @@ const DripometerProject = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
         </section>
 
-        {/* Content Tile Section - Clean Background */}
-        <section id="overview" className="w-full bg-background border-b">
-          <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
+        {/* Enhanced Content Tile Section */}
+        <section id="overview" className="w-full bg-gradient-to-br from-emerald-50/30 via-white to-teal-50/30 dark:from-emerald-950/20 dark:via-gray-900 dark:to-teal-950/20 border-b">
+          <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="max-w-6xl mx-auto text-center"
             >
-              {/* Mission Statement */}
+              {/* Enhanced Mission Statement */}
               <motion.div
-                className="mb-8"
+                className="mb-12"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <div className="bg-emerald-100 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/30 rounded-2xl p-6 mb-8 max-w-4xl mx-auto">
-                  <h2 className="text-xl md:text-2xl font-semibold text-emerald-800 dark:text-emerald-200 mb-4">
-                    🎯 Mission
-                  </h2>
-                  <p className="text-lg md:text-xl leading-relaxed text-emerald-700 dark:text-emerald-300">
+                <div className="bg-gradient-to-r from-emerald-100/90 via-emerald-50/80 to-teal-100/90 dark:from-emerald-900/30 dark:via-emerald-950/20 dark:to-teal-900/30 border-2 border-emerald-200/60 dark:border-emerald-800/60 rounded-3xl p-8 mb-10 max-w-5xl mx-auto shadow-xl backdrop-blur-sm hover:shadow-2xl transition-all duration-500">
+                  <div className="flex items-center justify-center gap-3 mb-6">
+                    <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 p-3 rounded-xl shadow-lg">
+                      <span className="text-2xl">🎯</span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-emerald-800 dark:text-emerald-200">
+                      Mission Statement
+                    </h2>
+                  </div>
+                  <p className="text-xl md:text-2xl leading-relaxed text-emerald-700 dark:text-emerald-300 font-medium">
                     Bringing ICU-grade infusion monitoring to rural clinics, NICUs, and overburdened wards — without ICU costs.
                   </p>
                 </div>
               </motion.div>
 
-              <div className="flex flex-wrap gap-3 mb-8 justify-center">
+              {/* Enhanced Badge Section */}
+              <div className="flex flex-wrap gap-4 mb-10 justify-center">
                 {[
                   { label: "Healthcare Innovation", icon: "🏥", color: "emerald" },
                   { label: "Product Design", icon: "🎨", color: "teal" },
@@ -115,16 +121,19 @@ const DripometerProject = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                    className="group"
                   >
-                    <Badge className="bg-emerald-100 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800/30 hover:bg-emerald-200 dark:hover:bg-emerald-900/30 transition-all duration-300 px-3 py-1">
-                      {badge.icon} {badge.label}
+                    <Badge className={`bg-gradient-to-r from-${badge.color}-100 to-${badge.color}-50 dark:from-${badge.color}-900/40 dark:to-${badge.color}-950/30 text-${badge.color}-800 dark:text-${badge.color}-200 border-2 border-${badge.color}-200/60 dark:border-${badge.color}-800/60 hover:border-${badge.color}-300 dark:hover:border-${badge.color}-700 transition-all duration-300 px-4 py-2 text-sm font-semibold shadow-lg hover:shadow-xl group-hover:scale-105`}>
+                      <span className="text-lg mr-2">{badge.icon}</span>
+                      {badge.label}
                     </Badge>
                   </motion.div>
                 ))}
               </div>
 
+              {/* Enhanced Title */}
               <motion.h1 
-                className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground"
+                className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -133,7 +142,7 @@ const DripometerProject = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-muted-foreground mb-8"
+                className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-muted-foreground mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -141,26 +150,26 @@ const DripometerProject = () => {
                 A comprehensive case study demonstrating end-to-end product design methodology — from stakeholder research through deployment-ready prototypes.
               </motion.p>
 
-              {/* Project Details Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {/* Enhanced Project Details Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 {[
-                  { label: "Client", value: "IISc Bangalore", icon: "🏛️" },
-                  { label: "Duration", value: "7 Months", icon: "⏱️" },
-                  { label: "My Role", value: "Lead Product Designer", icon: "👨‍🎨" }
+                  { label: "Client", value: "IISc Bangalore", icon: "🏛️", color: "emerald" },
+                  { label: "Duration", value: "7 Months", icon: "⏱️", color: "teal" },
+                  { label: "My Role", value: "Lead Product Designer", icon: "👨‍🎨", color: "cyan" }
                 ].map((item, index) => (
                   <motion.div 
                     key={item.label}
-                    className="bg-card border border-border p-6 rounded-xl hover:bg-muted/50 transition-all duration-300"
+                    className={`bg-gradient-to-br from-${item.color}-50/80 to-white dark:from-${item.color}-950/30 dark:to-gray-900/50 border-2 border-${item.color}-200/50 dark:border-${item.color}-800/50 p-8 rounded-2xl hover:border-${item.color}-300 dark:hover:border-${item.color}-700 transition-all duration-500 shadow-lg hover:shadow-2xl backdrop-blur-sm group`}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.02, y: -5 }}
                   >
-                    <div className="text-2xl mb-2">{item.icon}</div>
-                    <h3 className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">
+                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                    <h3 className={`text-${item.color}-600 dark:text-${item.color}-400 text-sm font-bold mb-3 uppercase tracking-wider`}>
                       {item.label}
                     </h3>
-                    <p className="font-semibold text-foreground text-lg">{item.value}</p>
+                    <p className="font-bold text-foreground text-xl">{item.value}</p>
                   </motion.div>
                 ))}
               </div>
