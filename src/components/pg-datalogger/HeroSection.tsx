@@ -1,121 +1,82 @@
-import { motion } from 'framer-motion';
-import { ArrowLeft, Eye } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { Badge } from '@/components/ui/badge';
 import { EditableImage } from '@/components/ui/editable-image';
 
-export const HeroSection = () => {
-  const navigate = useNavigate();
+const HeroSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
-    <section className="w-full relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-bengali-terracotta/5 to-bengali-red/10">
-      <motion.div 
-        className="absolute top-4 left-4 z-30"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        <Button 
-          onClick={() => navigate(-1)}
-          variant="secondary" 
-          className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-bengali-terracotta transition-all duration-300 border border-border/50"
-          size="icon"
-        >
-          <ArrowLeft size={20} />
-        </Button>
-      </motion.div>
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10 h-full flex items-center min-h-[70vh]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Content */}
+    <section ref={ref} className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-emerald-50/50 to-teal-100/30 dark:from-emerald-950/20 dark:to-teal-900/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+          {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="space-y-4 sm:space-y-6 md:space-y-8"
           >
-            <div className="mb-6">
-              <span className="text-bengali-terracotta font-medium uppercase tracking-wide text-sm">
-                UX Case Study
-              </span>
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
+              <Badge className="text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100">
+                UX Audit • Data Analytics • Enterprise
+              </Badge>
+              
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
+                P&G DataLogger
+                <span className="block text-emerald-600 dark:text-emerald-400 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-2 sm:mt-3 md:mt-4">
+                  UX Audit & Redesign
+                </span>
+              </h1>
+              
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+                Comprehensive UX audit and redesign of P&G's enterprise data logging platform, focusing on usability improvements and user-centered design principles.
+              </p>
             </div>
-            
-            <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              From Legacy to <span className="text-bengali-terracotta">Modern</span>
-            </h1>
-            
-            <h2 className="text-xl md:text-2xl text-muted-foreground mb-6 font-medium">
-              Reimagining Industrial UX for P&G Datalogger
-            </h2>
-            
-            <p className="text-lg mb-8 text-muted-foreground leading-relaxed max-w-xl">
-              A complete redesign of the Datalogger application to enhance usability, performance, and reliability.
-            </p>
-            
-            <Button 
-              className="bg-bengali-terracotta hover:bg-bengali-red text-white px-8 py-3 text-lg"
-              onClick={() => document.getElementById('overview')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <Eye className="mr-2 h-5 w-5" />
-              View Full Case Study
-            </Button>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 pt-4 sm:pt-6 md:pt-8">
+              <div className="text-center p-3 sm:p-4 md:p-6 bg-white/50 dark:bg-gray-800/50 rounded-lg backdrop-blur-sm">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-emerald-600 dark:text-emerald-400">50%</div>
+                <div className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Time Saved</div>
+              </div>
+              <div className="text-center p-3 sm:p-4 md:p-6 bg-white/50 dark:bg-gray-800/50 rounded-lg backdrop-blur-sm">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-emerald-600 dark:text-emerald-400">35%</div>
+                <div className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Less Clicks</div>
+              </div>
+              <div className="text-center p-3 sm:p-4 md:p-6 bg-white/50 dark:bg-gray-800/50 rounded-lg backdrop-blur-sm col-span-2 sm:col-span-1">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-emerald-600 dark:text-emerald-400">85%</div>
+                <div className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Satisfaction</div>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Animated Comparison */}
+          {/* Hero Image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-background/60 backdrop-blur-sm p-6 rounded-2xl border border-border/50 shadow-xl">
-              <div className="text-center mb-4">
-                <span className="text-sm font-medium text-muted-foreground">Legacy vs Modern Interface</span>
-              </div>
-              
-              {/* Animated comparison slider */}
-              <motion.div 
-                className="relative h-64 rounded-lg overflow-hidden border border-border"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="absolute inset-0 grid grid-cols-2">
-                  <div className="bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gray-500 rounded mx-auto mb-2"></div>
-                      <span className="text-xs text-gray-700">Legacy UI</span>
-                    </div>
-                  </div>
-                  <div className="bg-gradient-to-br from-bengali-terracotta/20 to-bengali-red/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-bengali-terracotta rounded-lg mx-auto mb-2 shadow-lg"></div>
-                      <span className="text-xs text-bengali-terracotta font-medium">Modern UI</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Animated separator */}
-                <motion.div 
-                  className="absolute top-0 left-1/2 w-1 h-full bg-white shadow-lg"
-                  animate={{ x: [-10, 10, -10] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                ></motion.div>
-              </motion.div>
-
-              <div className="mt-4 flex justify-center">
-                <motion.div
-                  className="flex space-x-2"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <div className="w-2 h-2 bg-bengali-terracotta rounded-full"></div>
-                  <div className="w-2 h-2 bg-bengali-terracotta rounded-full"></div>
-                  <div className="w-2 h-2 bg-bengali-terracotta rounded-full"></div>
-                </motion.div>
-              </div>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-emerald-100 to-teal-200 dark:from-emerald-900 dark:to-teal-800">
+              <EditableImage
+                src="/lovable-uploads/PG Hero img.webp"
+                alt="P&G DataLogger Interface Redesign"
+                className="w-full h-full object-cover"
+                fallbackSrc="/placeholder.svg"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
+            
+            {/* Floating elements */}
+            <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-emerald-500 rounded-full opacity-20 animate-pulse" />
+            <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 bg-teal-400 rounded-full opacity-15 animate-pulse delay-1000" />
           </motion.div>
         </div>
       </div>
     </section>
   );
 };
+
+export default HeroSection;

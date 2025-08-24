@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 interface FilterControlsProps {
   categories: string[];
@@ -11,32 +11,32 @@ interface FilterControlsProps {
 
 const FilterControls = ({ categories, selectedCategory, onCategoryChange, variants }: FilterControlsProps) => {
   return (
-    <motion.div className="flex flex-wrap justify-center gap-3 mb-12" variants={variants}>
-      {categories.map((category, index) => (
-        <motion.div 
+    <motion.div 
+      className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-10 md:mb-12 lg:mb-16 px-2 sm:px-4"
+      variants={variants}
+    >
+      {categories.map((category) => (
+        <Badge
           key={category}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 * index, duration: 0.3 }}
-        >
-          <Button
-            variant={selectedCategory === category ? "default" : "outline"}
-            size="sm"
-            className={
-              selectedCategory === category
-                ? "bg-gradient-to-r from-bengali-terracotta to-bengali-red hover:from-bengali-terracotta/90 hover:to-bengali-red/90 text-white rounded-full dark:from-bengali-terracotta-light dark:to-bengali-red-light shadow-lg hover:shadow-xl transition-all duration-300"
-                : "border-border text-foreground hover:bg-muted rounded-full dark:hover:bg-card/60 shadow-sm hover:shadow-md transition-all duration-300"
+          variant={selectedCategory === category ? "default" : "outline"}
+          className={`cursor-pointer transition-all duration-300 px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 sm:py-2 md:py-2.5 text-xs sm:text-sm md:text-base lg:text-lg font-medium ${
+            selectedCategory === category
+              ? 'bg-primary text-primary-foreground shadow-md hover:shadow-lg'
+              : 'hover:bg-primary/10 hover:border-primary/40'
+          }`}
+          onClick={() => onCategoryChange(category)}
+          role="button"
+          tabIndex={0}
+          aria-label={`Filter by ${category}`}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              onCategoryChange(category);
             }
-            onClick={() => onCategoryChange(category)}
-            data-lovable-editable={`featured-projects-filter-${category.toLowerCase().replace(/\s+/g, '-')}`}
-          >
-            <span data-lovable-editable={`filter-button-text-${category.toLowerCase().replace(/\s+/g, '-')}`}>
-              {category}
-            </span>
-          </Button>
-        </motion.div>
+          }}
+        >
+          {category}
+        </Badge>
       ))}
     </motion.div>
   );

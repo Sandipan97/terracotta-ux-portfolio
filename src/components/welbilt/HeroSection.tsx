@@ -1,191 +1,80 @@
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { ArrowDown, Play } from 'lucide-react';
-import { OptimizedEditableImage } from '@/components/ui/optimized-editable-image';
+import { EditableImage } from '@/components/ui/editable-image';
 
 const HeroSection = () => {
-  const scrollToNext = () => {
-    const element = document.getElementById('transformation');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-blue-50">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.15) 1px, transparent 0)`,
-          backgroundSize: '32px 32px'
-        }}></div>
-      </div>
-
-      {/* Hero Images */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
-          {/* Before State */}
+    <section ref={ref} className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-blue-50/50 to-indigo-100/30 dark:from-blue-950/20 dark:to-indigo-900/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+          {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="relative group"
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="space-y-4 sm:space-y-6 md:space-y-8"
           >
-            <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
-              <OptimizedEditableImage 
-                src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WBoldDashboard.webp"
-                alt="Legacy kitchen management interface"
-                className="w-full h-full"
-                objectFit="cover"
-                editableKey="welbilt-hero-before-image"
-                fallbackSrc="/placeholder.svg"
-                priority="critical"
-                eager={true}
-              />
-              <div className="absolute inset-0 bg-red-500/20"></div>
-              <div className="absolute bottom-4 left-4">
-                <Badge variant="outline" className="bg-white/90 text-red-700 border-red-200">
-                  <span data-lovable-editable="welbilt-hero-before-badge">Before: Legacy System</span>
-                </Badge>
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
+              <Badge className="text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2">
+                UX/UI Design • Enterprise Software
+              </Badge>
+              
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
+                Welbilt Kitchen Connect
+                <span className="block text-blue-600 dark:text-blue-400 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-2 sm:mt-3 md:mt-4">
+                  IoT Platform Redesign
+                </span>
+              </h1>
+              
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+                Transforming kitchen equipment management through intuitive design and enhanced user experience for commercial kitchen operators.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 pt-4 sm:pt-6 md:pt-8">
+              <div className="text-center p-3 sm:p-4 md:p-6 bg-white/50 dark:bg-gray-800/50 rounded-lg backdrop-blur-sm">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-blue-600 dark:text-blue-400">40%</div>
+                <div className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Faster Setup</div>
+              </div>
+              <div className="text-center p-3 sm:p-4 md:p-6 bg-white/50 dark:bg-gray-800/50 rounded-lg backdrop-blur-sm">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-blue-600 dark:text-blue-400">65%</div>
+                <div className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Less Errors</div>
+              </div>
+              <div className="text-center p-3 sm:p-4 md:p-6 bg-white/50 dark:bg-gray-800/50 rounded-lg backdrop-blur-sm col-span-2 sm:col-span-1">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-blue-600 dark:text-blue-400">90%</div>
+                <div className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">User Satisfaction</div>
               </div>
             </div>
           </motion.div>
 
-          {/* After State */}
+          {/* Hero Image */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="relative group"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
           >
-            <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white border">
-              <OptimizedEditableImage 
-                src="https://Sandipan97.github.io/terracotta-ux-portfolio/public/lovable-uploads/WBnewDashboard.webp"
-                alt="Modern kitchen management interface"
-                className="w-full h-full"
-                objectFit="cover"
-                editableKey="welbilt-hero-after-image"
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900 dark:to-indigo-800">
+              <EditableImage
+                src="/lovable-uploads/Welbilt showcase.png"
+                alt="Welbilt Kitchen Connect Platform Interface"
+                className="w-full h-full object-cover"
                 fallbackSrc="/placeholder.svg"
-                priority="critical"
-                eager={true}
               />
-              <div className="absolute inset-0 bg-green-500/20"></div>
-              <div className="absolute bottom-4 left-4">
-                <Badge variant="outline" className="bg-white/90 text-green-700 border-green-200">
-                  <span data-lovable-editable="welbilt-hero-after-badge">After: Modern Design System</span>
-                </Badge>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
+            
+            {/* Floating elements */}
+            <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-blue-500 rounded-full opacity-20 animate-pulse" />
+            <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 bg-indigo-400 rounded-full opacity-15 animate-pulse delay-1000" />
           </motion.div>
         </div>
       </div>
-
-      {/* Content Overlay */}
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 max-w-4xl mx-auto border border-white/20 shadow-xl"
-        >
-          <motion.div 
-            className="flex flex-wrap gap-2 mb-6 justify-center"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
-              <span data-lovable-editable="welbilt-hero-badge-1">🏪 Kitchen Management</span>
-            </Badge>
-            <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-200">
-              <span data-lovable-editable="welbilt-hero-badge-2">🎨 Design System</span>
-            </Badge>
-            <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-              <span data-lovable-editable="welbilt-hero-badge-3">🏢 Enterprise UX</span>
-            </Badge>
-          </motion.div>
-
-          <motion.h1 
-            className="font-heading text-4xl md:text-7xl font-bold mb-6 text-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            data-lovable-editable="welbilt-hero-title"
-          >
-            Welbilt Kitchen Connect
-          </motion.h1>
-          
-          <motion.h2 
-            className="text-2xl md:text-4xl font-semibold mb-8 text-gray-700"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            data-lovable-editable="welbilt-hero-subtitle"
-          >
-            Design System & Platform Revamp
-          </motion.h2>
-          
-          <motion.p 
-            className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-gray-600 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            data-lovable-editable="welbilt-hero-description"
-          >
-            A comprehensive redesign of Welbilt's KITCHENCONNECT platform, featuring a complete design system 
-            that gained new customers for Welbilt, increased our revenue, and enhanced user experience across all touchpoints.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
-          >
-            <Button variant="default" size="lg" className="px-8 py-3 text-lg">
-              <Play className="mr-2" size={20} />
-              <span data-lovable-editable="welbilt-hero-btn-1">View Case Study</span>
-            </Button>
-            <Button variant="outline" size="lg" className="px-8 py-3 text-lg">
-              <span data-lovable-editable="welbilt-hero-btn-2">View Design System</span>
-            </Button>
-          </motion.div>
-
-          {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="grid grid-cols-3 gap-4 text-center"
-          >
-            <div>
-              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-1-value">Gained New Customers</div>
-              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-1-label">QT, Ice-o-Matic etc</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-2-value">15+</div>
-              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-2-label">Interconneted Features</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary" data-lovable-editable="welbilt-hero-stat-3-value">NAFEM 2025</div>
-              <div className="text-sm text-gray-600" data-lovable-editable="welbilt-hero-stat-3-label">Peak User Satisfaction</div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.button
-        onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:bg-white transition-colors duration-300"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4, duration: 0.8 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <ArrowDown className="text-gray-600" size={24} />
-      </motion.button>
     </section>
   );
 };

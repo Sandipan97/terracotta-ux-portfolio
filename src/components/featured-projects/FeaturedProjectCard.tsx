@@ -86,8 +86,8 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
         aria-label={isComingSoon ? `${project.title} - Coming Soon` : `View project: ${project.title}`}
       >
         <CardContent className="p-0 h-full flex flex-col">
-          {/* Image container with mobile-responsive height */}
-          <div className="relative h-48 md:h-64 overflow-hidden">
+          {/* Image container with responsive height */}
+          <div className="relative h-44 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
             <EditableImage
               src={displayImage}
               alt={project.title}
@@ -102,7 +102,7 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
             {isComingSoon && (
               <div className="absolute inset-0 z-20">
                 {/* Banner Ribbon */}
-                <div className="absolute top-4 -right-8 transform rotate-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-600 dark:to-red-700 text-white font-bold text-sm px-12 py-2 shadow-lg">
+                <div className="absolute top-3 sm:top-4 -right-6 sm:-right-8 transform rotate-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-600 dark:to-red-700 text-white font-bold text-xs sm:text-sm px-8 sm:px-12 py-1.5 sm:py-2 shadow-lg">
                   <motion.span
                     animate={{ 
                       textShadow: [
@@ -129,17 +129,17 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
             {/* Video Play Icon Overlay */}
             {hasVideo && !isComingSoon && (
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">
-                <div className="w-16 h-16 bg-primary/90 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/90 rounded-full flex items-center justify-center backdrop-blur-sm">
+                  <Play className="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1" fill="currentColor" />
                 </div>
               </div>
             )}
             
             {/* Category badge */}
-            <div className="absolute top-3 left-3 z-10">
+            <div className="absolute top-2 sm:top-3 left-2 sm:left-3 z-10">
               <Badge 
                 variant="secondary" 
-                className="bg-background/80 backdrop-blur-sm text-xs font-medium border-border/50"
+                className="bg-background/80 backdrop-blur-sm text-xs sm:text-sm font-medium border-border/50 px-2 sm:px-2.5 py-0.5 sm:py-1"
               >
                 {project.category}
               </Badge>
@@ -147,12 +147,12 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
 
             {/* Video indicator badge */}
             {hasVideo && !isComingSoon && (
-              <div className="absolute top-3 right-3 z-10">
+              <div className="absolute top-2 sm:top-3 right-2 sm:right-3 z-10">
                 <Badge 
                   variant="secondary" 
-                  className="bg-primary/80 text-primary-foreground backdrop-blur-sm text-xs font-medium border-primary/50"
+                  className="bg-primary/80 text-primary-foreground backdrop-blur-sm text-xs sm:text-sm font-medium border-primary/50 px-2 sm:px-2.5 py-0.5 sm:py-1"
                 >
-                  <Play className="w-3 h-3 mr-1" />
+                  <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-1" />
                   Video
                 </Badge>
               </div>
@@ -160,23 +160,23 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
           </div>
 
           {/* Content */}
-          <div className="p-4 xs:p-6 flex-1 flex flex-col">
-            <h3 className={`font-heading text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-3 transition-colors duration-300 line-clamp-2 ${
+          <div className="p-3 sm:p-4 md:p-5 lg:p-6 flex-1 flex flex-col">
+            <h3 className={`font-heading text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-foreground mb-2 sm:mb-3 md:mb-4 transition-colors duration-300 line-clamp-2 leading-tight ${
               !isComingSoon ? 'group-hover:text-primary' : ''
             }`}>
               {project.title}
             </h3>
             
-            <p className="text-muted-foreground text-sm xs:text-base leading-relaxed mb-3 xs:mb-4 flex-1 line-clamp-3">
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed mb-3 sm:mb-4 md:mb-5 flex-1 line-clamp-3">
               {project.description}
             </p>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-1 xs:gap-2">
+            <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
               {isComingSoon ? (
                 <Badge 
                   variant="outline" 
-                  className="text-xs px-2 py-0.5 border-red-500/60 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/20"
+                  className="text-xs sm:text-sm px-2 sm:px-2.5 py-0.5 sm:py-1 border-red-500/60 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/20"
                 >
                   Coming Soon
                 </Badge>
@@ -186,7 +186,7 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
                     <Badge 
                       key={tagIndex}
                       variant="outline" 
-                      className="text-xs px-2 py-0.5 border-border/60 hover:border-primary/40 transition-colors duration-300"
+                      className="text-xs sm:text-sm px-2 sm:px-2.5 py-0.5 sm:py-1 border-border/60 hover:border-primary/40 transition-colors duration-300"
                     >
                       {tag}
                     </Badge>
@@ -194,7 +194,7 @@ const FeaturedProjectCard = ({ project, index, variants }: FeaturedProjectCardPr
                   {project.results && (
                     <Badge 
                       variant="outline" 
-                      className="text-xs px-2 py-0.5 border-border/60 text-muted-foreground"
+                      className="text-xs sm:text-sm px-2 sm:px-2.5 py-0.5 sm:py-1 border-border/60 text-muted-foreground"
                     >
                       Results Available
                     </Badge>

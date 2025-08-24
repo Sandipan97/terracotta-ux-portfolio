@@ -43,16 +43,16 @@ const SkillCategory = ({ category, index }: SkillCategoryProps) => {
 
   return (
     <motion.div 
-      className="bg-card/70 dark:bg-card/85 backdrop-blur-md p-4 sm:p-5 md:p-6 rounded-lg shadow-md border border-border hover:shadow-lg transition-all duration-300 min-h-fit" 
+      className="bg-card/70 dark:bg-card/85 backdrop-blur-md p-4 sm:p-5 md:p-6 lg:p-7 rounded-lg shadow-md border border-border hover:shadow-lg transition-all duration-300 min-h-fit" 
       variants={categoryVariants}
       whileHover={{ 
         y: -2,
         boxShadow: "0 8px 16px -4px rgba(0, 0, 0, 0.08)"
       }}
     >
-      <div className="flex items-center mb-3 sm:mb-4">
+      <div className="flex items-center mb-3 sm:mb-4 md:mb-5">
         <motion.div 
-          className="text-xl sm:text-2xl mr-3"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl mr-3 sm:mr-4"
           animate={{ 
             rotate: [0, 6, -6, 0],
             scale: [1, 1.03, 1]
@@ -65,13 +65,13 @@ const SkillCategory = ({ category, index }: SkillCategoryProps) => {
         >
           {category.icon}
         </motion.div>
-        <h3 className="font-heading text-base sm:text-lg md:text-xl font-semibold text-foreground leading-tight">
+        <h3 className="font-heading text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-foreground leading-tight">
           {category.title}
         </h3>
       </div>
       
       <motion.div 
-        className="flex flex-wrap gap-1.5 sm:gap-2"
+        className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-2.5"
         variants={containerVariants}
       >
         {category.skills.map((skill) => (
