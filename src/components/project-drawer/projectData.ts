@@ -114,14 +114,13 @@ export const projects: Project[] = [
     slug: "farm-monitoring",
     title: "Farm Monitoring Mobile Application",
     category: "UX Design",
-    image: "/lovable-uploads/86cb4afe-2fab-45fe-9723-40b7e59b87ed.png",
+    image: "/lovable-uploads/b21404e4-9c66-44be-a4e8-ec3e002988d2.png",
     description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
     client: "HCLTech",
     duration: "6 Months",
     role: "UX Designer",
     tags: ["UX Design", "Mobile App", "Agriculture"],
-    featured: false,
-    videoThumbnail: getProjectThumbnail("farm-monitoring")
+    featured: false
   },
   {
     id: 9,
