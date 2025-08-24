@@ -15,11 +15,13 @@ import MethodTranslation from '@/components/dripometer/MethodTranslation';
 import ProjectStatus from '@/components/dripometer/ProjectStatus';
 import ProcessTimeline from '@/components/dripometer/ProcessTimeline';
 import TechnicalArchitecture from '@/components/dripometer/TechnicalArchitecture';
+
 const DripometerProject = () => {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
   };
+
   const navigationSections = [{
     id: 'overview',
     label: 'Overview'
@@ -48,39 +50,62 @@ const DripometerProject = () => {
     id: 'architecture',
     label: 'Architecture'
   }];
-  return <div className="min-h-screen bg-background">
+
+  return (
+    <div className="min-h-screen bg-background">
       <Navbar />
       <StickyNavigation sections={navigationSections} />
       
       <main className="pt-32">
         {/* Hero Image Section - Fixed Height */}
         <section className="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
-          <motion.div className="absolute top-4 left-4 z-30" initial={{
-          opacity: 0,
-          x: -20
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          delay: 0.3,
-          duration: 0.5
-        }}>
-            <Button onClick={goBack} variant="secondary" className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-emerald-600 transition-all duration-300 border border-border/50" size="icon" aria-label="Go back to projects">
+          <motion.div 
+            className="absolute top-4 left-4 z-30" 
+            initial={{
+              opacity: 0,
+              x: -20
+            }} 
+            animate={{
+              opacity: 1,
+              x: 0
+            }} 
+            transition={{
+              delay: 0.3,
+              duration: 0.5
+            }}
+          >
+            <Button 
+              onClick={goBack} 
+              variant="secondary" 
+              className="bg-background/80 backdrop-blur-sm text-foreground hover:bg-background hover:text-emerald-600 transition-all duration-300 border border-border/50" 
+              size="icon" 
+              aria-label="Go back to projects"
+            >
               <ArrowLeft size={20} />
             </Button>
           </motion.div>
 
-          <motion.div initial={{
-          scale: 1.1,
-          filter: "blur(4px)"
-        }} animate={{
-          scale: 1,
-          filter: "blur(0px)"
-        }} transition={{
-          duration: 1.5,
-          ease: "easeOut"
-        }} className="absolute inset-0">
-            <EditableImage src="/lovable-uploads/7fd5c57c-a8aa-4fc9-af30-aaa2cce4294b.png" alt="Dripometer - IV Drip Monitoring Device with LED indicators and digital display" className="w-full h-full object-cover" fallbackSrc="/placeholder.svg" />
+          <motion.div 
+            initial={{
+              scale: 1.1,
+              filter: "blur(4px)"
+            }} 
+            animate={{
+              scale: 1,
+              filter: "blur(0px)"
+            }} 
+            transition={{
+              duration: 1.5,
+              ease: "easeOut"
+            }} 
+            className="absolute inset-0"
+          >
+            <EditableImage 
+              src="/lovable-uploads/c7e17435-62f5-4df9-ba72-b82586ee7390.png" 
+              alt="Dripometer 2.0 - Advanced IV Drip Monitoring Device with digital display and LED indicators" 
+              className="w-full h-full object-cover" 
+              fallbackSrc="/placeholder.svg" 
+            />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
         </section>
@@ -245,8 +270,8 @@ const DripometerProject = () => {
           <TechnicalArchitecture />
         </div>
       </main>
-      
-      
-    </div>;
+    </div>
+  );
 };
+
 export default DripometerProject;
