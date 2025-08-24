@@ -1,7 +1,9 @@
+
 import { motion } from 'framer-motion';
 import { Users, Search, Lightbulb, TestTube, Cog, Rocket } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { EditableImage } from '@/components/ui/editable-image';
+
 const ProcessTimeline = () => {
   const phases = [{
     icon: Users,
@@ -52,6 +54,7 @@ const ProcessTimeline = () => {
     alt: "Final product ready for deployment",
     color: "purple"
   }];
+
   const getColorClasses = (color: string) => {
     const colorMap = {
       emerald: {
@@ -93,6 +96,80 @@ const ProcessTimeline = () => {
     };
     return colorMap[color as keyof typeof colorMap];
   };
-  return;
+
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50/30 to-teal-50/30 dark:from-emerald-950/10 dark:to-teal-950/10">
+      <div className="max-w-7xl mx-auto">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-emerald-900 dark:text-emerald-100">
+            Development Timeline
+          </h2>
+          <p className="text-lg text-emerald-700 dark:text-emerald-300 max-w-3xl mx-auto leading-relaxed">
+            A systematic approach from stakeholder research to deployment-ready medical device
+          </p>
+        </motion.div>
+
+        {/* Timeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {phases.map((phase, index) => {
+            const Icon = phase.icon;
+            const colors = getColorClasses(phase.color);
+            
+            return (
+              <motion.div
+                key={phase.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8 }}
+              >
+                <Card className={`${colors.card} transition-all duration-300 hover:shadow-xl`}>
+                  <CardContent className="p-6">
+                    {/* Phase Image */}
+                    <div className="relative mb-4 aspect-video overflow-hidden rounded-lg">
+                      <EditableImage
+                        src={phase.image}
+                        alt={phase.alt}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        fallbackSrc="/placeholder.svg"
+                      />
+                    </div>
+
+                    {/* Icon and Title */}
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className={`w-10 h-10 rounded-full ${colors.icon} flex items-center justify-center flex-shrink-0`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground mb-1">
+                          {phase.title}
+                        </h3>
+                        <div className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${colors.badge}`}>
+                          {phase.duration}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {phase.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 };
+
 export default ProcessTimeline;
