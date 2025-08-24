@@ -1,4 +1,3 @@
-
 export interface Project {
   id: number;
   title: string;
@@ -48,7 +47,7 @@ export const projects: Project[] = [
     slug: "welbilt-kitchen-connect",
     title: "Design System and Revamp Project - Welbilt Kitchen Connect",
     category: "Design Systems",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/lovable-uploads/db2f25b4-a19e-4e24-a2d9-20cc8fc37b83.png",
     description: "Created a comprehensive design system for Welbilt's kitchen management platform, improving consistency and development efficiency.",
     client: "Welbilt Inc.",
     duration: "8 Months",
@@ -75,7 +74,7 @@ export const projects: Project[] = [
     slug: "dripometer",
     title: "Dripometer - IV Drip Monitoring System",
     category: "Product Design", 
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/201d2ccf-b36e-4854-851b-d57c09f12002.png",
     description: "Designed an innovative monitoring system for intravenous drips to improve accuracy and patient safety.",
     client: "IISc",
     duration: "7 Months",
@@ -114,7 +113,7 @@ export const projects: Project[] = [
     slug: "farm-monitoring",
     title: "Farm Monitoring Mobile Application",
     category: "UX Design",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/372faad7-f0e0-4aa8-beb3-7dbe762163ee.png",
     description: "Developed a comprehensive mobile application for farmers to monitor crops, soil conditions, and weather patterns.",
     client: "HCLTech",
     duration: "6 Months",
@@ -128,7 +127,7 @@ export const projects: Project[] = [
     slug: "pg-datalogger",
     title: "P&G Datalogger UX Revamp",
     category: "Industrial UX",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    image: "/lovable-uploads/45a7df38-b06b-4dd3-9680-2ad85a0a40be.png",
     description: "A complete redesign of the Datalogger application to enhance usability, performance, and reliability with modern UX standards.",
     client: "Procter & Gamble",
     duration: "6 Months",
