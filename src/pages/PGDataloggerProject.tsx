@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowLeft, ChevronRight, CheckCircle, AlertTriangle, Lightbulb, BarChart3, Clock, Shield, Eye, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -491,17 +492,18 @@ const PGDataloggerProject = () => {
                   <CardTitle className="text-center">Dark Mode</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="w-full relative" style={{ padding: '75% 0 0 0' }}>
-                    <iframe 
-                      src="https://player.vimeo.com/video/1112592027?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1" 
-                      frameBorder="0" 
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                      referrerPolicy="strict-origin-when-cross-origin" 
-                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                      title="PGsystem"
-                      className="rounded-lg"
-                    />
-                  </div>
+                  <EditableImage 
+                    src="/lovable-uploads/c64045fa-88c4-490f-b9e7-a1b91bc8fe65.png" 
+                    alt="P&G Research Razor 2.0 interface in dark mode showing the redesigned dashboard" 
+                    className="w-full h-[400px] object-cover rounded-lg" 
+                    objectFit="cover" 
+                    objectPosition="center" 
+                    priority="medium"
+                    width="600"
+                    height="400"
+                    fallbackSrc="/placeholder.svg" 
+                    editableKey="pg-datalogger-final-dark-mode" 
+                  />
                 </CardContent>
               </Card>
             </motion.div>
