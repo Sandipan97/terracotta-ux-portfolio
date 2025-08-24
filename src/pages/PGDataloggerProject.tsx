@@ -256,7 +256,7 @@ const PGDataloggerProject = () => {
         </div>
       </section>
 
-      {/* Process Timeline */}
+      {/* Process Timeline - Moved above Design Process */}
       <div id="process">
         <ProcessTimeline />
       </div>
