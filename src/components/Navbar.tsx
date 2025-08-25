@@ -58,19 +58,19 @@ const Navbar = () => {
     <motion.nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-lg py-2 dark:bg-background/95 border-b border-border/20' 
-          : 'bg-background/80 backdrop-blur-sm py-4 dark:bg-background/80'
+          ? 'bg-background/95 backdrop-blur-md shadow-lg py-2 md:py-3 lg:py-2 dark:bg-background/95 border-b border-border/20' 
+          : 'bg-background/80 backdrop-blur-sm py-3 md:py-4 lg:py-4 dark:bg-background/80'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 xs:px-6 flex justify-between items-center">
-        <Link to="/" className="font-display text-xl xs:text-2xl font-bold text-berkeley-blue dark:text-foreground">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 flex justify-between items-center">
+        <Link to="/" className="font-display text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold text-berkeley-blue dark:text-foreground">
           <motion.span 
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
-            className="block truncate max-w-[200px] xs:max-w-none"
+            className="block truncate max-w-[200px] sm:max-w-[250px] md:max-w-none"
           >
             Sandipan's Portfolio
           </motion.span>
