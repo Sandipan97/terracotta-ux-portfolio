@@ -12,6 +12,22 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onToggle, onClose }: MobileMenuProps) => {
+  const handleToggleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    console.log('Mobile menu button clicked, isOpen:', isOpen);
+    onToggle();
+  };
+
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    console.log('Overlay clicked, closing menu');
+    onClose();
+  };
+
+  const handleContentClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
     <>
       {/* Mobile Menu Button */}
@@ -23,8 +39,11 @@ const MobileMenu = ({ isOpen, onToggle, onClose }: MobileMenuProps) => {
           <Button 
             variant="ghost" 
             size="icon" 
-            onClick={onToggle}
-            className="text-bengali-dark hover:bg-bengali-terracotta/10 dark:text-foreground dark:hover:bg-bengali-terracotta/20 h-10 w-10 xs:h-12 xs:w-12"
+            onClick={handleToggleClick}
+            data-mobile-menu-button="true"
+            className="text-bengali-dark hover:bg-bengali-terracotta/10 dark:text-foreground dark:hover:bg-bengali-terracotta/20 h-10 w-10 xs:h-12 xs:w-12 relative z-50"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
             <AnimatePresence mode="wait">
               {isOpen ? (
@@ -57,7 +76,7 @@ const MobileMenu = ({ isOpen, onToggle, onClose }: MobileMenuProps) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-[100] md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -69,17 +88,18 @@ const MobileMenu = ({ isOpen, onToggle, onClose }: MobileMenuProps) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={onClose}
+              onClick={handleOverlayClick}
             />
             
             <motion.div 
-              className="absolute top-16 xs:top-20 right-2 left-2 xs:right-4 xs:left-4 bg-background/95 backdrop-blur-md rounded-2xl shadow-2xl border border-border overflow-hidden dark:bg-card/95 max-h-[calc(100vh-5rem)] overflow-y-auto"
+              className="absolute top-16 xs:top-20 right-2 left-2 xs:right-4 xs:left-4 bg-background/95 backdrop-blur-md rounded-2xl shadow-2xl border border-border overflow-hidden dark:bg-card/95 max-h-[calc(100vh-5rem)] overflow-y-auto z-[110]"
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
               transition={{ duration: 0.2 }}
               style={{ touchAction: 'auto' }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={handleContentClick}
+              data-mobile-menu-content="true"
             >
               <div className="p-4 xs:p-6 space-y-4 xs:space-y-6">
                 <NavigationLinks onLinkClick={onClose} isMobile={true} />
@@ -87,6 +107,7 @@ const MobileMenu = ({ isOpen, onToggle, onClose }: MobileMenuProps) => {
                   <Button 
                     className="bg-bengali-red hover:bg-bengali-terracotta text-white w-full shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-bengali-red-light dark:hover:bg-bengali-red text-sm xs:text-base py-2 xs:py-3"
                     data-lovable-editable="mobile-resume-button"
+                    onClick={onClose}
                   >
                     Download Resume
                   </Button>

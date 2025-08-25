@@ -23,20 +23,36 @@ const Navbar = () => {
 
   // Close mobile menu when clicking outside or on route change
   useEffect(() => {
-    const handleClickOutside = () => {
-      if (mobileMenuOpen) {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Only close if clicking outside the mobile menu area
+      const target = event.target as Element;
+      const mobileMenuButton = target.closest('[data-mobile-menu-button]');
+      const mobileMenuContent = target.closest('[data-mobile-menu-content]');
+      
+      if (mobileMenuOpen && !mobileMenuButton && !mobileMenuContent) {
+        console.log('Closing mobile menu - clicked outside');
         setMobileMenuOpen(false);
       }
     };
 
     if (mobileMenuOpen) {
-      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [mobileMenuOpen]);
+
+  const handleMobileMenuToggle = () => {
+    console.log('Mobile menu toggle clicked, current state:', mobileMenuOpen);
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleMobileMenuClose = () => {
+    console.log('Mobile menu close triggered');
+    setMobileMenuOpen(false);
+  };
 
   return (
     <motion.nav 
@@ -64,8 +80,8 @@ const Navbar = () => {
         
         <MobileMenu 
           isOpen={mobileMenuOpen}
-          onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
-          onClose={() => setMobileMenuOpen(false)}
+          onToggle={handleMobileMenuToggle}
+          onClose={handleMobileMenuClose}
         />
       </div>
     </motion.nav>
