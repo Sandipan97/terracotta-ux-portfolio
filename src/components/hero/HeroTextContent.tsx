@@ -81,7 +81,7 @@ const HeroTextContent = () => {
               transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
             >
               I am
-            </span>
+            </motion.span>
           </div>
         </motion.div>
 
