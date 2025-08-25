@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -9,6 +9,15 @@ import FeaturedProjects from '@/components/FeaturedProjects';
 
 const Projects = () => {
   const navigate = useNavigate();
+  
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('featured-projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
   
   return (
     <div className="min-h-screen bg-background">
@@ -38,10 +47,25 @@ const Projects = () => {
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">
               Project Portfolio
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
               A comprehensive collection of design solutions spanning enterprise platforms, 
               consumer products, and emerging technologies
             </p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              <Button 
+                onClick={scrollToProjects}
+                size="lg"
+                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border-2 border-white/30 hover:border-white/50 transition-all duration-300"
+              >
+                View Projects
+                <ArrowDown className="w-5 h-5 ml-2" />
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
