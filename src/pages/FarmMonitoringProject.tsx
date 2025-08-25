@@ -202,20 +202,20 @@ const FarmMonitoringProject = () => {
                 delay: 1.0
               }}>
                   {[{
-                  number: "20+",
-                  label: "Farmer Interviews",
+                  number: "3 Days - 8 participants",
+                  label: "DT Workshop by yours truly",
                   icon: "👨‍🌾"
                 }, {
-                  number: "6",
-                  label: "Month Workshop",
+                  number: "3 Months",
+                  label: "Research + Design",
                   icon: "🗓️"
                 }, {
                   number: "150+",
                   label: "Ideas Generated",
                   icon: "💡"
                 }, {
-                  number: "4",
-                  label: "Design Phases",
+                  number: "Complete POC",
+                  label: "Interactive Prototype below",
                   icon: "🎯"
                 }].map((stat, index) => <motion.div key={stat.label} className="text-center bg-background/60 backdrop-blur-sm rounded-xl p-3 border border-border/50" initial={{
                   opacity: 0,
