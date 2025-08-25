@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { EditableImage } from '../ui/editable-image';
@@ -6,20 +5,14 @@ import { EditableImage } from '../ui/editable-image';
 const HeroProfileSection = () => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  // Auto-flip animation on component mount
+  // Auto-flip animation that loops every 10 seconds
   useEffect(() => {
-    const autoFlip = async () => {
-      // Wait 2 seconds after component mounts
-      await new Promise(resolve => setTimeout(resolve, 2000));
+    const flipInterval = setInterval(() => {
+      setIsFlipped(prev => !prev);
+    }, 10000); // Switch every 10 seconds
 
-      // Flip to alternate image
-      setIsFlipped(true);
-
-      // Wait 3 seconds then flip back
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      setIsFlipped(false);
-    };
-    autoFlip();
+    // Cleanup interval on component unmount
+    return () => clearInterval(flipInterval);
   }, []);
 
   const handleProfileClick = () => {
