@@ -34,14 +34,14 @@ const HeroTextContent = () => {
 
   return (
     <motion.div 
-      className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left w-full h-full pr-0 lg:pr-6 xl:pr-8 mt-6 lg:mt-0" 
+      className="flex flex-col justify-center items-center md:items-start text-center md:text-left w-full h-full pr-0 md:pr-6 xl:pr-8 mt-6 md:mt-0" 
       initial={{ opacity: 0, x: -50 }} 
       animate={{ opacity: 1, x: 0 }} 
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* Restructured Hero Text Container */}
       <motion.div
-        className="w-full mb-6 lg:mb-8"
+        className="w-full mb-6 md:mb-8"
         initial={{ opacity: 0, y: 30 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -81,7 +81,7 @@ const HeroTextContent = () => {
               transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
             >
               I am
-            </motion.span>
+            </span>
           </div>
         </motion.div>
 
@@ -149,7 +149,7 @@ const HeroTextContent = () => {
       
       {/* Action Buttons */}
       <motion.div 
-        className="flex flex-wrap gap-3 md:gap-4 justify-center lg:justify-start w-full mt-6" 
+        className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start w-full mt-6" 
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ delay: 0.8, duration: 0.6 }}
