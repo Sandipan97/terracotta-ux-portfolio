@@ -5,11 +5,11 @@ import { EditableImage } from '../ui/editable-image';
 const HeroProfileSection = () => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  // Auto-flip animation that loops every 10 seconds
+  // Auto-flip animation that loops every 5 seconds
   useEffect(() => {
     const flipInterval = setInterval(() => {
       setIsFlipped(prev => !prev);
-    }, 10000); // Switch every 10 seconds
+    }, 5000); // Switch every 5 seconds
 
     // Cleanup interval on component unmount
     return () => clearInterval(flipInterval);
